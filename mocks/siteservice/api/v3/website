@@ -1,7 +1,13 @@
 [
     {
-        "_id": "demo",
-        "display_name": "Demo",
+        "_id": "chalkbeat",
+        "display_name": "Chalkbeat",
         "is_default_website": true
+    },
+    {
+        "_id": "votebeat",
+        "display_name": "Votebeat",
+        "is_default_website": false
     }
+
 ]
