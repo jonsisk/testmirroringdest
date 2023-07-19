@@ -1,0 +1,63 @@
+import { useFusionContext } from "fusion:context";
+import getProperties from "fusion:properties";
+import PropTypes from "prop-types";
+import React from "react";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import NewsletterSignup from "./newsletter-signup.component";
+import "./newsletter-composer.scss";
+
+/**
+ * Handles the composer-driven newsletter signup form together with the power-up for newsletters
+ * @param {*} embed - power-up stored data (custom_embed)
+ * @returns
+ */
+const NewsletterComposer = ({ embed }) => {
+  const context = useFusionContext();
+  const { arcSite } = context;
+  const {
+    websiteName,
+    recaptchaSiteKey,
+    newsletterSignupEndpoint,
+    newsletterInterests,
+    newsletterCopy,
+  } = getProperties(arcSite);
+  const { title, description, thankYouMsg } = newsletterCopy[arcSite] || newsletterCopy["default"];
+
+  return (
+    <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
+      <div className="newsletter-composer">
+        <h3>{title}</h3>
+        <p>{description.replace("%SITE_NAME%", websiteName)}</p>
+
+        <NewsletterSignup
+          newsletterSignupEndpoint={newsletterSignupEndpoint}
+          website={arcSite}
+          interestIds={[
+            newsletterInterests
+              .filter((int) => int.slug === embed.config?.newsletter)
+              .map((int) => int.id),
+          ]}
+          thankYouMsg={thankYouMsg}
+        />
+
+        <p className="small">
+          <i>By signing up, you agree to our</i>
+          <a href="https://www.votebeat.org/pages/privacy-policy" target="_blank" rel="noreferrer">
+            <i> Privacy Notice</i>
+          </a>
+          <i> and European users agree to the data transfer policy. You may also receive</i>
+          <a href="https://www.votebeat.org/dedicated-emails" target="_blank" rel="noreferrer">
+            <i> occasional messages from sponsors</i>
+          </a>
+          <i>.</i>
+        </p>
+      </div>
+    </GoogleReCaptchaProvider>
+  );
+};
+
+NewsletterComposer.propTypes = {
+  embed: PropTypes.any,
+};
+
+export default NewsletterComposer;
