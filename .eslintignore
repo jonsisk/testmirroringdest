@@ -1,0 +1,9 @@
+.fusion
+node_modules
+.pkg
+resources
+dist
+prebuilt_modules
+
+# ignore ejected arc blocks
+components/chains/article-body-civic

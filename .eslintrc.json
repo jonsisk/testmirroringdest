@@ -1,0 +1,108 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["plugin:import/recommended", "eslint:recommended", "plugin:react/recommended"],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"],
+      "plugins": [["@babel/plugin-proposal-decorators", { "decoratorsBeforeExport": false }]]
+    }
+  },
+  "plugins": ["react", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".mjs", ".jsx", ".json"]
+      }
+    },
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-restricted-globals": [
+      "error",
+      {
+        "name": "window",
+        "message": "Use useBrowserGlobals() hook to access window"
+      },
+      {
+        "name": "document",
+        "message": "Use useBrowserGlobals() hook to access document"
+      }
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": true,
+        "argsIgnorePattern": "err"
+      }
+    ],
+    "quotes": [
+      "error",
+      "double",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
+    "no-undef": 2,
+    "no-console": 1,
+    "comma-style": [2, "last"],
+    "import/no-cycle": [2],
+    "import/no-unresolved": [
+      2,
+      {
+        "ignore": [
+          "fusion:environment",
+          "fusion:context",
+          "fusion:content",
+          "fusion:properties",
+          "fusion:consumer",
+          "fusion:static",
+          "fusion:prop-types",
+          "@arc-fusion/prop-types",
+          "@wpmedia/resizer-image-block",
+          "@wpmedia/engine-theme-sdk"
+        ]
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object"],
+        "newlines-between": "never",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "import/no-mutable-exports": "error",
+    "import/no-namespace": "error",
+    "import/newline-after-import": ["error", { "count": 1 }],
+    "import/no-default-export": 0,
+    "prettier/prettier": [
+      "error",
+      {
+        "comma-dangle": "always"
+      }
+    ],
+    "no-useless-escape": 0,
+    "react/prop-types": 0
+  }
+}
