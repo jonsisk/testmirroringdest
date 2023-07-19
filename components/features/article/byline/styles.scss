@@ -1,0 +1,13 @@
+.byline {
+  padding-bottom: 36px;
+  border-bottom: 1px solid #dfdfdf;
+  margin-top: 10px;
+  margin-bottom: 16px;
+  .author {
+    display: inline-flex;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}

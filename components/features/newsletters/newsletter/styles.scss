@@ -1,0 +1,24 @@
+.newsletter-breaker-wrapper {
+  grid-template-columns: 1fr;
+  display: grid;
+  max-width: 300px;
+
+  background-color: #babbe0;
+  padding: 80px 24px 24px;
+  text-align: center;
+
+  h3 {
+    font-family: "IBM Plex Serif", Georgia, serif;
+    font-size: 25px;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 16px;
+
+    .small {
+      font-size: 12px;
+      font-style: italic;
+    }
+  }
+}
