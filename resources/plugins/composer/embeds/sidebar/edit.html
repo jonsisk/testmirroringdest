@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#212529" />
+    <title>Edit API plugin</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <template id="content_template">
+        <!-- Rendered Item -->
+        <div class="col-md-12" id="%item_id%">
+            %text%
+        </div>
+        <div class="col-md-12">
+            %option_1%
+        </div>
+    </template>
+
+    <header>
+        <div class="navbar navbar-dark bg-dark box-shadow">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <strong>Edit Sidebar</strong>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="jumbotron text-left my-0">
+            <div class="container">
+                <!-- Sidebar Form -->
+                <label for="stitle">Title</label><br />
+                <input type="text" style="width: 800px;" name="stitle" id="stitle" value="" /><br /><br />
+
+
+                <label for="simage">Image URL</label><br />
+                <input type="text" style="width: 800px;" name="simage" id="simage" value="" /><br /><br />
+
+                <label for="scontent">Content (can be HTML)</label><br />
+                <textarea cols="5" rows="5" style="width: 800px;" name="scontent" id="scontent"></textarea>
+                <br /><br />
+                <input type="button" name="add-sidebar" value="Update Sidebar" onclick="applyChanges()" />
+            </div>
+        </section>
+    </main>    
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="//ajaxorg.github.io/ace-builds/src-min-noconflict/ace.js" type="text/javascript"
+        charset="utf-8"></script>
+    <script>
+        const sendMessage = function (action, data) {
+            window.parent.postMessage(
+                JSON.stringify({
+                    source: 'custom_embed',
+                    action,
+                    data,
+                    key: parseQueryString()['k']
+                }),
+                '*'
+            )
+        }
+
+        const parseQueryString = function () {
+            const params = location.search.split('?')[1] || ''
+            const kv = params.split('&')
+            return kv.reduce((result, item) => {
+                const [key, value] = item.split('=')
+                return Object.assign(result, {
+                    [key]: value
+                })
+            }, {})
+        }
+
+        let data = {} 
+       
+
+
+        // Retrieve the content data based on parameters
+        const setData = (ansCustomEmbed) => {
+            document.getElementById('simage').value = ansCustomEmbed.config.image_url;
+            document.getElementById('stitle').value = ansCustomEmbed.config.title;
+            document.getElementById('scontent').value = ansCustomEmbed.config.content;
+        }
+
+
+
+        // Update config based on form changes, submit back to Composer and re-render
+        const applyChanges = () => {
+            data.config.title = document.getElementById('stitle').value
+            data.config.image_url = document.getElementById('simage').value
+            data.config.content = document.getElementById('scontent').value
+
+            // Update Composer and re-render form
+            sendMessage('data', data)
+        }
+
+        // -------------------------------------------------
+
+        const dismissEditor = () => {
+            sendMessage('cancel')
+        }
+
+        window.onload = function () {            
+            const parameters = Object.assign(
+                {
+                    wait: 0
+                },
+                parseQueryString()
+            )
+            data = JSON.parse(decodeURIComponent(parameters.p.replace(/\+/g, ' ')));
+            setData(data);
+
+            sendMessage('ready', {
+                height: document.documentElement.scrollHeight
+            });
+        }
+    </script>
+</body>
+
+</html>
