@@ -9,6 +9,10 @@
         {
           "id": "republish",
           "title": "Republish settings"
+        },
+        {
+          "id": "newsletters",
+          "title": "Newsletters settings"
         }
       ]
     }
@@ -28,6 +32,15 @@
       "fieldTitle": "Republish Footer copy",
       "fieldCategory": "custom",
       "fieldSubcategory": "republish",
+      "fieldTarget": "site"
+    },
+    {
+      "fieldId": "newsletterSignupEndpoint",
+      "fieldType": "url",
+      "fieldTitle": "Newsletter Signup endpoint",
+      "fieldDescription": "Enpoint that handles Newsletter signup with mailchimp",
+      "fieldCategory": "custom",
+      "fieldSubcategory": "newsletters",
       "fieldTarget": "site"
     }
   ]
