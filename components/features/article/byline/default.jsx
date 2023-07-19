@@ -17,7 +17,7 @@ const BylineFeature = () => {
         By&nbsp;
         {credits.map((author) => {
           return (
-            <a key={author.slug} href={`/authors/${author.slug}`}>
+            <a key={author.slug} href={`/author/${author.slug}`}>
               {author.name}
             </a>
           );
