@@ -6,6 +6,7 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import NewsletterSignup from "../../../base/newsletter/newsletter-signup.component";
 import useRenderForBreakpoint from "../../../hooks/use-renderforbreakpoint";
 import { deviceRender } from "../../../utilities/customFields";
+import { newsletterInterests } from "../../../utilities/newsletters";
 import "./styles.scss";
 
 /**
@@ -14,8 +15,7 @@ import "./styles.scss";
  */
 const NewsletterFeature = ({ customFields }) => {
   const { arcSite, contextPath, deployment } = useFusionContext();
-  const { recaptchaSiteKey, newsletterSignupEndpoint, newsletterInterests } =
-    getProperties(arcSite);
+  const { recaptchaSiteKey, newsletterSignupEndpoint } = getProperties(arcSite);
   const {
     title,
     style,
