@@ -16,24 +16,13 @@
     "$secondary-font-family: $theme-secondary-font-family;",
     "$primary-color: $theme-primary-color;"
   ],
-  "localeList": [
-    "en",
-    "sv",
-    "no",
-    "fr",
-    "de",
-    "es",
-    "ja",
-    "ko",
-    "pt"
-  ],
+  "localeList": ["en", "sv", "no", "fr", "de", "es", "ja", "ko", "pt"],
   "themesReleaseVersion": "arc-themes-release-version-1.29",
   "blocks": [
     "@wpmedia/ad-taboola-block",
     "@wpmedia/ads-block",
     "@wpmedia/alert-bar-block",
     "@wpmedia/alert-bar-content-source-block",
-    "@wpmedia/article-body-block",
     "@wpmedia/article-tag-block",
     "@wpmedia/author-bio-block",
     "@wpmedia/author-content-source-block",
@@ -42,7 +31,6 @@
     "@wpmedia/collections-content-source-block",
     "@wpmedia/content-api-source-block",
     "@wpmedia/date-block",
-    "@wpmedia/default-output-block",
     "@wpmedia/double-chain-block",
     "@wpmedia/event-tester-block",
     "@wpmedia/extra-large-manual-promo-block",
@@ -121,27 +109,8 @@
           "medium": 768,
           "large": 992
         },
-        "imageWidths": [
-          84,
-          105,
-          158,
-          274,
-          377,
-          400,
-          600,
-          768,
-          800,
-          1024,
-          1440,
-          1600
-        ],
-        "aspectRatios": [
-          "3:2",
-          "4:3",
-          "1:0",
-          "16:9",
-          "1:1"
-        ],
+        "imageWidths": [84, 105, 158, 274, 377, 400, 600, 768, 800, 1024, 1440, 1600],
+        "aspectRatios": ["3:2", "4:3", "1:0", "16:9", "1:1"],
         "api": {
           "identity": {
             "origin": ""
@@ -152,9 +121,7 @@
             "script": ""
           }
         },
-        "fontUrl": [
-          "https://fonts.googleapis.com/css?family=Abel"
-        ]
+        "fontUrl": ["https://fonts.googleapis.com/css?family=Abel"]
       },
       "styleProperties": {
         "primary-font-family": "'Abel', Sans-Serif",

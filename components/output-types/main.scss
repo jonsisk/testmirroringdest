@@ -1,0 +1,40 @@
+// Variables for breakpoints, check /components/utilities/media.js for breakpoints comparison
+$breakpoint-mobile: 600px;
+$breakpoint-tablet: 900px;
+
+// Font declarations
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=IBM+Plex+Serif&display=swap");
+
+// Mixins for responsive design
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-mobile + 1px}) and (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-tablet + 1px}) {
+    @content;
+  }
+}
+
+// Base styles
+body {
+  font-family: "IBM Plex Serif", serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Barlow Condensed", sans-serif;
+}
