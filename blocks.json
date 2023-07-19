@@ -121,7 +121,9 @@
             "script": ""
           }
         },
-        "fontUrl": ["https://fonts.googleapis.com/css?family=Abel"]
+        "fontUrl": ["https://fonts.googleapis.com/css?family=Abel"],
+        "republishHeader": "This article was <a href='#canonicalUrl#' target='_blank' rel='canonical'>originally published</a> by <a href='#websiteDomain#' target='_blank'>Votebeat</a>, a nonprofit news organization covering local election administration and voting access.",
+        "republishFooter": "Votebeat is a nonprofit news organization committed to reporting the nuanced truth about elections and voting at a time of crisis in America."
       },
       "styleProperties": {
         "primary-font-family": "'Abel', Sans-Serif",

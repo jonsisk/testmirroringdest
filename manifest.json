@@ -1,0 +1,34 @@
+{
+  "name": "CivicNews Manifest",
+  "description": "CivicNews Theme settings manifest",
+  "categories": [
+    {
+      "id": "custom",
+      "title": "Custom settings",
+      "subcategories": [
+        {
+          "id": "republish",
+          "title": "Republish settings"
+        }
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": "republishHeader",
+      "fieldType": "text",
+      "fieldTitle": "Republish Header copy",
+      "fieldCategory": "custom",
+      "fieldSubcategory": "republish",
+      "fieldTarget": "site"
+    },
+    {
+      "fieldId": "republishFooter",
+      "fieldType": "text",
+      "fieldTitle": "Republish Footer copy",
+      "fieldCategory": "custom",
+      "fieldSubcategory": "republish",
+      "fieldTarget": "site"
+    }
+  ]
+}
