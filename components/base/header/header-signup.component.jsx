@@ -397,16 +397,12 @@ const HeaderSignup = ({ logoURL }) => {
           </div>
 
           <div className="Page-header-end">
-            <a
-              href="https://www.votebeat.org/pages/newsletters"
-              className="Button newsletter-button"
-              data-cms-ai="0"
-            >
+            <a href="/pages/newsletters" className="Button newsletter-button" data-cms-ai="0">
               Sign Up
             </a>
 
             <a
-              href="https://checkout.fundjournalism.org/memberform?org_id=chalkbeat&amp;campaign=7015A000001PuQv"
+              href="https://checkout.fundjournalism.org/memberform?org_id=chalkbeat&campaign=7015A000001PuQv"
               className="Button donate-button"
               data-cms-ai="0"
             >
