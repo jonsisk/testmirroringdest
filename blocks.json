@@ -31,6 +31,7 @@
     "@wpmedia/collections-content-source-block",
     "@wpmedia/content-api-source-block",
     "@wpmedia/date-block",
+    "@wpmedia/default-output-block",
     "@wpmedia/double-chain-block",
     "@wpmedia/event-tester-block",
     "@wpmedia/extra-large-manual-promo-block",
