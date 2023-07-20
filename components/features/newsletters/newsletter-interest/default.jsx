@@ -51,7 +51,7 @@ const NewsletterInterestFeature = ({ customFields }) => {
     <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
       <div className={`newsletter-interests`}>
         <h3>{title}</h3>
-        <p>{description}</p>
+        <p dangerouslySetInnerHTML={{ __html: description }} />
 
         <div className="interests">
           {newsletterInterests.map((interest) => (
