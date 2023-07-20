@@ -3,7 +3,7 @@ import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
 import React from "react";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import { newsletterInterests } from "../../utilities/newsletters";
+import { newsletterInterests, newsletterCopy } from "../../utilities/newsletters";
 import NewsletterSignup from "./newsletter-signup.component";
 import "./newsletter-composer.scss";
 
@@ -15,8 +15,7 @@ import "./newsletter-composer.scss";
 const NewsletterComposer = ({ embed }) => {
   const context = useFusionContext();
   const { arcSite } = context;
-  const { websiteName, recaptchaSiteKey, newsletterSignupEndpoint, newsletterCopy } =
-    getProperties(arcSite);
+  const { websiteName, recaptchaSiteKey, newsletterSignupEndpoint } = getProperties(arcSite);
   const { title, description, thankYouMsg } = newsletterCopy[arcSite] || newsletterCopy["default"];
 
   return (

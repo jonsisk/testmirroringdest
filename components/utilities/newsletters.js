@@ -35,3 +35,20 @@ export const newsletterInterests = [
     frequency: "Delivered to your inbox every other week.",
   },
 ];
+
+export const newsletterCopy = {
+  default: {
+    title: "Go beyond Election Day.",
+    description:
+      "Meet the people and policies that protect election integrity year round in %SITE_NAME%' newsletter.",
+    thankYouMessage:
+      "Thank you for subscribing to Votebeat! Check your inbox for a confirmation email.",
+  },
+  votebeat: {
+    title: "Go beyond Election Day.",
+    description:
+      "Meet the people and policies that protect election integrity year round in %SITE_NAME%' newsletter.",
+    thankYouMessage:
+      "Thank you for subscribing to Votebeat! Check your inbox for a confirmation email.",
+  },
+};

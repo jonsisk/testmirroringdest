@@ -126,19 +126,7 @@
         "recaptchaSiteKey": "6Let5zonAAAAAPm2MP72jMxG8gtd64yqvme9IDP3",
         "republishHeader": "This article was <a href='#canonicalUrl#' target='_blank' rel='canonical'>originally published</a> by <a href='#websiteDomain#' target='_blank'>Votebeat</a>, a nonprofit news organization covering local election administration and voting access.",
         "republishFooter": "Votebeat is a nonprofit news organization committed to reporting the nuanced truth about elections and voting at a time of crisis in America.",
-        "newsletterSignupEndpoint": "https://hello-world-damp-lake-5602.pyxiscx.workers.dev",
-        "newsletterCopy": {
-          "default": {
-            "title": "Go beyond Election Day.",
-            "description": "Meet the people and policies that protect election integrity year round in %SITE_NAME%' newsletter.",
-            "thankYouMessage": "Thank you for subscribing to Votebeat! Check your inbox for a confirmation email."
-          },
-          "votebeat": {
-            "title": "Go beyond Election Day.",
-            "description": "Meet the people and policies that protect election integrity year round in %SITE_NAME%' newsletter.",
-            "thankYouMessage": "Thank you for subscribing to Votebeat! Check your inbox for a confirmation email."
-          }
-        }
+        "newsletterSignupEndpoint": "https://hello-world-damp-lake-5602.pyxiscx.workers.dev"
       },
       "styleProperties": {
         "primary-font-family": "'Abel', Sans-Serif",
