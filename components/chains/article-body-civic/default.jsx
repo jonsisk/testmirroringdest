@@ -24,6 +24,7 @@ import Table from "./_children/table";
 import "./_articlebody.scss";
 import NewsletterComposer from "../../base/newsletter/newsletter-composer.component";
 import SidebarComposer from "../../base/sidebar/sidebar-composer.component";
+import PymEmbedComposer from "../../base/pymembed/pymembed.composer";
 
 const StyledText = styled.p`
   a {
@@ -315,6 +316,8 @@ function parseArticleItem(item, index, arcSite, phrases, id, customFields) {
           return <SidebarComposer key={key} embed={item.embed} />;
         case "newsletter":
           return <NewsletterComposer key={key} embed={item.embed} />;
+        case "pymembed":
+          return <PymEmbedComposer key={key} embed={item.embed} />;
         default:
           return null;
       }
