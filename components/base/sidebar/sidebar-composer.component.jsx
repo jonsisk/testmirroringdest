@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
+import "./default.scss";
 
 /**
  * Handles the composer-driven sidebar component together with the power-up for sidebars
@@ -11,10 +12,10 @@ const SidebarComposer = ({ embed }) => {
 
   return (
     <div className="sidebar-composer">
-      <h3>{data.title}</h3>$
+      <h3>{data.title}</h3>
       {data.image_url && (
         <div className="logo">
-          <img src={data.image_url} alt={data.title} />
+          <img width="200" src={data.image_url} alt={data.title} />
         </div>
       )}
       <p className="body" dangerouslySetInnerHTML={{ __html: data.content }}></p>
