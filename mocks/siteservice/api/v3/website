@@ -1,13 +1,32 @@
 [
-    {
-        "_id": "chalkbeat",
-        "display_name": "Chalkbeat",
-        "is_default_website": true
-    },
-    {
-        "_id": "votebeat",
-        "display_name": "Votebeat",
-        "is_default_website": false
-    }
-
+  {
+    "_id": "chalkbeat",
+    "display_name": "Chalkbeat",
+    "is_default_website": false
+  },
+  {
+    "_id": "votebeat",
+    "display_name": "Votebeat",
+    "is_default_website": true
+  },
+  {
+    "_id": "votebeat-arizona",
+    "display_name": "Votebeat Arizona",
+    "is_default_website": false
+  },
+  {
+    "_id": "votebeat-michigan",
+    "display_name": "Votebeat Michigan",
+    "is_default_website": false
+  },
+  {
+    "_id": "votebeat-pennsylvania",
+    "display_name": "Votebeat Pennsylvania",
+    "is_default_website": false
+  },
+  {
+    "_id": "votebeat-texas",
+    "display_name": "Votebeat Texas",
+    "is_default_website": false
+  }
 ]

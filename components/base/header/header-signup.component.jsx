@@ -1,20 +1,10 @@
-import { useFusionContext } from "fusion:context";
-import getProperties from "fusion:properties";
-import React, { useState, useCallback, useEffect } from "react";
+import React from "react";
 import "./header-composer.scss";
 
 /**
  * Handles the newsletter signup form using recaptcha and posting to an external
  * endpoint to handle the actual mailchimp API communication.
  */
-
-//const context = useFusionContext();
-//const { arcSite } = context;
-//const { primaryLogo } = getProperties(arcSite);
-//const { primaryLogo } = getProperties("default");
-const primaryLogo =
-  "https://chalkbeat.brightspotcdn.com/d5/b0/f967e5a84ca58f5e717c9671b6da/vb-logo-2color-light-v2.svg";
-
 const HeaderSignup = ({ logoURL }) => {
   return (
     <div className="Page-header" data-nav-alignment="right">
@@ -22,7 +12,7 @@ const HeaderSignup = ({ logoURL }) => {
         <div className="Page-header-bar">
           <div className="Page-header-bar-logo">
             <a aria-label="home page" href="/" data-cms-ai="0">
-              <img className="PageLogo-image" src={primaryLogo} alt="votebeat-national-light" />
+              <img className="PageLogo-image" src={logoURL} alt="votebeat-national-light" />
             </a>
           </div>
 
