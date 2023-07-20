@@ -1,0 +1,10 @@
+.customfooter {
+  background-color: #544459;
+  width: 100%;
+  padding: 5px;
+  &.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+}
