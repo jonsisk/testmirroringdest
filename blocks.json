@@ -122,6 +122,7 @@
           }
         },
         "fontUrl": ["https://fonts.googleapis.com/css?family=Abel"],
+        "recaptchaSiteKey": "6Let5zonAAAAAPm2MP72jMxG8gtd64yqvme9IDP3",
         "republishHeader": "This article was <a href='#canonicalUrl#' target='_blank' rel='canonical'>originally published</a> by <a href='#websiteDomain#' target='_blank'>Votebeat</a>, a nonprofit news organization covering local election administration and voting access.",
         "republishFooter": "Votebeat is a nonprofit news organization committed to reporting the nuanced truth about elections and voting at a time of crisis in America.",
         "newsletterSignupEndpoint": "https://hello-world-damp-lake-5602.pyxiscx.workers.dev",

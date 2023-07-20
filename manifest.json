@@ -42,6 +42,14 @@
       "fieldCategory": "custom",
       "fieldSubcategory": "newsletters",
       "fieldTarget": "site"
+    },
+    {
+      "fieldId": "recaptchaSiteKey",
+      "fieldType": "text",
+      "fieldTitle": "Recaptcha Site Key",
+      "fieldCategory": "custom",
+      "fieldSubcategory": "newsletters",
+      "fieldTarget": "site"
     }
   ]
 }
