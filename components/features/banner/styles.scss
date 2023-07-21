@@ -1,0 +1,29 @@
+.banner {
+  height: 50px;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+
+  .Banner-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .Banner-close {
+    color: #000;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    right: 10px;
+    top: calc(50% - 18px);
+    position: absolute;
+    width: 30px;
+  }
+
+  a.Banner-link {
+    color: #000;
+    text-decoration: underline;
+  }
+}
