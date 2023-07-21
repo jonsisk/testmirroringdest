@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./header-composer.scss";
 
 /**
@@ -16,6 +16,27 @@ const HeaderSignup = ({
   communitiesTitle,
   topicsTitle,
 }) => {
+  const [showCommunityPanel, setShowCommunityPanel] = useState(false);
+  const [showTopicPanel, setShowTopicPanel] = useState(false);
+
+  const handleMouseEnterCommunity = () => {
+    setShowCommunityPanel(true);
+    setShowTopicPanel(false);
+  };
+
+  const handleMouseLeaveCommunity = () => {
+    setShowCommunityPanel(false);
+  };
+
+  const handleMouseEnterTopics = () => {
+    setShowTopicPanel(true);
+    setShowCommunityPanel(false);
+  };
+
+  const handleMouseLeaveTopics = () => {
+    setShowTopicPanel(false);
+  };
+
   return (
     <div className="Page-header" data-nav-alignment="right">
       <div className="Page-header-wrap">
@@ -33,7 +54,11 @@ const HeaderSignup = ({
                 <ul className="Navigation-items">
                   <li className="Navigation-items-item">
                     <div className="NavigationItem  has-menu">
-                      <div className="NavigationItem-text">
+                      <div
+                        className="NavigationItem-text"
+                        onMouseEnter={handleMouseEnterCommunity}
+                        onMouseLeave={handleMouseLeaveCommunity}
+                      >
                         <span>{communitiesTitle}</span>
 
                         <div className="NavigationItem-more">
@@ -45,7 +70,12 @@ const HeaderSignup = ({
                         </div>
                       </div>
 
-                      <div className="NavigationItem-items">
+                      <div
+                        className="NavigationItem-items"
+                        onMouseEnter={handleMouseEnterCommunity}
+                        onMouseLeave={handleMouseLeaveCommunity}
+                        style={{ display: showCommunityPanel ? "block" : "none" }}
+                      >
                         <ul>
                           {communityNavigation &&
                             communityNavigation.children.map((item) => (
@@ -62,7 +92,11 @@ const HeaderSignup = ({
 
                   <li className="Navigation-items-item">
                     <div className="NavigationItem  has-menu">
-                      <div className="NavigationItem-text">
+                      <div
+                        className="NavigationItem-text"
+                        onMouseEnter={handleMouseEnterTopics}
+                        onMouseLeave={handleMouseLeaveTopics}
+                      >
                         <span>{topicsTitle}</span>
 
                         <div className="NavigationItem-more">
@@ -74,7 +108,12 @@ const HeaderSignup = ({
                         </div>
                       </div>
 
-                      <div className="NavigationItem-items">
+                      <div
+                        className="NavigationItem-items"
+                        onMouseEnter={handleMouseEnterTopics}
+                        onMouseLeave={handleMouseLeaveTopics}
+                        style={{ display: showTopicPanel ? "block" : "none" }}
+                      >
                         <ul>
                           {topicNavigation &&
                             topicNavigation.children.map((item) => (
