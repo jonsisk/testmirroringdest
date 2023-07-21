@@ -1,3 +1,4 @@
+import { useContent } from "fusion:content";
 import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
@@ -5,35 +6,90 @@ import React from "react";
 import HeaderSignup from "../../base/header/header-signup.component";
 import "./styles.scss";
 
-const Header = () => {
+const Header = ({ customFields }) => {
   const context = useFusionContext();
   const { arcSite } = context;
   const { primaryLogo, primaryLogoAlt } = getProperties(arcSite);
+  const {
+    tagline,
+    communitiesTitle,
+    communitiesHierachy,
+    topicsTitle,
+    topicsHierachy,
+    aboutUsCopy,
+    aboutUsUrl,
+  } = customFields;
+
+  const communities = useContent({
+    source: "site-service-hierarchy",
+    query: {
+      site: arcSite,
+      hierarchy: communitiesHierachy,
+    },
+  });
+
+  const topics = useContent({
+    source: "site-service-hierarchy",
+    query: {
+      site: arcSite,
+      hierarchy: topicsHierachy,
+    },
+  });
 
   return (
-    <div className={`customheader`}>
-      <HeaderSignup logoURL={primaryLogo} logoAlt={primaryLogoAlt} />
+    <div className="customheader">
+      <HeaderSignup
+        tagline={tagline}
+        aboutUsCopy={aboutUsCopy}
+        aboutUsUrl={aboutUsUrl}
+        logoURL={primaryLogo}
+        logoAlt={primaryLogoAlt}
+        topicsTitle={topicsTitle}
+        topicNavigation={topics}
+        communitiesTitle={communitiesTitle}
+        communityNavigation={communities}
+      />
     </div>
   );
 };
 
-//
-
 Header.propTypes = {
   customFields: PropTypes.shape({
-    message: PropTypes.string.tag({
-      description: "Add a message",
+    tagline: PropTypes.string.tag({
+      defaultValue: "Nonpartisan local reporting on elections and voting",
+      label: "Tagline",
+      group: "Configure Content",
     }),
-    textColor: PropTypes.oneOf(["purple", "green", "black"]).tag({
-      description: "Text Color",
+    communitiesTitle: PropTypes.string.tag({
+      defaultValue: "Communities",
+      label: "Communities menu title",
+      group: "Configure Content",
     }),
-    textSize: PropTypes.oneOf(["18px", "30px", "66px", "100px"]).tag({
-      description: "Text Size",
+    communitiesHierachy: PropTypes.string.tag({
+      defaultValue: "communities",
+      label: "Community Hierarchy",
+      group: "Configure Content",
     }),
-    community: PropTypes.oneOf(["National", "Arizona", "Texas", "Michigan", "Pennsylvania"]).tag({
-      description: "Community",
+    topicsTitle: PropTypes.string.tag({
+      defaultValue: "Topics",
+      label: "Topics menu title",
+      group: "Configure Content",
     }),
-    display: PropTypes.boolean,
+    topicsHierachy: PropTypes.string.tag({
+      defaultValue: "sections-menu",
+      label: "Topics Hierarchy",
+      group: "Configure Content",
+    }),
+    aboutUsCopy: PropTypes.string.tag({
+      defaultValue: "About Us",
+      label: "About Us link text",
+      group: "Configure Content",
+    }),
+    aboutUsUrl: PropTypes.string.tag({
+      defaultValue: "https://www.votebeat.org/pages/about-votebeat",
+      label: "About Us URL",
+      group: "Configure Content",
+    }),
   }),
 };
 

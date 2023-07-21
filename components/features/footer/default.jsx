@@ -1,27 +1,70 @@
+import { useContent } from "fusion:content";
+import { useFusionContext } from "fusion:context";
+import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
 import React from "react";
-import FooterSignup from "../../base/footer/footer-signup.component";
 import "./styles.scss";
 
 const Footer = (props) => {
-  const { message, display, textColor, textSize } = props.customFields;
+  const { arcSite } = useFusionContext();
+  const { primaryLogo, primaryLogoAlt } = getProperties(arcSite);
+  const { topHierachy, bottomHierarchy } = props.customFields;
+
+  const topFooter = useContent({
+    source: "site-service-hierarchy",
+    query: {
+      site: arcSite,
+      hierarchy: topHierachy,
+    },
+  });
+
+  const bottomFooter = useContent({
+    source: "site-service-hierarchy",
+    query: {
+      site: arcSite,
+      hierarchy: bottomHierarchy,
+    },
+  });
 
   return (
-    <div className={`customfooter`}>
-      {/*display ? (
-        <h1
-          style={{
-            color: textColor || "blue",
-            fontSize: textSize || "10px",
-          }}
-        >
-          {message}
-        </h1>
-      ) : (
-        "Hidden Content"
-      )*/}
+    <div className="customfooter">
+      <footer className="Page-footer">
+        <div className="Page-footer-container">
+          <div className="Page-footer-container-section Page-footer-container-links">
+            <div className="Page-footer-container-logo">
+              <a aria-label="home page" href="/">
+                <img className="PageLogo-image" src={primaryLogo} alt={primaryLogoAlt} />
+              </a>
+            </div>
 
-      <FooterSignup />
+            <div className="Page-footer-container-navigation">
+              <nav className="FooterNavigation">
+                <ul className="FooterNavigation-items">
+                  {topFooter &&
+                    topFooter.children.map((item) => (
+                      <li key={item._id} className="FooterNavigation-items-item">
+                        <a href={item.url}>{item.display_name}</a>
+                      </li>
+                    ))}
+                </ul>
+              </nav>
+            </div>
+
+            <div className="Page-footer-container-navigation">
+              <nav className="FooterNavigation">
+                <ul className="FooterNavigation-items">
+                  {bottomFooter &&
+                    bottomFooter.children.map((item) => (
+                      <li key={item._id} className="FooterNavigation-items-item">
+                        <a href={item.url}>{item.display_name}</a>
+                      </li>
+                    ))}
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
@@ -30,6 +73,12 @@ Footer.propTypes = {
   customFields: PropTypes.shape({
     message: PropTypes.string.tag({
       description: "Add a message",
+    }),
+    topHierachy: PropTypes.string.tag({
+      description: "Top hierarchy",
+    }),
+    bottomHierarchy: PropTypes.string.tag({
+      description: "Bottom hierarchy",
     }),
     textColor: PropTypes.oneOf(["purple", "green", "black"]).tag({
       description: "Text Color",
