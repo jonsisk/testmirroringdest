@@ -8,19 +8,6 @@ const Footer = (props) => {
 
   return (
     <div className={`customfooter`}>
-      {/*display ? (
-        <h1
-          style={{
-            color: textColor || "blue",
-            fontSize: textSize || "10px",
-          }}
-        >
-          {message}
-        </h1>
-      ) : (
-        "Hidden Content"
-      )*/}
-
       <FooterSignup />
     </div>
   );

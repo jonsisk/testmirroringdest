@@ -315,6 +315,8 @@ function parseArticleItem(item, index, arcSite, phrases, id, customFields) {
           return <SidebarComposer key={key} embed={item.embed} />;
         case "newsletter":
           return <NewsletterComposer key={key} embed={item.embed} />;
+        case "pymembed":
+          return <PymEmbedComposer key={key} embed={item.embed} />;
         default:
           return null;
       }
