@@ -15,6 +15,7 @@ const HeaderSignup = ({
   aboutUsCopy,
   communitiesTitle,
   topicsTitle,
+  topLevelUrl,
 }) => {
   const [showCommunityPanel, setShowCommunityPanel] = useState(false);
   const [showTopicPanel, setShowTopicPanel] = useState(false);
@@ -118,7 +119,7 @@ const HeaderSignup = ({
                           {topicNavigation &&
                             topicNavigation.children.map((item) => (
                               <li key={item._id} className="NavigationItem-items-item">
-                                <a className="NavigationLink" href={item._id}>
+                                <a className="NavigationLink" href={`${topLevelUrl}${item._id}`}>
                                   {item.name}
                                 </a>
                               </li>

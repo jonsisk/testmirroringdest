@@ -9,7 +9,7 @@ import "./styles.scss";
 const Header = ({ customFields }) => {
   const context = useFusionContext();
   const { arcSite } = context;
-  const { primaryLogo, primaryLogoAlt } = getProperties(arcSite);
+  const { primaryLogo, primaryLogoAlt, topLevelUrl } = getProperties(arcSite);
   const {
     tagline,
     communitiesTitle,
@@ -48,6 +48,7 @@ const Header = ({ customFields }) => {
         topicNavigation={topics}
         communitiesTitle={communitiesTitle}
         communityNavigation={communities}
+        topLevelUrl={topLevelUrl}
       />
     </div>
   );

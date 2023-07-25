@@ -88,6 +88,7 @@
         "siteProperties": {
           "websiteName": "Votebeat Arizona",
           "websiteDomain": "https://civicnewscompany-votebeat-arizona-sandbox.web.arc-cdn.net",
+          "topLevelUrl": "https://civicnewscompany-votebeat-sandbox.web.arc-cdn.net",
           "lightBackgroundLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881719083.svg",
           "lightBackgroundLogoAlt": "Votebeat Arizona",
           "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881719208.svg",
@@ -100,6 +101,7 @@
         "siteProperties": {
           "websiteName": "Votebeat Pennsylvania",
           "websiteDomain": "https://civicnewscompany-votebeat-pennsylvania-sandbox.web.arc-cdn.net",
+          "topLevelUrl": "https://civicnewscompany-votebeat-sandbox.web.arc-cdn.net",
           "lightBackgroundLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881936088.svg",
           "lightBackgroundLogoAlt": "Votebeat Pennsylvania",
           "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881936197.svg",
@@ -122,6 +124,7 @@
         "siteProperties": {
           "websiteName": "Votebeat Texas",
           "websiteDomain": "https://civicnewscompany-votebeat-texas-sandbox.web.arc-cdn.net",
+          "topLevelUrl": "https://civicnewscompany-votebeat-sandbox.web.arc-cdn.net",
           "lightBackgroundLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689882010666.svg",
           "lightBackgroundLogoAlt": "Votebeat Texas",
           "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689882010778.svg",
@@ -134,6 +137,7 @@
         "siteProperties": {
           "websiteName": "Votebeat Michigan",
           "websiteDomain": "https://civicnewscompany-votebeat-michigan-sandbox.web.arc-cdn.net",
+          "topLevelUrl": "https://civicnewscompany-votebeat-sandbox.web.arc-cdn.net",
           "lightBackgroundLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881852002.svg",
           "lightBackgroundLogoAlt": "Votebeat Michigan",
           "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881853460.svg",
@@ -146,6 +150,7 @@
         "siteProperties": {
           "websiteName": "Votebeat",
           "websiteDomain": "https://civicnewscompany-votebeat-sandbox.web.arc-cdn.net",
+          "topLevelUrl": "https://civicnewscompany-votebeat-sandbox.web.arc-cdn.net",
           "lightBackgroundLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881637347.svg",
           "lightBackgroundLogoAlt": "votebeat-national-light",
           "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881637555.svg",
