@@ -1,32 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import "./header-composer.scss";
 
 /**
  * Handles the newsletter signup form using recaptcha and posting to an external
  * endpoint to handle the actual mailchimp API communication.
  */
-const HeaderSignup = ({ logoURL }) => {
+const HeaderSignup = ({
+  tagline,
+  logoURL,
+  logoAlt,
+  communityNavigation,
+  topicNavigation,
+  aboutUsUrl,
+  aboutUsCopy,
+  communitiesTitle,
+  topicsTitle,
+  topLevelUrl,
+}) => {
+  const [showCommunityPanel, setShowCommunityPanel] = useState(false);
+  const [showTopicPanel, setShowTopicPanel] = useState(false);
+
+  const handleMouseEnterCommunity = () => {
+    setShowCommunityPanel(true);
+    setShowTopicPanel(false);
+  };
+
+  const handleMouseLeaveCommunity = () => {
+    setShowCommunityPanel(false);
+  };
+
+  const handleMouseEnterTopics = () => {
+    setShowTopicPanel(true);
+    setShowCommunityPanel(false);
+  };
+
+  const handleMouseLeaveTopics = () => {
+    setShowTopicPanel(false);
+  };
+
   return (
     <div className="Page-header" data-nav-alignment="right">
       <div className="Page-header-wrap">
         <div className="Page-header-bar">
           <div className="Page-header-bar-logo">
             <a aria-label="home page" href="/" data-cms-ai="0">
-              <img className="PageLogo-image" src={logoURL} alt="votebeat-national-light" />
+              <img className="PageLogo-image" src={logoURL} alt={logoAlt} />
             </a>
           </div>
 
           <div className="Page-header-navigation-wrapper">
-            <div className="Page-header-tagline">
-              Nonpartisan local reporting on elections and voting
-            </div>
+            <div className="Page-header-tagline">{tagline}</div>
             <div className="Page-header-navigation">
               <nav className="Navigation">
                 <ul className="Navigation-items">
                   <li className="Navigation-items-item">
                     <div className="NavigationItem  has-menu">
-                      <div className="NavigationItem-text">
-                        <span>Communities</span>
+                      <div
+                        className="NavigationItem-text"
+                        onMouseEnter={handleMouseEnterCommunity}
+                        onMouseLeave={handleMouseLeaveCommunity}
+                      >
+                        <span>{communitiesTitle}</span>
 
                         <div className="NavigationItem-more">
                           <button aria-label="More">
@@ -37,53 +71,21 @@ const HeaderSignup = ({ logoURL }) => {
                         </div>
                       </div>
 
-                      <div className="NavigationItem-items">
+                      <div
+                        className="NavigationItem-items"
+                        onMouseEnter={handleMouseEnterCommunity}
+                        onMouseLeave={handleMouseLeaveCommunity}
+                        style={{ display: showCommunityPanel ? "block" : "none" }}
+                      >
                         <ul>
-                          <li className="NavigationItem-items-item">
-                            <a
-                              className="NavigationLink"
-                              href="https://arizona.votebeat.org/"
-                              data-cms-ai="0"
-                            >
-                              Arizona
-                            </a>
-                          </li>
-                          <li className="NavigationItem-items-item">
-                            <a
-                              className="NavigationLink"
-                              href="https://michigan.votebeat.org/"
-                              data-cms-ai="0"
-                            >
-                              Michigan
-                            </a>
-                          </li>
-                          <li className="NavigationItem-items-item">
-                            <a
-                              className="NavigationLink"
-                              href="https://pennsylvania.votebeat.org/"
-                              data-cms-ai="0"
-                            >
-                              Pennsylvania
-                            </a>
-                          </li>
-                          <li className="NavigationItem-items-item">
-                            <a
-                              className="NavigationLink"
-                              href="https://texas.votebeat.org/"
-                              data-cms-ai="0"
-                            >
-                              Texas
-                            </a>
-                          </li>
-                          <li className="NavigationItem-items-item">
-                            <a
-                              className="NavigationLink"
-                              href="https://votebeat.org/"
-                              data-cms-ai="0"
-                            >
-                              National
-                            </a>
-                          </li>
+                          {communityNavigation &&
+                            communityNavigation.children.map((item) => (
+                              <li key={item._id} className="NavigationItem-items-item">
+                                <a className="NavigationLink" href={item.url}>
+                                  {item.display_name}
+                                </a>
+                              </li>
+                            ))}
                         </ul>
                       </div>
                     </div>
@@ -91,8 +93,12 @@ const HeaderSignup = ({ logoURL }) => {
 
                   <li className="Navigation-items-item">
                     <div className="NavigationItem  has-menu">
-                      <div className="NavigationItem-text">
-                        <span>Topics</span>
+                      <div
+                        className="NavigationItem-text"
+                        onMouseEnter={handleMouseEnterTopics}
+                        onMouseLeave={handleMouseLeaveTopics}
+                      >
+                        <span>{topicsTitle}</span>
 
                         <div className="NavigationItem-more">
                           <button aria-label="More">
@@ -103,80 +109,21 @@ const HeaderSignup = ({ logoURL }) => {
                         </div>
                       </div>
 
-                      <div className="NavigationItem-items">
+                      <div
+                        className="NavigationItem-items"
+                        onMouseEnter={handleMouseEnterTopics}
+                        onMouseLeave={handleMouseLeaveTopics}
+                        style={{ display: showTopicPanel ? "block" : "none" }}
+                      >
                         <ul>
-                          <li className="NavigationItem-items-item">
-                            <a
-                              className="NavigationLink"
-                              href="https://votebeat.org/voting-access"
-                              data-cms-ai="0"
-                            >
-                              Voting Access
-                            </a>
-                          </li>
-                          <li className="NavigationItem-items-item">
-                            <a
-                              className="NavigationLink"
-                              href="https://votebeat.org/election-security"
-                              data-cms-ai="0"
-                            >
-                              Election Security
-                            </a>
-                          </li>
-                          <li className="NavigationItem-items-item">
-                            <a
-                              className="NavigationLink"
-                              href="https://votebeat.org/voting-bills"
-                              data-cms-ai="0"
-                            >
-                              Voting Legislation
-                            </a>
-                          </li>
-                          <li className="NavigationItem-items-item">
-                            <a
-                              className="NavigationLink"
-                              href="https://votebeat.org/election-funding"
-                              data-cms-ai="0"
-                            >
-                              Election Funding
-                            </a>
-                          </li>
-                          <li className="NavigationItem-items-item">
-                            <a
-                              className="NavigationLink"
-                              href="https://votebeat.org/voter-registration"
-                              data-cms-ai="0"
-                            >
-                              Voter Registration
-                            </a>
-                          </li>
-                          <li className="NavigationItem-items-item">
-                            <a
-                              className="NavigationLink"
-                              href="https://votebeat.org/election-misinformation"
-                              data-cms-ai="0"
-                            >
-                              Misinformation
-                            </a>
-                          </li>
-                          <li className="NavigationItem-items-item">
-                            <a
-                              className="NavigationLink"
-                              href="https://votebeat.org/mail-voting"
-                              data-cms-ai="0"
-                            >
-                              Mail Voting
-                            </a>
-                          </li>
-                          <li className="NavigationItem-items-item">
-                            <a
-                              className="NavigationLink"
-                              href="https://votebeat.org/election-laws"
-                              data-cms-ai="0"
-                            >
-                              Election Laws
-                            </a>
-                          </li>
+                          {topicNavigation &&
+                            topicNavigation.children.map((item) => (
+                              <li key={item._id} className="NavigationItem-items-item">
+                                <a className="NavigationLink" href={`${topLevelUrl}${item._id}`}>
+                                  {item.name}
+                                </a>
+                              </li>
+                            ))}
                         </ul>
                       </div>
                     </div>
@@ -185,9 +132,7 @@ const HeaderSignup = ({ logoURL }) => {
                   <li className="Navigation-items-item">
                     <div className="NavigationItem ">
                       <div className="NavigationItem-text">
-                        <a href="https://www.votebeat.org/pages/about-votebeat" data-cms-ai="0">
-                          About Us
-                        </a>
+                        <a href={aboutUsUrl}>{aboutUsCopy}</a>
                       </div>
                     </div>
                   </li>
@@ -211,7 +156,7 @@ const HeaderSignup = ({ logoURL }) => {
                           <li className="NavigationItem-items-item" data-show="false">
                             <div className="NavigationItem  has-menu">
                               <div className="NavigationItem-text">
-                                <span>Communities</span>
+                                <span>{communitiesTitle}</span>
 
                                 <div className="NavigationItem-more">
                                   <button aria-label="More">
@@ -224,51 +169,14 @@ const HeaderSignup = ({ logoURL }) => {
 
                               <div className="NavigationItem-items">
                                 <ul>
-                                  <li className="NavigationItem-items-item">
-                                    <a
-                                      className="NavigationLink"
-                                      href="https://arizona.votebeat.org/"
-                                      data-cms-ai="0"
-                                    >
-                                      Arizona
-                                    </a>
-                                  </li>
-                                  <li className="NavigationItem-items-item">
-                                    <a
-                                      className="NavigationLink"
-                                      href="https://michigan.votebeat.org/"
-                                      data-cms-ai="0"
-                                    >
-                                      Michigan
-                                    </a>
-                                  </li>
-                                  <li className="NavigationItem-items-item">
-                                    <a
-                                      className="NavigationLink"
-                                      href="https://pennsylvania.votebeat.org/"
-                                      data-cms-ai="0"
-                                    >
-                                      Pennsylvania
-                                    </a>
-                                  </li>
-                                  <li className="NavigationItem-items-item">
-                                    <a
-                                      className="NavigationLink"
-                                      href="https://texas.votebeat.org/"
-                                      data-cms-ai="0"
-                                    >
-                                      Texas
-                                    </a>
-                                  </li>
-                                  <li className="NavigationItem-items-item">
-                                    <a
-                                      className="NavigationLink"
-                                      href="https://votebeat.org/"
-                                      data-cms-ai="0"
-                                    >
-                                      National
-                                    </a>
-                                  </li>
+                                  {communityNavigation &&
+                                    communityNavigation.children.map((item) => (
+                                      <li key={item._id} className="NavigationItem-items-item">
+                                        <a className="NavigationLink" href={item.url}>
+                                          {item.display_name}
+                                        </a>
+                                      </li>
+                                    ))}
                                 </ul>
                               </div>
                             </div>
@@ -276,7 +184,7 @@ const HeaderSignup = ({ logoURL }) => {
                           <li className="NavigationItem-items-item" data-show="false">
                             <div className="NavigationItem  has-menu">
                               <div className="NavigationItem-text">
-                                <span>Topics</span>
+                                <span>{topicsTitle}</span>
 
                                 <div className="NavigationItem-more">
                                   <button aria-label="More">
@@ -289,78 +197,14 @@ const HeaderSignup = ({ logoURL }) => {
 
                               <div className="NavigationItem-items">
                                 <ul>
-                                  <li className="NavigationItem-items-item">
-                                    <a
-                                      className="NavigationLink"
-                                      href="https://votebeat.org/voting-access"
-                                      data-cms-ai="0"
-                                    >
-                                      Voting Access
-                                    </a>
-                                  </li>
-                                  <li className="NavigationItem-items-item">
-                                    <a
-                                      className="NavigationLink"
-                                      href="https://votebeat.org/election-security"
-                                      data-cms-ai="0"
-                                    >
-                                      Election Security
-                                    </a>
-                                  </li>
-                                  <li className="NavigationItem-items-item">
-                                    <a
-                                      className="NavigationLink"
-                                      href="https://votebeat.org/voting-bills"
-                                      data-cms-ai="0"
-                                    >
-                                      Voting Legislation
-                                    </a>
-                                  </li>
-                                  <li className="NavigationItem-items-item">
-                                    <a
-                                      className="NavigationLink"
-                                      href="https://votebeat.org/election-funding"
-                                      data-cms-ai="0"
-                                    >
-                                      Election Funding
-                                    </a>
-                                  </li>
-                                  <li className="NavigationItem-items-item">
-                                    <a
-                                      className="NavigationLink"
-                                      href="https://votebeat.org/voter-registration"
-                                      data-cms-ai="0"
-                                    >
-                                      Voter Registration
-                                    </a>
-                                  </li>
-                                  <li className="NavigationItem-items-item">
-                                    <a
-                                      className="NavigationLink"
-                                      href="https://votebeat.org/election-misinformation"
-                                      data-cms-ai="0"
-                                    >
-                                      Misinformation
-                                    </a>
-                                  </li>
-                                  <li className="NavigationItem-items-item">
-                                    <a
-                                      className="NavigationLink"
-                                      href="https://votebeat.org/mail-voting"
-                                      data-cms-ai="0"
-                                    >
-                                      Mail Voting
-                                    </a>
-                                  </li>
-                                  <li className="NavigationItem-items-item">
-                                    <a
-                                      className="NavigationLink"
-                                      href="https://votebeat.org/election-laws"
-                                      data-cms-ai="0"
-                                    >
-                                      Election Laws
-                                    </a>
-                                  </li>
+                                  {topicNavigation &&
+                                    topicNavigation.children.map((item) => (
+                                      <li key={item._id} className="NavigationItem-items-item">
+                                        <a className="NavigationLink" href={item._id}>
+                                          {item.name}
+                                        </a>
+                                      </li>
+                                    ))}
                                 </ul>
                               </div>
                             </div>
@@ -368,12 +212,7 @@ const HeaderSignup = ({ logoURL }) => {
                           <li className="NavigationItem-items-item" data-show="false">
                             <div className="NavigationItem ">
                               <div className="NavigationItem-text">
-                                <a
-                                  href="https://www.votebeat.org/pages/about-votebeat"
-                                  data-cms-ai="0"
-                                >
-                                  About Us
-                                </a>
+                                <a href={aboutUsUrl}>{aboutUsCopy}</a>
                               </div>
                             </div>
                           </li>
@@ -397,16 +236,12 @@ const HeaderSignup = ({ logoURL }) => {
           </div>
 
           <div className="Page-header-end">
-            <a
-              href="https://www.votebeat.org/pages/newsletters"
-              className="Button newsletter-button"
-              data-cms-ai="0"
-            >
+            <a href="/pages/newsletters" className="Button newsletter-button" data-cms-ai="0">
               Sign Up
             </a>
 
             <a
-              href="https://checkout.fundjournalism.org/memberform?org_id=chalkbeat&amp;campaign=7015A000001PuQv"
+              href="https://checkout.fundjournalism.org/memberform?org_id=chalkbeat&campaign=7015A000001PuQv"
               className="Button donate-button"
               data-cms-ai="0"
             >

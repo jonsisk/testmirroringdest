@@ -7,6 +7,10 @@
       "title": "Custom settings",
       "subcategories": [
         {
+          "id": "global",
+          "title": "Global settings"
+        },
+        {
           "id": "republish",
           "title": "Republish settings"
         },
@@ -18,6 +22,14 @@
     }
   ],
   "fields": [
+    {
+      "fieldId": "topLevelUrl",
+      "fieldType": "url",
+      "fieldTitle": "Top level url for topics, no slash at the end (e.g.: if Votebeat Arizona, provide Votebeat URL)",
+      "fieldCategory": "custom",
+      "fieldSubcategory": "global",
+      "fieldTarget": "site"
+    },
     {
       "fieldId": "republishHeader",
       "fieldType": "text",

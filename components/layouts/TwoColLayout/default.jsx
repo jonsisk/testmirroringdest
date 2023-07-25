@@ -1,22 +1,33 @@
+import { useFusionContext } from "fusion:context";
 import React from "react";
 import "./default.scss";
 
-const TwoColLayout = (props) => {
-  const [header, fullWidth, leftCol, rightCol, footer] = props.children;
+const TwoColLayout = ({ children }) => {
+  const [navigation, fullWidth1, main, rightRail, fullWidth2, footer] = children;
+  const { arcSite } = useFusionContext();
 
   return (
-    <div>
-      <header className="header">{header}</header>
-      <div className="main-section">
-        <main className="main-col">{fullWidth}</main>
-        <section className="column">{leftCol}</section>
-        <section className="column">{rightCol}</section>
-      </div>
+    <div className={`site-${arcSite}`}>
+      <header className="header">{navigation}</header>
+      <section role="main" id="main" className="main" tabIndex="-1">
+        <div className="container layout-section">
+          <div className="row-">
+            <div className="col">{fullWidth1}</div>
+          </div>
+          <div className="row-">
+            <div className="col">{main}</div>
+            <div className="col">{rightRail}</div>
+          </div>
+          <div className="row-">
+            <div className="col">{fullWidth2}</div>
+          </div>
+        </div>
+      </section>
       <footer className="footer">{footer}</footer>
     </div>
   );
 };
 
-TwoColLayout.sections = ["Header", "Full Width", "Left Column", "Right Column", "Footer"];
-TwoColLayout.label = "Two Column Layout";
+TwoColLayout.sections = ["navigation", "fullwidth1", "main", "rightrail", "fullwidth2", "footer"];
+TwoColLayout.label = "Two Column - Civic Layout";
 export default TwoColLayout;

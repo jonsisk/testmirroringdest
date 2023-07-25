@@ -24,6 +24,7 @@ import Table from "./_children/table";
 import "./_articlebody.scss";
 import NewsletterComposer from "../../base/newsletter/newsletter-composer.component";
 import SidebarComposer from "../../base/sidebar/sidebar-composer.component";
+import PymEmbedComposer from "../../base/pymembed/pymembed.composer";
 
 const StyledText = styled.p`
   a {
