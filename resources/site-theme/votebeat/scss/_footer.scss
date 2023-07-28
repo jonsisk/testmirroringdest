@@ -1,0 +1,124 @@
+.Page-footer {
+    --color-link-text: var(--color-footer-link);
+    --color-link-text-hover: var(--color-footer-link-hover);
+    --color-primary-text: var(--color-footer-text);
+    background: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    padding-top: 16px;
+}
+
+.Page-footer-container {
+    width: 100%;
+    max-width: 1084px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.Page-footer-container-section {
+    font-size: var(--font-size);
+    padding: 8px 16px;
+    line-height: 1.6;
+}
+
+.Page-footer-container-section ul li a {
+    font-size: var(--font-size);
+    font-weight: 400;
+}
+
+.Page-footer-container-section a {
+    -webkit-font-smoothing: auto;
+}
+
+.Page-footer-container-auth a {
+    display: block;
+    margin: 0 0 8px 3px;
+    font-family: var(--font, var(--font-1));
+}
+
+.Page-footer-container-logo img {
+    height: auto;
+    max-width: 200px;
+    margin: 0 auto 32px;
+}
+
+.Page-footer-container-navigation {
+    padding: 0;
+    margin: 0 0 8px;
+}
+
+.Page-footer-container-navigation ul {
+    margin-bottom: 8px;
+}
+
+.Page-footer-container-copyright {
+    padding-top: 8px;
+    font-size: 1rem;
+    border-top: 1px solid var(--color-footer-text);
+}
+
+.Page-footer[data-footer-slim] {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.Page-footer[data-footer-slim] .Footer-contentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Page-footer[data-footer-slim] .Footer-logo img {
+    max-width: 130px;
+}
+
+.Page-footer[data-footer-slim] .Footer-disclaimer {
+    margin-top: 20px;
+    color: var(--color-footer-text);
+    font-weight: 400;
+}
+
+.Page-footer[data-footer-slim] .Footer-disclaimer a {
+    color: var(--color-primary);
+}
+
+@media only screen and (min-width: 768px) {
+    .Page-footer-container {
+        display: table;
+    }
+
+    .Page-footer-container-section {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    .Page-footer-container-auth {
+        width: 290px;
+        text-align: right;
+    }
+
+    .Page-footer-container-logo img {
+        margin: 0 0 32px;
+    }
+
+    .Page-footer-container-copyright {
+        padding: 0;
+    }
+
+    .Page-footer[data-footer-slim] .Footer-disclaimer {
+        margin-top: 0;
+    }
+
+    .Page-footer[data-footer-slim] .Footer-contentWrapper {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .Page-footer .Page-footer-container-section {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

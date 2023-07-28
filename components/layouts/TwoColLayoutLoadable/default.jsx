@@ -1,12 +1,13 @@
 import { useFusionContext } from "fusion:context";
 import React from "react";
-import "../../../resources/site-theme/votebeat.scss";
+import { ThemeComponent } from "./ThemeComponent";
 
 const TwoColLayout = ({ children }) => {
   const [navigation, fullWidth1, main, rightRail, fullWidth2, footer] = children;
   const { arcSite } = useFusionContext();
   return (
     <>
+      <ThemeComponent />
       <div className={`site-${arcSite}`}>
         <header className="header">{navigation}</header>
         <section role="main" id="main" className="main" tabIndex="-1">

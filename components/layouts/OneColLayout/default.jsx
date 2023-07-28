@@ -10,7 +10,7 @@ const OneColLayout = ({ children }) => {
     <>
       <link
         rel="stylesheet"
-        href={deployment(`${contextPath}/resources/site-theme/${theme}.css`)}
+        href={deployment(`${contextPath}/resources/site-theme/${theme}.scss`)}
       />
       <div className={`site-${arcSite}`}>
         <header className="header">{navigation}</header>
