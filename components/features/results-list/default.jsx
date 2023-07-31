@@ -1,12 +1,12 @@
 import React from "react";
-import PropTypes from "@arc-fusion/prop-types";
+import Results from "./results";
 
 import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
+import PropTypes from "@arc-fusion/prop-types";
 import { isServerSide, LazyLoad, HeadingSection } from "@wpmedia/arc-themes-components";
 
 import { resolveDefaultPromoElements } from "./results/helpers";
-import Results from "./results";
 
 const ResultsList = ({ customFields }) => {
 	const { arcSite, contextPath, deployment, isAdmin } = useFusionContext();
