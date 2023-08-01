@@ -1,12 +1,19 @@
 import React from "react";
-import Results from "./results";
+import PropTypes from "@arc-fusion/prop-types";
 
 import { useFusionContext } from "fusion:context";
+import getTranslatedPhrases from "fusion:intl";
 import getProperties from "fusion:properties";
-import PropTypes from "@arc-fusion/prop-types";
-import { isServerSide, LazyLoad, HeadingSection } from "@wpmedia/arc-themes-components";
+
+import { isServerSide, LazyLoad } from "@wpmedia/engine-theme-sdk";
+import { HeadingSection } from "@wpmedia/shared-styles";
+
+// shared with search results list
+// to modify, go to the shared styles block
+import "@wpmedia/shared-styles/scss/_results-list.scss";
 
 import { resolveDefaultPromoElements } from "./results/helpers";
+import Results from "./results";
 
 const ResultsListCivic = ({ customFields }) => {
 	const { arcSite, contextPath, deployment, isAdmin } = useFusionContext();
@@ -14,11 +21,23 @@ const ResultsListCivic = ({ customFields }) => {
 		lazyLoad,
 		listContentConfig: { contentService, contentConfigValues },
 	} = customFields;
-	const { fallbackImage } = getProperties(arcSite);
+	const { fallbackImage, locale, primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
+	const imageProperties = {
+		smallWidth: 158,
+		smallHeight: 89,
+		mediumWidth: 274,
+		mediumHeight: 154,
+		largeWidth: 274,
+		largeHeight: 154,
+		primaryLogoAlt,
+		breakpoints,
+		resizerURL,
+	};
 	const targetFallbackImage = !fallbackImage.includes("http")
 		? deployment(`${contextPath}/${fallbackImage}`)
 		: fallbackImage;
 	const promoElements = resolveDefaultPromoElements(customFields);
+	const phrases = getTranslatedPhrases(locale || "en");
 	const isServerSideLazy = lazyLoad && isServerSide() && !isAdmin;
 	const configuredOffset =
 		parseInt(contentConfigValues?.offset, 10) ||
@@ -37,7 +56,9 @@ const ResultsListCivic = ({ customFields }) => {
 					configuredSize={configuredSize}
 					contentConfigValues={contentConfigValues}
 					contentService={contentService}
+					imageProperties={imageProperties}
 					isServerSideLazy={isServerSideLazy}
+					phrases={phrases}
 					showByline={promoElements.showByline}
 					showDate={promoElements.showDate}
 					showDescription={promoElements.showDescription}
@@ -51,18 +72,12 @@ const ResultsListCivic = ({ customFields }) => {
 	);
 };
 
-ResultsListCivic.label = "Results List - Civic";
+ResultsListCivic.label = "Results List – Civic";
 
 ResultsListCivic.icon = "arc-list";
 
 ResultsListCivic.propTypes = {
 	customFields: PropTypes.shape({
-		lazyLoad: PropTypes.bool.tag({
-			name: "Lazy Load block?",
-			defaultValue: false,
-			description:
-				"Turning on lazy-loading will prevent this block from being loaded on the page until it is nearly in-view for the user.",
-		}),
 		listContentConfig: PropTypes.contentConfig("ans-feed").tag({
 			group: "Configure Content",
 			label: "Display Content Info",
@@ -96,6 +111,12 @@ ResultsListCivic.propTypes = {
 			label: "Show date",
 			defaultValue: true,
 			group: "Show promo elements",
+		}),
+		lazyLoad: PropTypes.bool.tag({
+			name: "Lazy Load block?",
+			defaultValue: false,
+			description:
+				"Turning on lazy-loading will prevent this block from being loaded on the page until it is nearly in-view for the user.",
 		}),
 	}),
 };

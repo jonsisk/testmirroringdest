@@ -1,12 +1,9 @@
 import React, { createRef, useCallback, useEffect, useReducer, useState } from "react";
-import { RESIZER_TOKEN_VERSION } from "fusion:environment";
+import { Button, BUTTON_STYLES, BUTTON_TYPES } from "@wpmedia/shared-styles";
 import { useContent } from "fusion:content";
-import { Button, Divider, Join, Stack, usePhrases } from "@wpmedia/arc-themes-components";
 
 import ResultItem from "./result-item";
 import { reduceResultList } from "./helpers";
-
-const BLOCK_CLASS_NAME = "b-results-list";
 
 const Results = ({
 	arcSite,
@@ -14,18 +11,18 @@ const Results = ({
 	configuredSize,
 	contentConfigValues,
 	contentService,
+	imageProperties,
 	isServerSideLazy = false,
+	phrases,
 	showByline = false,
 	showDate = false,
 	showDescription = false,
 	showHeadline = false,
 	showImage = false,
 	showItemOverline = false,
-	imageRatio,
 	targetFallbackImage,
 }) => {
 	const [queryOffset, setQueryOffset] = useState(configuredOffset);
-	const phrases = usePhrases();
 
 	const placeholderResizedImageOptions = useContent({
 		source: !targetFallbackImage.includes("/resources/") ? "resize-image-api" : null,
@@ -105,22 +102,22 @@ const Results = ({
         }
         promo_items {
           basic {
-			_id
-            auth {
-				${RESIZER_TOKEN_VERSION}
-			}
             type
             url
+            resized_params {
+              274x154
+              158x89
+            }
           }
           lead_art {
             promo_items {
               basic {
-				_id
-				auth {
-					${RESIZER_TOKEN_VERSION}
-				}
                 type
                 url
+                resized_params {
+                  274x154
+                  158x89
+                }
               }
             }
             type
@@ -181,6 +178,7 @@ const Results = ({
 		0,
 		queryOffset + configuredSize - configuredOffset
 	);
+
 	const fullListLength = resultList?.count
 		? resultList?.count - configuredOffset
 		: resultList?.content_elements.length;
@@ -190,39 +188,38 @@ const Results = ({
 	const onReadMoreClick = useCallback(() => {
 		setQueryOffset((oldOffset) => oldOffset + configuredSize);
 	}, [configuredSize, setQueryOffset]);
+
 	return viewableElements?.length > 0 && !isServerSideLazy ? (
-		<Stack className={`${BLOCK_CLASS_NAME}__wrapper`}>
-			<Join separator={Divider}>
-				{viewableElements.map((element, index) => (
-					<ResultItem
-						key={`result-card-${element._id}`}
-						ref={elementRefs[index]}
-						arcSite={arcSite}
-						element={element}
-						placeholderResizedImageOptions={placeholderResizedImageOptions}
-						showByline={showByline}
-						showDate={showDate}
-						showDescription={showDescription}
-						showHeadline={showHeadline}
-						showImage={showImage}
-						showItemOverline={showItemOverline}
-						targetFallbackImage={targetFallbackImage}
-						imageRatio={imageRatio}
+		<div className="results-list-container">
+			{viewableElements.map((element, index) => (
+				<ResultItem
+					key={`result-card-${element._id}`}
+					ref={elementRefs[index]}
+					arcSite={arcSite}
+					element={element}
+					imageProperties={imageProperties}
+					placeholderResizedImageOptions={placeholderResizedImageOptions}
+					showByline={showByline}
+					showDate={showDate}
+					showDescription={showDescription}
+					showHeadline={showHeadline}
+					showImage={showImage}
+					showItemOverline={showItemOverline}
+					targetFallbackImage={targetFallbackImage}
+				/>
+			))}
+			{isThereMore && (
+				<div className="see-more">
+					<Button
+						ariaLabel={phrases.t("results-list-block.see-more-button-aria-label")}
+						buttonStyle={BUTTON_STYLES.PRIMARY}
+						buttonTypes={BUTTON_TYPES.LABEL_ONLY}
+						onClick={onReadMoreClick}
+						text={phrases.t("results-list-block.see-more-button")}
 					/>
-				))}
-				{isThereMore && (
-					<Stack alignment="center" className={`${BLOCK_CLASS_NAME}__seeMore`}>
-						<Button
-							accessibilityLabel={phrases.t("results-list-block.see-more-button-aria-label")}
-							variant="primary"
-							onClick={onReadMoreClick}
-						>
-							{phrases.t("results-list-block.see-more-button")}
-						</Button>
-					</Stack>
-				)}
-			</Join>
-		</Stack>
+				</div>
+			)}
+		</div>
 	) : null;
 };
 
