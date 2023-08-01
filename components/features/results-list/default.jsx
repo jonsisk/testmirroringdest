@@ -8,7 +8,7 @@ import { isServerSide, LazyLoad, HeadingSection } from "@wpmedia/arc-themes-comp
 
 import { resolveDefaultPromoElements } from "./results/helpers";
 
-const ResultsList = ({ customFields }) => {
+const ResultsListCivic = ({ customFields }) => {
 	const { arcSite, contextPath, deployment, isAdmin } = useFusionContext();
 	const {
 		lazyLoad,
@@ -51,11 +51,11 @@ const ResultsList = ({ customFields }) => {
 	);
 };
 
-ResultsList.label = "Results List - Civic";
+ResultsListCivic.label = "Results List - Civic";
 
-ResultsList.icon = "arc-list";
+ResultsListCivic.icon = "arc-list";
 
-ResultsList.propTypes = {
+ResultsListCivic.propTypes = {
 	customFields: PropTypes.shape({
 		lazyLoad: PropTypes.bool.tag({
 			name: "Lazy Load block?",
@@ -100,4 +100,4 @@ ResultsList.propTypes = {
 	}),
 };
 
-export default ResultsList;
+export default ResultsListCivic;
