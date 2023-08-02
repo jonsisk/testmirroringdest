@@ -31,7 +31,6 @@
     "@wpmedia/collections-content-source-block",
     "@wpmedia/content-api-source-block",
     "@wpmedia/date-block",
-    "@wpmedia/default-output-block",
     "@wpmedia/double-chain-block",
     "@wpmedia/event-tester-block",
     "@wpmedia/extra-large-manual-promo-block",
@@ -94,7 +93,8 @@
           "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881719208.svg",
           "primaryLogoAlt": "Votebeat Arizona",
           "fallbackImage": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881720872.svg",
-          "copyrightText": "Votebeat Arizona"
+          "copyrightText": "Votebeat Arizona",
+          "parselyTags": "www.votebeat.org,arizona.votebeat.org,front-page"
         }
       },
       "votebeat-pennsylvania": {
@@ -107,7 +107,8 @@
           "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881936197.svg",
           "primaryLogoAlt": "Votebeat Pennsylvania",
           "fallbackImage": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881936297.svg",
-          "fallbackImageAlt": "Votebeat Pennsylvania"
+          "fallbackImageAlt": "Votebeat Pennsylvania",
+          "parselyTags": "www.votebeat.org,pennsylvania.votebeat.org,front-page"
         }
       },
       "chalkbeat": {
@@ -130,7 +131,8 @@
           "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689882010778.svg",
           "primaryLogoAlt": "Votebeat Texas",
           "fallbackImage": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689882010877.svg",
-          "fallbackImageAlt": "Votebeat Texas"
+          "fallbackImageAlt": "Votebeat Texas",
+          "parselyTags": "www.votebeat.org,texas.votebeat.org,front-page"
         }
       },
       "votebeat-michigan": {
@@ -143,7 +145,8 @@
           "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881853460.svg",
           "primaryLogoAlt": "Votebeat Michigan",
           "fallbackImage": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881853628.svg",
-          "fallbackImageAlt": "Votebeat Michigan"
+          "fallbackImageAlt": "Votebeat Michigan",
+          "parselyTags": "www.votebeat.org,michigan.votebeat.org,front-page"
         }
       },
       "votebeat": {
@@ -161,7 +164,8 @@
           "querylyId": "97c1487e2c4b47a2",
           "querylyOrg": "civicnewscompany",
           "republishHeader": "This article was <a href='#canonicalUrl#' target='_blank' rel='canonical'>originally published</a> by <a href='#websiteDomain#' target='_blank'>Votebeat</a>, a nonprofit news organization covering local election administration and voting access.",
-          "republishFooter": "Votebeat is a nonprofit news organization committed to reporting the nuanced truth about elections and voting at a time of crisis in America."
+          "republishFooter": "Votebeat is a nonprofit news organization committed to reporting the nuanced truth about elections and voting at a time of crisis in America.",
+          "parselyTags": "www.votebeat.org,front-page"
         }
       }
     },
@@ -175,6 +179,7 @@
         "fallbackImageAlt": "alt text",
         "resizerURL": "https://civicnewscompany-chalkbeat-prod.web.arc-cdn.net/resizer",
         "navColor": "light",
+        "parselyTags": "front-page",
         "locale": "en",
         "dateLocalization": {
           "language": "en_US",
