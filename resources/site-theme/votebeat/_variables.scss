@@ -70,6 +70,7 @@
     --font-3: "IBM Plex Serif";
     --font-4: "farnham-headline";
     --font-body: var(--font-1);
+    --font-size: 1.2rem;
     --font-headline: var(--font-1);
     --font-subheading: var(--font-1);
     --font-list-title: var(--font-1);
@@ -84,7 +85,7 @@
     --font-caption: var(--font-1);
     --font-credit: var(--font-3);
 
-    --body-1: 1.8rem;
+    --body-1: 1rem;
     --quote-1: 2.4rem;
     --subhead-1: 1.8rem;
     --byline-1-large: 1.3rem;
@@ -112,7 +113,10 @@
     --title-1-extra-large: 12rem;
     --title-2: 3rem;
     --title-5: 1.6rem;
-
-
     --headerHeight: 145px;
+}
+
+html,
+body {
+    font-size: 10px !important;
 }

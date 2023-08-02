@@ -1,5 +1,6 @@
 import { useFusionContext } from "fusion:context";
 import React from "react";
+import IconsMap from "../../features/iconsMap/default";
 
 const OneColLayout = ({ children }) => {
   const [navigation, fullWidth, footer] = children;
@@ -22,6 +23,7 @@ const OneColLayout = ({ children }) => {
           </div>
         </section>
         <footer className="footer">{footer}</footer>
+        <IconsMap></IconsMap>
       </div>
     </>
   );

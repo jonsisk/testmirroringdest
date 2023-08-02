@@ -1,3 +1,5 @@
+@import '../variables';
+
 .Page-footer {
     --color-link-text: var(--color-footer-link);
     --color-link-text-hover: var(--color-footer-link-hover);
@@ -21,14 +23,59 @@
     line-height: 1.6;
 }
 
-.Page-footer-container-section ul li a {
-    font-size: var(--font-size);
-    font-weight: 400;
+.Page-footer-container-navigation ul {
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+        a {
+            font-size: var(--font-size);
+            font-family: var(--font-3);
+            font-weight: 400;
+            padding: 6px 8px;
+            text-align: center;
+            display: inline-block;
+            margin: 0 0 8px 3px;
+            font-family: 1.2rem;
+            -webkit-font-smoothing: auto;
+        }
+
+        &:after {
+            content: "\2022";
+            display: inline-block;
+            margin: 0 8px;
+        }
+    }
 }
 
-.Page-footer-container-section a {
-    -webkit-font-smoothing: auto;
+.Page-footer-container-section {
+    ul {
+        justify-content: center;
+
+        li {
+            a {
+                font-size: var(--font-size);
+                font-family: var(--font-3);
+                font-weight: 400;
+                padding: 6px 8px;
+                text-align: center;
+                display: inline-block;
+                margin: 0 0 8px 3px;
+                -webkit-font-smoothing: auto;
+            }
+
+            &:after {
+                content: "\2022";
+                display: inline-block;
+                margin: 0 8px;
+            }
+        }
+    }
 }
+
 
 .Page-footer-container-auth a {
     display: block;
@@ -45,10 +92,6 @@
 .Page-footer-container-navigation {
     padding: 0;
     margin: 0 0 8px;
-}
-
-.Page-footer-container-navigation ul {
-    margin-bottom: 8px;
 }
 
 .Page-footer-container-copyright {
@@ -91,6 +134,10 @@
         display: table-cell;
         text-align: left;
         vertical-align: middle;
+
+        ul {
+            justify-content: left;
+        }
     }
 
     .Page-footer-container-auth {

@@ -20,8 +20,10 @@ const HeaderSignup = ({
   const [showTopicPanel, setShowTopicPanel] = useState(false);
 
   const handleMouseEnterCommunity = () => {
-    setShowCommunityPanel(true);
-    setShowTopicPanel(false);
+    setTimeout(() => {
+      setShowCommunityPanel(true);
+      setShowTopicPanel(false);
+    }, 500);
   };
 
   const handleMouseLeaveCommunity = () => {
@@ -29,8 +31,10 @@ const HeaderSignup = ({
   };
 
   const handleMouseEnterTopics = () => {
-    setShowTopicPanel(true);
-    setShowCommunityPanel(false);
+    setTimeout(() => {
+      setShowTopicPanel(true);
+      setShowCommunityPanel(false);
+    }, 500);
   };
 
   const handleMouseLeaveTopics = () => {
@@ -137,17 +141,18 @@ const HeaderSignup = ({
                   </li>
 
                   <li className="Navigation-items-item" data-morebutton="">
-                    <div className="NavigationItem  has-menu">
+                    {/* <div className="NavigationItem  has-menu"> */}
+                    <div className="NavigationItem">
                       <div className="NavigationItem-text">
                         <span>More</span>
 
-                        <div className="NavigationItem-more">
+                        {/* <div className="NavigationItem-more">
                           <button aria-label="More">
                             <svg className="chevron">
                               <use xlinkHref="#chevron-down"></use>
                             </svg>
                           </button>
-                        </div>
+                        </div> */}
                       </div>
 
                       <div className="NavigationItem-items">

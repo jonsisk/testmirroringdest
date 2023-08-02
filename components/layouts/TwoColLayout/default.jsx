@@ -1,6 +1,7 @@
 import { useFusionContext } from "fusion:context";
 import React from "react";
 import "../../../resources/site-theme/votebeat.scss";
+import IconsMap from "../../features/iconsMap/default";
 
 const TwoColLayout = ({ children }) => {
   const [navigation, fullWidth1, main, rightRail, fullWidth2, footer] = children;
@@ -25,6 +26,7 @@ const TwoColLayout = ({ children }) => {
         </section>
         <footer className="footer">{footer}</footer>
       </div>
+      <IconsMap></IconsMap>
     </>
   );
 };
