@@ -8,7 +8,6 @@ import NewsletterSignup from "../../../base/newsletter/newsletter-signup.compone
 import useRenderForBreakpoint from "../../../hooks/use-renderforbreakpoint";
 import { deviceRender } from "../../../utilities/customFields";
 import { newsletterInterests } from "../../../utilities/newsletters";
-import "./styles.scss";
 
 /**
  * Handles newsletter signup with interest selection.

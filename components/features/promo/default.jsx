@@ -1,7 +1,6 @@
 import { useFusionContext } from "fusion:context";
 import PropTypes from "prop-types";
 import React from "react";
-import "./styles.scss";
 
 const Promo = ({ customFields }) => {
   const { contextPath, deployment } = useFusionContext();
