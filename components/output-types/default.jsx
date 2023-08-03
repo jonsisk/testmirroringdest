@@ -3,7 +3,7 @@ import { useFusionContext } from "fusion:context";
 import getTranslatedPhrases from "fusion:intl";
 import getProperties from "fusion:properties";
 import React from "react";
-import { getArticleParselyTags } from "../helpers/article.helper";
+import { getArticleParselyTags, getAdPathForContent } from "../helpers/article.helper";
 import { getSchema } from "../helpers/schema.helper";
 // this is blank import but used to inject scss
 import "./default.scss";
@@ -199,11 +199,14 @@ const CivicOutputType = ({
         />
         {fontUrlLink(fontUrl)}
         {globalContent.type === "story" && (
-          <meta
-            name="parsely-tags"
-            content={getArticleParselyTags(globalContent, parselyTags, arcSite)}
-          />
+          <>
+            <meta
+              name="parsely-tags"
+              content={getArticleParselyTags(globalContent, parselyTags, arcSite)}
+            />
+          </>
         )}
+        <meta name="ad-path" content={getAdPathForContent(globalContent, arcSite)} />
         <CssLinks />
         <Libs />
         <script

@@ -16,3 +16,34 @@ export const getArticleParselyTags = (article, parselyBaseTags, arcSite) => {
     });
   return tags.join(",");
 };
+
+/**
+ * Builds the correct ad path for GAM taking into consideration the content type
+ * @param {*} content - the content
+ * @param {*} arcSite - the site
+ * @returns the correct gam path for the content
+ */
+export const getAdPathForContent = (content, arcSite) => {
+  var adPath = getSiteForGAM(arcSite);
+
+  if (content.type === "story") {
+    const mainSection = content?.taxonomy?.primary_section?._id;
+    if (mainSection) adPath += mainSection;
+  }
+  if (content.node_type === "section") {
+    adPath += content?._id;
+  }
+  return adPath;
+};
+
+/**
+ * For GAM, main bureau is 'national' and sub-bureau is the second part of arcSite
+ * @param {*} arcSite
+ * @returns the actual site ad path for GAM
+ */
+const getSiteForGAM = (arcSite) => {
+  //if arcSite doesn't contain slash, return 'national;
+  if (!arcSite.includes("-")) return "national";
+  // otherwise, split by - and return the second part
+  return arcSite.split("-")[1];
+};
