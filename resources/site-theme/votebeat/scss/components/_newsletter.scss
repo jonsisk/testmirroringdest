@@ -1,0 +1,66 @@
+.newsletter-sticky {
+    background-color: #f5b362;
+    width: 100%;
+    margin: 10px 10px;
+    padding: 20px;
+
+    &.sticky {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+}
+
+
+.newsletter-breaker-wrapper {
+    grid-template-columns: 1fr;
+    display: grid;
+    max-width: 300px;
+
+    background-color: #babbe0;
+    padding: 80px 24px 24px;
+    text-align: center;
+
+    h3 {
+        font-family: "IBM Plex Serif", Georgia, serif;
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 16px;
+
+        .small {
+            font-size: 12px;
+            font-style: italic;
+        }
+    }
+}
+
+.newsletter-interests {
+    .interests {
+        display: grid;
+        grid-gap: 18px;
+        grid-template-columns: 1fr;
+
+        .interest {
+            margin: 15px 0px;
+
+            label {
+                padding: 18px;
+
+                span.title {
+                    margin-left: 10px;
+                    font-weight: 600;
+                }
+
+                span.description {
+                    padding-left: 27px;
+                    display: block;
+                    font-size: 1rem;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}

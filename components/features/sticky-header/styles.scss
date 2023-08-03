@@ -1,0 +1,64 @@
+.sticky-header {
+  display: none;
+  bottom: unset;
+  justify-content: flex-start;
+  transition: top 0.5s ease;
+  background: #fff;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 8px;
+  width: 100%;
+  align-items: center;
+
+  .ActionBarInStickyBar {
+    display: flex;
+    margin-left: 4px;
+
+    a.ActionLink {
+      align-items: center;
+      border-radius: 50%;
+      height: 30px;
+      justify-content: left;
+      display: flex;
+      transition: opacity 0.3s;
+
+      svg {
+        align-items: center;
+        border: 0;
+        height: 19px;
+        width: 19px;
+        margin-right: 8px;
+        margin-left: 20px;
+      }
+
+      svg:not(:root) {
+        overflow: hidden;
+      }
+
+      svg.facebook {
+        fill: #4c67a1;
+      }
+
+      svg.twitter {
+        fill: #1da1f2;
+      }
+    }
+  }
+
+  img {
+    height: 45px !important;
+    margin: auto;
+    display: inline-block;
+    width: auto;
+  }
+
+  a.ActionLink {
+    height: 30px;
+  }
+}
+
+.show {
+  display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}

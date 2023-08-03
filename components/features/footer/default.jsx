@@ -3,7 +3,6 @@ import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
 import React from "react";
-import "./styles.scss";
 
 const Footer = (props) => {
   const { arcSite } = useFusionContext();

@@ -1,0 +1,465 @@
+@import '../variables';
+
+.header {
+    background-color: var(--color-header-bg);
+    width: 100%;
+    padding: 0px !important;
+
+    .customheader {
+        &.sticky {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .Page-header {
+            padding: 24px 36px;
+
+            .Page-header-wrap {
+                max-width: 1084px;
+                margin: auto;
+                height: 100px;
+
+                .Page-header-bar {
+                    box-shadow: none;
+                    height: 100px;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    flex-direction: row;
+
+                    .Page-header-bar-logo {
+                        display: flex;
+                        align-items: center;
+
+                        a {
+                            text-decoration: none;
+
+                            .PageLogo-image {
+                                height: 80px;
+                                max-width: 255px;
+                                margin-right: 12px;
+                            }
+                        }
+                    }
+
+                    .Page-header-navigation-wrapper {
+                        margin-left: 24px;
+                        flex: 1 1 auto;
+                        padding: 0;
+                        height: inherit;
+
+                        .Page-header-tagline {
+                            display: block;
+                            color: var(--color-header-date-line-text);
+                            font-style: italic;
+                            padding-top: 12px;
+                            font-family: var(--font-3);
+                            font-size: 1.6rem;
+                        }
+
+                        .Page-header-navigation {
+                            display: flex;
+                            margin-top: 12px;
+                            margin-left: -16px;
+                            width: 100%;
+                            flex: 100%;
+
+                            .Navigation {
+                                font-size: 1.8rem;
+                                color: var(--color-header-text);
+                                --color-link-text: var(--color-header-text);
+                                display: flex;
+                                position: relative;
+                                z-index: 2;
+                                width: 100%;
+
+                                ul.Navigation-items {
+                                    display: flex;
+                                    flex-grow: 1;
+                                    flex-wrap: wrap;
+                                    max-width: 100%;
+                                    overflow: visible;
+                                    list-style: none;
+                                    --navColumns: 2;
+
+                                    li.Navigation-items-item {
+                                        display: flex;
+                                        align-items: center;
+
+                                        .NavigationItem {
+                                            position: relative;
+
+                                            .NavigationItem-text {
+                                                white-space: nowrap;
+                                                line-height: 1.2;
+                                                display: flex;
+                                                padding: 12px 24px 12px 0px;
+                                                font-weight: 600;
+                                                flex-direction: row;
+                                                flex-wrap: nowrap;
+                                                align-content: center;
+                                                justify-content: flex-start;
+                                                align-items: center;
+
+                                                span {
+                                                    white-space: nowrap;
+                                                    line-height: 1.2;
+                                                    display: flex;
+                                                    padding: 12px 5px 12px 12px;
+                                                    font-weight: 600;
+                                                }
+
+                                                .NavigationItem-more {
+
+                                                    button {
+                                                        border: 0;
+                                                        background: none;
+
+                                                        .chevron {
+                                                            width: 14px;
+                                                            height: 9px;
+                                                            color: #fff;
+                                                            position: relative;
+                                                            top: -1px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            .NavigationItem-items {
+                                                display: none;
+                                                background-color: #393939;
+                                                padding: 10px;
+                                                position: absolute;
+                                                top: 100%;
+                                                left: 0;
+
+                                                ul {
+                                                    display: grid;
+                                                    grid-template-columns: repeat(var(--navColumns, 1), 1fr);
+                                                    column-count: 1;
+                                                    padding: 16px 16px 16px 12px;
+                                                    list-style: none;
+
+                                                    .NavigationItem-items-item {
+                                                        min-height: 30px;
+
+                                                        .NavigationLink {
+                                                            white-space: nowrap;
+                                                            line-height: 1.2;
+                                                            display: flex;
+                                                            padding: 12px 24px 12px 0;
+
+                                                            &:first-child .NavigationItem-text,
+                                                            &:first-child .NavigationLink {
+                                                                padding-left: 20px;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .SearchOverlay-search-button {
+                                align-items: center;
+                                background: none;
+                                border: 0;
+                                cursor: pointer;
+                                display: flex;
+                                justify-content: flex-start;
+                                padding: 12px 24px 12px 0;
+                                touch-action: manipulation;
+
+                                .icon-magnify {
+                                    fill: var(--color-header-text);
+                                    height: 16px;
+                                    width: 16px;
+                                }
+
+                                .sr-only {
+                                    border: 0;
+                                    clip: rect(0, 0, 0, 0);
+                                    height: 1px;
+                                    margin: -1px;
+                                    overflow: hidden;
+                                    padding: 0;
+                                    position: absolute;
+                                    width: 1px;
+                                }
+
+                                .close-x {
+                                    display: none;
+                                    fill: var(--color-header-text);
+                                    height: 15px;
+                                    left: -3px;
+                                    position: relative;
+                                    width: 15px;
+                                }
+                            }
+                        }
+                    }
+
+                    .Page-header-end {
+                        flex: 0 0 auto;
+                        height: 45px;
+                        align-self: flex-end;
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        align-content: center;
+                        justify-content: flex-end;
+                        align-items: center;
+                        gap: 16px;
+                        margin: 0px 0 -6px 0;
+
+                        a {
+                            font-size: 1.9rem;
+                            padding: 8px 16px;
+                            border: 0;
+                            flex: 0 0 auto;
+                            align-items: center;
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
+                            align-content: center;
+                            gap: 8px;
+                        }
+
+                        a.donate-button:hover:before,
+                        a.newsletter-button:hover:before {
+                            transform: rotate(-10deg);
+                        }
+
+                        a.donate-button {
+                            --color-button-hover-text: var(--color-primary-text);
+                            --color-button-text: var(--color-primary-text);
+                            --color-button-border: var(--color-header-donate-button-bg);
+                            background: var(--color-header-donate-button-bg);
+
+                            &:before {
+                                content: '';
+                                display: inline-block;
+                                width: 19px;
+                                height: 19px;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTgnIGhlaWdodD0nMTYnIGZpbGw9J25vbmUnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTE1LjM4MyAxLjMyNWMtMi4yLTEuNS00LjkxNi0uOC02LjM4My45MTdDNy41MzMuNTI1IDQuODE3LS4xODMgMi42MTcgMS4zMjVBNC41NiA0LjU2IDAgMDAuNjY3IDQuOWMtLjExNyAzLjIzMyAyLjc1IDUuODI1IDcuMTI1IDkuOGwuMDgzLjA3NWExLjY2MyAxLjY2MyAwIDAwMi4yNDItLjAwOGwuMDkxLS4wODRjNC4zNzUtMy45NjYgNy4yMzQtNi41NTggNy4xMjUtOS43OTFhNC41NTcgNC41NTcgMCAwMC0xLjk1LTMuNTY3em0tNi4zIDEyLjEzM0w5IDEzLjU0MmwtLjA4My0uMDg0QzQuOTUgOS44NjcgMi4zMzMgNy40OTIgMi4zMzMgNS4wODNjMC0xLjY2NiAxLjI1LTIuOTE2IDIuOTE3LTIuOTE2IDEuMjgzIDAgMi41MzMuODI1IDIuOTc1IDEuOTY2aDEuNTU4Yy40MzQtMS4xNDEgMS42ODQtMS45NjYgMi45NjctMS45NjYgMS42NjcgMCAyLjkxNyAxLjI1IDIuOTE3IDIuOTE2IDAgMi40MDktMi42MTcgNC43ODQtNi41ODQgOC4zNzV6JyBmaWxsPScjMzkzOTM5Jy8+PC9zdmc+);
+                            }
+                        }
+
+                        a.newsletter-button {
+                            --color-button-hover-text: var(--color-primary-text);
+                            --color-button-text: var(--color-primary-text);
+                            --color-button-border: var(--color-header-newsletter-button-bg);
+                            background: var(--color-header-newsletter-button-bg);
+
+                            &:before {
+                                content: '';
+                                display: inline-block;
+                                width: 19px;
+                                height: 19px;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTgnIGhlaWdodD0nMTQnIGZpbGw9J25vbmUnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTE1LjY2Ny4zMzNIMi4zMzNDMS40MTcuMzMzLjY3NSAxLjA4My42NzUgMkwuNjY3IDEyYzAgLjkxNy43NSAxLjY2NyAxLjY2NiAxLjY2N2gxMy4zMzRjLjkxNiAwIDEuNjY2LS43NSAxLjY2Ni0xLjY2N1YyYzAtLjkxNy0uNzUtMS42NjctMS42NjYtMS42Njd6TTE0LjgzMyAxMkgzLjE2N2EuODM2LjgzNiAwIDAxLS44MzQtLjgzM3YtNy41bDUuNzg0IDMuNjE2YTEuNjUgMS42NSAwIDAwMS43NjYgMGw1Ljc4NC0zLjYxNnY3LjVhLjgzNi44MzYgMCAwMS0uODM0LjgzM3pNOSA2LjE2N0wyLjMzMyAyaDEzLjMzNEw5IDYuMTY3eicgZmlsbD0nIzM5MzkzOScvPjwvc3ZnPg==);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include respond-down(xl) {
+        .customheader {
+            .Page-header {
+                padding: 16px 16px 0 16px;
+
+                @include respond-down(md) {
+                    padding: 8px 16px 0 16px;
+                }
+
+                .Page-header-wrap {
+                    max-width: 100%;
+                    margin: 0;
+                    height: auto;
+
+                    .Page-header-bar {
+                        display: flex;
+                        height: auto;
+                        flex-wrap: wrap;
+                        flex-direction: row;
+                        align-content: flex-start;
+                        align-items: flex-start;
+                        justify-content: space-between;
+
+                        .Page-header-bar-logo {
+                            display: flex;
+
+                            a {
+                                text-decoration: none;
+
+                                .PageLogo-image {
+                                    height: 80px;
+
+                                    @include respond-down(md) {
+                                        height: 44px;
+                                    }
+
+                                    @include respond-down(xs) {
+                                        height: auto;
+                                        width: 35vw;
+                                    }
+                                }
+                            }
+                        }
+
+                        .Page-header-navigation-wrapper {
+                            margin: 0;
+                            order: 3;
+                            flex: 0 0 100%;
+
+                            .Page-header-tagline {
+                                display: none;
+                            }
+
+                            .Page-header-navigation {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                flex-wrap: nowrap;
+                                margin: 0 0 0 -10px;
+
+                                .Navigation {
+                                    display: flex;
+
+                                    ul.Navigation-items {
+                                        display: flex;
+
+                                        @include respond-down(md) {
+                                            margin: 16px 0 0 0;
+                                        }
+
+                                        li.Navigation-items-item {
+                                            display: flex;
+                                            cursor: pointer;
+
+                                            .NavigationItem {
+                                                position: relative;
+                                                padding: 0px 0 0px 14px;
+                                                height: 50px;
+                                                display: flex;
+                                                margin: 0 10px 0 0;
+
+                                                @include respond-down(xs) {
+                                                    padding: 0;
+                                                    margin: 0 8px 0 0;
+                                                }
+
+                                                &.has-menu:hover {
+                                                    background-color: #393939;
+
+                                                    svg {
+                                                        color: var(--color-link-text-hover);
+                                                        fill: var(--color-link-text-hover);
+                                                        opacity: 0.5;
+                                                    }
+                                                }
+
+                                                .NavigationItem-text {
+                                                    @include respond-down(xs) {
+                                                        padding: 0;
+                                                    }
+
+                                                    span {
+                                                        padding: 6px 5px 6px 12px;
+
+                                                        @include respond-down(xs) {
+                                                            padding: 6px 4px 6px 8px;
+                                                        }
+                                                    }
+
+                                                }
+
+                                                .NavigationItem-items {
+                                                    left: 0;
+                                                    top: 44px;
+
+                                                    @include respond-down(xs) {
+                                                        position: fixed;
+                                                        left: 0px;
+                                                        top: unset;
+                                                        margin-top: 48px;
+                                                        width: 100%;
+                                                        padding: 0px 0px 0px 8px;
+                                                        height: 90vh;
+                                                        overflow-y: auto;
+                                                    }
+
+                                                    ul {
+                                                        --navColumns: 2;
+
+                                                        @include respond-down(xs) {
+                                                            --navColumns: 1;
+                                                        }
+
+                                                        .NavigationItem-items-item {
+
+                                                            .NavigationLink {
+                                                                padding: 12px 24px 12px 0;
+
+                                                                &:first-child .NavigationItem-text,
+                                                                &:first-child .NavigationLink {
+                                                                    padding-left: 20px;
+                                                                }
+
+                                                                @include respond-down(xs) {
+                                                                    justify-content: left;
+                                                                    border-bottom: 1px solid var(--color-header-border);
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .SearchOverlay-search-button {
+                                    align-items: center;
+
+                                    .close-x {
+                                        display: none;
+                                    }
+
+                                    @include respond-down(md) {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+
+                        .Page-header-end {
+                            flex: 0 0 50%;
+                            order: 2;
+                            align-self: flex-start;
+
+                            a {
+                                font-size: 1.9rem;
+                                padding: 8px 16px;
+
+                                @include respond-down(md) {
+                                    font-size: 1.3rem;
+                                    padding: 6px 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

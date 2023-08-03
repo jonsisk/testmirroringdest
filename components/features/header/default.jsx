@@ -4,7 +4,6 @@ import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
 import React from "react";
 import HeaderSignup from "../../base/header/header-signup.component";
-import "./styles.scss";
 
 const Header = ({ customFields }) => {
   const context = useFusionContext();
