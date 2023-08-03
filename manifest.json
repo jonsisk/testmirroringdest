@@ -17,6 +17,10 @@
         {
           "id": "newsletters",
           "title": "Newsletters settings"
+        },
+        {
+          "id": "integrations",
+          "title": "Integrations settings"
         }
       ]
     }
@@ -61,6 +65,14 @@
       "fieldTitle": "Recaptcha Site Key",
       "fieldCategory": "custom",
       "fieldSubcategory": "newsletters",
+      "fieldTarget": "site"
+    },
+    {
+      "fieldId": "parselyTags",
+      "fieldType": "text",
+      "fieldTitle": "Parsely tags, comma separated",
+      "fieldCategory": "custom",
+      "fieldSubcategory": "integrations",
       "fieldTarget": "site"
     }
   ]
