@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./header-composer.scss";
 
 /**
  * Handles the newsletter signup form using recaptcha and posting to an external
@@ -21,8 +20,10 @@ const HeaderSignup = ({
   const [showTopicPanel, setShowTopicPanel] = useState(false);
 
   const handleMouseEnterCommunity = () => {
-    setShowCommunityPanel(true);
-    setShowTopicPanel(false);
+    setTimeout(() => {
+      setShowCommunityPanel(true);
+      setShowTopicPanel(false);
+    }, 500);
   };
 
   const handleMouseLeaveCommunity = () => {
@@ -30,8 +31,10 @@ const HeaderSignup = ({
   };
 
   const handleMouseEnterTopics = () => {
-    setShowTopicPanel(true);
-    setShowCommunityPanel(false);
+    setTimeout(() => {
+      setShowTopicPanel(true);
+      setShowCommunityPanel(false);
+    }, 500);
   };
 
   const handleMouseLeaveTopics = () => {
@@ -138,17 +141,18 @@ const HeaderSignup = ({
                   </li>
 
                   <li className="Navigation-items-item" data-morebutton="">
-                    <div className="NavigationItem  has-menu">
+                    {/* <div className="NavigationItem  has-menu"> */}
+                    <div className="NavigationItem">
                       <div className="NavigationItem-text">
                         <span>More</span>
 
-                        <div className="NavigationItem-more">
+                        {/* <div className="NavigationItem-more">
                           <button aria-label="More">
                             <svg className="chevron">
                               <use xlinkHref="#chevron-down"></use>
                             </svg>
                           </button>
-                        </div>
+                        </div> */}
                       </div>
 
                       <div className="NavigationItem-items">
@@ -249,6 +253,11 @@ const HeaderSignup = ({
             </a>
           </div>
         </div>
+      </div>
+      <div className="hidden">
+        <svg viewBox="373.3 133.3 533.3 533.3" id="icon-magnify" xmlns="http://www.w3.org/2000/svg">
+          <path d="M754.7 468.7l-22.3-22.3c24.3-33.3 37.5-73.4 37.7-114.7 0-109.5-88.8-198.3-198.3-198.3s-198.3 88.8-198.3 198.3S462.1 530 571.7 530c41.2-.2 81.3-13.4 114.7-37.7l22.3 22.3 152.7 152 45.3-45.3-152-152.6zm-183 0c-75.8 0-137.3-61.5-137.3-137.3S495.8 194 571.7 194 709 255.5 709 331.3c.2 75.7-61 137.1-136.7 137.3-.2.1-.4.1-.6.1z"></path>
+        </svg>
       </div>
     </div>
   );
