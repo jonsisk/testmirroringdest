@@ -74,6 +74,14 @@
       "fieldCategory": "custom",
       "fieldSubcategory": "integrations",
       "fieldTarget": "site"
+    },
+    {
+      "fieldId": "gamSiteId",
+      "fieldType": "text",
+      "fieldTitle": "GAM site ID, usually 'national' for main site",
+      "fieldCategory": "custom",
+      "fieldSubcategory": "integrations",
+      "fieldTarget": "site"
     }
   ]
 }

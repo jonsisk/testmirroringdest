@@ -206,7 +206,6 @@ const CivicOutputType = ({
             />
           </>
         )}
-        <meta name="ad-path" content={getAdPathForContent(globalContent, arcSite)} />
         <CssLinks />
         <Libs />
         <script
