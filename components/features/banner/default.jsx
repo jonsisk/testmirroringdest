@@ -17,23 +17,23 @@ const Banner = ({ customFields }) => {
     sessionStorage.setItem("banner", "hidden");
   };
 
+  if (!showComponent) return null;
+
   return (
     <div className="banner">
-      {showComponent && (
-        <div className="Banner-content">
-          <span className="Banner-title">
-            <b>{title}</b>
-          </span>
+      <div className="Banner-content">
+        <span className="Banner-title">
+          <b>{title}</b>
+        </span>
 
-          <a className="Banner-link" href={url}>
-            {description}
-          </a>
+        <a className="Banner-link" href={url}>
+          {description}
+        </a>
 
-          <button className="Banner-close" onClick={handleClick}>
-            <span>X</span>
-          </button>
-        </div>
-      )}
+        <button className="Banner-close" onClick={handleClick}>
+          <span>X</span>
+        </button>
+      </div>
     </div>
   );
 };
