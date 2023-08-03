@@ -12,7 +12,7 @@ const useSticky = () => {
       return;
     }
 
-    setOffset(stickyRef.current.offsetTop);
+    setOffset(stickyRef.current.offsetTop + 100);
   }, [stickyRef, setOffset]);
 
   useEffect(() => {
