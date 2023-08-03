@@ -2,6 +2,7 @@ import ArticleDate from "@wpmedia/date-block";
 import { Image } from "@wpmedia/engine-theme-sdk";
 import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
 import { Byline, Heading, SecondaryFont, Overline } from "@wpmedia/shared-styles";
+import getProperties from "fusion:properties";
 import React from "react";
 
 const ResultItem = React.memo(
@@ -29,18 +30,13 @@ const ResultItem = React.memo(
         websites,
       } = element;
 
-      console.log(element);
+      const actualSite = Object.keys(websites).find((key) => key.includes("-"));
+
+      const { websiteName } = getProperties(actualSite);
 
       const imageURL = extractImageFromStory(element);
+
       const url = websites[arcSite].website_url;
-      //const urlSectionName = websites[arcSite].website_section.name;
-      const websiteNames = url.split("-");
-      const websiteName =
-        websiteNames[1].charAt(0).toUpperCase() +
-        websiteNames[1].slice(1) +
-        " " +
-        websiteNames[2].charAt(0).toUpperCase() +
-        websiteNames[2].slice(1);
 
       return (
         <div className={`list-item ${!showImage ? "no-image" : ""}`} ref={ref}>
@@ -62,11 +58,10 @@ const ResultItem = React.memo(
           ) : null}
           {showItemOverline || showHeadline ? (
             <div className="results-list--headline-container">
-              {showItemOverline &&
-              websiteNames[1] !== arcSite /* Object.keys(websites).length < 1*/ ? (
+              {showItemOverline && Object.keys(websites).length <= 1 ? (
                 <Overline story={element} />
               ) : null}
-              {showItemOverline && websiteNames[1] === arcSite ? (
+              {showItemOverline && Object.keys(websites).length > 1 ? (
                 <a
                   href={url}
                   title={headlineText}
