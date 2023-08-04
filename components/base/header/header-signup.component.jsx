@@ -274,7 +274,7 @@ const HeaderSignup = ({
           </div>
 
           <div className="Page-header-end">
-            <a href="/pages/newsletters" className="Button newsletter-button" data-cms-ai="0">
+            <a href="/newsletters/" className="Button newsletter-button" data-cms-ai="0">
               Sign Up
             </a>
 
