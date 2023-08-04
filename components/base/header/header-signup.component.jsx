@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useBrowserGlobals } from "../../hooks/use-browserglobals";
 
 /**
  * Handles the newsletter signup form using recaptcha and posting to an external
@@ -16,11 +17,18 @@ const HeaderSignup = ({
   topicsTitle,
   topLevelUrl,
 }) => {
+  const global = useBrowserGlobals();
   const [showCommunityPanel, setShowCommunityPanel] = useState(false);
   const [showTopicPanel, setShowTopicPanel] = useState(false);
   const [showMorePanel, setShowMorePanel] = useState(false);
   const [showSubCommunityPanel, setShowSubCommunityPanel] = useState(false);
   const [showSubTopicPanel, setShowSubTopicPanel] = useState(false);
+
+  const querylySearchClick = () => {
+    const event = new Event("change");
+    global.document.getElementById("queryly_toggle").checked = true;
+    global.document.getElementById("queryly_toggle").dispatchEvent(event);
+  };
 
   const handleMouseEnterCommunity = () => {
     setTimeout(() => {
@@ -261,7 +269,7 @@ const HeaderSignup = ({
                 </ul>
               </nav>
 
-              <button className="SearchOverlay-search-button">
+              <button onClick={querylySearchClick} className="SearchOverlay-search-button">
                 <svg className="icon-magnify">
                   <use xlinkHref="#icon-magnify"></use>
                 </svg>
