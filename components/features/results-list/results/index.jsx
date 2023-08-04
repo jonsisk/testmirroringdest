@@ -40,6 +40,7 @@ const Results = ({
         requestedOffset === configuredOffset ? configuredOffset : requestedOffset + configuredSize;
       switch (contentService) {
         case "story-feed-author":
+        case "story-feed-author-civic":
         case "story-feed-sections":
         case "story-feed-sections-civic":
         case "story-feed-tag": {
