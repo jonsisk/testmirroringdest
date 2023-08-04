@@ -47,25 +47,19 @@ const HeaderSignup = ({
     setShowTopicPanel(false);
   };
 
-  const handleMouseEnterMore = () => {
-    setTimeout(() => {
-      setShowMorePanel(true);
-      setShowCommunityPanel(false);
-    }, 500);
+  const handleClickMore = () => {
+    setShowMorePanel(!showMorePanel);
+    setShowCommunityPanel(false);
   };
 
   const handleClickSubCommunity = () => {
-    setTimeout(() => {
-      setShowSubCommunityPanel(true);
-      setShowSubTopicPanel(false);
-    }, 500);
+    setShowSubCommunityPanel(!showSubCommunityPanel);
+    setShowSubTopicPanel(false);
   };
 
   const handleClickSubTopics = () => {
-    setTimeout(() => {
-      setShowSubTopicPanel(true);
-      setShowSubCommunityPanel(false);
-    }, 500);
+    setShowSubTopicPanel(!showSubTopicPanel);
+    setShowSubCommunityPanel(false);
   };
 
   return (
@@ -171,7 +165,7 @@ const HeaderSignup = ({
                   <li className="Navigation-items-item">
                     {/* <div className="NavigationItem  has-menu"> */}
                     <div className="NavigationItem">
-                      <div className="NavigationItem-text" onClick={handleMouseEnterMore}>
+                      <div className="NavigationItem-text" onClick={handleClickMore}>
                         <span>More</span>
 
                         {/* <div className="NavigationItem-more">
