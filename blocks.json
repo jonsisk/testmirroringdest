@@ -38,6 +38,9 @@
     "@wpmedia/full-author-bio-block",
     "@wpmedia/gallery-block",
     "@wpmedia/headline-block",
+    "@wpmedia/header-block",
+    "@wpmedia/header-nav-block",
+    "@wpmedia/header-nav-chain-block",
     "@wpmedia/htmlbox-block",
     "@wpmedia/identity-block",
     "@wpmedia/large-manual-promo-block",
@@ -215,7 +218,7 @@
       "styleProperties": {
         "primary-font-family": "'Abel', Sans-Serif",
         "secondary-font-family": "'Abel', Sans-Serif",
-        "primary-color": "#fff"
+        "primary-color": "#544459"
       }
     }
   }

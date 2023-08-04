@@ -3,6 +3,7 @@ import { useFusionContext } from "fusion:context";
 import getTranslatedPhrases from "fusion:intl";
 import getProperties from "fusion:properties";
 import React from "react";
+import IconsMap from "../features/iconsMap/default";
 import { getArticleParselyTags } from "../helpers/article.helper";
 import { getSchema } from "../helpers/schema.helper";
 // this is blank import but used to inject scss
@@ -263,6 +264,7 @@ const CivicOutputType = ({
           {children}
         </div>
         <Fusion />
+        <IconsMap />
       </body>
     </html>
   );
