@@ -115,10 +115,6 @@ const Results = ({
 
   const isThereMore = requestedResultList?.next || viewableElements?.length < fullListLength;
 
-  console.log(
-    "isThereMore: " + isThereMore + " -> " + fullListLength + " -> " + viewableElements?.length
-  );
-
   const onReadMoreClick = useCallback(() => {
     setQueryOffset((oldOffset) => oldOffset + configuredSize);
   }, [configuredSize, setQueryOffset]);
