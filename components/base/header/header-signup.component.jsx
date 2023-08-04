@@ -18,11 +18,17 @@ const HeaderSignup = ({
 }) => {
   const [showCommunityPanel, setShowCommunityPanel] = useState(false);
   const [showTopicPanel, setShowTopicPanel] = useState(false);
+  const [showMorePanel, setShowMorePanel] = useState(false);
+  const [showSubCommunityPanel, setShowSubCommunityPanel] = useState(false);
+  const [showSubTopicPanel, setShowSubTopicPanel] = useState(false);
 
   const handleMouseEnterCommunity = () => {
     setTimeout(() => {
       setShowCommunityPanel(true);
       setShowTopicPanel(false);
+      setShowMorePanel(false);
+      setShowSubTopicPanel(false);
+      setShowSubCommunityPanel(false);
     }, 500);
   };
 
@@ -39,6 +45,27 @@ const HeaderSignup = ({
 
   const handleMouseLeaveTopics = () => {
     setShowTopicPanel(false);
+  };
+
+  const handleMouseEnterMore = () => {
+    setTimeout(() => {
+      setShowMorePanel(true);
+      setShowCommunityPanel(false);
+    }, 500);
+  };
+
+  const handleClickSubCommunity = () => {
+    setTimeout(() => {
+      setShowSubCommunityPanel(true);
+      setShowSubTopicPanel(false);
+    }, 500);
+  };
+
+  const handleClickSubTopics = () => {
+    setTimeout(() => {
+      setShowSubTopicPanel(true);
+      setShowSubCommunityPanel(false);
+    }, 500);
   };
 
   return (
@@ -78,6 +105,7 @@ const HeaderSignup = ({
                         className="NavigationItem-items"
                         onMouseEnter={handleMouseEnterCommunity}
                         onMouseLeave={handleMouseLeaveCommunity}
+                        onClick={handleMouseEnterCommunity}
                         style={{ display: showCommunityPanel ? "block" : "none" }}
                       >
                         <ul>
@@ -140,10 +168,10 @@ const HeaderSignup = ({
                     </div>
                   </li>
 
-                  <li className="Navigation-items-item" data-morebutton="">
+                  <li className="Navigation-items-item">
                     {/* <div className="NavigationItem  has-menu"> */}
                     <div className="NavigationItem">
-                      <div className="NavigationItem-text">
+                      <div className="NavigationItem-text" onClick={handleMouseEnterMore}>
                         <span>More</span>
 
                         {/* <div className="NavigationItem-more">
@@ -155,11 +183,17 @@ const HeaderSignup = ({
                         </div> */}
                       </div>
 
-                      <div className="NavigationItem-items">
+                      <div
+                        className="NavigationItem-items"
+                        style={{ display: showMorePanel ? "block" : "none" }}
+                      >
                         <ul>
                           <li className="NavigationItem-items-item" data-show="false">
                             <div className="NavigationItem  has-menu">
-                              <div className="NavigationItem-text">
+                              <div
+                                className="NavigationItem-text"
+                                onClick={handleClickSubCommunity}
+                              >
                                 <span>{communitiesTitle}</span>
 
                                 <div className="NavigationItem-more">
@@ -171,7 +205,10 @@ const HeaderSignup = ({
                                 </div>
                               </div>
 
-                              <div className="NavigationItem-items">
+                              <div
+                                className="NavigationItem-items"
+                                style={{ display: showSubCommunityPanel ? "block" : "none" }}
+                              >
                                 <ul>
                                   {communityNavigation &&
                                     communityNavigation.children.map((item) => (
@@ -187,7 +224,7 @@ const HeaderSignup = ({
                           </li>
                           <li className="NavigationItem-items-item" data-show="false">
                             <div className="NavigationItem  has-menu">
-                              <div className="NavigationItem-text">
+                              <div className="NavigationItem-text" onClick={handleClickSubTopics}>
                                 <span>{topicsTitle}</span>
 
                                 <div className="NavigationItem-more">
@@ -199,7 +236,10 @@ const HeaderSignup = ({
                                 </div>
                               </div>
 
-                              <div className="NavigationItem-items">
+                              <div
+                                className="NavigationItem-items"
+                                style={{ display: showSubTopicPanel ? "block" : "none" }}
+                              >
                                 <ul>
                                   {topicNavigation &&
                                     topicNavigation.children.map((item) => (
