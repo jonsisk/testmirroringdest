@@ -56,10 +56,10 @@ export const getSchema = (globalContent, logo, baseUrl, websiteName) => {
             "url": "${logo}"
            }
         },  
-        "thumbnailUrl": "${baseUrl}${image.additional_properties.thumbnailResizeUrl}",
+        "thumbnailUrl": "${baseUrl}${image?.additional_properties?.thumbnailResizeUrl}",
         "image": {
           "@type": "ImageObject",
-          "url": "${baseUrl}${image.additional_properties.fullSizeResizeUrl}"
+          "url": "${baseUrl}${image?.additional_properties?.fullSizeResizeUrl}"
         }
       }`;
 };

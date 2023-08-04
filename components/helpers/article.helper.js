@@ -9,7 +9,7 @@ export const getArticleParselyTags = (article, parselyBaseTags, arcSite) => {
   // get array from comma separated string
   const tags = parselyBaseTags.split(",").map((tag) => tag.trim());
   //add tags from article and remove starting slash
-  article.taxonomy.sections
+  article?.taxonomy?.sections
     .filter((section) => section._website === arcSite)
     .forEach((tag) => {
       tags.push(tag._id.replace(/^\//, ""));
