@@ -198,7 +198,7 @@ const CivicOutputType = ({
           websiteDomain={websiteDomain}
         />
         {fontUrlLink(fontUrl)}
-        {globalContent.type === "story" && (
+        {globalContent?.type === "story" && (
           <>
             <meta
               name="parsely-tags"
@@ -243,13 +243,15 @@ const CivicOutputType = ({
         {api?.retail?.script ? (
           <script defer data-integration="arcp" src={api?.retail?.script} />
         ) : null}
-        {querylyCode(querylyId, querylyOrg, metaValue("page-type"))}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: getSchema(globalContent, primaryLogo, websiteDomain, websiteName),
-          }}
-        ></script>
+        {querylyCode(querylyId, querylyOrg, metaValue("page-type"))}$
+        {globalContent && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: getSchema(globalContent, primaryLogo, websiteDomain, websiteName),
+            }}
+          ></script>
+        )}
       </head>
       <body>
         {comscoreNoScript(comscoreID)}

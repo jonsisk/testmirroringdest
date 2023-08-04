@@ -15,6 +15,7 @@ const Banner = ({ customFields }) => {
 
   const handleClick = () => {
     sessionStorage.setItem("banner", "hidden");
+    setShowComponent(false);
   };
 
   if (!showComponent) return null;
