@@ -41,6 +41,7 @@ const Results = ({
       switch (contentService) {
         case "story-feed-author":
         case "story-feed-sections":
+        case "story-feed-sections-civic":
         case "story-feed-tag": {
           return { feedOffset: offset, feedSize: size };
         }
