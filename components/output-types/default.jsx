@@ -3,7 +3,7 @@ import { useFusionContext } from "fusion:context";
 import getTranslatedPhrases from "fusion:intl";
 import getProperties from "fusion:properties";
 import React from "react";
-import { getArticleParselyTags, getAdPathForContent } from "../helpers/article.helper";
+import { getArticleParselyTags } from "../helpers/article.helper";
 import { getSchema } from "../helpers/schema.helper";
 // this is blank import but used to inject scss
 import "./default.scss";
