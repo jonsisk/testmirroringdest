@@ -1,0 +1,21 @@
+.vb_social_media_block {
+	display: flex;
+	align-items: center;
+	padding: 5px;
+	margin: 5px 0;
+	color: white;
+	text-decoration: none;
+	border-radius: 5px;
+	font-size: 15px;
+	text-transform: uppercase;
+    letter-spacing: .5px;
+}
+.vb_social_media_block:hover {
+	color: white !important;
+    opacity: .8;
+}
+.vb_social_media_block img {
+	width: 15px;
+	height: 15px;
+	margin: 0 10px 0 5px;
+}
