@@ -1,12 +1,9 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React from "react";
 import "./styles.scss";
 
 const Follow = ({ customFields }) => {
   const { title, urlTwitter, urlInstagram, urlFacebook, urlRSS } = customFields;
-  const [showComponent] = useState(false);
-
-  if (!showComponent) return null;
 
   return (
     <div className="HtmlModule">
@@ -14,8 +11,7 @@ const Follow = ({ customFields }) => {
       <a
         href={urlTwitter}
         target="_blank"
-        style="background:#1da1f3;"
-        className="vb_social_media_block"
+        className="vb_social_media_block twitter"
         data-cms-ai="0"
         rel="noreferrer"
       >
@@ -25,8 +21,7 @@ const Follow = ({ customFields }) => {
       <a
         href={urlInstagram}
         target="_blank"
-        style="background:#dd2a7b;"
-        className="vb_social_media_block"
+        className="vb_social_media_block instagram"
         data-cms-ai="0"
         rel="noreferrer"
       >
@@ -36,8 +31,7 @@ const Follow = ({ customFields }) => {
       <a
         href={urlFacebook}
         target="_blank"
-        style="background:#3f5d9a;"
-        className="vb_social_media_block"
+        className="vb_social_media_block facebook"
         data-cms-ai="0"
         rel="noreferrer"
       >
@@ -47,8 +41,7 @@ const Follow = ({ customFields }) => {
       <a
         href={urlRSS}
         target="_blank"
-        style="background:#fd7e03;"
-        className="vb_social_media_block"
+        className="vb_social_media_block rss"
         data-cms-ai="0"
         rel="noreferrer"
       >
