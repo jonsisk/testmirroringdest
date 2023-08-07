@@ -114,7 +114,7 @@ const CivicOutputType = ({
     fallbackImage,
     comscoreID,
     querylyId,
-    querylyOrg,
+    parentCommunity,
     locale = "en",
   } = getProperties(arcSite);
 
@@ -244,7 +244,7 @@ const CivicOutputType = ({
         {api?.retail?.script ? (
           <script defer data-integration="arcp" src={api?.retail?.script} />
         ) : null}
-        {querylyCode(querylyId, querylyOrg, metaValue("page-type"))}
+        {querylyCode(querylyId, parentCommunity || arcSite, metaValue("page-type"))}
         {globalContent && (
           <script
             type="application/ld+json"
