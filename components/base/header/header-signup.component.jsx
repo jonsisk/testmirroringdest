@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useBrowserGlobals } from "../../hooks/use-browserglobals";
 
 /**
- * Handles the newsletter signup form using recaptcha and posting to an external
- * endpoint to handle the actual mailchimp API communication.
+ * Header component
  */
 const HeaderSignup = ({
   tagline,
@@ -23,6 +22,7 @@ const HeaderSignup = ({
   const [showMorePanel, setShowMorePanel] = useState(false);
   const [showSubCommunityPanel, setShowSubCommunityPanel] = useState(false);
   const [showSubTopicPanel, setShowSubTopicPanel] = useState(false);
+  const menuDelay = 300;
 
   const querylySearchClick = () => {
     const event = new Event("change");
@@ -37,7 +37,7 @@ const HeaderSignup = ({
       setShowMorePanel(false);
       setShowSubTopicPanel(false);
       setShowSubCommunityPanel(false);
-    }, 500);
+    }, menuDelay);
   };
 
   const handleMouseLeaveCommunity = () => {
@@ -48,7 +48,7 @@ const HeaderSignup = ({
     setTimeout(() => {
       setShowTopicPanel(true);
       setShowCommunityPanel(false);
-    }, 500);
+    }, menuDelay);
   };
 
   const handleMouseLeaveTopics = () => {
@@ -85,13 +85,13 @@ const HeaderSignup = ({
             <div className="Page-header-navigation">
               <nav className="Navigation">
                 <ul className="Navigation-items">
-                  <li className="Navigation-items-item">
+                  <li
+                    className="Navigation-items-item"
+                    onMouseEnter={handleMouseEnterCommunity}
+                    onMouseLeave={handleMouseLeaveCommunity}
+                  >
                     <div className="NavigationItem  has-menu">
-                      <div
-                        className="NavigationItem-text"
-                        onMouseEnter={handleMouseEnterCommunity}
-                        onMouseLeave={handleMouseLeaveCommunity}
-                      >
+                      <div className="NavigationItem-text">
                         <span>{communitiesTitle}</span>
 
                         <div className="NavigationItem-more">
@@ -105,9 +105,6 @@ const HeaderSignup = ({
 
                       <div
                         className="NavigationItem-items"
-                        onMouseEnter={handleMouseEnterCommunity}
-                        onMouseLeave={handleMouseLeaveCommunity}
-                        onClick={handleMouseEnterCommunity}
                         style={{ display: showCommunityPanel ? "block" : "none" }}
                       >
                         <ul>
@@ -124,13 +121,13 @@ const HeaderSignup = ({
                     </div>
                   </li>
 
-                  <li className="Navigation-items-item item-topics">
+                  <li
+                    className="Navigation-items-item item-topics"
+                    onMouseEnter={handleMouseEnterTopics}
+                    onMouseLeave={handleMouseLeaveTopics}
+                  >
                     <div className="NavigationItem  has-menu">
-                      <div
-                        className="NavigationItem-text"
-                        onMouseEnter={handleMouseEnterTopics}
-                        onMouseLeave={handleMouseLeaveTopics}
-                      >
+                      <div className="NavigationItem-text">
                         <span>{topicsTitle}</span>
 
                         <div className="NavigationItem-more">
@@ -144,8 +141,6 @@ const HeaderSignup = ({
 
                       <div
                         className="NavigationItem-items"
-                        onMouseEnter={handleMouseEnterTopics}
-                        onMouseLeave={handleMouseLeaveTopics}
                         style={{ display: showTopicPanel ? "block" : "none" }}
                       >
                         <ul>
