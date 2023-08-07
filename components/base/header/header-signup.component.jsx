@@ -116,7 +116,7 @@ const HeaderSignup = ({
                     </div>
                   </li>
 
-                  <li className="Navigation-items-item">
+                  <li className="Navigation-items-item item-topics">
                     <div className="NavigationItem  has-menu">
                       <div
                         className="NavigationItem-text"
@@ -154,7 +154,7 @@ const HeaderSignup = ({
                     </div>
                   </li>
 
-                  <li className="Navigation-items-item">
+                  <li className="Navigation-items-item item-about">
                     <div className="NavigationItem ">
                       <div className="NavigationItem-text">
                         <a href={aboutUsUrl}>{aboutUsCopy}</a>
@@ -162,19 +162,17 @@ const HeaderSignup = ({
                     </div>
                   </li>
 
-                  <li className="Navigation-items-item">
-                    {/* <div className="NavigationItem  has-menu"> */}
-                    <div className="NavigationItem">
+                  <li className="Navigation-items-item item-more">
+                    <div className="NavigationItem has-menu">
                       <div className="NavigationItem-text" onClick={handleClickMore}>
                         <span>More</span>
-
-                        {/* <div className="NavigationItem-more">
+                        <div className="NavigationItem-more">
                           <button aria-label="More">
                             <svg className="chevron">
                               <use xlinkHref="#chevron-down"></use>
                             </svg>
                           </button>
-                        </div> */}
+                        </div>
                       </div>
 
                       <div
@@ -182,40 +180,6 @@ const HeaderSignup = ({
                         style={{ display: showMorePanel ? "block" : "none" }}
                       >
                         <ul>
-                          <li className="NavigationItem-items-item" data-show="false">
-                            <div className="NavigationItem  has-menu">
-                              <div
-                                className="NavigationItem-text"
-                                onClick={handleClickSubCommunity}
-                              >
-                                <span>{communitiesTitle}</span>
-
-                                <div className="NavigationItem-more">
-                                  <button aria-label="More">
-                                    <svg className="chevron">
-                                      <use xlinkHref="#chevron-down"></use>
-                                    </svg>
-                                  </button>
-                                </div>
-                              </div>
-
-                              <div
-                                className="NavigationItem-items"
-                                style={{ display: showSubCommunityPanel ? "block" : "none" }}
-                              >
-                                <ul>
-                                  {communityNavigation &&
-                                    communityNavigation.children.map((item) => (
-                                      <li key={item._id} className="NavigationItem-items-item">
-                                        <a className="NavigationLink" href={item.url}>
-                                          {item.display_name}
-                                        </a>
-                                      </li>
-                                    ))}
-                                </ul>
-                              </div>
-                            </div>
-                          </li>
                           <li className="NavigationItem-items-item" data-show="false">
                             <div className="NavigationItem  has-menu">
                               <div className="NavigationItem-text" onClick={handleClickSubTopics}>

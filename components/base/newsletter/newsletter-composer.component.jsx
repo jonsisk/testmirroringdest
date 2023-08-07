@@ -5,7 +5,6 @@ import React from "react";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { newsletterInterests, newsletterCopy } from "../../utilities/newsletters";
 import NewsletterSignup from "./newsletter-signup.component";
-import "./newsletter-composer.scss";
 
 /**
  * Handles the composer-driven newsletter signup form together with the power-up for newsletters

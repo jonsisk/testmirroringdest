@@ -1,0 +1,9 @@
+.Page-twoColumn {
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: minmax(auto, 800px) 300px
+}
+
+.Page-twoColumn .Page-aside {
+    margin-top: 0
+}
