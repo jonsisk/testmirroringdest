@@ -78,7 +78,9 @@
           "fusion:prop-types",
           "@arc-fusion/prop-types",
           "@wpmedia/resizer-image-block",
-          "@wpmedia/engine-theme-sdk"
+          "@wpmedia/engine-theme-sdk",
+          "@wpmedia/shared-styles",
+          "@wpmedia/date-block"
         ]
       }
     ],
