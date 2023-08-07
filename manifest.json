@@ -27,6 +27,14 @@
   ],
   "fields": [
     {
+      "fieldId": "parentCommunity",
+      "fieldType": "text",
+      "fieldTitle": "Parent community (e.g: votebeat / chalkbeat). Associates the site with a parent community to share content like menu hierarchy, footer, etc.",
+      "fieldCategory": "custom",
+      "fieldSubcategory": "global",
+      "fieldTarget": "site"
+    },
+    {
       "fieldId": "topLevelUrl",
       "fieldType": "url",
       "fieldTitle": "Top level url for topics, no slash at the end (e.g.: if Votebeat Arizona, provide Votebeat URL)",

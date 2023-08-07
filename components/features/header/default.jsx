@@ -8,7 +8,7 @@ import HeaderSignup from "../../base/header/header-signup.component";
 const Header = ({ customFields }) => {
   const context = useFusionContext();
   const { arcSite } = context;
-  const { primaryLogo, primaryLogoAlt, topLevelUrl } = getProperties(arcSite);
+  const { primaryLogo, primaryLogoAlt, topLevelUrl, parentCommunity } = getProperties(arcSite);
   const {
     tagline,
     communitiesTitle,
@@ -20,17 +20,17 @@ const Header = ({ customFields }) => {
   } = customFields;
 
   const communities = useContent({
-    source: "site-service-hierarchy",
+    source: "site-service-hierarchy-civic",
     query: {
-      site: arcSite,
+      site: parentCommunity || arcSite,
       hierarchy: communitiesHierachy,
     },
   });
 
   const topics = useContent({
-    source: "site-service-hierarchy",
+    source: "site-service-hierarchy-civic",
     query: {
-      site: arcSite,
+      site: parentCommunity || arcSite,
       hierarchy: topicsHierachy,
     },
   });

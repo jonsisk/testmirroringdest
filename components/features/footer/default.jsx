@@ -6,21 +6,21 @@ import React from "react";
 
 const Footer = (props) => {
   const { arcSite } = useFusionContext();
-  const { primaryLogo, primaryLogoAlt } = getProperties(arcSite);
+  const { primaryLogo, primaryLogoAlt, parentCommunity } = getProperties(arcSite);
   const { topHierachy, bottomHierarchy } = props.customFields;
 
   const topFooter = useContent({
-    source: "site-service-hierarchy",
+    source: "site-service-hierarchy-civic",
     query: {
-      site: arcSite,
+      site: parentCommunity || arcSite,
       hierarchy: topHierachy,
     },
   });
 
   const bottomFooter = useContent({
-    source: "site-service-hierarchy",
+    source: "site-service-hierarchy-civic",
     query: {
-      site: arcSite,
+      site: parentCommunity || arcSite,
       hierarchy: bottomHierarchy,
     },
   });
