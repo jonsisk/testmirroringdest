@@ -3,6 +3,10 @@
   border-bottom: 1px solid #dfdfdf;
   margin-top: 10px;
   margin-bottom: 16px;
+  font-family: var(--font, var(--font-1));
+  font-size: var(--byline-1);
+  line-height: 1.33;
+
   .author {
     display: inline-flex;
 
