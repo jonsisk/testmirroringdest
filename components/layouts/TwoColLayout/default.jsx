@@ -7,7 +7,7 @@ const TwoColLayout = ({ children }) => {
   const { arcSite } = useFusionContext();
   return (
     <>
-      <div className={`site-${arcSite}`}>
+      <div className={`site-${arcSite} Page-twoColumn`}>
         <header className="header">{navigation}</header>
         <section role="main" id="main" className="main" tabIndex="-1">
           <div className="container layout-section">

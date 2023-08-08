@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
-import "./styles.scss";
 
 const Banner = ({ customFields }) => {
   const { title, url, description } = customFields;
@@ -22,16 +21,16 @@ const Banner = ({ customFields }) => {
 
   return (
     <div className="banner">
-      <div className="Banner-content">
-        <span className="Banner-title">
+      <div className="banner-content">
+        <span className="banner-title">
           <b>{title}</b>
         </span>
 
-        <a className="Banner-link" href={url}>
+        <a className="banner-link" href={url}>
           {description}
         </a>
 
-        <button className="Banner-close" onClick={handleClick}>
+        <button className="banner-close" onClick={handleClick}>
           <span>X</span>
         </button>
       </div>
