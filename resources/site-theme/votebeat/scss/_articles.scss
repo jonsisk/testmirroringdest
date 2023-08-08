@@ -1,0 +1,25 @@
+.PageList-header-squiggly {
+  display: block;
+  height: 11px;
+  left: 0;
+  margin-bottom: 8px;
+  top: 0;
+  width: 44px;
+  fill: var(--color-squiggly);
+}
+
+.PageList-header-title {
+  --font: var(--font-list-title);
+  font-family: var(--font, var(--font-1));
+  font-size: var(--title-2);
+  letter-spacing: normal;
+  line-height: 1.25;
+  font-weight: 600;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: var(--titleColor, var(--color-list-title));
+}
+
+.content-story .see-more {
+  display: none;
+}

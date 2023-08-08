@@ -3461,3 +3461,11 @@ section.top a {
   text-decoration: none;
   text-transform: uppercase;
 }
+
+.PageList-header-squiggly {
+  display: none;
+}
+
+.see-more {
+  display: none !important;
+}

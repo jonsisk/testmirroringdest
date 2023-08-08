@@ -254,7 +254,7 @@ const CivicOutputType = ({
           ></script>
         )}
       </head>
-      <body>
+      <body className={`content-${globalContent?.type}`}>
         {comscoreNoScript(comscoreID)}
         {googleTagManagerNoScript(gtmID)}
         <a className="skip-main" href="#main">
