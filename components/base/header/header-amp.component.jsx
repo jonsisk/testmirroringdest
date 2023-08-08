@@ -194,7 +194,7 @@ const HeaderAMP = ({
                   type="text"
                   className="SearchOverlay-Amp-search-input"
                   name="query"
-                  required="true"
+                  required
                 />
                 <span className="sr-only">Search Query</span>
                 <button type="submit" className="SearchOverlay-Amp-search-submit">
