@@ -4,12 +4,12 @@ import React from "react";
 
 const Promo = ({ customFields }) => {
   const { contextPath, deployment, outputType } = useFusionContext();
-  const { title, description, ctaCopy, ctaURL } = customFields;
+  const { title, description, ctaCopy, ctaURL, bgColor } = customFields;
 
   if (outputType === "amp") return null;
 
   return (
-    <div className="GenericPagePromoModule">
+    <div className="GenericPagePromoModule" style={{ backgroundColor: bgColor }}>
       <div className="GenericPagePromoModule-content-wrapper">
         <div className="GenericPagePromoModule-content">
           <div className="GenericPagePromoModule-icon">
@@ -61,6 +61,10 @@ Promo.propTypes = {
     }),
     ctaURL: PropTypes.string.tag({
       label: "CTA URL",
+      group: "Configure Content",
+    }),
+    bgColor: PropTypes.string.tag({
+      label: "Background Color in hex (e.g: #fce487)",
       group: "Configure Content",
     }),
   }),

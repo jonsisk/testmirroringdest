@@ -1,76 +1,146 @@
 .newsletter-sticky {
-    background-color: #f5b362;
-    width: 100%;
-    margin: 10px 10px;
-    padding: 20px;
+  background-color: #f5b362;
+  width: 100%;
+  margin: 10px 10px;
+  padding: 20px;
 
-    &.sticky {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-    }
+  &.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
 }
 
-
 .newsletter-breaker-wrapper {
-    grid-template-columns: 1fr;
-    display: grid;
-    max-width: 300px;
+  grid-template-columns: 1fr;
+  display: grid;
+  max-width: 300px;
 
-    background-color: #babbe0;
-    padding: 80px 24px 24px;
+  background-color: #babbe0;
+  padding: 24px;
+  text-align: center;
+
+  h3 {
+    font-family: "IBM Plex Serif", Georgia, serif;
+    font-size: var(--font-size-title);
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: 1.2;
+    margin-top: 24px;
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+
+    &.small {
+      margin-top: 24px;
+      font-size: 1.19rem;
+      font-style: italic;
+      color: #767676;
+      text-align: left;
+    }
+  }
+
+  form {
+    border-top: none;
+    font-size: 1.6rem;
+    padding-top: 0;
+    border-left: none !important;
+    grid-column-gap: unset;
+    margin-left: 15%;
+    margin-right: 15%;
     text-align: center;
 
-    h3 {
-        font-family: "IBM Plex Serif", Georgia, serif;
-        font-size: 25px;
-        font-weight: 600;
-    }
+    label.emailInput-label {
+      text-align: left;
+      display: block;
+      span {
+        font-size: 1.35rem;
+        padding: 0;
+        margin-bottom: 3.2px;
 
-    p {
-        font-size: 16px;
-
-        .small {
-            font-size: 12px;
-            font-style: italic;
+        &.input-required {
+          opacity: 0.75;
         }
+      }
     }
+
+    input {
+      border-color: #fff;
+      border: 1px solid #fff;
+      font-size: 1.35rem;
+      padding: 4px;
+      height: auto;
+      width: 100%;
+      color: #000 !important;
+      line-height: 1.6;
+    }
+
+    button {
+      border-radius: 0;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center !important;
+      font-family: var(--font, var(--font-1));
+      font-size: var(--label-3);
+      font-weight: 700;
+      background: var(--color-button-bg);
+      color: #fff;
+      border: 1px solid var(--color-button-border);
+      padding: 12px 16px;
+      border-radius: 2px;
+      font-weight: 600;
+      line-height: 1;
+      order: 1;
+      margin: 0 auto;
+      padding: 8px 16px;
+      width: auto;
+      text-transform: capitalize;
+      font-size: 1.9rem;
+      font-weight: 600;
+      line-height: 1.6;
+      height: auto;
+      border: 0;
+    }
+  }
 }
 
 .newsletter-interests {
-    .interests {
-        display: grid;
-        grid-gap: 18px;
-        grid-template-columns: 1fr;
+  .interests {
+    display: grid;
+    grid-gap: 18px;
+    grid-template-columns: 1fr;
 
-        .interest {
-            margin: 15px 0px;
+    .interest {
+      margin: 15px 0px;
 
-            label {
-                padding: 18px;
+      label {
+        padding: 18px;
 
-                span.title {
-                    margin-left: 10px;
-                    font-weight: 600;
-                }
-
-                span.description {
-                    padding-left: 27px;
-                    display: block;
-                    font-size: 1rem;
-                    font-weight: 400;
-                }
-            }
+        span.title {
+          margin-left: 10px;
+          font-weight: 600;
         }
+
+        span.description {
+          padding-left: 27px;
+          display: block;
+          font-size: 1rem;
+          font-weight: 400;
+        }
+      }
     }
+  }
 }
 
 .newsletter-composer {
-
-    h1,
-    h2,
-    h3,
-    h4 {
-        font-family: "Barlow Condensed", sans-serif;
-    }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Barlow Condensed", sans-serif;
+  }
 }

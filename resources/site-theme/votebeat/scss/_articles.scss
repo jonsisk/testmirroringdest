@@ -20,6 +20,12 @@
   color: var(--titleColor, var(--color-list-title));
 }
 
+// disable see-more buttons on the articles
 .content-story .see-more {
   display: none;
+}
+
+// hide fullscreen button on images
+.btn-full-screen {
+  display: none !important;
 }
