@@ -20,7 +20,6 @@ const HeaderSignup = ({
   const [showCommunityPanel, setShowCommunityPanel] = useState(false);
   const [showTopicPanel, setShowTopicPanel] = useState(false);
   const [showMorePanel, setShowMorePanel] = useState(false);
-  const [showSubCommunityPanel, setShowSubCommunityPanel] = useState(false);
   const [showSubTopicPanel, setShowSubTopicPanel] = useState(false);
   const menuDelay = 300;
 
@@ -36,7 +35,6 @@ const HeaderSignup = ({
       setShowTopicPanel(false);
       setShowMorePanel(false);
       setShowSubTopicPanel(false);
-      setShowSubCommunityPanel(false);
     }, menuDelay);
   };
 
@@ -60,14 +58,8 @@ const HeaderSignup = ({
     setShowCommunityPanel(false);
   };
 
-  const handleClickSubCommunity = () => {
-    setShowSubCommunityPanel(!showSubCommunityPanel);
-    setShowSubTopicPanel(false);
-  };
-
   const handleClickSubTopics = () => {
     setShowSubTopicPanel(!showSubTopicPanel);
-    setShowSubCommunityPanel(false);
   };
 
   return (
@@ -165,7 +157,7 @@ const HeaderSignup = ({
                     </div>
                   </li>
 
-                  <li className="Navigation-items-item item-more">
+                  <li id="item-more" className="Navigation-items-item item-more">
                     <div className="NavigationItem has-menu">
                       <div className="NavigationItem-text" onClick={handleClickMore}>
                         <span>More</span>

@@ -10,7 +10,9 @@
     margin-top: 16px;
 }
 
-/* Example - /pages/about-votebeat */
+figure picture img {
+    max-width: 100%;
+}
 
 .RichTextBody {
     --font: var(--font-rte-body);

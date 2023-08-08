@@ -35,3 +35,22 @@ h4,
 h5 {
     margin: 0;
 }
+.custom-layout section {
+    margin-right: auto !important;
+    margin-left: auto !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    width: 100%;
+
+    @include respond-up(lg) {
+        width: 1100px;
+    }
+
+    // @include respond-up(xl) {
+    //     width: 1280px;
+    // }
+
+    // @include respond-up(xxl) {
+    //     width: 1440px;
+    // }
+}

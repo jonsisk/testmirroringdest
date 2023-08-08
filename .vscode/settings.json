@@ -30,11 +30,22 @@
   },
   "css.validate": false,
   "less.validate": false,
-  "scss.validate": false,
+  "scss.validate": true,
   "npm.packageManager": "npm",
   "typescript.tsdk": "node_modules/typescript/lib",
   "autoimport.autoComplete": true,
   "javascript.suggest.autoImports": true,
   "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": true
+  "editor.guides.bracketPairs": true,
+  "liveSassCompile.settings.formats": [
+    {
+      "extensionName": ".min.css",
+      "format": "compressed",
+      "savePath": "./resources/site-theme/_css"
+    }
+  ],
+  "liveSassCompile.settings.includeItems": ["./resources/site-theme/_compile/**"],
+  "liveSassCompile.settings.excludeList": ["**/node_modules/**", ".vscode/**"],
+  "liveSassCompile.settings.generateMap": true,
+  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"]
 }

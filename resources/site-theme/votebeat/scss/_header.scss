@@ -6,63 +6,108 @@
     padding: 0px !important;
 
     .customheader {
-        &.sticky {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
 
         .Page-header {
-            padding: 24px 36px;
+            padding: 8px 16px 0 16px;
+
+            @include respond-up(md) {
+                padding: 24px 36px;
+            }
 
             .Page-header-wrap {
                 max-width: 1084px;
                 margin: auto;
-                height: 100px;
+                height: 104px;
 
                 .Page-header-bar {
                     box-shadow: none;
-                    height: 100px;
                     display: flex;
-                    flex-wrap: nowrap;
+                    height: auto;
+                    flex-wrap: wrap;
                     flex-direction: row;
+                    align-content: flex-start;
+                    align-items: flex-start;
+                    justify-content: space-between;
+
+                    @include respond-up(md) {
+                        height: 104px;
+                        flex-wrap: nowrap;
+                        flex-direction: row;
+                    }
 
                     .Page-header-bar-logo {
                         display: flex;
                         align-items: center;
+                        flex: 0 0 50%;
+                        order: 1;
+                        align-self: flex-start;
+
+                        @include respond-down(xxs) {
+                            flex: 0 0 35%;
+                        }
+
+                        @include respond-up(md) {
+                            flex: 0 0 auto;
+                        }
 
                         a {
                             text-decoration: none;
 
                             .PageLogo-image {
-                                height: 80px;
-                                max-width: 255px;
+                                height: 44px;
+                                width: 143px;
                                 margin-right: 12px;
+
+                                @include respond-down(xxs) {
+                                    height: auto;
+                                    width: auto;
+                                    margin-right: 12px;
+                                    margin-top: 12px;
+                                }
+
+                                @include respond-up(md) {
+                                    height: 80px;
+                                    width: 255px;
+                                    margin-right: 12px;
+                                }
                             }
                         }
                     }
 
                     .Page-header-navigation-wrapper {
-                        margin-left: 24px;
-                        flex: 1 1 auto;
-                        padding: 0;
-                        height: inherit;
+                        margin: 0;
+                        order: 3;
+                        flex: 0 0 100%;
+
+                        @include respond-up(md) {
+                            margin-left: 24px;
+                            flex: 1 1 auto;
+                            padding: 0;
+                            height: inherit;
+                        }
 
                         .Page-header-tagline {
-                            display: block;
-                            color: var(--color-header-date-line-text);
-                            font-style: italic;
-                            padding-top: 12px;
-                            font-family: var(--font-3);
-                            font-size: 1.6rem;
+                            display: none;
+
+                            @include respond-up(md) {
+                                display: block;
+                                color: var(--color-header-date-line-text);
+                                font-style: italic;
+                                padding-top: 12px;
+                                font-family: var(--font-3);
+                                font-size: 1.6rem;
+                            }
                         }
 
                         .Page-header-navigation {
                             display: flex;
-                            margin-top: 12px;
-                            margin-left: -16px;
                             width: 100%;
                             flex: 100%;
+                            margin-left: -16px;
+
+                            @include respond-up(md) {
+                                margin-top: 12px;
+                            }
 
                             .Navigation {
                                 font-size: 1.8rem;
@@ -72,6 +117,7 @@
                                 position: relative;
                                 z-index: 2;
                                 width: 100%;
+                                margin: 6px 0 0 0;
 
                                 ul.Navigation-items {
                                     display: flex;
@@ -80,20 +126,48 @@
                                     max-width: 100%;
                                     overflow: visible;
                                     list-style: none;
-                                    --navColumns: 2;
+                                    --navColumns: 1;
+                                    margin: 0;
+
+                                    @include respond-up(xs) {
+                                        --navColumns: 2;
+                                    }
 
                                     li.Navigation-items-item {
                                         display: flex;
                                         align-items: center;
+                                        cursor: pointer;
 
                                         .NavigationItem {
+                                            padding: 0;
+                                            margin: 0 8px 0 0;
                                             position: relative;
+                                            height: 50px;
+                                            display: flex;
+
+                                            @include respond-up(xs) {
+                                                padding: 0px 0 0px 4px;
+                                                margin: 0 12px 0 0;
+                                            }
+
+                                            &.has-menu:hover {
+                                                background-color: #393939;
+
+                                                svg {
+                                                    color: var(--color-link-text-hover) !important;
+                                                    fill: var(--color-link-text-hover) !important;
+                                                }
+
+                                                .chevron {
+                                                    color: var(--color-link-text-hover);
+                                                }
+                                            }
 
                                             .NavigationItem-text {
                                                 white-space: nowrap;
                                                 line-height: 1.2;
                                                 display: flex;
-                                                padding: 12px 24px 12px 0px;
+                                                padding: 0px 12px 0 10px;
                                                 font-weight: 600;
                                                 flex-direction: row;
                                                 flex-wrap: nowrap;
@@ -101,12 +175,24 @@
                                                 justify-content: flex-start;
                                                 align-items: center;
 
+                                                @include respond-up(xs) {
+                                                    padding: 12px 12px 12px 0px;
+                                                }
+
                                                 span {
                                                     white-space: nowrap;
                                                     line-height: 1.2;
                                                     display: flex;
-                                                    padding: 12px 5px 12px 12px;
+                                                    padding: 6px 4px 6px 8px;
                                                     font-weight: 600;
+
+                                                    @include respond-up(xs) {
+                                                        padding: 6px 5px 6px 12px;
+                                                    }
+
+                                                    &:hover {
+                                                        color: var(--color-link-text-hover);
+                                                    }
                                                 }
 
                                                 .NavigationItem-more {
@@ -121,6 +207,10 @@
                                                             color: #fff;
                                                             position: relative;
                                                             top: -1px;
+
+                                                            &:hover {
+                                                                color: var(--color-link-text-hover);
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -129,10 +219,37 @@
                                             .NavigationItem-items {
                                                 display: none;
                                                 background-color: #393939;
-                                                padding: 10px;
-                                                position: absolute;
-                                                top: 100%;
                                                 left: 0;
+                                                position: fixed;
+                                                margin-top: 48px;
+                                                width: 100%;
+                                                padding: 0px 0px 0px 8px;
+                                                height: 90vh;
+                                                overflow-y: auto;
+
+                                                @include respond-up(xs) {
+                                                    left: 0;
+                                                    top: 0;
+                                                    padding: 0 10px;
+                                                    position: absolute;
+                                                    width: auto;
+                                                    height: auto;
+                                                    overflow: visible;
+                                                }
+
+                                                &.has-menu:hover {
+                                                    background-color: #393939;
+
+                                                    >.NavigationItem-text span {
+                                                        color: var(--color-link-text-hover);
+                                                    }
+
+                                                    svg,
+                                                    svg path {
+                                                        color: var(--color-link-text-hover) !important;
+                                                        fill: var(--color-link-text-hover) !important;
+                                                    }
+                                                }
 
                                                 ul {
                                                     display: grid;
@@ -140,15 +257,29 @@
                                                     column-count: 1;
                                                     padding: 16px 16px 16px 12px;
                                                     list-style: none;
+                                                    column-gap: 24px;
 
                                                     .NavigationItem-items-item {
                                                         min-height: 30px;
+                                                        cursor: pointer;
+
+                                                        &:hover {
+                                                            a {
+                                                                color: var(--color-link-text-hover);
+                                                            }
+                                                        }
 
                                                         .NavigationLink {
                                                             white-space: nowrap;
                                                             line-height: 1.2;
                                                             display: flex;
                                                             padding: 12px 24px 12px 0;
+                                                            justify-content: left;
+                                                            border-bottom: 1px solid var(--color-header-border);
+
+                                                            @include respond-up(xs) {
+                                                                border-bottom: 0 none;
+                                                            }
 
                                                             &:first-child .NavigationItem-text,
                                                             &:first-child .NavigationLink {
@@ -164,14 +295,18 @@
                             }
 
                             .SearchOverlay-search-button {
-                                align-items: center;
-                                background: none;
-                                border: 0;
-                                cursor: pointer;
-                                display: flex;
-                                justify-content: flex-start;
-                                padding: 12px 24px 12px 0;
-                                touch-action: manipulation;
+                                display: none;
+
+                                @include respond-up(xs) {
+                                    align-items: center;
+                                    background: none;
+                                    border: 0;
+                                    cursor: pointer;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    padding: 12px 24px 12px 0;
+                                    touch-action: manipulation;
+                                }
 
                                 .icon-magnify {
                                     fill: var(--color-header-text);
@@ -203,7 +338,8 @@
                     }
 
                     .Page-header-end {
-                        flex: 0 0 auto;
+                        flex: 0 0 50%;
+                        order: 2;
                         height: 45px;
                         align-self: flex-end;
                         display: flex;
@@ -215,9 +351,15 @@
                         gap: 16px;
                         margin: 0px 0 -6px 0;
 
+                        @include respond-up(md) {
+                            flex: 0 0 auto;
+                            order: 3;
+                            padding-bottom: 16px;
+                        }
+
                         a {
-                            font-size: 1.9rem;
-                            padding: 8px 16px;
+                            font-size: 1.3rem;
+                            padding: 6px 10px;
                             border: 0;
                             flex: 0 0 auto;
                             align-items: center;
@@ -226,6 +368,12 @@
                             flex-wrap: nowrap;
                             align-content: center;
                             gap: 8px;
+
+                            @include respond-up(md) {
+                                font-size: 1.9rem;
+                                padding: 8px 16px;
+                            }
+
                         }
 
                         a.donate-button:hover:before,
@@ -272,234 +420,38 @@
         }
     }
 
-    .customheader {
-        .Page-header {
-            padding: 16px 16px 0 16px;
 
-            @include respond-down(md) {
-                padding: 8px 16px 0 16px;
-            }
+    #item-more,
+    .item-more {
+        display: block !important;
 
-            .Page-header-wrap {
-                max-width: 100%;
-                margin: 0;
-                height: auto;
+        .NavigationItem-items .NavigationItem-items {
+            position: relative;
 
-                .Page-header-bar {
-                    display: flex;
-                    height: auto;
-                    flex-wrap: wrap;
-                    flex-direction: row;
-                    align-content: flex-start;
-                    align-items: flex-start;
-                    justify-content: space-between;
+            ul {
+                .NavigationItem-items-item {
+                    .NavigationLink {
 
-                    .Page-header-bar-logo {
-                        display: flex;
-
-                        a {
-                            text-decoration: none;
-
-                            .PageLogo-image {
-                                height: 80px;
-
-                                @include respond-down(md) {
-                                    height: 44px;
-                                }
-
-                                @include respond-down(xs) {
-                                    height: auto;
-                                    width: 35vw;
-                                }
-                            }
-                        }
-                    }
-
-                    .Page-header-navigation-wrapper {
-                        margin: 0;
-                        order: 3;
-                        flex: 0 0 100%;
-
-                        .Page-header-tagline {
-                            display: none;
-                        }
-
-                        .Page-header-navigation {
-                            display: flex;
-                            flex-direction: row;
-                            align-items: center;
-                            flex-wrap: nowrap;
-                            margin: 0 0 0 -10px;
-
-                            .Navigation {
-                                display: flex;
-
-                                ul.Navigation-items {
-                                    display: flex;
-
-                                    @include respond-down(md) {
-                                        margin: 16px 0 0 0;
-                                    }
-
-                                    li.Navigation-items-item {
-                                        display: flex;
-                                        cursor: pointer;
-
-                                        .NavigationItem {
-                                            position: relative;
-                                            padding: 0px 0 0px 14px;
-                                            height: 50px;
-                                            display: flex;
-                                            margin: 0 10px 0 0;
-
-                                            @include respond-down(xs) {
-                                                padding: 0;
-                                                margin: 0 8px 0 0;
-                                            }
-
-                                            &.has-menu:hover {
-                                                background-color: #393939;
-
-                                                svg {
-                                                    color: var(--color-link-text-hover);
-                                                    fill: var(--color-link-text-hover);
-                                                    opacity: 0.5;
-                                                }
-                                            }
-
-                                            .NavigationItem-text {
-                                                @include respond-down(xs) {
-                                                    padding: 0;
-                                                }
-
-                                                span {
-                                                    padding: 6px 5px 6px 12px;
-
-                                                    @include respond-down(xs) {
-                                                        padding: 6px 4px 6px 8px;
-                                                    }
-                                                }
-
-                                            }
-
-                                            .NavigationItem-items {
-                                                left: 0;
-                                                top: 44px;
-
-                                                @include respond-down(xs) {
-                                                    position: fixed;
-                                                    left: 0px;
-                                                    top: unset;
-                                                    margin-top: 48px;
-                                                    width: 100%;
-                                                    padding: 0px 0px 0px 8px;
-                                                    height: 90vh;
-                                                    overflow-y: auto;
-                                                }
-
-                                                ul {
-                                                    --navColumns: 2;
-
-                                                    @include respond-down(xs) {
-                                                        --navColumns: 1;
-                                                    }
-
-                                                    .NavigationItem-items-item {
-
-                                                        .NavigationLink {
-                                                            padding: 12px 24px 12px 0;
-
-                                                            &:first-child .NavigationItem-text,
-                                                            &:first-child .NavigationLink {
-                                                                padding-left: 20px;
-                                                            }
-
-                                                            @include respond-down(xs) {
-                                                                justify-content: left;
-                                                                border-bottom: 1px solid var(--color-header-border);
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-
-                                        &.item-more {
-                                            display: block;
-
-                                            .NavigationItem-items-item {
-                                                height: auto;
-
-                                                .NavigationItem.has-menu {
-                                                    height: auto;
-                                                    display: block;
-
-                                                    .NavigationItem-text {
-                                                        span {
-                                                            padding: 6px 4px 6px 0px;
-                                                        }
-                                                    }
-                                                }
-
-                                                .NavigationItem-items {
-                                                    display: block;
-                                                    position: relative;
-                                                    height: auto;
-                                                    margin: 0;
-                                                }
-                                            }
-                                        }
-
-                                        &.item-about,
-                                        &.item-topics {
-                                            display: none;
-                                        }
-
-                                        @include respond-up(xs) {
-                                            &.item-more {
-                                                display: none;
-                                            }
-
-                                            &.item-about,
-                                            &.item-topics {
-                                                display: block;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            .SearchOverlay-search-button {
-                                align-items: center;
-
-                                .close-x {
-                                    display: none;
-                                }
-
-                                @include respond-down(md) {
-                                    display: none;
-                                }
-                            }
-                        }
-                    }
-
-                    .Page-header-end {
-                        flex: 0 0 50%;
-                        order: 2;
-                        align-self: flex-start;
-
-                        a {
-                            font-size: 1.9rem;
-                            padding: 8px 16px;
-
-                            @include respond-down(md) {
-                                font-size: 1.3rem;
-                                padding: 6px 10px;
-                            }
+                        &:first-child .NavigationItem-text,
+                        &:first-child .NavigationLink {
+                            padding-left: 20px;
                         }
                     }
                 }
             }
+        }
+
+        @include respond-up(xxs) {
+            display: none !important;
+        }
+    }
+
+    .item-about,
+    .item-topics {
+        display: none !important;
+
+        @include respond-up(xxs) {
+            display: block !important;
         }
     }
 }

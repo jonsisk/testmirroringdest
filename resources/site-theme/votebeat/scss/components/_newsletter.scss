@@ -14,11 +14,15 @@
 .newsletter-breaker-wrapper {
   grid-template-columns: 1fr;
   display: grid;
-  max-width: 300px;
-
+  width: 50%;
   background-color: #babbe0;
   padding: 24px;
   text-align: center;
+  height: fit-content;
+  @include respond-up(lg) {
+    max-width: 300px;
+    width: 100%;
+  }
 
   h3 {
     font-family: "IBM Plex Serif", Georgia, serif;

@@ -164,9 +164,9 @@ const CivicOutputType = ({
   ].join(";");
 
   const phrases = getTranslatedPhrases(getProperties(arcSite).locale || "en");
-
+  const theme = arcSite.split("-")[0];
   return (
-    <html lang={locale}>
+    <html className={arcSite} lang={locale}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
@@ -208,6 +208,10 @@ const CivicOutputType = ({
           </>
         )}
         <CssLinks />
+        <link
+          rel="stylesheet"
+          href={deployment(`${contextPath}/resources/site-theme/_css/${theme}.min.css`)}
+        />
         <Libs />
         <script
           async

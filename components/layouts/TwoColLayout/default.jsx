@@ -1,27 +1,20 @@
 import { useFusionContext } from "fusion:context";
 import React from "react";
-import "../../../resources/site-theme/votebeat.scss";
 
 const TwoColLayout = ({ children }) => {
   const [navigation, fullWidth1, main, rightRail, fullWidth2, footer] = children;
   const { arcSite } = useFusionContext();
   return (
     <>
-      <div className={`site-${arcSite}`}>
+      <div className={`site-${arcSite} custom-layout page-twoColumn`}>
         <header className="header">{navigation}</header>
-        <section role="main" id="main" className="main" tabIndex="-1">
-          <div className="container layout-section">
-            <div className="row-">
-              <div className="col">{fullWidth1}</div>
-            </div>
-            <div className="Page-twoColumn">
-              <main>{main}</main>
-              <aside>{rightRail}</aside>
-            </div>
-            <div className="row-">
-              <div className="col">{fullWidth2}</div>
-            </div>
+        <section role="main" tabIndex="-1">
+          <div className="fullWidth1">{fullWidth1}</div>
+          <div className="twoColumn">
+            <main>{main}</main>
+            <aside>{rightRail}</aside>
           </div>
+          <div className="fullWidth2">{fullWidth2}</div>
         </section>
         <footer className="footer">{footer}</footer>
       </div>
