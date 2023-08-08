@@ -164,7 +164,7 @@ const CivicOutputType = ({
   ].join(";");
 
   const phrases = getTranslatedPhrases(getProperties(arcSite).locale || "en");
-  const theme = arcSite.split("-")[0];
+  const theme = arcSite?.split("-")[0];
   return (
     <html className={arcSite} lang={locale}>
       <head>
