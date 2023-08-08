@@ -90,6 +90,22 @@
       "fieldCategory": "custom",
       "fieldSubcategory": "integrations",
       "fieldTarget": "site"
+    },
+    {
+      "fieldId": "gtmIDAMP",
+      "fieldType": "text",
+      "fieldTitle": "Google Tag Manager for AMP pages",
+      "fieldCategory": "custom",
+      "fieldSubcategory": "integrations",
+      "fieldTarget": "site"
+    },
+    {
+      "fieldId": "facebookAppId",
+      "fieldType": "text",
+      "fieldTitle": "Facebook APP ID",
+      "fieldCategory": "custom",
+      "fieldSubcategory": "integrations",
+      "fieldTarget": "site"
     }
   ]
 }

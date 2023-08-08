@@ -9,9 +9,11 @@ import "./styles.scss";
  */
 const StickyHeader = () => {
   const { sticky, stickyRef } = useSticky();
-  const { globalContent, arcSite } = useFusionContext();
+  const { globalContent, arcSite, outputType } = useFusionContext();
   const { websiteDomain, lightBackgroundLogo, lightBackgroundLogoAlt } = getProperties(arcSite);
   const encodedArticleUrl = encodeURIComponent(`${websiteDomain}${globalContent?.canonical_url}`);
+
+  if (outputType == "amp") return null;
 
   return (
     <div ref={stickyRef} className={`sticky-header ${sticky ? "show" : ""}`}>
