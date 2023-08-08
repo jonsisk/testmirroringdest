@@ -3442,3 +3442,22 @@ section.top a {
   text-align: center;
   display: block;
 }
+
+.author a {
+  margin-right: 5px;
+}
+
+.share-bar ul {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, 30px);
+  list-style: none;
+}
+
+.breadcrumbs a {
+  font-family: "Barlow Condensed";
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
