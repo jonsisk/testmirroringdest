@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React from "react";
-import "./styles.scss";
 
 const Follow = ({ customFields }) => {
   const { title, urlTwitter, urlInstagram, urlFacebook, urlRSS } = customFields;
