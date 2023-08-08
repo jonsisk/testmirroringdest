@@ -3,11 +3,12 @@ import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
 import React from "react";
+import HeaderAMP from "../../base/header/header-amp.component";
 import HeaderSignup from "../../base/header/header-signup.component";
 
 const Header = ({ customFields }) => {
   const context = useFusionContext();
-  const { arcSite } = context;
+  const { arcSite, outputType } = context;
   const { primaryLogo, primaryLogoAlt, topLevelUrl, parentCommunity } = getProperties(arcSite);
   const {
     tagline,
@@ -36,8 +37,23 @@ const Header = ({ customFields }) => {
   });
 
   return (
-    <div className="customheader">
-      <HeaderSignup
+    (outputType !== "amp" && (
+      <div className="customheader">
+        <HeaderSignup
+          tagline={tagline}
+          aboutUsCopy={aboutUsCopy}
+          aboutUsUrl={aboutUsUrl}
+          logoURL={primaryLogo}
+          logoAlt={primaryLogoAlt}
+          topicsTitle={topicsTitle}
+          topicNavigation={topics}
+          communitiesTitle={communitiesTitle}
+          communityNavigation={communities}
+          topLevelUrl={topLevelUrl}
+        />
+      </div>
+    )) || (
+      <HeaderAMP
         tagline={tagline}
         aboutUsCopy={aboutUsCopy}
         aboutUsUrl={aboutUsUrl}
@@ -49,7 +65,7 @@ const Header = ({ customFields }) => {
         communityNavigation={communities}
         topLevelUrl={topLevelUrl}
       />
-    </div>
+    )
   );
 };
 

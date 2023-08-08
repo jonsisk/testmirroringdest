@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const Footer = (props) => {
-  const { arcSite } = useFusionContext();
+  const { arcSite, outputType } = useFusionContext();
   const { primaryLogo, primaryLogoAlt, parentCommunity } = getProperties(arcSite);
   const { topHierachy, bottomHierarchy } = props.customFields;
 
@@ -27,6 +27,11 @@ const Footer = (props) => {
 
   return (
     <div className="customfooter">
+      {outputType === "amp" && (
+        <section className="top">
+          <a href="#top">Back To Top ↑</a>
+        </section>
+      )}
       <footer className="Page-footer">
         <div className="Page-footer-container">
           <div className="Page-footer-container-section Page-footer-container-links">

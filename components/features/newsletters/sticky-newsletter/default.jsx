@@ -14,7 +14,7 @@ import { newsletterInterests } from "../../../utilities/newsletters";
  */
 const StickyNewsletterFeature = ({ customFields }) => {
   const context = useFusionContext();
-  const { arcSite } = context;
+  const { arcSite, outputType } = context;
   const { recaptchaSiteKey, newsletterSignupEndpoint } = getProperties(arcSite);
   const {
     title,
@@ -46,7 +46,7 @@ const StickyNewsletterFeature = ({ customFields }) => {
     }
   };
 
-  if (!shouldRender) {
+  if (!shouldRender || outputType === "amp") {
     return null;
   }
 

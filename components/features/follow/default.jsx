@@ -59,7 +59,7 @@ Follow.propTypes = {
   customFields: PropTypes.shape({
     title: PropTypes.string.tag({
       defaultValue: "Follow Votebeat",
-      label: "Tagline",
+      label: "Title",
       group: "Configure Content",
     }),
     urlTwitter: PropTypes.string.tag({

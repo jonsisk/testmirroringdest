@@ -13,7 +13,7 @@ import { newsletterInterests } from "../../../utilities/newsletters";
  * @returns
  */
 const NewsletterFeature = ({ customFields }) => {
-  const { arcSite, contextPath, deployment } = useFusionContext();
+  const { arcSite, contextPath, deployment, outputType } = useFusionContext();
   const { recaptchaSiteKey, newsletterSignupEndpoint } = getProperties(arcSite);
   const {
     title,
@@ -34,7 +34,7 @@ const NewsletterFeature = ({ customFields }) => {
     renderDesktop,
   });
 
-  if (!shouldRender) {
+  if (!shouldRender || outputType === "amp") {
     return null;
   }
 

@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const Promo = ({ customFields }) => {
-  const { contextPath, deployment } = useFusionContext();
+  const { contextPath, deployment, outputType } = useFusionContext();
   const { title, description, ctaCopy, ctaURL } = customFields;
+
+  if (outputType === "amp") return null;
 
   return (
     <div className="GenericPagePromoModule">

@@ -15,7 +15,7 @@ import { newsletterInterests } from "../../../utilities/newsletters";
  */
 const NewsletterInterestFeature = ({ customFields }) => {
   const context = useFusionContext();
-  const { arcSite } = context;
+  const { arcSite, outputType } = context;
   const { recaptchaSiteKey, newsletterSignupEndpoint } = getProperties(arcSite);
   const [selectedValues, setSelectedValues] = useState([]);
   const { title, description, thankYouMsg, disclaimer, renderMobile, renderTablet, renderDesktop } =
@@ -42,7 +42,7 @@ const NewsletterInterestFeature = ({ customFields }) => {
     return selectedValues.length > 0;
   };
 
-  if (!shouldRender) {
+  if (!shouldRender || outputType === "amp") {
     return null;
   }
 
