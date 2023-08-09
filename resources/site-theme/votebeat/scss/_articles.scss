@@ -144,3 +144,25 @@ aside div:last-child {
   position: sticky;
   top: 65px;
 }
+// Overlay article layout
+.overlay {
+  .logo-overlay {
+    position: absolute;
+    left: 40px;
+    top: 30px;
+
+    a img {
+      width: 175px;
+      height: 50px;
+    }
+  }
+
+  figure.overlay-image {
+    margin: 0px;
+    width: 100%;
+
+    picture img {
+      width: 100%;
+    }
+  }
+}
