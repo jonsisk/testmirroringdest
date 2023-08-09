@@ -11,6 +11,9 @@
     width: 100%;
     margin-top: 20px;
   }
+  @include respond-down(xs) {
+    width: 100%;
+  }
   .GenericPagePromoModule-icon {
     margin: 0 auto 24px;
     width: -webkit-fit-content;

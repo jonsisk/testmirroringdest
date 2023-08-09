@@ -43,6 +43,9 @@
           max-width: 300px;
           flex-direction: column;
         }
+        @include respond-down(xs) {
+          flex-direction: column;
+        }
       }
     }
 
