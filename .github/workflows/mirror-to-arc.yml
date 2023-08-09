@@ -3,7 +3,7 @@ name: Mirroring to ArcXP
 on: [push, delete]
 
 jobs:
-  to_jon_testing:
+  to_arc_mirror:
     runs-on: ubuntu-latest
     steps:                                              # <-- must use actions/checkout before mirroring!
       - uses: actions/checkout@v3
