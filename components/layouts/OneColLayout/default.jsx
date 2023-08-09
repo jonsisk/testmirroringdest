@@ -12,7 +12,7 @@ const OneColLayout = ({ children }) => {
         rel="stylesheet"
         href={deployment(`${contextPath}/resources/site-theme/${theme}.scss`)}
       />
-      <div className={`site-${arcSite}`}>
+      <div className={`site-${arcSite} custom-layout oneColumn`}>
         <header className="header">{navigation}</header>
         <div className="overlay">{overlay}</div>
         <section role="main" id="main" className="main" tabIndex="-1">
