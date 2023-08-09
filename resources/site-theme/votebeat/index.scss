@@ -1,19 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Barlow%20Condensed:300,300i,400,400i,600,600i,700,700i|Barlow%20Condensed:300,300i,400,400i,600,600i,700,700i|IBM%20Plex%20Serif:300,300i,400,400i,600,600i,700,700i");
-@import 'variables';
-@import 'breakpoints';
-@import 'scss/globals';
+@import "variables";
+@import "breakpoints";
+@import "scss/globals";
 
 body,
 body #fusion-app {
-    @import 'scss/header';
-    @import 'scss/footer';
-    @import 'scss/articles';
-    @import 'scss/events';
-    @import 'scss/forms';
-    @import 'scss/home';
-    @import 'scss/topics';
-    @import 'scss/communities';
-    @import 'scss/contents';
-    @import 'scss/components/index';
-    @import 'scss/layouts/index';
+  @import "scss/header";
+  @import "scss/footer";
+  @import "scss/articles";
+  @import "scss/events";
+  @import "scss/forms";
+  @import "scss/home";
+  @import "scss/topics";
+  @import "scss/communities";
+  @import "scss/contents";
+  @import "scss/components/index";
+  @import "scss/layouts/index";
 }
