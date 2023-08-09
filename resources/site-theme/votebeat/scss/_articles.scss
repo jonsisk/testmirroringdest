@@ -77,3 +77,8 @@ figcaption {
     }
   }
 }
+
+aside div:last-child {
+  position: sticky;
+  top: 65px;
+}
