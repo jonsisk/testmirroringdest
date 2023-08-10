@@ -115,6 +115,7 @@ const CivicOutputType = ({
     comscoreID,
     querylyId,
     parentCommunity,
+    facebookAppId,
     locale = "en",
   } = getProperties(arcSite);
 
@@ -207,6 +208,7 @@ const CivicOutputType = ({
             />
           </>
         )}
+        <meta name="fb:app_id" content={facebookAppId} />
         <CssLinks />
         <link
           rel="stylesheet"
