@@ -145,7 +145,7 @@ aside div:last-child {
   top: 65px;
 }
 // Overlay article layout
-.overlay {
+.overlay-image {
   .logo-overlay {
     position: absolute;
     left: 40px;
@@ -163,6 +163,46 @@ aside div:last-child {
 
     picture img {
       width: 100%;
+    }
+  }
+}
+
+.overlay-text {
+  color: var(--color-primary-text-inverse);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  left: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 2;
+
+  .breadcrumbs a {
+    color: #fff;
+  }
+  h1.headline {
+    color: #fff;
+    max-width: 762px;
+    margin: 0 auto 10px;
+  }
+  h2.sub-headline {
+    color: #fff;
+  }
+
+  .byline {
+    border-bottom: none;
+    span {
+      color: #fff;
+
+      a {
+        color: #fff;
+        text-decoration: underline;
+      }
     }
   }
 }
