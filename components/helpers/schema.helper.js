@@ -21,7 +21,7 @@ export const getSchema = (globalContent, logo, baseUrl, websiteName) => {
 
   if (type !== "story") return null;
 
-  const image = promo_items.basic || promo_items.lead_image;
+  const image = promo_items?.basic || promo_items?.lead_image;
   const date = display_date ? display_date : publish_date;
 
   return `{
