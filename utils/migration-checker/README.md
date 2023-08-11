@@ -7,6 +7,4 @@ Checks for differences between metatags values from production vs the migrated c
 
 Install dependencies: `npm install`
 
-Provide .env file following the example one.
-
 Run script: `node checker.js`

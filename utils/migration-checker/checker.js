@@ -1,20 +1,11 @@
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable no-console */
+const fs = require("fs");
 const axios = require("axios");
 const cheerio = require("cheerio");
+const csv = require("csv-parser");
+
 require("dotenv").config();
-
-const BASE_URL = process.env.BASE_URL || "https://fallback-default.com";
-const PRODUCTION_BASE_URL = process.env.PRODUCTION_BASE_URL || "https://www.votebeat.org";
-
-// Sample data structure. You can adjust this to fit your data.
-const slugs = [
-  {
-    slug: "/2021/6/12/22640434/will-election-administrators-dreams-finally-come-true",
-    originalUrl: "https://pennsylvania.votebeat.org",
-  },
-  // ... add more slugs and expectations as needed
-];
 
 async function fetchMetaTags(url, slug) {
   const response = await axios.get(url);
@@ -82,17 +73,40 @@ async function compareMetaTags(originalArticle, migratedArticle, slug) {
   }
 }
 
+const originalSiteMap = {
+  Votebeat: "https://www.votebeat.org",
+  "Votebeat Arizona": "https://arizona.votebeat.org",
+  "Votebeat Michigan": "https://michigan.votebeat.org",
+  "Votebeat Pennsylvania": "https://pennsylvania.votebeat.org",
+  "Votebeat Texas": "https://texas.votebeat.org",
+};
+
+const migratedSiteMap = {
+  Votebeat: "https://civicnewscompany-votebeat-sandbox.web.arc-cdn.net",
+  "Votebeat Arizona": "https://civicnewscompany-votebeat-arizona-sandbox.web.arc-cdn.net",
+  "Votebeat Michigan": "https://civicnewscompany-votebeat-michigan-sandbox.web.arc-cdn.net",
+  "Votebeat Pennsylvania": "https://civicnewscompany-votebeat-pennsylvania-sandbox.web.arc-cdn.net",
+  "Votebeat Texas": "https://civicnewscompany-votebeat-texas-sandbox.web.arc-cdn.net",
+};
+
 async function testSlugs() {
-  for (const data of slugs) {
-    //const url = `${BASE_URL}${data.slug}`;
-    const url = `${BASE_URL}/2023/07/20/will-election-administrators-dreams-finally-come-true/`;
-    const originalUrl = `${PRODUCTION_BASE_URL}${data.slug}`;
-    try {
-      await compareMetaTags(originalUrl, url, data.slug);
-    } catch (error) {
-      console.error(`[${url}] Error fetching or processing: ${error.message}`);
-    }
-  }
+  fs.createReadStream("data/votebeat.csv")
+    .pipe(
+      csv({
+        separator: ";",
+        headers: false,
+      })
+    )
+    .on("data", async (row) => {
+      const originalUrl = `${originalSiteMap[row[1]]}/${row[0]}`;
+      const migratedUrl = `${migratedSiteMap[row[1]]}/${row[0]}`;
+
+      try {
+        await compareMetaTags(originalUrl, migratedUrl, `/${row[0]}`);
+      } catch (error) {
+        console.error(`[${migratedUrl}] Error fetching or processing: ${error.message}`);
+      }
+    });
 }
 
 testSlugs();
