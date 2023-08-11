@@ -20,6 +20,7 @@ const ResultItem = React.memo(
         showHeadline,
         showImage,
         showItemOverline,
+        keepPrimaryWebsite,
       },
       ref
     ) => {
@@ -58,10 +59,11 @@ const ResultItem = React.memo(
           ) : null}
           {showItemOverline || showHeadline ? (
             <div className="results-list--headline-container">
-              {showItemOverline && Object.keys(websites).length <= 1 ? (
+              {showItemOverline && !keepPrimaryWebsite ? <Overline story={element} /> : null}
+              {showItemOverline && keepPrimaryWebsite && Object.keys(websites).length <= 1 ? (
                 <Overline story={element} />
               ) : null}
-              {showItemOverline && Object.keys(websites).length > 1 ? (
+              {showItemOverline && keepPrimaryWebsite && Object.keys(websites).length > 1 ? (
                 <a
                   href={url}
                   title={headlineText}

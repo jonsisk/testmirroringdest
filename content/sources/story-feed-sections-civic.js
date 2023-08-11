@@ -5,7 +5,6 @@ const params = {
   excludeSections: "text",
   feedSize: "number",
   feedOffset: "number",
-  site: "text",
 };
 
 /**
@@ -22,8 +21,8 @@ export const itemsToArray = (itemString = "") =>
  * @return {String} elastic search query for the feed sections
  */
 const pattern = (key = {}) => {
-  const { includeSections, excludeSections, feedOffset, feedSize, site } = key;
-  const website = site;
+  const website = key["arc-site"];
+  const { includeSections, excludeSections, feedOffset, feedSize } = key;
 
   if (!includeSections) {
     throw new Error("includeSections parameter is required");

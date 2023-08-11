@@ -20,6 +20,7 @@ const Results = ({
   showImage = false,
   showItemOverline = false,
   targetFallbackImage,
+  keepPrimaryWebsite = false,
 }) => {
   const [queryOffset, setQueryOffset] = useState(configuredOffset);
 
@@ -44,16 +45,16 @@ const Results = ({
         case "story-feed-sections":
         case "story-feed-sections-civic":
         case "story-feed-tag": {
-          return { feedOffset: offset, feedSize: size };
+          return { feedOffset: offset, feedSize: size, keepPrimaryWebsite };
         }
         case "content-api-collections": {
-          return { from: offset, size: configuredSize, getNext: true };
+          return { from: offset, size: configuredSize, getNext: true, keepPrimaryWebsite };
         }
         default: {
           break;
         }
       }
-      return { offset, size };
+      return { offset, size, keepPrimaryWebsite };
     },
     [configuredOffset, configuredSize, contentService]
   );
@@ -137,6 +138,7 @@ const Results = ({
           showImage={showImage}
           showItemOverline={showItemOverline}
           targetFallbackImage={targetFallbackImage}
+          keepPrimaryWebsite={keepPrimaryWebsite}
         />
       ))}
       {isThereMore && (
