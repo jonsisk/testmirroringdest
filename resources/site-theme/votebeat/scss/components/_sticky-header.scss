@@ -19,10 +19,14 @@
     @include respond-up(xs) {
       top: 0;
       bottom: auto;
+      justify-content: flex-start;
     }
   }
   > a {
     flex: 1 1 auto;
+    @include respond-up(xs) {
+      flex: 0 0 auto;
+    }
   }
   .ActionBarInStickyBar {
     display: flex;
