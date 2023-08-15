@@ -1,6 +1,5 @@
 import { useFusionContext } from "fusion:context";
 import React from "react";
-import "./styles.scss";
 
 /**
  * Handles overline of the article that shows the assigned topics/sections

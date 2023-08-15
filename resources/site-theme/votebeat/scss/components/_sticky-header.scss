@@ -1,0 +1,82 @@
+.sticky-header {
+  display: none;
+  bottom: unset;
+  justify-content: flex-start;
+  transition: top 0.5s ease;
+  background: #fff;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 8px;
+  width: 100%;
+  align-items: center;
+  &.show {
+    display: flex;
+    position: fixed;
+    z-index: 99;
+    top: auto;
+    bottom: 0;
+    justify-content: space-between;
+
+    @include respond-up(xs) {
+      top: 0;
+      bottom: auto;
+    }
+  }
+  > a {
+    flex: 1 1 auto;
+  }
+  .ActionBarInStickyBar {
+    display: flex;
+    margin-left: 4px;
+
+    a.ActionLink {
+      align-items: center;
+      border-radius: 50%;
+      height: 30px;
+      justify-content: left;
+      display: flex;
+      transition: opacity 0.3s;
+      span {
+        font-size: 1.125rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-family: var(--font-3);
+        letter-spacing: 0.1em;
+        display: none;
+        @include respond-up(xs) {
+          display: block;
+        }
+      }
+      svg {
+        align-items: center;
+        border: 0;
+        height: 19px;
+        width: 19px;
+        margin-right: 8px;
+        margin-left: 20px;
+      }
+
+      svg:not(:root) {
+        overflow: hidden;
+      }
+
+      svg.facebook {
+        fill: #4c67a1;
+      }
+
+      svg.twitter {
+        fill: #1da1f2;
+      }
+    }
+  }
+
+  img {
+    height: 45px !important;
+    margin: auto;
+    display: inline-block;
+    width: auto;
+  }
+
+  a.ActionLink {
+    height: 30px;
+  }
+}

@@ -27,7 +27,7 @@
     width: 100%;
   }
   h3 {
-    font-family: "IBM Plex Serif", Georgia, serif;
+    font-family: var(--font-3);
     font-size: var(--font-size-title);
     font-size: 25px;
     font-weight: 600;
@@ -38,15 +38,20 @@
   }
 
   p {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
     margin-bottom: 20px;
+    letter-spacing: 0;
+    font-family: var(--font-2);
 
     &.small {
       margin-top: 24px;
-      font-size: 1.19rem;
       font-style: italic;
       color: #767676;
       text-align: left;
+      font-size: 1.25rem;
+      * {
+        font-size: 1.25rem;
+      }
     }
   }
 
@@ -143,10 +148,95 @@
 }
 
 .newsletter-composer {
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: "Barlow Condensed", sans-serif;
+  background-color: var(--color-bg-toaster);
+  padding-top: 26px !important;
+  padding-bottom: 26px !important;
+  display: flex;
+  flex-direction: row;
+  a {
+    text-decoration: none;
+  }
+  .content {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+    .col-desc {
+      text-align: center;
+      h3 {
+        font-family: var(--font-3);
+        font-size: 25px;
+        font-weight: 600;
+        letter-spacing: normal;
+        line-height: 1.2;
+        margin-top: 24px;
+        margin-bottom: 4px;
+      }
+      p {
+        font-size: 1.75rem;
+        margin-bottom: 20px;
+        letter-spacing: 0px;
+        font-family: var(--font-2);
+      }
+    }
+    .col-info {
+      text-align: left;
+      form {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-content: flex-start;
+        padding-right: 20px;
+        label {
+          text-align: left;
+          display: block;
+          font-size: 1.35rem;
+          padding: 0;
+          margin-bottom: 3.2px;
+          flex: 0 0 100%;
+          span.input-required {
+            opacity: 0.75;
+          }
+        }
+        input {
+          flex: 0 0 64%;
+          border-color: #fff;
+          border: 1px solid #fff;
+          font-size: 1.35rem;
+          padding: 4px;
+          height: auto;
+          width: 100%;
+          color: #000 !important;
+          line-height: 1.6;
+          @include respond-down(xs) {
+            flex: 0 0 100%;
+          }
+        }
+        p.small {
+          line-height: 1;
+          a,
+          a * {
+            text-decoration: none;
+          }
+        }
+
+        button {
+          flex: 0 0 auto;
+          display: inline-block;
+          background-color: #fff;
+          color: #000;
+          font-size: 1.7rem;
+          letter-spacing: 0;
+          padding: 8px 24px;
+          text-transform: none;
+          border-radius: 2px;
+          border: 0 none !important;
+          font-weight: 600;
+          font-family: var(--font-2);
+          @include respond-down(xs) {
+            flex: 0 0 100%;
+          }
+        }
+      }
+    }
   }
 }

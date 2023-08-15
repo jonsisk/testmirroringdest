@@ -1,7 +1,6 @@
 import { useFusionContext } from "fusion:context";
 import React from "react";
 import { getUserDate } from "../../../helpers/date.helper";
-import "./styles.scss";
 
 /**
  * Displays author name and date for the article
