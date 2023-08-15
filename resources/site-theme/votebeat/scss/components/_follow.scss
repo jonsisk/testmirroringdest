@@ -1,33 +1,33 @@
 .vb_social_media_block {
-	display: flex;
-	align-items: center;
-	padding: 5px;
-	margin: 5px 0;
-	color: white;
-	text-decoration: none;
-	border-radius: 5px;
-	font-size: 15px;
-	text-transform: uppercase;
-    letter-spacing: .5px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin: 5px 0;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 .vb_social_media_block:hover {
-	color: white !important;
-    opacity: .8;
+  color: white !important;
+  opacity: 0.8;
 }
 .vb_social_media_block img {
-	width: 15px;
-	height: 15px;
-	margin: 0 10px 0 5px;
+  width: 15px;
+  height: 15px;
+  margin: 0 10px 0 5px;
 }
-.twitter{
-	background:#1da1f3;
+.twitter {
+  fill: #1da1f3;
 }
-.instagram{
-	background:#dd2a7b;	
+.instagram {
+  fill: #dd2a7b;
 }
-.facebook{
-	background:#3f5d9a;
+.facebook {
+  fill: #3f5d9a;
 }
-.rss{
-	background:#fd7e03;
+.rss {
+  fill: #fd7e03;
 }

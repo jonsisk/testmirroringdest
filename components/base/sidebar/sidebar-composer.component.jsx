@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React from "react";
-import "./default.scss";
 
 /**
  * Handles the composer-driven sidebar component together with the power-up for sidebars
