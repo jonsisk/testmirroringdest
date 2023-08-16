@@ -1,13 +1,11 @@
 import PropTypes from "@arc-fusion/prop-types";
 import { isServerSide, LazyLoad } from "@wpmedia/engine-theme-sdk";
-// import { HeadingSection } from "@wpmedia/shared-styles";
 import { useFusionContext } from "fusion:context";
 import getTranslatedPhrases from "fusion:intl";
 import getProperties from "fusion:properties";
 import React from "react";
 import Results from "./results";
 import { resolveDefaultPromoElements } from "./results/helpers";
-// import "@wpmedia/shared-styles/scss/_results-list.scss";
 
 const ResultsListCivic = ({ customFields }) => {
   const { arcSite, contextPath, deployment, isAdmin } = useFusionContext();
@@ -55,7 +53,6 @@ const ResultsListCivic = ({ customFields }) => {
 
   return (
     <LazyLoad enabled={lazyLoad && !isAdmin}>
-      {/* <HeadingSection> */}
       <Results
         arcSite={arcSite}
         configuredOffset={configuredOffset}
@@ -75,7 +72,6 @@ const ResultsListCivic = ({ customFields }) => {
         targetFallbackImage={targetFallbackImage}
         keepPrimaryWebsite={keepPrimaryWebsite}
       />
-      {/* </HeadingSection> */}
     </LazyLoad>
   );
 };
