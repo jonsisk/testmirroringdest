@@ -1,0 +1,138 @@
+.PageListH-items-item {
+  padding-top: var(--listItemPadding);
+  padding-bottom: var(--listItemPadding);
+  border-top: 1px solid var(--color-list-border);
+
+  &.featured {
+    margin-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .PagePromo-standard {
+    display: flex;
+
+    .PagePromo-media {
+      flex-shrink: 0;
+      max-width: 330px;
+      width: 30%;
+      margin: 0 24px 0 0;
+    }
+  }
+
+  .PagePromo-standard,
+  .PagePromo-overlay,
+  .PagePromo-headline_below,
+  .PagePromo-headline_above {
+    .PagePromo-media {
+      picture {
+        display: block;
+      }
+    }
+
+    .PagePromo-content {
+      width: 100%;
+
+      .PagePromo-category {
+        font-family: var(--font, var(--font-1));
+        font-size: var(--category-1);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: var(--category-1-kerning);
+        line-height: normal;
+
+        a.eyebrow:hover,
+        a.eyebrow {
+          color: #ae610c !important;
+        }
+      }
+
+      .PagePromo-title {
+        font-family: var(--font-1, var(--font-1)) !important;
+        font-size: var(--title-4);
+        letter-spacing: normal;
+        line-height: 1.22;
+        font-weight: 600;
+        margin-top: 5px;
+      }
+
+      .PagePromo-description,
+      .PagePromo-description p {
+        font-family: var(--font, var(--font-1));
+        font-size: var(--description-3);
+        font-weight: 400;
+        line-height: 1.4;
+        --font: var(--font-promo-description);
+        color: var(--color-secondary-text);
+        margin-top: 5px;
+      }
+
+      .PagePromo-byline {
+        margin-top: 8px;
+
+        .PagePromo-author {
+          font-family: var(--font, var(--font-1));
+          font-size: var(--byline-1);
+          line-height: 1.33;
+          display: inline-block;
+          font-size: var(--font-size-promos-byline);
+          line-height: normal;
+
+          .byline {
+            border-bottom: none;
+          }
+        }
+
+        .PagePromo-date {
+          font-family: var(--font, var(--font-1));
+          font-size: var(--byline-1);
+          line-height: 1.33;
+          display: inline-block;
+          font-size: var(--font-size-promos-byline);
+        }
+      }
+    }
+  }
+
+  .PagePromo-overlay,
+  .PagePromo-headline_below,
+  .PagePromo-headline_above {
+    --titleFontSize: 36px;
+    --font-size-promos-byline: 1.5rem;
+    display: block;
+
+    .PagePromo-media {
+      max-width: fit-content;
+      width: auto;
+    }
+
+    .PagePromo-media .Link {
+      display: block;
+      position: relative;
+
+      img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+      }
+    }
+
+    .PagePromo-content {
+      padding: 32px 0;
+
+      .PagePromo-title {
+        font-size: var(--titleFontSize);
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
+      .PagePromo-byline {
+        .PagePromo-author {
+          .byline {
+            padding: 0px;
+            margin: 0px;
+          }
+        }
+      }
+    }
+  }
+}

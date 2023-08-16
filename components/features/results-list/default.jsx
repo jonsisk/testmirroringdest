@@ -1,13 +1,11 @@
 import PropTypes from "@arc-fusion/prop-types";
 import { isServerSide, LazyLoad } from "@wpmedia/engine-theme-sdk";
-import { HeadingSection } from "@wpmedia/shared-styles";
 import { useFusionContext } from "fusion:context";
 import getTranslatedPhrases from "fusion:intl";
 import getProperties from "fusion:properties";
 import React from "react";
 import Results from "./results";
 import { resolveDefaultPromoElements } from "./results/helpers";
-import "@wpmedia/shared-styles/scss/_results-list.scss";
 
 const ResultsListCivic = ({ customFields }) => {
   const { arcSite, contextPath, deployment, isAdmin } = useFusionContext();
@@ -28,6 +26,17 @@ const ResultsListCivic = ({ customFields }) => {
     breakpoints,
     resizerURL,
   };
+  const imagePropertiesFeatured = {
+    smallWidth: 768,
+    smallHeight: 432,
+    mediumWidth: 768,
+    mediumHeight: 432,
+    largeWidth: 768,
+    largeHeight: 432,
+    primaryLogoAlt,
+    breakpoints,
+    resizerURL,
+  };
   const targetFallbackImage = !fallbackImage.includes("http")
     ? deployment(`${contextPath}/${fallbackImage}`)
     : fallbackImage;
@@ -44,26 +53,25 @@ const ResultsListCivic = ({ customFields }) => {
 
   return (
     <LazyLoad enabled={lazyLoad && !isAdmin}>
-      <HeadingSection>
-        <Results
-          arcSite={arcSite}
-          configuredOffset={configuredOffset}
-          configuredSize={configuredSize}
-          contentConfigValues={contentConfigValues}
-          contentService={contentService}
-          imageProperties={imageProperties}
-          isServerSideLazy={isServerSideLazy}
-          phrases={phrases}
-          showByline={promoElements.showByline}
-          showDate={promoElements.showDate}
-          showDescription={promoElements.showDescription}
-          showHeadline={promoElements.showHeadline}
-          showImage={promoElements.showImage}
-          showItemOverline={promoElements.showItemOverline}
-          targetFallbackImage={targetFallbackImage}
-          keepPrimaryWebsite={keepPrimaryWebsite}
-        />
-      </HeadingSection>
+      <Results
+        arcSite={arcSite}
+        configuredOffset={configuredOffset}
+        configuredSize={configuredSize}
+        contentConfigValues={contentConfigValues}
+        contentService={contentService}
+        imageProperties={imageProperties}
+        imagePropertiesFeatured={imagePropertiesFeatured}
+        isServerSideLazy={isServerSideLazy}
+        phrases={phrases}
+        showByline={promoElements.showByline}
+        showDate={promoElements.showDate}
+        showDescription={promoElements.showDescription}
+        showHeadline={promoElements.showHeadline}
+        showImage={promoElements.showImage}
+        showItemOverline={promoElements.showItemOverline}
+        targetFallbackImage={targetFallbackImage}
+        keepPrimaryWebsite={keepPrimaryWebsite}
+      />
     </LazyLoad>
   );
 };

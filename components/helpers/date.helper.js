@@ -24,9 +24,7 @@ export const getUserDate = (date, showTime = false) => {
     return null;
   }
 
-  const FORMAT = showTime
-    ? `MMM D, YYYY, h:mma ${insertTimezoneIntoTemplate(date)}`
-    : "MMM D, YYYY";
+  const FORMAT = showTime ? `MMM D, YYYY, h:mma ${insertTimezoneIntoTemplate(date)}` : "MMM D";
   return dayjs.utc(date).local().format(FORMAT);
 };
 
