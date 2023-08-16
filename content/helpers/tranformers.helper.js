@@ -11,11 +11,12 @@ export const transformFeedData = (data, query) => {
     if (primaryWebsite) {
       // let's adjust the URL to the primary website
       const { websiteDomain } = getProperties(primaryWebsite);
-      item.website_url = `${websiteDomain}${item.website_url}`;
-      item.canonical_url = `${websiteDomain}${item.canonical_url}`;
+      const canonicalUrl = item.canonical_url;
+      item.website_url = `${websiteDomain}${canonicalUrl}`;
+      item.canonical_url = `${websiteDomain}${canonicalUrl}`;
 
       for (const key in item.websites) {
-        item.websites[key].website_url = `${websiteDomain}${item.websites[key].website_url}`;
+        item.websites[key].website_url = `${websiteDomain}${canonicalUrl}`;
       }
     }
     return item;
