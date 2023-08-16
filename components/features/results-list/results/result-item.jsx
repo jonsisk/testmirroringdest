@@ -1,34 +1,30 @@
-import ArticleDate from "@wpmedia/date-block";
 import { Image } from "@wpmedia/engine-theme-sdk";
 import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
-import { Byline, Heading, SecondaryFont, Overline } from "@wpmedia/shared-styles";
 import getProperties from "fusion:properties";
 import React from "react";
+import Byline from "../../../base/byline/byline.component";
 
 const ResultItem = React.memo(
   React.forwardRef(
-    (
-      {
-        arcSite,
-        element,
-        imageProperties,
-        targetFallbackImage,
-        placeholderResizedImageOptions,
-        showByline,
-        showDate,
-        showDescription,
-        showHeadline,
-        showImage,
-        showItemOverline,
-        keepPrimaryWebsite,
-      },
-      ref
-    ) => {
+    ({
+      arcSite,
+      element,
+      imageProperties,
+      imagePropertiesFeatured,
+      targetFallbackImage,
+      placeholderResizedImageOptions,
+      showByline,
+      showDescription,
+      showHeadline,
+      showImage,
+      showItemOverline,
+      keepPrimaryWebsite,
+    }) => {
       const {
         description: { basic: descriptionText } = {},
-        display_date: displayDate,
         headlines: { basic: headlineText } = {},
         websites,
+        subtype,
       } = element;
 
       const actualSite = Object.keys(websites).find((key) => key.includes("-"));
@@ -39,66 +35,92 @@ const ResultItem = React.memo(
 
       const url = websites[arcSite].website_url;
 
+      const getMainSection = (element) => {
+        const primarySection = element?.taxonomy?.primary_section;
+        if (!primarySection) return null;
+        return (
+          <a href={primarySection.path} title={primarySection.name} className="eyebrow">
+            {primarySection.name}
+          </a>
+        );
+      };
+
       return (
-        <div className={`list-item ${!showImage ? "no-image" : ""}`} ref={ref}>
-          {showImage ? (
-            <div className="results-list--image-container">
-              <a href={url} title={headlineText} aria-hidden="true" tabIndex="-1">
-                <Image
-                  {...imageProperties}
-                  url={imageURL !== null ? imageURL : targetFallbackImage}
-                  alt={imageURL !== null ? headlineText : imageProperties.primaryLogoAlt}
-                  resizedImageOptions={
-                    imageURL !== null
-                      ? extractResizedParams(element)
-                      : placeholderResizedImageOptions
-                  }
-                />
-              </a>
-            </div>
-          ) : null}
-          {showItemOverline || showHeadline ? (
-            <div className="results-list--headline-container">
-              {showItemOverline && !keepPrimaryWebsite ? <Overline story={element} /> : null}
-              {showItemOverline && keepPrimaryWebsite && Object.keys(websites).length <= 1 ? (
-                <Overline story={element} />
-              ) : null}
-              {showItemOverline && keepPrimaryWebsite && Object.keys(websites).length > 1 ? (
-                <a
-                  href={url}
-                  title={headlineText}
-                  className="primary-font__PrimaryFontStyles-sc-o56yd5-0 gNHfUP overline overline--link"
-                >
-                  {"FROM " + websiteName}
-                </a>
-              ) : null}
-              {showHeadline ? (
-                <a href={url} title={headlineText}>
-                  <Heading className="headline-text">{headlineText}</Heading>
-                </a>
-              ) : null}
-            </div>
-          ) : null}
-          {showDescription || showDate || showByline ? (
-            <div className="results-list--description-author-container">
-              {showDescription && descriptionText ? (
-                <a href={url} title={headlineText}>
-                  <SecondaryFont as="p" className="description-text">
-                    {descriptionText}
-                  </SecondaryFont>
-                </a>
-              ) : null}
-              {showDate || showByline ? (
-                <div className="results-list--author-date">
-                  {showByline ? (
-                    <Byline content={element} list separator={showDate} font="Primary" />
+        <>
+          <div
+            className={`PageListH-items-item ${
+              subtype === "standard" || subtype === undefined ? "" : "featured"
+            }`}
+          >
+            <div className={`PagePromo-${subtype}`}>
+              <div className="PagePromo-media">
+                {showImage ? (
+                  <a href={url} title={headlineText} aria-hidden="true" tabIndex="-1">
+                    {subtype === "standard" || subtype === undefined ? (
+                      <Image
+                        {...imageProperties}
+                        url={imageURL !== null ? imageURL : targetFallbackImage}
+                        alt={imageURL !== null ? headlineText : imageProperties.primaryLogoAlt}
+                        resizedImageOptions={
+                          imageURL !== null
+                            ? extractResizedParams(element)
+                            : placeholderResizedImageOptions
+                        }
+                      />
+                    ) : (
+                      <Image
+                        {...imagePropertiesFeatured}
+                        url={imageURL !== null ? imageURL : targetFallbackImage}
+                        alt={imageURL !== null ? headlineText : imageProperties.primaryLogoAlt}
+                        resizedImageOptions={
+                          imageURL !== null
+                            ? extractResizedParams(element)
+                            : placeholderResizedImageOptions
+                        }
+                      />
+                    )}
+                  </a>
+                ) : null}
+              </div>
+
+              <div className="PagePromo-content">
+                {showItemOverline ? (
+                  <div className="PagePromo-category">
+                    {showItemOverline && !keepPrimaryWebsite ? getMainSection(element) : null}
+                    {showItemOverline && keepPrimaryWebsite && Object.keys(websites).length <= 1
+                      ? getMainSection(element)
+                      : null}
+                    {showItemOverline && keepPrimaryWebsite && Object.keys(websites).length > 1 ? (
+                      <a href={url} title={headlineText} className="eyebrow">
+                        {"FROM " + websiteName}
+                      </a>
+                    ) : null}
+                  </div>
+                ) : null}
+
+                <div className="PagePromo-title">
+                  {showHeadline ? (
+                    <a href={url} title={headlineText}>
+                      {headlineText}
+                    </a>
                   ) : null}
-                  {showDate ? <ArticleDate classNames="story-date" date={displayDate} /> : null}
                 </div>
-              ) : null}
+
+                <div className="PagePromo-description">
+                  {showDescription && descriptionText ? <p>{descriptionText}</p> : null}
+                </div>
+
+                <div className="PagePromo-byline">
+                  {showByline ? (
+                    <div className="PagePromo-author">
+                      <Byline element={element} showTime={false} />
+                    </div>
+                  ) : null}
+                </div>
+              </div>
             </div>
-          ) : null}
-        </div>
+          </div>
+        </>
       );
     }
   )

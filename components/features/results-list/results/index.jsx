@@ -11,6 +11,7 @@ const Results = ({
   contentConfigValues,
   contentService,
   imageProperties,
+  imagePropertiesFeatured,
   isServerSideLazy = false,
   phrases,
   showByline = false,
@@ -130,6 +131,7 @@ const Results = ({
           arcSite={arcSite}
           element={element}
           imageProperties={imageProperties}
+          imagePropertiesFeatured={imagePropertiesFeatured}
           placeholderResizedImageOptions={placeholderResizedImageOptions}
           showByline={showByline}
           showDate={showDate}
