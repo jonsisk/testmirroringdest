@@ -18,8 +18,16 @@ const NewsletterInterestFeature = ({ customFields }) => {
   const { arcSite, outputType } = context;
   const { recaptchaSiteKey, newsletterSignupEndpoint } = getProperties(arcSite);
   const [selectedValues, setSelectedValues] = useState([]);
-  const { title, description, thankYouMsg, disclaimer, renderMobile, renderTablet, renderDesktop } =
-    customFields;
+  const {
+    title,
+    description,
+    thankYouMsg,
+    signupCopy,
+    disclaimer,
+    renderMobile,
+    renderTablet,
+    renderDesktop,
+  } = customFields;
 
   const { shouldRender } = useRenderForBreakpoint({
     renderMobile,
@@ -49,7 +57,7 @@ const NewsletterInterestFeature = ({ customFields }) => {
   return (
     <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
       <div className={`newsletter-interests`}>
-        <h3>{title}</h3>
+        <h1>{title}</h1>
         <p dangerouslySetInnerHTML={{ __html: description }} />
 
         <div className="interests">
@@ -74,6 +82,7 @@ const NewsletterInterestFeature = ({ customFields }) => {
           ))}
         </div>
 
+        <div className="interest-description">{signupCopy}</div>
         <NewsletterSignup
           newsletterSignupEndpoint={newsletterSignupEndpoint}
           website={arcSite}
@@ -99,6 +108,10 @@ NewsletterInterestFeature.propTypes = {
       label: "Description (HTML)",
       group: "Configure Content",
       description: "Shown above the newsletter selection. Accepts HTML.",
+    }),
+    signupCopy: PropTypes.string.tag({
+      label: "Copy shown before email form",
+      group: "Configure Content",
     }),
     thankYouMsg: PropTypes.string.tag({
       label: "Thank you message",
