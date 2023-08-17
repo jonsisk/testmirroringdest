@@ -3,11 +3,13 @@ import React from "react";
 
 const OneColLayout = ({ children }) => {
   const [navigation, overlay, overlayText, fullWidth, footer] = children;
-  const { arcSite } = useFusionContext();
+  const { arcSite, globalContent } = useFusionContext();
 
   return (
     <>
-      <div className={`site-${arcSite} custom-layout oneColumn`}>
+      <div
+        className={`site-${arcSite} custom-layout oneColumn story-layout-${globalContent?.subtype}`}
+      >
         <header className="header">{navigation}</header>
         <div className="overlay-header">
           <div className="overlay-image">{overlay}</div>
