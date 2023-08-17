@@ -120,30 +120,120 @@
 }
 
 .newsletter-interests {
+  padding-top: 50px;
+  font-family: var(--font-1);
+
+  h1 {
+    font-family: var(--font-1);
+    font-size: var(--title-1);
+    margin-bottom: 32px;
+    font-weight: 600;
+    text-align: left;
+    margin-top: 0;
+  }
+
+  p {
+    font-family: var(--font-1);
+    --fontSizeDesc: 2.2rem;
+    font-size: var(--fontSizeDesc);
+    font-weight: 400;
+    margin-bottom: 32px;
+    text-align: left;
+    margin-top: 0;
+  }
+
   .interests {
     display: grid;
     grid-gap: 18px;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
 
     .interest {
       margin: 15px 0px;
 
       label {
         padding: 18px;
+        background-color: #f8f8f8;
+        display: block;
+        &:hover {
+          background-color: var(--color-bg-checkbox-largebox);
+          cursor: pointer;
+        }
 
         span.title {
+          font-family: var(--font-1);
           margin-left: 10px;
           font-weight: 600;
+          font-size: 2.2rem;
         }
 
         span.description {
           padding-left: 27px;
           display: block;
-          font-size: 1rem;
+          font-size: 1.8rem !important;
+          font-family: var(--font-3);
           font-weight: 400;
         }
       }
     }
+  }
+
+  .interest-description {
+    font-family: var(--font-1);
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 30px 0;
+  }
+
+  .Form-newsletter-disclaimer {
+    p {
+      margin-top: 10px;
+      font-family: var(--font-3);
+      font-size: 1.44rem;
+      font-style: italic;
+    }
+    a {
+      color: var(--color-link-text);
+      border-bottom: 1px solid var(--color-link-underline);
+    }
+  }
+
+  form {
+    .buttonContainer {
+      text-align: center;
+    }
+
+    label span {
+      font-family: var(--font, var(--font-1));
+      font-weight: 400;
+      font-size: 1.8rem;
+      display: block;
+      padding-bottom: 10px;
+      text-transform: none;
+    }
+    label span.input-required {
+      opacity: 0.75;
+      font-size: 1.5rem;
+    }
+
+    input[type="email"] {
+      font-size: 1.6rem;
+      height: auto;
+      padding: 6px;
+      font-family: var(--font-3);
+      width: 100%;
+    }
+  }
+
+  button {
+    text-align: center;
+    font-family: var(--font-1);
+    background: var(--color-button-bg);
+    color: #fff;
+    border: 1px solid var(--color-button-border);
+    padding: 6px 24px;
+    text-transform: none;
+    line-height: 1.6;
+    font-size: 1.9rem;
   }
 }
 

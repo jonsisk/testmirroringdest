@@ -167,7 +167,7 @@ aside div:last-child {
   }
 }
 
-.overlay-text {
+.overlay-text:not(:empty) {
   color: var(--color-primary-text-inverse);
   display: flex;
   flex-direction: column;

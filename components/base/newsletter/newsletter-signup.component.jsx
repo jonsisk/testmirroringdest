@@ -91,12 +91,20 @@ const NewsletterSignup = ({
               Email <span className="input-required">(required)</span>
             </span>
           </label>
-          <input type="email" name="email" onChange={handleInputChange} required />
+          <input
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            onChange={handleInputChange}
+            required
+          />
           <input type="hidden" name="recaptcha" value={recaptchaValue} />
           <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
-          <button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Submitting..." : "Sign Me Up"}
-          </button>
+          <div className="buttonContainer">
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Submitting..." : "Sign Me Up"}
+            </button>
+          </div>
           {errorMessage && <div className="alert alert-danger mt-3">{errorMessage}</div>}
         </form>
       ) : (
