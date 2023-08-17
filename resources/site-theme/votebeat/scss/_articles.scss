@@ -125,18 +125,23 @@ h2.sub-headline {
 }
 
 figcaption {
-  padding: 8px 0px;
+  padding: 8px 16px;
   p {
     font-family: var(--font-1);
-    font-style: 300;
+    font-weight: 300;
     font-size: 1.2rem;
     span.title {
       font-family: var(--font-1);
-      font-style: 300;
+      font-weight: 300;
       font-style: italic;
+      font-size: 15px;
+      line-height: 24px;
+
       + span {
-        font-style: 300;
+        font-weight: 300;
         font-style: normal;
+        font-size: 13px;
+        line-height: 24px;
         font-family: var(--font-3);
         opacity: 0.75;
         &::before {
