@@ -25,8 +25,6 @@ const RepublishComponent = ({ arcSite, article, type }) => {
     <textarea
       ref={textareaRef}
       readOnly={true}
-      rows={40}
-      cols={60}
       defaultValue={output}
       onClick={handleTextareaClick}
     />
