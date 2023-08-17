@@ -3,19 +3,16 @@ import React from "react";
 
 const OneColLayout = ({ children }) => {
   const [navigation, overlay, overlayText, fullWidth, footer] = children;
-  const { arcSite, contextPath, deployment } = useFusionContext();
-  const theme = arcSite.split("-")[0];
+  const { arcSite } = useFusionContext();
 
   return (
     <>
-      <link
-        rel="stylesheet"
-        href={deployment(`${contextPath}/resources/site-theme/${theme}.scss`)}
-      />
       <div className={`site-${arcSite} custom-layout oneColumn`}>
         <header className="header">{navigation}</header>
-        <div className="overlay-image">{overlay}</div>
-        <div className="overlay-text">{overlayText}</div>
+        <div className="overlay-header">
+          <div className="overlay-image">{overlay}</div>
+          <div className="overlay-text">{overlayText}</div>
+        </div>
         <section role="main" id="main" className="main" tabIndex="-1">
           <div className="container layout-section">
             <div className="row-">
