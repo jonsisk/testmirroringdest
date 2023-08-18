@@ -90,6 +90,7 @@ const NewsletterInterestFeature = ({ customFields }) => {
           thankYouMsg={thankYouMsg}
           validation={validateSelection}
           disclaimer={disclaimer}
+          layout="horizontal"
         />
       </div>
     </GoogleReCaptchaProvider>
