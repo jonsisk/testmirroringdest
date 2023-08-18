@@ -10,6 +10,7 @@ import { resolveDefaultPromoElements } from "./results/helpers";
 const ResultsListCivic = ({ customFields }) => {
   const { arcSite, contextPath, deployment, isAdmin } = useFusionContext();
   const {
+    layoutStyle,
     lazyLoad,
     listContentConfig: { contentService, contentConfigValues },
     keepPrimaryWebsite,
@@ -51,6 +52,8 @@ const ResultsListCivic = ({ customFields }) => {
   const configuredSize =
     parseInt(contentConfigValues?.size, 10) || parseInt(contentConfigValues?.feedSize, 10) || 10;
 
+  console.log("XXXXX", layoutStyle);
+
   return (
     <LazyLoad enabled={lazyLoad && !isAdmin}>
       <Results
@@ -63,6 +66,7 @@ const ResultsListCivic = ({ customFields }) => {
         imagePropertiesFeatured={imagePropertiesFeatured}
         isServerSideLazy={isServerSideLazy}
         phrases={phrases}
+        showAsList={layoutStyle === "List"}
         showByline={promoElements.showByline}
         showDate={promoElements.showDate}
         showDescription={promoElements.showDescription}
@@ -82,6 +86,13 @@ ResultsListCivic.icon = "arc-list";
 
 ResultsListCivic.propTypes = {
   customFields: PropTypes.shape({
+    layoutStyle: PropTypes.oneOf(["List", "Front page"]).tag({
+      label: "Layout Style",
+      defaultValue: "List",
+      group: "Configure Content",
+      description:
+        "If select list style ir will show de traditional result list, if select front page it will show as 1-4 result list.",
+    }),
     keepPrimaryWebsite: PropTypes.bool.tag({
       label: "Keep primary website URL",
       defaultValue: true,

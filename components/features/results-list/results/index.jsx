@@ -14,6 +14,7 @@ const Results = ({
   imagePropertiesFeatured,
   isServerSideLazy = false,
   phrases,
+  showAsList = true,
   showByline = false,
   showDate = false,
   showDescription = false,
@@ -133,6 +134,7 @@ const Results = ({
           imageProperties={imageProperties}
           imagePropertiesFeatured={imagePropertiesFeatured}
           placeholderResizedImageOptions={placeholderResizedImageOptions}
+          showAsList={showAsList}
           showByline={showByline}
           showDate={showDate}
           showDescription={showDescription}
@@ -143,7 +145,7 @@ const Results = ({
           keepPrimaryWebsite={keepPrimaryWebsite}
         />
       ))}
-      {isThereMore && (
+      {isThereMore && showAsList && (
         <div className="see-more">
           <Button
             ariaLabel={phrases.t("results-list-block.see-more-button-aria-label")}
