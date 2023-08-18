@@ -13,6 +13,7 @@ const ResultItem = React.memo(
       imagePropertiesFeatured,
       targetFallbackImage,
       placeholderResizedImageOptions,
+      showAsList,
       showByline,
       showDescription,
       showHeadline,
