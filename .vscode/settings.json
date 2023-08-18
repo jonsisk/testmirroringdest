@@ -47,5 +47,6 @@
   "liveSassCompile.settings.includeItems": ["./resources/site-theme/_compile/**"],
   "liveSassCompile.settings.excludeList": ["**/node_modules/**", ".vscode/**"],
   "liveSassCompile.settings.generateMap": true,
-  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"]
+  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"],
+  "editor.stickyScroll.enabled": true
 }
