@@ -42,6 +42,49 @@
         order: 10;
       }
     }
+    .overlay-text {
+      color: var(--color-primary-text-inverse);
+      display: flex;
+      display: -ms-flexbox;
+      flex-direction: column;
+      height: 100%;
+      left: 0;
+      padding-left: 20px;
+      padding-right: 20px;
+      position: absolute;
+      bottom: 30px;
+      text-align: center;
+      width: 100%;
+      z-index: 2;
+      justify-content: flex-end;
+      flex-wrap: nowrap;
+      align-content: center;
+      align-items: center;
+
+      .breadcrumbs a {
+        color: #fff;
+      }
+      h1.headline {
+        color: #fff;
+        max-width: 762px;
+        margin: 0 auto 10px;
+      }
+      h2.sub-headline {
+        color: #fff;
+      }
+
+      .byline {
+        border-bottom: none;
+        span {
+          color: #fff;
+
+          a {
+            color: #fff;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
   }
 
   @include respond-down(sm) {
