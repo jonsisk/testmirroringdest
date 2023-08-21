@@ -7,8 +7,10 @@ import React from "react";
 const Footer = (props) => {
   const { arcSite, outputType } = useFusionContext();
   const { parentCommunity } = getProperties(arcSite);
-  const { topHierachy, bottomHierarchy, site } = props.customFields;
-  const { primaryLogo, primaryLogoAlt } = getProperties(site);
+  const { topHierachy, bottomHierarchy } = props.customFields;
+  const { primaryLogo, primaryLogoAlt } = getProperties(
+    parentCommunity ? parentCommunity : arcSite
+  );
 
   const topFooter = useContent({
     source: "site-service-hierarchy-civic",
@@ -76,9 +78,6 @@ const Footer = (props) => {
 
 Footer.propTypes = {
   customFields: PropTypes.shape({
-    site: PropTypes.string.tag({
-      description: "Site",
-    }),
     topHierachy: PropTypes.string.tag({
       description: "Top hierarchy",
     }),
