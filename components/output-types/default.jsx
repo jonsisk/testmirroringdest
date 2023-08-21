@@ -278,7 +278,7 @@ const CivicOutputType = ({
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: getSchema(globalContent, primaryLogo, websiteDomain, websiteName),
+              __html: getSchema(globalContent, primaryLogo, actualDomain, websiteName),
             }}
           ></script>
         )}
