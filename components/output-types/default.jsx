@@ -166,6 +166,27 @@ const CivicOutputType = ({
 
   const phrases = getTranslatedPhrases(getProperties(arcSite).locale || "en");
   const theme = arcSite?.split("-")[0];
+
+  // custom metaValue to override specific keys and still use the default <Meta> component
+  const customMetaValue = (key) => {
+    // let's use meta-title if it's defined, otherwise let it handle it by default.
+    if (globalContent?.type === "story") {
+      if (key === "title") {
+        const metaTitle = globalContent?.headlines?.meta_title;
+        if (metaTitle) {
+          return `${metaTitle} - ${websiteName}`;
+        } else {
+          return metaValue(key);
+        }
+      }
+
+      if (key === "og:title" || key === "twitter:title") {
+        return globalContent?.labels?.social_title || metaValue(key);
+      }
+    }
+    return metaValue(key);
+  };
+
   return (
     <html className={arcSite} lang={locale}>
       <head>
@@ -192,7 +213,7 @@ const CivicOutputType = ({
           outputCanonicalLink
           MetaTag={MetaTag}
           MetaTags={MetaTags}
-          metaValue={metaValue}
+          metaValue={customMetaValue}
           requestUri={requestUri}
           resizerURL={resizerURL}
           twitterUsername={twitterUsername}
@@ -202,6 +223,9 @@ const CivicOutputType = ({
         {fontUrlLink(fontUrl)}
         {globalContent?.type === "story" && (
           <>
+            <meta name="og:image:width" content="1200" />
+            <meta name="og:image:height" content="630" />
+            <meta name="og:image:type" content="image/jpeg" />
             <meta
               name="parsely-tags"
               content={getArticleParselyTags(globalContent, parselyTags, arcSite)}
