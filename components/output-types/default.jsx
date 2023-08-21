@@ -3,8 +3,8 @@ import { useFusionContext } from "fusion:context";
 import getTranslatedPhrases from "fusion:intl";
 import getProperties from "fusion:properties";
 import React from "react";
+import CivicMetaTags from "../base/metatags/metatags.components.jsx";
 import IconsMap from "../features/iconsMap/default";
-import { getArticleParselyTags } from "../helpers/article.helper";
 import { getSchema } from "../helpers/schema.helper";
 // this is blank import but used to inject scss
 import "./default.scss";
@@ -119,6 +119,10 @@ const CivicOutputType = ({
     locale = "en",
   } = getProperties(arcSite);
 
+  const actualDomain = parentCommunity
+    ? getProperties(parentCommunity).websiteDomain
+    : websiteDomain;
+
   const chartbeatInline = `
     (function() {
       var _sf_async_config = window._sf_async_config = (window._sf_async_config || {});
@@ -221,17 +225,12 @@ const CivicOutputType = ({
           websiteDomain={websiteDomain}
         />
         {fontUrlLink(fontUrl)}
-        {globalContent?.type === "story" && (
-          <>
-            <meta name="og:image:width" content="1200" />
-            <meta name="og:image:height" content="630" />
-            <meta name="og:image:type" content="image/jpeg" />
-            <meta
-              name="parsely-tags"
-              content={getArticleParselyTags(globalContent, parselyTags, arcSite)}
-            />
-          </>
-        )}
+        <CivicMetaTags
+          content={globalContent}
+          arcSite={arcSite}
+          parselyTags={parselyTags}
+          websiteUrl={actualDomain}
+        />
         <meta name="fb:app_id" content={facebookAppId} />
         <CssLinks />
         <link

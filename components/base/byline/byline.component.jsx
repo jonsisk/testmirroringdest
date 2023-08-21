@@ -2,7 +2,7 @@
 import React from "react";
 import { getUserDate } from "../../helpers/date.helper";
 
-const Byline = ({ element, showTime = true }) => {
+const Byline = ({ element, showTime = true, websiteDomain }) => {
   const credits = element?.credits?.by;
   const { display_date: displayDate, publish_date: publishDate } = element;
   return (
@@ -11,7 +11,7 @@ const Byline = ({ element, showTime = true }) => {
         By&nbsp;
         {credits?.map((author) => {
           return (
-            <a key={author.slug} href={`/author/${author.slug}`}>
+            <a key={author.slug} href={`${websiteDomain}/authors/${author.slug}`}>
               {author.name}
             </a>
           );
