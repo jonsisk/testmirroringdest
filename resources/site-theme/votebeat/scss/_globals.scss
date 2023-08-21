@@ -45,12 +45,8 @@ h5 {
   @include respond-up(lg) {
     width: 1100px;
   }
-
-  // @include respond-up(xl) {
-  //     width: 1280px;
-  // }
-
-  // @include respond-up(xxl) {
-  //     width: 1440px;
-  // }
+}
+#main > .container {
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
