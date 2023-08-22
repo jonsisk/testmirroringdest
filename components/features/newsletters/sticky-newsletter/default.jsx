@@ -38,7 +38,7 @@ const StickyNewsletterFeature = ({ customFields }) => {
   const [closed, setClosed] = useState(
     typeof window !== "undefined" && window.localStorage
       ? localStorage.getItem("newsletterbreaker") === "true"
-      : sticky
+      : true
   );
 
   const handleClose = () => {
@@ -54,7 +54,7 @@ const StickyNewsletterFeature = ({ customFields }) => {
 
   return (
     <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
-      <div ref={stickyRef} className={`newsletter-sticky ${sticky ? "sticky" : ""}`}>
+      <div ref={stickyRef} className={`newsletter-sticky ${!closed && sticky ? "sticky" : ""}`}>
         <div className="content">
           <div className="col-desc">
             <h3>{title}</h3>
