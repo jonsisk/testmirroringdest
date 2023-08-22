@@ -148,11 +148,11 @@ const Results = ({
       {isThereMore && showAsList && (
         <div className="see-more">
           <Button
-            ariaLabel={phrases.t("results-list-block.see-more-button-aria-label")}
+            ariaLabel={"More Stories"}
             buttonStyle={BUTTON_STYLES.PRIMARY}
             buttonTypes={BUTTON_TYPES.LABEL_ONLY}
             onClick={onReadMoreClick}
-            text={phrases.t("results-list-block.see-more-button")}
+            text={"More Stories"}
           />
         </div>
       )}

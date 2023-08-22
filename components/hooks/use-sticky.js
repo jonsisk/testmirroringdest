@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useBrowserGlobals } from "./use-browserglobals";
 
-const useSticky = () => {
+const useSticky = (direction = "down") => {
   const global = useBrowserGlobals();
   const stickyRef = useRef(null);
   const [sticky, setSticky] = useState(false);
@@ -11,7 +11,6 @@ const useSticky = () => {
     if (!stickyRef.current) {
       return;
     }
-
     setOffset(stickyRef.current.offsetTop + 100);
   }, [stickyRef, setOffset]);
 
@@ -20,8 +19,15 @@ const useSticky = () => {
       if (!stickyRef.current) {
         return;
       }
-
-      setSticky(global.window.scrollY > offset);
+      if (direction && direction === "up") {
+        if (global.window.scrollY > 100) {
+          setSticky(global.window.scrollY + global.window.innerHeight < offset);
+        } else {
+          setSticky(false);
+        }
+      } else {
+        setSticky(global.window.scrollY > offset);
+      }
     };
     global.window.addEventListener("scroll", handleScroll);
     return () => global.window.removeEventListener("scroll", handleScroll);

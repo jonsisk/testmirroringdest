@@ -3,6 +3,7 @@ import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-im
 import getProperties from "fusion:properties";
 import React from "react";
 import Byline from "../../../base/byline/byline.component";
+import { getWebsiteDomain } from "../../../helpers/site.helper";
 
 const ResultItem = React.memo(
   React.forwardRef(
@@ -114,7 +115,11 @@ const ResultItem = React.memo(
                 <div className="PagePromo-byline">
                   {showByline ? (
                     <div className="PagePromo-author">
-                      <Byline element={element} showTime={false} />
+                      <Byline
+                        element={element}
+                        showTime={false}
+                        websiteDomain={getWebsiteDomain(arcSite)}
+                      />
                     </div>
                   ) : null}
                 </div>

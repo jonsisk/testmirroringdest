@@ -1,4 +1,4 @@
-.story-layout-headline_above {
+.story-layout-simlpe {
   .overlay-header {
     .overlay-image {
       display: flex;
@@ -7,12 +7,12 @@
       align-content: center;
       text-align: center;
       .logo-overlay {
-        position: relative;
+        position: absolute;
         left: 0;
         top: 0;
         padding: 20px;
         right: 0;
-        background-color: var(--color-header-bg);
+        background-color: transparent;
         text-align: left;
         order: -1;
       }
@@ -40,6 +40,9 @@
       }
       figure.overlay-image {
         order: 10;
+      }
+      figcaption {
+        text-align: left;
       }
     }
   }

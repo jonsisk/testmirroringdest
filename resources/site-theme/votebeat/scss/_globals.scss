@@ -1,31 +1,42 @@
 html {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 body {
-    -moz-osx-font-smoothing: grayscale;
-    background: var(--color-site-bg);
-    color: var(--color-primary-text);
-    font-size: 1rem;
-    line-height: 1.6;
-    font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--color-site-bg);
+  color: var(--color-primary-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+
+  a img:active,
+  a img:hover,
+  a video:active,
+  a video:hover,
+  a figure:active,
+  a figure:hover,
+  a picture:active,
+  a picture:hover {
+    opacity: 1;
+  }
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 a {
-    color: var(--color-link-text)
+  color: var(--color-link-text);
 }
 
 a,
 a:hover {
-    text-decoration: none
+  text-decoration: none;
 }
 
 a:hover {
-    color: var(--color-link-text-hover)
+  color: var(--color-link-text-hover);
 }
 
 h1,
@@ -33,24 +44,20 @@ h2,
 h3,
 h4,
 h5 {
-    margin: 0;
+  margin: 0;
 }
 .custom-layout section {
-    margin-right: auto !important;
-    margin-left: auto !important;
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-    width: 100%;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  width: 100%;
 
-    @include respond-up(lg) {
-        width: 1100px;
-    }
-
-    // @include respond-up(xl) {
-    //     width: 1280px;
-    // }
-
-    // @include respond-up(xxl) {
-    //     width: 1440px;
-    // }
+  @include respond-up(lg) {
+    width: 1100px;
+  }
+}
+#main > .container {
+  margin-left: auto !important;
+  margin-right: auto !important;
 }

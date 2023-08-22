@@ -7,7 +7,7 @@ export const transformFeedData = (data, query) => {
     return transformedData;
   }
   transformedData.content_elements = transformedData.content_elements.map((item) => {
-    const primaryWebsite = item.taxonomy?.primary_section?._website;
+    const primaryWebsite = item.canonical_website;
     if (primaryWebsite) {
       // let's adjust the URL to the primary website
       const { websiteDomain } = getProperties(primaryWebsite);
