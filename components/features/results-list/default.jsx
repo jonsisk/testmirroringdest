@@ -54,26 +54,30 @@ const ResultsListCivic = ({ customFields }) => {
 
   return (
     <LazyLoad enabled={lazyLoad && !isAdmin}>
-      <Results
-        arcSite={arcSite}
-        configuredOffset={configuredOffset}
-        configuredSize={configuredSize}
-        contentConfigValues={contentConfigValues}
-        contentService={contentService}
-        imageProperties={imageProperties}
-        imagePropertiesFeatured={imagePropertiesFeatured}
-        isServerSideLazy={isServerSideLazy}
-        phrases={phrases}
-        showAsList={layoutStyle === "List"}
-        showByline={promoElements.showByline}
-        showDate={promoElements.showDate}
-        showDescription={promoElements.showDescription}
-        showHeadline={promoElements.showHeadline}
-        showImage={promoElements.showImage}
-        showItemOverline={promoElements.showItemOverline}
-        targetFallbackImage={targetFallbackImage}
-        keepPrimaryWebsite={keepPrimaryWebsite}
-      />
+      <div className={layoutStyle}>
+        <Results
+          arcSite={arcSite}
+          configuredOffset={configuredOffset}
+          configuredSize={configuredSize}
+          contentConfigValues={contentConfigValues}
+          contentService={contentService}
+          imageProperties={imageProperties}
+          imagePropertiesFeatured={imagePropertiesFeatured}
+          isServerSideLazy={isServerSideLazy}
+          phrases={phrases}
+          showAsList={layoutStyle === "List"}
+          showByline={promoElements.showByline}
+          showDate={promoElements.showDate}
+          showDescription={promoElements.showDescription}
+          showHeadline={promoElements.showHeadline}
+          showImage={promoElements.showImage}
+          showItemOverline={promoElements.showItemOverline}
+          targetFallbackImage={targetFallbackImage}
+          keepPrimaryWebsite={keepPrimaryWebsite}
+          showPagination={promoElements.showPagination}
+          showFeatured={promoElements.showFeatured}
+        />
+      </div>
     </LazyLoad>
   );
 };
@@ -84,7 +88,7 @@ ResultsListCivic.icon = "arc-list";
 
 ResultsListCivic.propTypes = {
   customFields: PropTypes.shape({
-    layoutStyle: PropTypes.oneOf(["List", "Front page"]).tag({
+    layoutStyle: PropTypes.oneOf(["List", "Front_page"]).tag({
       label: "Layout Style",
       defaultValue: "List",
       group: "Configure Content",
@@ -129,6 +133,16 @@ ResultsListCivic.propTypes = {
     }),
     showDate: PropTypes.bool.tag({
       label: "Show date",
+      defaultValue: true,
+      group: "Show promo elements",
+    }),
+    showPagination: PropTypes.bool.tag({
+      label: "Show pagination",
+      defaultValue: true,
+      group: "Show promo elements",
+    }),
+    showFeatured: PropTypes.bool.tag({
+      label: "Show featured article layout",
       defaultValue: true,
       group: "Show promo elements",
     }),

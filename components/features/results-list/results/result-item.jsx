@@ -20,6 +20,7 @@ const ResultItem = React.memo(
       showHeadline,
       showImage,
       showItemOverline,
+      showFeatured,
       keepPrimaryWebsite,
     }) => {
       const {
@@ -51,14 +52,14 @@ const ResultItem = React.memo(
         <>
           <div
             className={`PageListH-items-item ${
-              subtype === "standard" || subtype === undefined ? "" : "featured"
+              subtype === "standard" || subtype === undefined || !showFeatured ? "" : "featured"
             }`}
           >
             <div className={`PagePromo-${subtype}`}>
               <div className="PagePromo-media">
                 {showImage ? (
                   <a href={url} title={headlineText} aria-hidden="true" tabIndex="-1">
-                    {subtype === "standard" || subtype === undefined ? (
+                    {subtype === "standard" || subtype === undefined || !showFeatured ? (
                       <Image
                         {...imageProperties}
                         url={imageURL !== null ? imageURL : targetFallbackImage}
