@@ -159,6 +159,43 @@ figcaption {
   }
 }
 
+aside.sidebar {
+  background-color: var(--color-sidebar-bg-color);
+  padding: 24px;
+
+  p {
+    font-size: 1.6rem;
+    --font: var(--font-rte-body);
+    font-family: var(--font, var(--font-1));
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 0px;
+  }
+  ul {
+    list-style: disc;
+    padding: 0 0 0 20px;
+    margin: 10px 0 10px 10px;
+
+    li {
+      margin-bottom: 16px;
+      font-size: 1.6rem;
+    }
+  }
+
+  &.float-right {
+    float: right;
+    margin-left: 10px;
+    width: 45%;
+    margin-right: 5%;
+  }
+  &.float-left {
+    float: left;
+    margin-right: 10px;
+    width: 45%;
+    margin-left: 5%;
+  }
+}
+
 aside div:last-child {
   position: sticky;
   top: 65px;

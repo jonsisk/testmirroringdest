@@ -9,6 +9,17 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   font-family: var(--font-body), Arial, Helvetica, sans-serif;
+
+  a img:active,
+  a img:hover,
+  a video:active,
+  a video:hover,
+  a figure:active,
+  a figure:hover,
+  a picture:active,
+  a picture:hover {
+    opacity: 1;
+  }
 }
 
 .hidden {
