@@ -140,3 +140,59 @@
     }
   }
 }
+
+.Front_page {
+  .results-list-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: space-around;
+    gap: 2rem;
+
+    .PageListH-items-item {
+      border: 1px solid #000;
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-start;
+      margin: 0;
+      padding: 0;
+      border: 0 none;
+      &:not(:nth-child(1)).PagePromo-description {
+        display: none;
+      }
+      &:nth-child(1) {
+        grid-row: span 2;
+        grid-column: span 3;
+      }
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5) {
+        grid-row: span 1;
+        grid-column: span 1;
+        align-items: start;
+        // height: 250px;
+      }
+      .PagePromo-standard {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: stretch;
+
+        .PagePromo-media {
+          max-width: 100%;
+          width: 100%;
+          flex: 1 1 100%;
+          margin: 0;
+          display: contents;
+          a picture img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
