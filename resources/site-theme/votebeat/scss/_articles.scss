@@ -200,7 +200,7 @@ aside div:last-child {
   position: sticky;
   top: 65px;
 }
-
+.article-body-wrapper,
 main article {
   font-family: var(--font-1);
   font-size: var(--body-1);
@@ -364,7 +364,10 @@ main article {
     color: var(--color-link-text-hover);
     border-bottom: 0;
   }
-
+  a:hover {
+    color: var(--color-link-text-hover);
+    border-bottom: 0;
+  }
   .cms-textAlign-center {
     text-align: center;
   }

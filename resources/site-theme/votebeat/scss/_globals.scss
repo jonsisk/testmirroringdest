@@ -49,8 +49,8 @@ h5 {
 .custom-layout section {
   margin-right: auto !important;
   margin-left: auto !important;
-  padding-left: 10px !important;
-  padding-right: 10px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
   width: 100%;
 
   @include respond-up(lg) {
