@@ -167,7 +167,7 @@ const Results = ({
   } else {
     return viewableElements?.length > 0 && !isServerSideLazy ? (
       <div className="results-list-container">
-        <div className="col1">
+        <div className="PageListP-items-column">
           <ResultItem
             key={`result-card-${firstElement._id}`}
             ref={elementRefs[0]}
@@ -188,7 +188,7 @@ const Results = ({
             showFeatured={showFeatured}
           />
         </div>
-        <div className="col2">
+        <div className="PageListP-items-column">
           {restElements.map((element, index) => (
             <ResultItem
               key={`result-card-${element._id}`}

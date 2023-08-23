@@ -88,7 +88,7 @@ ResultsListCivic.icon = "arc-list";
 
 ResultsListCivic.propTypes = {
   customFields: PropTypes.shape({
-    layoutStyle: PropTypes.oneOf(["List", "Front_page"]).tag({
+    layoutStyle: PropTypes.oneOf(["List", "Front-Page"]).tag({
       label: "Layout Style",
       defaultValue: "List",
       group: "Configure Content",
