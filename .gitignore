@@ -12,3 +12,5 @@
 !/data/restore/.gitkeep
 
 /dist
+
+resources/site-theme/_css/**
