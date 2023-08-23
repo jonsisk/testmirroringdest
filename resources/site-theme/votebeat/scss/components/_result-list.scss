@@ -192,10 +192,12 @@
       }
     }
     .PageListP-items-column:last-of-type {
-      display: grid;
-      grid-gap: 20px;
-      grid-template-columns: 1fr 1fr;
-      align-items: start;
+      @include respond-up(xs) {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
       .PageListH-items-item {
         border: 1px solid #000;
         display: flex;
@@ -213,7 +215,10 @@
           flex-wrap: nowrap;
           justify-content: flex-start;
           align-items: stretch;
-
+          @include respond-down(xs) {
+            border-bottom: 1px solid var(--color-list-border);
+            margin: 16px 0 0 0;
+          }
           .PagePromo-media {
             max-width: 100%;
             width: 100%;
@@ -222,6 +227,15 @@
             display: contents;
             a picture img {
               width: 100%;
+            }
+          }
+          @include respond-down(xs) {
+            flex-direction: row;
+            .PagePromo-content {
+              margin: 0 0 0 12px;
+              .byline {
+                padding-bottom: 0;
+              }
             }
           }
         }
