@@ -379,6 +379,21 @@ const IconsMap = () => {
         >
           <path d="M14.4.1H2C1.4.1.9.6.9 1.2v4.6c0 4 3.3 7.3 7.3 7.3s7.3-3.3 7.3-7.3V1.2c0-.6-.5-1.1-1.1-1.1zm-1.9 5.3L8.9 9c-.2.2-.5.3-.7.3-.2 0-.5-.1-.7-.3L3.9 5.4c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.3 0l3 3 3-3c.4-.4 1-.4 1.3 0 .4.4.4 1 0 1.4z"></path>
         </symbol>
+        <symbol
+          id="icon-arrow-right"
+          viewBox="0 0 100 100"
+          className="ap-svg-icon ac-social-buttons__svg"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="currentColor"
+            d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z"
+            transform="translate(100, 100) rotate(180) "
+          ></path>
+        </symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path fill="currentColor" d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z"></path>
+        </symbol>
       </svg>
     </>
   );

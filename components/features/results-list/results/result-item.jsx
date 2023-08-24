@@ -35,7 +35,7 @@ const ResultItem = React.memo(
       const { websiteName } = getProperties(actualSite);
 
       const imageURL = extractImageFromStory(element);
-
+      console.log(imageURL, "imageURL");
       const url = websites[arcSite].website_url;
 
       return (
@@ -52,6 +52,7 @@ const ResultItem = React.memo(
                       ? extractResizedParams(element)
                       : placeholderResizedImageOptions
                   }
+                  fallbackImage={targetFallbackImage}
                 />
               </a>
             </div>

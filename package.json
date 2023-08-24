@@ -43,6 +43,8 @@
     "lodash.throttle": "^4.1.1",
     "react-google-recaptcha-v3": "^1.10.1",
     "react-oembed-container": "^1.0.1",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
     "use-breakpoint": "^3.1.1"
   }
 }
