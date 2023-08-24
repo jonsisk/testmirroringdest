@@ -1,7 +1,10 @@
 html {
   font-size: 12px;
 }
-
+.arcad-feature .arcad-container .arcad.pb-ad-admin {
+  font-size: 1.5rem !important;
+  line-height: 1.5rem !important;
+}
 body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--color-site-bg);
