@@ -153,12 +153,12 @@
                         background-color: #393939;
 
                         svg {
-                          color: var(--color-link-text-hover) !important;
-                          fill: var(--color-link-text-hover) !important;
+                          color: var(--color-header-link-text-hover) !important;
+                          fill: var(--color-header-link-text-hover) !important;
                         }
 
                         .chevron {
-                          color: var(--color-link-text-hover);
+                          color: var(--color-header-link-text-hover);
                         }
                       }
 
@@ -190,7 +190,7 @@
                           }
 
                           &:hover {
-                            color: var(--color-link-text-hover);
+                            color: var(--color-header-link-text-hover);
                           }
                         }
 
@@ -207,7 +207,7 @@
                               top: -1px;
                               @include respond-up(xs) {
                                 &:hover {
-                                  color: var(--color-link-text-hover);
+                                  color: var(--color-header-link-text-hover);
                                 }
                               }
                             }
@@ -240,13 +240,13 @@
                           background-color: #393939;
 
                           > .NavigationItem-text span {
-                            color: var(--color-link-text-hover);
+                            color: var(--color-header-link-text-hover);
                           }
 
                           svg,
                           svg path {
-                            color: var(--color-link-text-hover) !important;
-                            fill: var(--color-link-text-hover) !important;
+                            color: var(--color-header-link-text-hover) !important;
+                            fill: var(--color-header-link-text-hover) !important;
                           }
                         }
 
@@ -273,7 +273,7 @@
                             @include respond-up(xs) {
                               &:hover {
                                 a {
-                                  color: var(--color-link-text-hover);
+                                  color: var(--color-header-link-text-hover);
                                 }
                               }
                             }
@@ -378,7 +378,7 @@
               align-content: center;
               gap: 8px;
               &:hover {
-                color: var(--color-link-text-hover);
+                color: var(--color-header-link-text-hover);
               }
               @include respond-up(md) {
                 font-size: 1.9rem;
@@ -465,7 +465,7 @@
           }
         }
         a:hover {
-          color: var(--color-link-text-hover);
+          color: var(--color-header-link-text-hover);
         }
       }
 
@@ -493,7 +493,7 @@
     .item-topics {
       display: none !important;
       a:hover {
-        color: var(--color-link-text-hover);
+        color: var(--color-header-link-text-hover);
       }
       @include respond-up(xxs) {
         display: block !important;
