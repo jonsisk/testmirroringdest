@@ -90,7 +90,10 @@ export const getRepublishableArticle = (
 const stripTags = (str) => {
   if (str === null || str === "") return false;
   else str = str.toString();
-  return str.replace(/<\/?a[^>]*>|<\/?b[^>]*>|<\/?i[^>]*>|<\/?p[^>]*>/gi, "");
+  return str.replace(
+    /<\/?a[^>]*>|<\/?b[^>]*>|<\/?i[^>]*>|<\/?p[^>]*>|<\/?em[^>]*>|<\/?strong[^>]*>/gi,
+    ""
+  );
 };
 
 const stripBrTags = (str) => {
