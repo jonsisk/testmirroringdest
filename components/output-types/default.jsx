@@ -3,8 +3,8 @@ import { useFusionContext } from "fusion:context";
 import getTranslatedPhrases from "fusion:intl";
 import getProperties from "fusion:properties";
 import React from "react";
+import CivicMetaTags from "../base/metatags/metatags.components.jsx";
 import IconsMap from "../features/iconsMap/default";
-import { getArticleParselyTags } from "../helpers/article.helper";
 import { getSchema } from "../helpers/schema.helper";
 // this is blank import but used to inject scss
 import "./default.scss";
@@ -115,8 +115,13 @@ const CivicOutputType = ({
     comscoreID,
     querylyId,
     parentCommunity,
+    facebookAppId,
     locale = "en",
   } = getProperties(arcSite);
+
+  const actualDomain = parentCommunity
+    ? getProperties(parentCommunity).websiteDomain
+    : websiteDomain;
 
   const chartbeatInline = `
     (function() {
@@ -165,6 +170,27 @@ const CivicOutputType = ({
 
   const phrases = getTranslatedPhrases(getProperties(arcSite).locale || "en");
   const theme = arcSite?.split("-")[0];
+
+  // custom metaValue to override specific keys and still use the default <Meta> component
+  const customMetaValue = (key) => {
+    // let's use meta-title if it's defined, otherwise let it handle it by default.
+    if (globalContent?.type === "story") {
+      if (key === "title") {
+        const metaTitle = globalContent?.headlines?.meta_title;
+        if (metaTitle) {
+          return `${metaTitle} - ${websiteName}`;
+        } else {
+          return metaValue(key);
+        }
+      }
+
+      if (key === "og:title" || key === "twitter:title") {
+        return globalContent?.labels?.social_title || metaValue(key);
+      }
+    }
+    return metaValue(key);
+  };
+
   return (
     <html className={arcSite} lang={locale}>
       <head>
@@ -191,7 +217,7 @@ const CivicOutputType = ({
           outputCanonicalLink
           MetaTag={MetaTag}
           MetaTags={MetaTags}
-          metaValue={metaValue}
+          metaValue={customMetaValue}
           requestUri={requestUri}
           resizerURL={resizerURL}
           twitterUsername={twitterUsername}
@@ -199,14 +225,13 @@ const CivicOutputType = ({
           websiteDomain={websiteDomain}
         />
         {fontUrlLink(fontUrl)}
-        {globalContent?.type === "story" && (
-          <>
-            <meta
-              name="parsely-tags"
-              content={getArticleParselyTags(globalContent, parselyTags, arcSite)}
-            />
-          </>
-        )}
+        <CivicMetaTags
+          content={globalContent}
+          arcSite={arcSite}
+          parselyTags={parselyTags}
+          websiteUrl={actualDomain}
+        />
+        <meta name="fb:app_id" content={facebookAppId} />
         <CssLinks />
         <link
           rel="stylesheet"
@@ -253,7 +278,7 @@ const CivicOutputType = ({
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: getSchema(globalContent, primaryLogo, websiteDomain, websiteName),
+              __html: getSchema(globalContent, primaryLogo, actualDomain, websiteName),
             }}
           ></script>
         )}

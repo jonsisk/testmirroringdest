@@ -19,14 +19,21 @@ export const getDateForRepublish = (date, showTime = false) => {
   return dayjs.utc(date).tz("America/New_York").format(FORMAT);
 };
 
+export const getDateForMetadata = (date) => {
+  if (!date) {
+    return null;
+  }
+
+  const FORMAT = "YYYY-MM-DD[T]hh:mm:ssZZ";
+  return dayjs.utc(date).tz("America/New_York").format(FORMAT);
+};
+
 export const getUserDate = (date, showTime = false) => {
   if (!date) {
     return null;
   }
 
-  const FORMAT = showTime
-    ? `MMM D, YYYY, h:mma ${insertTimezoneIntoTemplate(date)}`
-    : "MMM D, YYYY";
+  const FORMAT = showTime ? `MMM D, YYYY, h:mma ${insertTimezoneIntoTemplate(date)}` : "MMM D";
   return dayjs.utc(date).local().format(FORMAT);
 };
 

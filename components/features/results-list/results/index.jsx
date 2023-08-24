@@ -11,8 +11,10 @@ const Results = ({
   contentConfigValues,
   contentService,
   imageProperties,
+  imagePropertiesFeatured,
   isServerSideLazy = false,
   phrases,
+  showAsList = true,
   showByline = false,
   showDate = false,
   showDescription = false,
@@ -20,6 +22,9 @@ const Results = ({
   showImage = false,
   showItemOverline = false,
   targetFallbackImage,
+  showPagination = true,
+  showFeatured = true,
+  keepPrimaryWebsite = false,
 }) => {
   const [queryOffset, setQueryOffset] = useState(configuredOffset);
 
@@ -44,16 +49,16 @@ const Results = ({
         case "story-feed-sections":
         case "story-feed-sections-civic":
         case "story-feed-tag": {
-          return { feedOffset: offset, feedSize: size };
+          return { feedOffset: offset, feedSize: size, keepPrimaryWebsite };
         }
         case "content-api-collections": {
-          return { from: offset, size: configuredSize, getNext: true };
+          return { from: offset, size: configuredSize, getNext: true, keepPrimaryWebsite };
         }
         default: {
           break;
         }
       }
-      return { offset, size };
+      return { offset, size, keepPrimaryWebsite };
     },
     [configuredOffset, configuredSize, contentService]
   );
@@ -120,38 +125,95 @@ const Results = ({
     setQueryOffset((oldOffset) => oldOffset + configuredSize);
   }, [configuredSize, setQueryOffset]);
 
-  return viewableElements?.length > 0 && !isServerSideLazy ? (
-    <div className="results-list-container">
-      {viewableElements.map((element, index) => (
-        <ResultItem
-          key={`result-card-${element._id}`}
-          ref={elementRefs[index]}
-          arcSite={arcSite}
-          element={element}
-          imageProperties={imageProperties}
-          placeholderResizedImageOptions={placeholderResizedImageOptions}
-          showByline={showByline}
-          showDate={showDate}
-          showDescription={showDescription}
-          showHeadline={showHeadline}
-          showImage={showImage}
-          showItemOverline={showItemOverline}
-          targetFallbackImage={targetFallbackImage}
-        />
-      ))}
-      {isThereMore && (
-        <div className="see-more">
-          <Button
-            ariaLabel={phrases.t("results-list-block.see-more-button-aria-label")}
-            buttonStyle={BUTTON_STYLES.PRIMARY}
-            buttonTypes={BUTTON_TYPES.LABEL_ONLY}
-            onClick={onReadMoreClick}
-            text={phrases.t("results-list-block.see-more-button")}
+  const [firstElement, ...restElements] = viewableElements;
+
+  if (showAsList) {
+    return viewableElements?.length > 0 && !isServerSideLazy ? (
+      <div className="results-list-container">
+        {viewableElements.map((element, index) => (
+          <ResultItem
+            key={`result-card-${element._id}`}
+            ref={elementRefs[index]}
+            arcSite={arcSite}
+            element={element}
+            imageProperties={imageProperties}
+            imagePropertiesFeatured={imagePropertiesFeatured}
+            placeholderResizedImageOptions={placeholderResizedImageOptions}
+            showAsList={showAsList}
+            showByline={showByline}
+            showDate={showDate}
+            showDescription={showDescription}
+            showHeadline={showHeadline}
+            showImage={showImage}
+            showItemOverline={showItemOverline}
+            targetFallbackImage={targetFallbackImage}
+            keepPrimaryWebsite={keepPrimaryWebsite}
+            showFeatured={showFeatured}
+          />
+        ))}
+        {isThereMore && showPagination && showAsList && (
+          <div className="see-more">
+            <Button
+              ariaLabel={"More Stories"}
+              buttonStyle={BUTTON_STYLES.PRIMARY}
+              buttonTypes={BUTTON_TYPES.LABEL_ONLY}
+              onClick={onReadMoreClick}
+              text={"More Stories"}
+            />
+          </div>
+        )}
+      </div>
+    ) : null;
+  } else {
+    return viewableElements?.length > 0 && !isServerSideLazy ? (
+      <div className="results-list-container">
+        <div className="PageListP-items-column">
+          <ResultItem
+            key={`result-card-${firstElement._id}`}
+            ref={elementRefs[0]}
+            arcSite={arcSite}
+            element={firstElement}
+            imageProperties={imagePropertiesFeatured}
+            imagePropertiesFeatured={imagePropertiesFeatured}
+            placeholderResizedImageOptions={placeholderResizedImageOptions}
+            showAsList={showAsList}
+            showByline={showByline}
+            showDate={showDate}
+            showDescription={showDescription}
+            showHeadline={showHeadline}
+            showImage={showImage}
+            showItemOverline={showItemOverline}
+            targetFallbackImage={targetFallbackImage}
+            keepPrimaryWebsite={keepPrimaryWebsite}
+            showFeatured={showFeatured}
           />
         </div>
-      )}
-    </div>
-  ) : null;
+        <div className="PageListP-items-column">
+          {restElements.map((element, index) => (
+            <ResultItem
+              key={`result-card-${element._id}`}
+              ref={elementRefs[index]}
+              arcSite={arcSite}
+              element={element}
+              imageProperties={imageProperties}
+              imagePropertiesFeatured={imagePropertiesFeatured}
+              placeholderResizedImageOptions={placeholderResizedImageOptions}
+              showAsList={showAsList}
+              showByline={showByline}
+              showDate={showDate}
+              showDescription={showDescription}
+              showHeadline={showHeadline}
+              showImage={showImage}
+              showItemOverline={showItemOverline}
+              targetFallbackImage={targetFallbackImage}
+              keepPrimaryWebsite={keepPrimaryWebsite}
+              showFeatured={showFeatured}
+            />
+          ))}
+        </div>
+      </div>
+    ) : null;
+  }
 };
 
 export default Results;

@@ -13,7 +13,7 @@ const RepublishFeature = ({ customFields }) => {
 
   return (
     <div className="republishForm">
-      <h3>{titleHtml}</h3>
+      <h2>{titleHtml}</h2>
       <p>{instructionsHtml}</p>
       <RepublishComponent article={items} type="html" arcSite={arcSite} />
 

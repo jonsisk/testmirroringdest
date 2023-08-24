@@ -13,6 +13,7 @@ const NewsletterSignup = ({
   thankYouMsg,
   validation,
   disclaimer,
+  layout = "standard",
 }) => {
   const [email, setEmail] = useState("");
   const [recaptchaValue, setRecaptchaValue] = useState("");
@@ -88,15 +89,36 @@ const NewsletterSignup = ({
         <form onSubmit={handleSubmit}>
           <label className="emailInput-label">
             <span>
-              Email <span className="input-required">(required)</span>
+              Email{" "}
+              <span className="input-required">{layout === "horizontal" ? "*" : "(required)"}</span>
             </span>
+            {layout === "horizontal" && (
+              <span className="TextInput-Newsletter-wrap">
+                <input type="email" name="email" onChange={handleInputChange} required />
+                <button type="submit" disabled={isSubmitting}>
+                  Submit
+                </button>
+              </span>
+            )}
           </label>
-          <input type="email" name="email" onChange={handleInputChange} required />
+          {layout !== "horizontal" && (
+            <input
+              type="email"
+              name="email"
+              placeholder="your@email.com"
+              onChange={handleInputChange}
+              required
+            />
+          )}
           <input type="hidden" name="recaptcha" value={recaptchaValue} />
           <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
-          <button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Submitting..." : "Sign Me Up"}
-          </button>
+          {layout !== "horizontal" && (
+            <div className="buttonContainer">
+              <button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Sign Me Up"}
+              </button>
+            </div>
+          )}
           {errorMessage && <div className="alert alert-danger mt-3">{errorMessage}</div>}
         </form>
       ) : (

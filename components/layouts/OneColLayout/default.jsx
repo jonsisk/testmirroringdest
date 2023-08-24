@@ -2,18 +2,19 @@ import { useFusionContext } from "fusion:context";
 import React from "react";
 
 const OneColLayout = ({ children }) => {
-  const [navigation, fullWidth, footer] = children;
-  const { arcSite, contextPath, deployment } = useFusionContext();
-  const theme = arcSite.split("-")[0];
+  const [navigation, overlay, overlayText, fullWidth, footer] = children;
+  const { arcSite, globalContent } = useFusionContext();
 
   return (
     <>
-      <link
-        rel="stylesheet"
-        href={deployment(`${contextPath}/resources/site-theme/${theme}.scss`)}
-      />
-      <div className={`site-${arcSite}`}>
+      <div
+        className={`site-${arcSite} custom-layout oneColumn story-layout-${globalContent?.subtype}`}
+      >
         <header className="header">{navigation}</header>
+        <div className="overlay-header">
+          <div className="overlay-image">{overlay}</div>
+          <div className="overlay-text">{overlayText}</div>
+        </div>
         <section role="main" id="main" className="main" tabIndex="-1">
           <div className="container layout-section">
             <div className="row-">
@@ -27,6 +28,6 @@ const OneColLayout = ({ children }) => {
   );
 };
 
-OneColLayout.sections = ["navigation", "fullwidth", "footer"];
+OneColLayout.sections = ["navigation", "overlay", "overlayText", "fullWidth", "footer"];
 OneColLayout.label = "One Column - Civic Layout";
 export default OneColLayout;

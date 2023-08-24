@@ -1,55 +1,58 @@
-@import '../variables';
+@import "../variables";
 
 .Page-headline {
-    --font: var(--font-headline);
+  --font: var(--font-headline);
 }
 
 .Page-subHeadline {
-    font-size: var(--subhead-1);
-    font-weight: 400;
-    margin-top: 16px;
+  font-size: var(--subhead-1);
+  font-weight: 400;
+  margin-top: 16px;
 }
 
 figure picture img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .RichTextBody {
-    --font: var(--font-rte-body);
+  --font: var(--font-rte-body);
+  font-family: var(--font, var(--font-1));
+  font-size: var(--body-1);
+  font-weight: 400;
+  line-height: 1.6;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  h1 {
+    font-size: var(--heading-1);
+    line-height: 1.2;
+  }
+
+  h1,
+  h2 {
     font-family: var(--font, var(--font-1));
-    font-size: var(--body-1);
-    font-weight: 400;
-    line-height: 1.6;
+    font-weight: 600;
+    letter-spacing: normal;
+  }
 
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
+  p {
+    margin: 20px 0;
+
+    &:first-of-type {
+      margin-top: 0;
     }
+  }
 
-    h1 {
-        font-size: var(--heading-1);
-        line-height: 1.2;
-
+  a {
+    border-bottom: 1px solid var(--color-link-text-hover) !important;
+    color: #393939;
+    &:hover {
+      color: var(--color-link-text-hover) !important;
+      border-bottom: 0 none !important;
     }
-
-    h1,
-    h2 {
-        font-family: var(--font, var(--font-1));
-        font-weight: 600;
-        letter-spacing: normal
-    }
-
-    p {
-        margin: 20px 0;
-
-        &:first-of-type {
-            margin-top: 0;
-        }
-    }
-
-    a {
-        border-bottom: 1px solid #AE610C !important;
-        color: #393939;
-    }
+  }
 }

@@ -37,6 +37,8 @@ const resolveDefaultPromoElements = (customFields = {}) => {
     showHeadline: true,
     showImage: true,
     showItemOverline: false,
+    showPagination: true,
+    showFeatured: true,
   };
   const fieldKeys = Object.keys(fields);
   return fieldKeys.reduce((acc, key) => {

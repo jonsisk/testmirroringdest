@@ -1,7 +1,6 @@
 import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
 import React from "react";
-import "./styles.scss";
 
 /**
  * Shows 3 share buttons for FB,Twitter & Republish

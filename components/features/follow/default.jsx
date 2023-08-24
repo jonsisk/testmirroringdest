@@ -5,7 +5,7 @@ const Follow = ({ customFields }) => {
   const { title, urlTwitter, urlInstagram, urlFacebook, urlRSS } = customFields;
 
   return (
-    <div className="HtmlModule">
+    <div className="follow">
       <h2>{title}</h2>
       <a
         href={urlTwitter}

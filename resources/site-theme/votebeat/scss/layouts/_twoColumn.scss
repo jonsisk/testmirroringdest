@@ -1,7 +1,7 @@
 .page-twoColumn {
   section {
     display: flex;
-    gap: 40px;
+    // gap: 40px;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
@@ -41,6 +41,9 @@
         @include respond-up(lg) {
           flex: 0 0 300px;
           max-width: 300px;
+          flex-direction: column;
+        }
+        @include respond-down(xs) {
           flex-direction: column;
         }
       }
