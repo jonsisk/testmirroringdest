@@ -28,6 +28,6 @@ const OneColLayout = ({ children }) => {
   );
 };
 
-OneColLayout.sections = ["navigation", "overlay", "overlayText", "fullwidth", "footer"];
+OneColLayout.sections = ["navigation", "overlay", "overlayText", "fullWidth", "footer"];
 OneColLayout.label = "One Column - Civic Layout";
 export default OneColLayout;
