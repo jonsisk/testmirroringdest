@@ -32,8 +32,12 @@ export const getUserDate = (date, showTime = false) => {
   if (!date) {
     return null;
   }
+  var now = dayjs();
+  const STANDARD_FORMAT = now.year() > dayjs(date).year() ? "MMM D, YYYY" : "MMM D";
 
-  const FORMAT = showTime ? `MMM D, YYYY, h:mma ${insertTimezoneIntoTemplate(date)}` : "MMM D";
+  const FORMAT = showTime
+    ? `MMM D, YYYY, h:mma ${insertTimezoneIntoTemplate(date)}`
+    : STANDARD_FORMAT;
   return dayjs.utc(date).local().format(FORMAT);
 };
 
