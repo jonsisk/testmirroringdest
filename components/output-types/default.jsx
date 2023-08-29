@@ -231,6 +231,21 @@ const CivicOutputType = ({
           parselyTags={parselyTags}
           websiteUrl={actualDomain}
         />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href={deployment(`${contextPath}/resources/images/${theme}/apple-touch-icon.png`)}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href={deployment(`${contextPath}/resources/images/${theme}/favicon-32x32.png`)}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href={deployment(`${contextPath}/resources/images/${theme}/favicon-16x16.png`)}
+        />
         <meta name="fb:app_id" content={facebookAppId} />
         <CssLinks />
         <link
