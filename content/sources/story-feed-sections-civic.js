@@ -41,6 +41,11 @@ const pattern = (key = {}) => {
             },
           },
           {
+            term: {
+              type: "story",
+            },
+          },
+          {
             nested: {
               path: "taxonomy.sections",
               query: {
