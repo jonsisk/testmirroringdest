@@ -1,4 +1,6 @@
 :root {
+  --color-white: #ffffff;
+  --color-black: #000000;
   --color-bg: #544459;
   --color-primary: #babbe0;
   --color-primary-text: #393939;
@@ -46,7 +48,7 @@
   --color-list-border: #e7e7e8;
 
   --color-table-head-bg-color: #178287;
-  --color-table-head-text-color: #ffffff;
+  --color-table-head-text-color: var(--color-white);
 
   --color-bg-linkset-items: #d1edee;
   --color-bg-linkset-items-center: var(--color-bg);
@@ -67,6 +69,8 @@
   --color-text-hover-link-toaster: #d1edee;
   --color-text-promo-author-byline: #5e5e5e;
   --color-generic-promo-bg: #fce487;
+  --color-text-gray: #767676;
+  --newsletter-interests-label: #f8f8f8;
 
   --font-1: "Barlow Condensed";
   --font-2: "Barlow Condensed";

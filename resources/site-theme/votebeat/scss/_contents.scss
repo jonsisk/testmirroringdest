@@ -49,7 +49,7 @@ figure picture img {
 
   a {
     border-bottom: 1px solid var(--color-link-text-hover) !important;
-    color: #393939;
+    color: var(--color-link-text);
     &:hover {
       color: var(--color-link-text-hover) !important;
       border-bottom: 0 none !important;

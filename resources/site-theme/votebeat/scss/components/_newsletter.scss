@@ -68,13 +68,13 @@
         }
         input {
           flex: 0 0 64%;
-          border-color: #fff;
+          border-color: var(--color-white);
           border: 1px solid #fff;
           font-size: 1.35rem;
           padding: 4px;
           height: auto;
           width: 100%;
-          color: #000 !important;
+          color: var(--color-black) !important;
           line-height: 1.6;
           @include respond-down(xs) {
             flex: 0 0 100%;
@@ -85,8 +85,8 @@
         button {
           flex: 0 0 auto;
           display: inline-block;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--color-white);
+          color: var(--color-black);
           font-size: 1.7rem;
           letter-spacing: 0;
           padding: 8px 24px;
@@ -140,7 +140,7 @@
   grid-template-columns: 1fr;
   display: grid;
   width: 50%;
-  background-color: #babbe0;
+  background-color: var(--color-primary);
   padding: 24px;
   text-align: center;
   height: fit-content;
@@ -171,7 +171,7 @@
     &.small {
       margin-top: 24px;
       font-style: italic;
-      color: #767676;
+      color: var(--color-text-gray);
       text-align: left;
       font-size: 1.25rem;
       * {
@@ -205,13 +205,13 @@
     }
 
     input {
-      border-color: #fff;
+      border-color: var(--color-white);
       border: 1px solid #fff;
       font-size: 1.35rem;
       padding: 4px;
       height: auto;
       width: 100%;
-      color: #000 !important;
+      color: var(--color-black) !important;
       line-height: 1.6;
     }
 
@@ -224,7 +224,7 @@
       font-size: var(--label-3);
       font-weight: 700;
       background: var(--color-button-bg);
-      color: #fff;
+      color: var(--color-white);
       border: 1px solid var(--color-button-border);
       padding: 12px 16px;
       border-radius: 2px;
@@ -278,7 +278,7 @@
 
       label {
         padding: 18px;
-        background-color: #f8f8f8;
+        background-color: var(--newsletter-interests-label);
         display: block;
         &:hover {
           background-color: var(--color-bg-checkbox-largebox);
@@ -365,7 +365,7 @@
     text-align: center;
     font-family: var(--font-1);
     background: var(--color-button-bg);
-    color: #fff;
+    color: var(--color-white);
     border: 1px solid var(--color-button-border);
     padding: 6px 24px;
     text-transform: none;
@@ -426,13 +426,13 @@
         }
         input {
           flex: 0 0 64%;
-          border-color: #fff;
+          border-color: var(--color-white);
           border: 1px solid #fff;
           font-size: 1.35rem;
           padding: 4px;
           height: auto;
           width: 100%;
-          color: #000 !important;
+          color: var(--color-black) !important;
           line-height: 1.6;
           @include respond-down(xs) {
             flex: 0 0 100%;
@@ -449,8 +449,8 @@
         button {
           flex: 0 0 auto;
           display: inline-block;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--color-white);
+          color: var(--color-black);
           font-size: 1.7rem;
           letter-spacing: 0;
           padding: 8px 24px;

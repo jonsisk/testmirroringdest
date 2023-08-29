@@ -34,9 +34,9 @@
   }
 
   a.republish-link {
-    background-color: #d1d1d1;
+    background-color: var(--color-border);
     transition: opacity 0.3s;
-    color: #333;
+    color: var(--color-dark-gray);
     border-radius: 20px;
     padding: 8px;
     letter-spacing: 0.1em;
