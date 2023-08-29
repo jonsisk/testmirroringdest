@@ -95,7 +95,7 @@ const NewsletterSignup = ({
             {layout === "horizontal" && (
               <span className="TextInput-Newsletter-wrap">
                 <input type="email" name="email" onChange={handleInputChange} required />
-                <button type="submit" disabled={isSubmitting}>
+                <button type="submit" className="buttonContainer" disabled={isSubmitting}>
                   Submit
                 </button>
               </span>

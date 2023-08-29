@@ -150,7 +150,7 @@
                       }
 
                       &.has-menu:hover {
-                        background-color: var(--color-link-text);
+                        background-color: #393939;
 
                         svg {
                           color: var(--color-header-link-text-hover) !important;
@@ -202,7 +202,7 @@
                             .chevron {
                               width: 14px;
                               height: 9px;
-                              color: var(--color-white);
+                              color: #fff;
                               position: relative;
                               top: -1px;
                               @include respond-up(xs) {
@@ -217,7 +217,7 @@
 
                       .NavigationItem-items {
                         display: none;
-                        background-color: var(--color-link-text);
+                        background-color: #393939;
                         left: 0;
                         position: fixed;
                         margin-top: 48px;
@@ -237,7 +237,7 @@
                         }
 
                         &.has-menu:hover {
-                          background-color: var(--color-link-text);
+                          background-color: #393939;
 
                           > .NavigationItem-text span {
                             color: var(--color-header-link-text-hover);
