@@ -1,18 +1,7 @@
 import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper";
 import { Pagination } from "swiper/modules";
-//import { Swiper, SwiperSlide } from "swiper/swiper-react.mjs";
-// Import Swiper styles
 import "./styles.scss";
-//import "swiper/css";
-//import "swiper/css/pagination";
-// import function to register Swiper custom elements
-//import { register } from "swiper/element/bundle";
-// register Swiper custom elements
-//register();º
-
-// import required modules
 
 const SwipperCivic = () => {
   return (
