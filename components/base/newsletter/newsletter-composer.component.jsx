@@ -2,7 +2,6 @@ import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
 import React from "react";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { replaceSiteVariables } from "../../helpers/site.helper";
 import { newsletterInterests, newsletterCopy } from "../../utilities/newsletters";
 import NewsletterSignup from "./newsletter-signup.component";
@@ -15,7 +14,7 @@ import NewsletterSignup from "./newsletter-signup.component";
 const NewsletterComposer = ({ embed }) => {
   const context = useFusionContext();
   const { arcSite } = context;
-  const { websiteName, recaptchaSiteKey, newsletterSignupEndpoint } = getProperties(arcSite);
+  const { websiteName, newsletterSignupEndpoint } = getProperties(arcSite);
   const { title, description, thankYouMsg } = newsletterCopy[arcSite] || newsletterCopy["default"];
 
   const composerNewsletter = newsletterInterests
@@ -25,40 +24,38 @@ const NewsletterComposer = ({ embed }) => {
   const replacedDescription = replaceSiteVariables(description, websiteName);
 
   return (
-    <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
-      <div className="newsletter-composer">
-        <div className="content">
-          <div className="col-desc">
-            <h3>{title}</h3>
-            <p>{replacedDescription}</p>
-          </div>
-          <div className="col-info">
-            <NewsletterSignup
-              newsletterSignupEndpoint={newsletterSignupEndpoint}
-              website={arcSite}
-              interestIds={composerNewsletter}
-              thankYouMsg={thankYouMsg}
-            />
+    <div className="newsletter-composer">
+      <div className="content">
+        <div className="col-desc">
+          <h3>{title}</h3>
+          <p>{replacedDescription}</p>
+        </div>
+        <div className="col-info">
+          <NewsletterSignup
+            newsletterSignupEndpoint={newsletterSignupEndpoint}
+            website={arcSite}
+            interestIds={composerNewsletter}
+            thankYouMsg={thankYouMsg}
+          />
 
-            <p className="small">
-              <i>By signing up, you agree to our</i>
-              <a
-                href="https://www.votebeat.org/pages/privacy-policy"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i> Privacy Notice</i>
-              </a>
-              <i> and European users agree to the data transfer policy. You may also receive</i>
-              <a href="https://www.votebeat.org/dedicated-emails" target="_blank" rel="noreferrer">
-                <i> occasional messages from sponsors</i>
-              </a>
-              <i>.</i>
-            </p>
-          </div>
+          <p className="small">
+            <i>By signing up, you agree to our</i>
+            <a
+              href="https://www.votebeat.org/pages/privacy-policy"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i> Privacy Notice</i>
+            </a>
+            <i> and European users agree to the data transfer policy. You may also receive</i>
+            <a href="https://www.votebeat.org/dedicated-emails" target="_blank" rel="noreferrer">
+              <i> occasional messages from sponsors</i>
+            </a>
+            <i>.</i>
+          </p>
         </div>
       </div>
-    </GoogleReCaptchaProvider>
+    </div>
   );
 };
 

@@ -40,7 +40,7 @@ const NewsletterSignup = ({
     handleReCaptchaVerify();
   }, [handleReCaptchaVerify]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (recaptchaValue === "") {
@@ -55,7 +55,7 @@ const NewsletterSignup = ({
 
     setIsSubmitting(true);
 
-    fetch(newsletterSignupEndpoint, {
+    let response = await fetch(newsletterSignupEndpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,26 +66,23 @@ const NewsletterSignup = ({
         interest_ids: interestIds,
         "g-recaptcha-response": recaptchaValue,
       }),
-    })
-      .then((response) => {
-        setIsSubmitting(false);
-        if (response.ok) {
-          setEmail("");
-          setFormSubmitted(true);
-        } else {
-          const alreadyMember = response.includes("already a list member");
-          setErrorMessage(
-            alreadyMember
-              ? "You're already subscribed to this newsletter."
-              : "An error occurred. Please try again later."
-          );
-          handleReCaptchaVerify();
-        }
-      })
-      .then(() => {
-        setErrorMessage("An error occurred. Please try again later.");
-        setIsSubmitting(false);
-      });
+    });
+
+    setIsSubmitting(false);
+
+    if (response.ok) {
+      setEmail("");
+      setFormSubmitted(true);
+    } else {
+      const responseText = await response.text();
+      const alreadyMember = responseText?.includes("already a list member");
+      setErrorMessage(
+        alreadyMember
+          ? "You're already subscribed to this newsletter."
+          : "An error occurred. Please try again later."
+      );
+      handleReCaptchaVerify();
+    }
   };
 
   return (

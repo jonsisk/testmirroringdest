@@ -1,12 +1,15 @@
 import { useFusionContext } from "fusion:context";
+import getProperties from "fusion:properties";
 import React from "react";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 const OneColLayout = ({ children }) => {
   const [navigation, overlay, overlayText, fullWidth, footer] = children;
   const { arcSite, globalContent } = useFusionContext();
+  const { recaptchaSiteKey } = getProperties(arcSite);
 
   return (
-    <>
+    <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
       <div
         className={`site-${arcSite} custom-layout oneColumn story-layout-${globalContent?.subtype}`}
       >
@@ -24,7 +27,7 @@ const OneColLayout = ({ children }) => {
         </section>
         <footer className="footer">{footer}</footer>
       </div>
-    </>
+    </GoogleReCaptchaProvider>
   );
 };
 

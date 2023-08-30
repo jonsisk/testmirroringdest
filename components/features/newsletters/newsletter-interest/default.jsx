@@ -3,7 +3,6 @@ import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import NewsletterSignup from "../../../base/newsletter/newsletter-signup.component";
 import useRenderForBreakpoint from "../../../hooks/use-renderforbreakpoint";
 import { deviceRender } from "../../../utilities/customFields";
@@ -16,7 +15,7 @@ import { newsletterInterests } from "../../../utilities/newsletters";
 const NewsletterInterestFeature = ({ customFields }) => {
   const context = useFusionContext();
   const { arcSite, outputType } = context;
-  const { recaptchaSiteKey, newsletterSignupEndpoint } = getProperties(arcSite);
+  const { newsletterSignupEndpoint } = getProperties(arcSite);
   const [selectedValues, setSelectedValues] = useState([]);
   const {
     title,
@@ -55,45 +54,43 @@ const NewsletterInterestFeature = ({ customFields }) => {
   }
 
   return (
-    <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
-      <div className={`newsletter-interests`}>
-        <h1>{title}</h1>
-        <p dangerouslySetInnerHTML={{ __html: description }} />
+    <div className={`newsletter-interests`}>
+      <h1>{title}</h1>
+      <p dangerouslySetInnerHTML={{ __html: description }} />
 
-        <div className="interests">
-          {newsletterInterests.map((interest) => (
-            <div className="interest" key={interest.slug}>
-              <label>
-                <input
-                  type="checkbox"
-                  name="interest_id"
-                  value={interest.id}
-                  checked={selectedValues.includes(interest.id)}
-                  onChange={handleCheckboxChange}
-                />
-                <span className="title">{interest.title}</span>
-                <span className="description">
-                  {interest.description}
-                  <br />
-                  <i>{interest.frequency}</i>
-                </span>
-              </label>
-            </div>
-          ))}
-        </div>
-
-        <div className="interest-description">{signupCopy}</div>
-        <NewsletterSignup
-          newsletterSignupEndpoint={newsletterSignupEndpoint}
-          website={arcSite}
-          interestIds={selectedValues}
-          thankYouMsg={thankYouMsg}
-          validation={validateSelection}
-          disclaimer={disclaimer}
-          layout="horizontal"
-        />
+      <div className="interests">
+        {newsletterInterests.map((interest) => (
+          <div className="interest" key={interest.slug}>
+            <label>
+              <input
+                type="checkbox"
+                name="interest_id"
+                value={interest.id}
+                checked={selectedValues.includes(interest.id)}
+                onChange={handleCheckboxChange}
+              />
+              <span className="title">{interest.title}</span>
+              <span className="description">
+                {interest.description}
+                <br />
+                <i>{interest.frequency}</i>
+              </span>
+            </label>
+          </div>
+        ))}
       </div>
-    </GoogleReCaptchaProvider>
+
+      <div className="interest-description">{signupCopy}</div>
+      <NewsletterSignup
+        newsletterSignupEndpoint={newsletterSignupEndpoint}
+        website={arcSite}
+        interestIds={selectedValues}
+        thankYouMsg={thankYouMsg}
+        validation={validateSelection}
+        disclaimer={disclaimer}
+        layout="horizontal"
+      />
+    </div>
   );
 };
 

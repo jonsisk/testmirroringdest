@@ -10,5 +10,5 @@ export const getWebsiteDomain = (arcSite) => {
 };
 
 export const replaceSiteVariables = (text, websiteName) => {
-  return text.replace("%SITE_NAME%", websiteName);
+  return text?.replace("%SITE_NAME%", websiteName);
 };

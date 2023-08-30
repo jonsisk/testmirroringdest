@@ -3,7 +3,6 @@ import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import NewsletterSignup from "../../../base/newsletter/newsletter-signup.component";
 import { replaceSiteVariables } from "../../../helpers/site.helper";
 import useRenderForBreakpoint from "../../../hooks/use-renderforbreakpoint";
@@ -18,7 +17,7 @@ const StickyNewsletterFeature = ({ customFields }) => {
   const { sticky, stickyRef } = useSticky("up");
   const context = useFusionContext();
   const { arcSite, outputType } = context;
-  const { recaptchaSiteKey, newsletterSignupEndpoint, websiteName } = getProperties(arcSite);
+  const { newsletterSignupEndpoint, websiteName } = getProperties(arcSite);
   const {
     title,
     description,
@@ -60,46 +59,44 @@ const StickyNewsletterFeature = ({ customFields }) => {
   const replacedDescription = replaceSiteVariables(description, websiteName);
 
   return (
-    <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
-      <div ref={stickyRef} className={`newsletter-sticky ${!closed && sticky ? "sticky" : ""}`}>
-        <div className="content">
-          <div className="col-desc">
-            <h3>{title}</h3>
-            <p>{replacedDescription}</p>
-          </div>
-
-          <div className="col-info">
-            <NewsletterSignup
-              newsletterSignupEndpoint={newsletterSignupEndpoint}
-              website={arcSite}
-              interestIds={filteredInterests}
-              thankYouMsg={thankYouMsg}
-            />
-            <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
-          </div>
-          {!closed && (
-            <div className="close-wrapper">
-              <button className="close-button" onClick={handleClose}>
-                <span>close</span>
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 12 12"
-                  fill="#fff"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M6 7.5L10.5 12L12 10.5L7.5 6L12 1.50001L10.5 1.12754e-05L6 4.5L1.5 0L0 1.5L4.5 6L0 10.5L1.5 12L6 7.5Z"
-                  ></path>
-                </svg>
-              </button>
-            </div>
-          )}
+    <div ref={stickyRef} className={`newsletter-sticky ${!closed && sticky ? "sticky" : ""}`}>
+      <div className="content">
+        <div className="col-desc">
+          <h3>{title}</h3>
+          <p>{replacedDescription}</p>
         </div>
+
+        <div className="col-info">
+          <NewsletterSignup
+            newsletterSignupEndpoint={newsletterSignupEndpoint}
+            website={arcSite}
+            interestIds={filteredInterests}
+            thankYouMsg={thankYouMsg}
+          />
+          <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
+        </div>
+        {!closed && (
+          <div className="close-wrapper">
+            <button className="close-button" onClick={handleClose}>
+              <span>close</span>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="#fff"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M6 7.5L10.5 12L12 10.5L7.5 6L12 1.50001L10.5 1.12754e-05L6 4.5L1.5 0L0 1.5L4.5 6L0 10.5L1.5 12L6 7.5Z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
-    </GoogleReCaptchaProvider>
+    </div>
   );
 };
 
