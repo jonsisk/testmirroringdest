@@ -3,6 +3,7 @@ import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
 import React from "react";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import { replaceSiteVariables } from "../../helpers/site.helper";
 import { newsletterInterests, newsletterCopy } from "../../utilities/newsletters";
 import NewsletterSignup from "./newsletter-signup.component";
 
@@ -21,13 +22,15 @@ const NewsletterComposer = ({ embed }) => {
     .filter((int) => int.slug === embed.config?.newsletter)
     .map((int) => int.id);
 
+  const replacedDescription = replaceSiteVariables(description, websiteName);
+
   return (
     <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
       <div className="newsletter-composer">
         <div className="content">
           <div className="col-desc">
             <h3>{title}</h3>
-            <p>{description.replace("%SITE_NAME%", websiteName)}</p>
+            <p>{replacedDescription}</p>
           </div>
           <div className="col-info">
             <NewsletterSignup

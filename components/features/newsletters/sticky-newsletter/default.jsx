@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import NewsletterSignup from "../../../base/newsletter/newsletter-signup.component";
+import { replaceSiteVariables } from "../../../helpers/site.helper";
 import useRenderForBreakpoint from "../../../hooks/use-renderforbreakpoint";
 import useSticky from "../../../hooks/use-sticky";
 import { deviceRender } from "../../../utilities/customFields";
@@ -17,7 +18,7 @@ const StickyNewsletterFeature = ({ customFields }) => {
   const { sticky, stickyRef } = useSticky("up");
   const context = useFusionContext();
   const { arcSite, outputType } = context;
-  const { recaptchaSiteKey, newsletterSignupEndpoint } = getProperties(arcSite);
+  const { recaptchaSiteKey, newsletterSignupEndpoint, websiteName } = getProperties(arcSite);
   const {
     title,
     description,
@@ -56,13 +57,15 @@ const StickyNewsletterFeature = ({ customFields }) => {
     return null;
   }
 
+  const replacedDescription = replaceSiteVariables(description, websiteName);
+
   return (
     <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
       <div ref={stickyRef} className={`newsletter-sticky ${!closed && sticky ? "sticky" : ""}`}>
         <div className="content">
           <div className="col-desc">
             <h3>{title}</h3>
-            <p>{description}</p>
+            <p>{replacedDescription}</p>
           </div>
 
           <div className="col-info">

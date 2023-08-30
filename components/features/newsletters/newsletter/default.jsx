@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import NewsletterSignup from "../../../base/newsletter/newsletter-signup.component";
+import { replaceSiteVariables } from "../../../helpers/site.helper";
 import useRenderForBreakpoint from "../../../hooks/use-renderforbreakpoint";
 import { deviceRender } from "../../../utilities/customFields";
 import { newsletterInterests } from "../../../utilities/newsletters";
@@ -14,7 +15,7 @@ import { newsletterInterests } from "../../../utilities/newsletters";
  */
 const NewsletterFeature = ({ customFields }) => {
   const { arcSite, contextPath, deployment, outputType } = useFusionContext();
-  const { recaptchaSiteKey, newsletterSignupEndpoint } = getProperties(arcSite);
+  const { recaptchaSiteKey, newsletterSignupEndpoint, websiteName } = getProperties(arcSite);
   const {
     title,
     style,
@@ -42,6 +43,8 @@ const NewsletterFeature = ({ customFields }) => {
     return null;
   }
 
+  const replacedDescription = replaceSiteVariables(description, websiteName);
+
   return (
     <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
       <div className={`newsletter-breaker-wrapper ${style}`}>
@@ -50,11 +53,11 @@ const NewsletterFeature = ({ customFields }) => {
             {showImage && style === "vertical" && (
               <img
                 src={deployment(`${contextPath}/resources/images/votebeat/icon-news.svg`)}
-                alt={description}
+                alt={replacedDescription}
               />
             )}
             <h3>{title}</h3>
-            <p>{description}</p>
+            <p>{replacedDescription}</p>
           </div>
           <NewsletterSignup
             newsletterSignupEndpoint={newsletterSignupEndpoint}
