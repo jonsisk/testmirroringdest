@@ -40,19 +40,21 @@ const NewsletterFeature = ({ customFields }) => {
 
   return (
     <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
-      <div className="newsletter-breaker-wrapper">
-        <div className={`newsletter-feature ${style}`}>
-          {showImage && style === "vertical" && (
-            <img
-              src={deployment(`${contextPath}/resources/images/votebeat/icon-news.svg`)}
-              alt={description}
-            />
-          )}
-          <h3>{title}</h3>
-          <p>{description}</p>
-
+      <div className={`newsletter-breaker-wrapper ${style}`}>
+        <div className="newsletter-feature">
+          <div className="info">
+            {showImage && style === "vertical" && (
+              <img
+                src={deployment(`${contextPath}/resources/images/votebeat/icon-news.svg`)}
+                alt={description}
+              />
+            )}
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </div>
           <NewsletterSignup
             newsletterSignupEndpoint={newsletterSignupEndpoint}
+            layout={style}
             website={arcSite}
             interestIds={[
               newsletterInterests.filter((int) => int.slug === newsletter).map((int) => int.id),

@@ -44,24 +44,24 @@
       align-items: center;
 
       .breadcrumbs a {
-        color: #fff;
+        color: var(--color-white);
       }
       h1.headline {
-        color: #fff;
+        color: var(--color-white);
         max-width: 762px;
         margin: 0 auto 10px;
       }
       h2.sub-headline {
-        color: #fff;
+        color: var(--color-white);
       }
 
       .byline {
         border-bottom: none;
         span {
-          color: #fff;
+          color: var(--color-white);
 
           a {
-            color: #fff;
+            color: var(--color-white);
             text-decoration: underline;
           }
         }

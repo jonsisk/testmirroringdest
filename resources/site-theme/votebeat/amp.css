@@ -456,7 +456,7 @@ body:before {
   animation-fill-mode: both;
   -webkit-animation: load7 1.8s ease-in-out infinite;
   animation: load7 1.8s ease-in-out infinite;
-  color: #000;
+  color: var(--color-black);
   font-size: 10px;
   margin: 0 auto;
   position: relative;
@@ -527,7 +527,7 @@ table {
   margin-bottom: 1em;
   width: 100%;
   color: #626262;
-  background-color: #fff;
+  background-color: var(--color-white);
   text-indent: 0;
   border-spacing: 2px;
   border-collapse: collapse;
@@ -1348,7 +1348,7 @@ a:hover {
   background: var(--color-header-secondary-bg);
 }
 .Page-header amp-sidebar#Page-header-hamburger-menu .close-x {
-  color: #fff;
+  color: var(--color-white);
   position: absolute;
   right: 10px;
   top: 16px;
@@ -1646,7 +1646,7 @@ a:hover {
 .LinkListFullWidth-items-item {
   background-color: var(--color-bg-linkset-items);
   border-bottom: 1px solid var(--color-bg-linkset-items-hover);
-  color: #fff;
+  color: var(--color-white);
   display: block;
   flex-basis: 200px;
   flex-grow: 1;
@@ -2808,7 +2808,7 @@ a:hover {
   position: relative;
   --color-invalid: #d31141;
   --color-placeholder: #bbb;
-  color: #393939;
+  color: var(--color-link-text);
   padding: 32px 24px;
   text-align: center;
   --titleFontSize: 25px;
@@ -3003,7 +3003,7 @@ a:hover {
 .EmailInput-input,
 .Input-input,
 .TextInput-input {
-  background-color: #fff;
+  background-color: var(--color-white);
   border-radius: 0;
   color: var(--color-input-text);
   padding: 15px;
@@ -3078,7 +3078,7 @@ a:hover {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: #fff;
+  background-color: var(--color-white);
   border: 1px solid var(--color-primary-text);
   padding: 6px;
   border-radius: 0;
@@ -3399,7 +3399,7 @@ p.body-paragraph a {
 }
 
 .close-x {
-  color: #fff;
+  color: var(--color-white);
   position: absolute;
   right: 10px;
   top: 16px;

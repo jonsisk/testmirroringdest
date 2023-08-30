@@ -21,7 +21,6 @@ import List from "./_children/list";
 import Oembed from "./_children/oembed";
 import Quote from "./_children/quote";
 import Table from "./_children/table";
-import "./_articlebody.scss";
 import NewsletterComposer from "../../base/newsletter/newsletter-composer.component";
 import SidebarComposer from "../../base/sidebar/sidebar-composer.component";
 import PymEmbedComposer from "../../base/pymembed/pymembed.composer";
@@ -400,18 +399,18 @@ export const ArticleBodyChainCivicPresentation = ({ children, customFields = {},
     }),
     ...(copyright
       ? [
-          parseArticleItem(
-            {
-              type: "copyright",
-              content: copyright,
-            },
-            "copyright-text",
-            arcSite,
-            null, // phrases not used by text type
-            null, // id not used by text type
-            {} // customFields only used in video
-          ),
-        ]
+        parseArticleItem(
+          {
+            type: "copyright",
+            content: copyright,
+          },
+          "copyright-text",
+          arcSite,
+          null, // phrases not used by text type
+          null, // id not used by text type
+          {} // customFields only used in video
+        ),
+      ]
       : []),
   ];
 
