@@ -73,7 +73,12 @@ const NewsletterSignup = ({
           setEmail("");
           setFormSubmitted(true);
         } else {
-          setErrorMessage("An error occurred. Please try again later.");
+          const alreadyMember = response.includes("already a list member");
+          setErrorMessage(
+            alreadyMember
+              ? "You're already subscribed to this newsletter."
+              : "An error occurred. Please try again later."
+          );
           handleReCaptchaVerify();
         }
       })
@@ -115,7 +120,7 @@ const NewsletterSignup = ({
           {layout !== "horizontal" && (
             <div className="buttonContainer">
               <button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Submitting..." : "Sign Me Up"}
+                {isSubmitting ? "Sending..." : "Sign Me Up"}
               </button>
             </div>
           )}
