@@ -1,0 +1,31 @@
+.byline {
+  padding-bottom: 36px;
+  border-bottom: 1px solid #dfdfdf;
+  margin-top: 10px;
+  margin-bottom: 16px;
+  font-family: var(--font-1) !important;
+  font-size: var(--byline-1);
+  line-height: 1.33;
+  .separator {
+    border-left: 1px solid;
+    content: "";
+    display: inline-block;
+    height: 14px;
+    margin: 0 5px;
+    vertical-align: middle;
+    width: 2px;
+    text-indent: -999em;
+  }
+  .date,
+  .author {
+    display: inline-flex;
+    border-bottom: 0 none !important;
+    font-family: var(--font-1) !important;
+    font-size: var(--byline-1);
+    line-height: 1.33;
+    a {
+      text-decoration: none;
+      margin-right: 5px;
+    }
+  }
+}
