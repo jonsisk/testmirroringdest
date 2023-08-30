@@ -48,6 +48,10 @@ const StickyNewsletterFeature = ({ customFields }) => {
     }
   };
 
+  const filteredInterests = newsletterInterests
+    .filter((int) => int.slug === newsletter)
+    .map((int) => int.id);
+
   if (!shouldRender || outputType === "amp") {
     return null;
   }
@@ -65,9 +69,7 @@ const StickyNewsletterFeature = ({ customFields }) => {
             <NewsletterSignup
               newsletterSignupEndpoint={newsletterSignupEndpoint}
               website={arcSite}
-              interestIds={[
-                newsletterInterests.filter((int) => int.slug === newsletter).map((int) => int.id),
-              ]}
+              interestIds={filteredInterests}
               thankYouMsg={thankYouMsg}
             />
             <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>

@@ -17,6 +17,10 @@ const NewsletterComposer = ({ embed }) => {
   const { websiteName, recaptchaSiteKey, newsletterSignupEndpoint } = getProperties(arcSite);
   const { title, description, thankYouMsg } = newsletterCopy[arcSite] || newsletterCopy["default"];
 
+  const composerNewsletter = newsletterInterests
+    .filter((int) => int.slug === embed.config?.newsletter)
+    .map((int) => int.id);
+
   return (
     <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
       <div className="newsletter-composer">
@@ -29,11 +33,7 @@ const NewsletterComposer = ({ embed }) => {
             <NewsletterSignup
               newsletterSignupEndpoint={newsletterSignupEndpoint}
               website={arcSite}
-              interestIds={[
-                newsletterInterests
-                  .filter((int) => int.slug === embed.config?.newsletter)
-                  .map((int) => int.id),
-              ]}
+              interestIds={composerNewsletter}
               thankYouMsg={thankYouMsg}
             />
 

@@ -34,6 +34,10 @@ const NewsletterFeature = ({ customFields }) => {
     renderDesktop,
   });
 
+  const selectedNewsletterInterests = newsletterInterests
+    .filter((int) => int.slug === newsletter)
+    .map((int) => int.id);
+
   if (!shouldRender || outputType === "amp") {
     return null;
   }
@@ -56,9 +60,7 @@ const NewsletterFeature = ({ customFields }) => {
             newsletterSignupEndpoint={newsletterSignupEndpoint}
             layout={style}
             website={arcSite}
-            interestIds={[
-              newsletterInterests.filter((int) => int.slug === newsletter).map((int) => int.id),
-            ]}
+            interestIds={selectedNewsletterInterests}
             thankYouMsg={thankYouMsg}
             disclaimer={disclaimer}
           />
