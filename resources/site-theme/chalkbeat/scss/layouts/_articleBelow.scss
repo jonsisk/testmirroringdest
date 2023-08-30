@@ -1,4 +1,4 @@
-.story-layout-headline_above {
+.story-layout-headline_below {
   .overlay-header {
     .overlay-image {
       display: flex;
@@ -7,14 +7,17 @@
       align-content: center;
       text-align: center;
       .logo-overlay {
-        position: relative;
+        position: absolute;
         left: 0;
         top: 0;
         padding: 20px;
         right: 0;
-        background-color: var(--color-header-bg);
+        background-color: transparent;
         text-align: left;
         order: -1;
+        a img {
+          height: auto;
+        }
       }
       .breadcrumbs {
         order: 0;
@@ -48,51 +51,24 @@
           width: 100%;
         }
       }
-    }
-    .overlay-text {
-      color: var(--color-primary-text-inverse);
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      left: 0;
-      padding-left: 0;
-      padding-right: 0;
-      position: absolute;
-      bottom: 30px;
-      text-align: center;
-      width: 100%;
-      z-index: 2;
-      justify-content: flex-end;
-      flex-wrap: nowrap;
-      align-content: center;
-      align-items: center;
-
-      .breadcrumbs a {
-        color: var(--color-white);
-      }
-      h1.headline {
-        color: var(--color-white);
-        max-width: 762px;
-        margin: 0 auto 10px;
-      }
-      h2.sub-headline {
-        color: var(--color-white);
-      }
-
-      .byline {
-        border-bottom: none;
-        span {
-          color: var(--color-white);
-
-          a {
-            color: var(--color-white);
-            text-decoration: underline;
-          }
-        }
+      figcaption {
+        text-align: left;
       }
     }
   }
 
   @include respond-down(sm) {
+    .overlay-header {
+      .overlay-image {
+        .logo-overlay {
+          padding: 20px;
+          position: absolute;
+          a img {
+            width: 150px;
+            height: auto;
+          }
+        }
+      }
+    }
   }
 }

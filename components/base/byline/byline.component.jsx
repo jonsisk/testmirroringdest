@@ -10,11 +10,15 @@ const Byline = ({ element, showTime = true, websiteDomain }) => {
       <span className="author">
         By&nbsp;
         {credits?.map((author) => {
-          return (
-            <a key={author.slug} href={`${websiteDomain}/authors/${author.slug}`}>
-              {author.name}
-            </a>
-          );
+          if (author.slug) {
+            return (
+              <a key={author.slug} href={`${websiteDomain}/authors/${author.slug}`}>
+                {author.name}
+              </a>
+            );
+          } else {
+            return author.name;
+          }
         })}
       </span>
       <span className="separator">&nbsp;|&nbsp;</span>

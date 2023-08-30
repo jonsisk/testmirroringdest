@@ -1,0 +1,52 @@
+.story-layout-simlpe {
+  .overlay-header {
+    .overlay-image {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      text-align: center;
+      .logo-overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 20px;
+        right: 0;
+        background-color: transparent;
+        text-align: left;
+        order: -1;
+      }
+      .breadcrumbs {
+        order: 0;
+        padding-top: 46px;
+        padding-inline-start: 2rem;
+        padding-inline-end: 2rem;
+      }
+      h1.headline {
+        order: 2;
+        padding-inline-start: 2rem;
+        padding-inline-end: 2rem;
+      }
+      h2.sub-headline {
+        order: 3;
+        padding-inline-start: 2rem;
+        padding-inline-end: 2rem;
+      }
+      .byline {
+        order: 4;
+        padding-inline-start: 2rem;
+        padding-inline-end: 2rem;
+        border-bottom: 0 none;
+      }
+      figure.overlay-image {
+        order: 10;
+      }
+      figcaption {
+        text-align: left;
+      }
+    }
+  }
+
+  @include respond-down(sm) {
+  }
+}

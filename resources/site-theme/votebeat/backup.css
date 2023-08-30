@@ -80,13 +80,13 @@ small {
 
 ::-moz-selection {
   background-color: #b3d4fc;
-  color: #000;
+  color: var(--color-black);
   text-shadow: none
 }
 
 ::selection {
   background-color: #b3d4fc;
-  color: #000;
+  color: var(--color-black);
   text-shadow: none
 }
 
@@ -218,9 +218,9 @@ dialog {
 }
 
 dialog {
-  background-color: #fff;
+  background-color: var(--color-white);
   border: solid;
-  color: #000;
+  color: var(--color-black);
   height: -moz-fit-content;
   height: -webkit-fit-content;
   height: fit-content;
@@ -714,7 +714,7 @@ textarea {
   animation-fill-mode: both;
   -webkit-animation: load7 1.8s ease-in-out infinite;
   animation: load7 1.8s ease-in-out infinite;
-  color: #000;
+  color: var(--color-black);
   font-size: 10px;
   margin: 0 auto;
   position: relative;
@@ -957,7 +957,7 @@ body:before {
   justify-content: center;
   align-items: center;
   width: 100%;
-  color: #fff;
+  color: var(--color-white);
   padding: 16px;
   border: 0
 }
@@ -2913,7 +2913,7 @@ img {
   position: absolute;
   width: 250px;
   box-shadow: 0 0 5px rgba(0, 0, 0, .25);
-  background-color: #fff;
+  background-color: var(--color-white);
   border-radius: 2px;
   border: 1px solid #d1d1d1;
   z-index: 100
@@ -5446,7 +5446,7 @@ img {
   text-transform: none;
   border-radius: 2px;
   font-weight: 600;
-  color: #393939;
+  color: var(--color-link-text);
   line-height: 1;
   white-space: nowrap;
   background-color: #f0dfbc;
@@ -5455,7 +5455,7 @@ img {
 }
 
 .EntryPage .c-button:hover {
-  color: #393939;
+  color: var(--color-link-text);
   background-color: #ffd373
 }
 
@@ -5574,7 +5574,7 @@ img {
 }
 
 .EntryPage .dark-background {
-  background-color: #393939;
+  background-color: var(--color-link-text);
   color: #fff !important
 }
 
@@ -5964,7 +5964,7 @@ img {
   .StreamPage .AuthorPage-lede-content,
   .StreamPage .GalleryPage-lede-content,
   .StreamPage .StreamPage-lede-content {
-    background-color: #fff;
+    background-color: var(--color-white);
     bottom: 0;
     display: block;
     left: 0;
@@ -7529,7 +7529,7 @@ bsp-xhrform[data-bsp-xhrform-state] [data-bsp-xhrform-message] {
   font-size: 1.6rem;
   height: auto;
   padding: 6px;
-  color: #000
+  color: var(--color-black)
 }
 
 @media only screen and (min-width: 768px) {
@@ -7733,7 +7733,7 @@ bsp-xhrform[data-bsp-xhrform-state] [data-bsp-xhrform-message] {
 }
 
 .Form-newsletter-breaker-item input:required:invalid {
-  border-color: #fff;
+  border-color: var(--color-white);
   color: inherit
 }
 
@@ -7997,7 +7997,7 @@ bsp-dismissableprompt.Form-newsletter-breaker-wrapper .Form-newsletter-breaker-d
   font-size: 1.275rem;
   padding: 4px;
   height: auto;
-  color: #000 !important
+  color: var(--color-black) !important
 }
 
 @media only screen and (min-width: 568px) {
@@ -8292,7 +8292,7 @@ bsp-dismissableprompt.Form-newsletter-breaker-wrapper .Form-newsletter-breaker-d
 .Select-input,
 .TextArea-input,
 .TextInput-input {
-  background-color: #fff;
+  background-color: var(--color-white);
   border-radius: 0;
   color: var(--color-input-text);
   padding: 15px;
@@ -8409,7 +8409,7 @@ bsp-dismissableprompt.Form-newsletter-breaker-wrapper .Form-newsletter-breaker-d
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: #fff;
+  background-color: var(--color-white);
   border: 1px solid var(--color-primary-text);
   padding: 6px;
   border-radius: 0;
@@ -8535,7 +8535,7 @@ bsp-dismissableprompt.Form-newsletter-breaker-wrapper .Form-newsletter-breaker-d
 }
 
 .TextArea textarea {
-  background-color: #fff;
+  background-color: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: 0;
   color: var(--color-primary-text);
@@ -9818,14 +9818,14 @@ bsp-dismissableprompt.Form-newsletter-breaker-wrapper .Form-newsletter-breaker-d
 .NavigationItem-more button svg {
   width: 14px;
   height: 9px;
-  color: #fff;
+  color: var(--color-white);
   position: relative;
   top: -1px
 }
 
 .NavigationItem-items {
   display: none;
-  background-color: #393939;
+  background-color: var(--color-link-text);
   padding: 10px
 }
 
@@ -9899,7 +9899,7 @@ bsp-dismissableprompt.Form-newsletter-breaker-wrapper .Form-newsletter-breaker-d
 }
 
 .NavigationItem:hover.has-menu {
-  background-color: #393939
+  background-color: var(--color-link-text)
 }
 
 .NavigationItem:hover.has-menu a {
@@ -11756,7 +11756,7 @@ html[data-navopened] {
   animation-fill-mode: both;
   -webkit-animation: load7 1.8s ease-in-out infinite;
   animation: load7 1.8s ease-in-out infinite;
-  color: #000;
+  color: var(--color-black);
   font-size: 10px;
   position: relative;
   text-indent: -9999em;
@@ -14611,7 +14611,7 @@ html[data-navopened] {
 
 .GenericPagePromoModule-CTALink {
   display: inline-block;
-  background-color: #fff;
+  background-color: var(--color-white);
   font-size: 1.9rem;
   letter-spacing: 0;
   padding: 8px 24px;
@@ -16146,7 +16146,7 @@ figure.table figcaption .credit:before {
 .ImageComparison-slider:after,
 .ImageComparison-slider:before {
   position: absolute;
-  background-color: #fff;
+  background-color: var(--color-white);
   top: 0;
   content: ""
 }
@@ -17331,7 +17331,7 @@ figure.table figcaption .credit:before {
   animation-fill-mode: both;
   -webkit-animation: load7 1.8s ease-in-out infinite;
   animation: load7 1.8s ease-in-out infinite;
-  color: #000;
+  color: var(--color-black);
   font-size: 10px;
   position: relative;
   text-indent: -9999em;
@@ -20186,7 +20186,7 @@ figure.table figcaption .credit:before {
 
 .GenericPagePromoModule-CTALink {
   display: inline-block;
-  background-color: #fff;
+  background-color: var(--color-white);
   font-size: 1.9rem;
   letter-spacing: 0;
   padding: 8px 24px;
@@ -21080,7 +21080,7 @@ figure.table table tr:nth-child(2n) td {
 }
 
 figure.table table tr:nth-child(odd) td {
-  background-color: #fff;
+  background-color: var(--color-white);
 }
 
 figure.table table tr td {
@@ -21721,7 +21721,7 @@ figure.table figcaption .credit:before {
 .ImageComparison-slider:after,
 .ImageComparison-slider:before {
   position: absolute;
-  background-color: #fff;
+  background-color: var(--color-white);
   top: 0;
   content: "";
 }

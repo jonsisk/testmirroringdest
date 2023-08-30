@@ -90,5 +90,5 @@ Footer.propTypes = {
 };
 
 Footer.label = "Custom Footer";
-
+Footer.static = true;
 export default Footer;

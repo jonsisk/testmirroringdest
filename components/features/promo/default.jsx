@@ -44,6 +44,7 @@ const Promo = ({ customFields }) => {
 
 Promo.label = "Promo - Civic";
 Promo.description = "Right rail promo banner";
+Promo.static = true;
 
 Promo.propTypes = {
   customFields: PropTypes.shape({
