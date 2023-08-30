@@ -53,6 +53,7 @@ const Follow = ({ customFields }) => {
 
 Follow.label = "Follow - Civic";
 Follow.description = "Follow Social Networks";
+Follow.static = true;
 
 Follow.propTypes = {
   customFields: PropTypes.shape({
