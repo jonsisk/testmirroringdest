@@ -51,6 +51,7 @@ const Carrousel = ({ customFields }) => {
       feature: "results-list",
     },
   });
+
   const targetFallbackImage = !fallbackImage.includes("http")
     ? deployment(`${contextPath}/${fallbackImage}`)
     : fallbackImage;
@@ -59,6 +60,7 @@ const Carrousel = ({ customFields }) => {
     query: { raw_image_url: targetFallbackImage, respect_aspect_ratio: true },
   });
   const { content_elements } = requestedResultList;
+
   return (
     <LazyLoad enabled={lazyLoad && !isAdmin}>
       <HeadingSection>

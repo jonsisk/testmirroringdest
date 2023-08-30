@@ -1,5 +1,47 @@
-.slick-prev, .slick-next{
+//slider
+.container-img{
+  width: 100%;
+  height: auto;
+}
+.big-images picture{
+  height: 0;
+  display: block;
+  position: relative;
+  padding-bottom: 75%;
+  img{
+    opacity: 0.8;
+    object-fit: cover;
+    width: auto;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+  }
+} 
+.small-images picture{
+    height: 0;
+    display: block;
+    position: relative;
+    padding-bottom: 75%;
+    margin-top: 1rem;
+    img{
+      opacity: 0.8;
+      object-fit: cover;
+      width: auto;
+      min-height: 100%;
+      min-width: 100%;
+      position: absolute;
+    }
+} 
 
+//carrousel
+.slick-track{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 40%;
+}
+.slick-prev, .slick-next{
   color: #fff;
   border-radius: 50%;
   background-color: var(--color-primary);

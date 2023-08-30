@@ -25,6 +25,7 @@ import "./_articlebody.scss";
 import NewsletterComposer from "../../base/newsletter/newsletter-composer.component";
 import SidebarComposer from "../../base/sidebar/sidebar-composer.component";
 import PymEmbedComposer from "../../base/pymembed/pymembed.composer";
+import NewGallery from "../../base/newgallery/default";
 
 const StyledText = styled.p`
   a {
@@ -285,8 +286,14 @@ function parseArticleItem(item, index, arcSite, phrases, id, customFields) {
         </section>
       );
     case "gallery":
+      console.log("gallery", item);
       return (
         <section key={key} className="block-margin-bottom gallery">
+          {/* <h1>hola</h1> */}
+          <NewGallery
+            galleryElements={item.content_elements}
+            resizerURL={getProperties(arcSite)?.resizerURL}
+          />
           <Gallery
             galleryElements={item.content_elements}
             resizerURL={getProperties(arcSite)?.resizerURL}
