@@ -1,0 +1,263 @@
+.results-list-container {
+  .PageListH-items-item {
+    padding-top: var(--listItemPadding);
+    padding-bottom: var(--listItemPadding);
+    border-top: 1px solid var(--color-list-border);
+
+    &.featured {
+      margin-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .PagePromo-standard {
+      display: flex;
+
+      .PagePromo-media {
+        flex-shrink: 0;
+        max-width: 330px;
+        width: 30%;
+        margin: 0 24px 0 0;
+      }
+    }
+
+    .PagePromo-standard,
+    .PagePromo-overlay,
+    .PagePromo-headline_below,
+    .PagePromo-headline_above {
+      .PagePromo-media {
+        picture {
+          display: block;
+        }
+      }
+
+      .PagePromo-content {
+        width: 100%;
+
+        .PagePromo-category {
+          font-family: var(--font, var(--font-1));
+          font-size: var(--category-1);
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: var(--category-1-kerning);
+          line-height: normal;
+
+          a.eyebrow:hover,
+          a.eyebrow {
+            color: var(--color-link-text-hover) !important;
+          }
+        }
+
+        .PagePromo-title {
+          font-family: var(--font-1, var(--font-1)) !important;
+          font-size: 1.8rem;
+          letter-spacing: normal;
+          line-height: 1.22;
+          font-weight: 600;
+          margin-top: 5px;
+
+          a:hover {
+            color: var(--color-link-text-hover) !important;
+          }
+        }
+
+        .PagePromo-description,
+        .PagePromo-description p {
+          font-family: var(--font, var(--font-1));
+          font-size: var(--description-3);
+          font-weight: 400;
+          line-height: 1.4;
+          --font: var(--font-promo-description);
+          color: var(--color-secondary-text);
+          margin-top: 5px;
+        }
+
+        .PagePromo-byline {
+          margin-top: 8px;
+
+          .PagePromo-author {
+            font-family: var(--font, var(--font-1));
+            font-size: var(--byline-1);
+            line-height: 1.33;
+            display: inline-block;
+            font-size: var(--font-size-promos-byline);
+            line-height: normal;
+
+            .byline {
+              border-bottom: none;
+            }
+          }
+
+          .PagePromo-date {
+            font-family: var(--font, var(--font-1));
+            font-size: var(--byline-1);
+            line-height: 1.33;
+            display: inline-block;
+            font-size: var(--font-size-promos-byline);
+          }
+        }
+      }
+    }
+
+    .PagePromo-overlay,
+    .PagePromo-headline_below,
+    .PagePromo-headline_above {
+      --titleFontSize: 36px;
+      --font-size-promos-byline: 1.5rem;
+      display: block;
+
+      .PagePromo-media {
+        max-width: fit-content;
+        width: auto;
+      }
+
+      .PagePromo-media .Link {
+        display: block;
+        position: relative;
+
+        img {
+          display: block;
+          height: auto;
+          max-width: 100%;
+        }
+      }
+
+      .PagePromo-content {
+        padding: 32px 0;
+
+        .PagePromo-title {
+          font-size: var(--titleFontSize);
+          font-weight: 600;
+          line-height: 1.2;
+        }
+
+        .PagePromo-byline {
+          .PagePromo-author {
+            .byline {
+              padding: 0px;
+              margin: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .see-more {
+    button {
+      min-width: 120px;
+      width: 100%;
+      text-align: center;
+      padding: 0 16px;
+      font-family: var(--font, var(--font-1));
+      font-size: var(--label-3);
+      font-weight: 700;
+      background: var(--color-button-bg);
+      color: var(--color-button-text);
+      border: 1px solid var(--color-button-border);
+      height: 53px;
+      line-height: 53px;
+      text-transform: uppercase;
+    }
+  }
+}
+.Front-Page {
+  .results-list-container {
+    @include respond-up(lg) {
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: 0.6fr 0.4fr;
+    }
+    .PageListP-items-column:first-child {
+      .PageListH-items-item {
+        border: 1px solid #000;
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+        margin: 0;
+        padding: 0;
+        border: 0 none;
+        .PagePromo-title {
+          font-size: 3.5rem;
+        }
+        .PagePromo-description {
+          display: block;
+        }
+        .PagePromo-standard {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          align-items: stretch;
+
+          .PagePromo-media {
+            max-width: 100%;
+            width: 100%;
+            flex: 1 1 100%;
+            margin: 0;
+            display: contents;
+            a picture img {
+              width: 100%;
+            }
+          }
+        }
+        @include respond-down(lg) {
+          width: 100%;
+          display: block;
+          .PagePromo-title {
+            font-size: var(--title-3);
+          }
+        }
+      }
+    }
+    .PageListP-items-column:last-of-type {
+      @include respond-up(xs) {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+      .PageListH-items-item {
+        border: 1px solid #000;
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+        margin: 0;
+        padding: 0;
+        border: 0 none;
+        .PagePromo-description {
+          display: none;
+        }
+        .PagePromo-standard {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          align-items: stretch;
+          @include respond-down(xs) {
+            border-bottom: 1px solid var(--color-list-border);
+            margin: 16px 0 0 0;
+          }
+          .PagePromo-media {
+            max-width: 100%;
+            width: 100%;
+            flex: 1 1 100%;
+            margin: 0;
+            display: contents;
+            a picture img {
+              width: 100%;
+            }
+          }
+          @include respond-down(xs) {
+            flex-direction: row;
+            .PagePromo-content {
+              margin: 0 0 0 12px;
+              .byline {
+                padding-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

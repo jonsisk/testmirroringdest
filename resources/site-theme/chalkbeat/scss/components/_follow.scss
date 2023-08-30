@@ -1,0 +1,48 @@
+.follow {
+  h2 {
+    display: block;
+    font-family: "Barlow Condensed", Arial, Helvetica, sans-serif;
+    font-size: 2.75em;
+    font-weight: 700;
+    line-height: 40.8px;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    word-break: break-word;
+  }
+  .vb_social_media_block {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin: 5px 0;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .vb_social_media_block:hover {
+    color: white !important;
+    opacity: 0.8;
+  }
+  .vb_social_media_block img {
+    width: 15px;
+    height: 15px;
+    margin: 0 10px 0 5px;
+  }
+  .twitter {
+    background: #1da1f3;
+  }
+  .instagram {
+    background: #dd2a7b;
+  }
+  .facebook {
+    background: #3f5d9a;
+  }
+  .rss {
+    background: #fd7e03;
+  }
+}

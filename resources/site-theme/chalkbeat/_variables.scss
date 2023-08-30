@@ -1,0 +1,237 @@
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-bg: #544459;
+  --color-primary: #babbe0;
+  --color-primary-text: #393939;
+  --color-secondary-text: #393939;
+  --color-tertiary-text: #6c6c6c;
+  --color-border: #dfdfdf;
+
+  --color-header-secondary-bg: #000;
+  --color-header-search-overlay-bg: #f8f8f8;
+  --color-header-text: #fff;
+  --color-header-bg: var(--color-bg);
+  --color-header-border: var(--color-bg);
+  --color-header-bottom-border: var(--color-bg);
+  --color-header-date-line-text: #babbe0;
+  --color-header-donate-button-bg: #fce487;
+  --color-header-newsletter-button-bg: #f5b362;
+  --color-header-link-text-hover: #735a60;
+
+  --color-footer-bg: var(--color-bg);
+  --color-footer-text: #e0e0e0;
+  --color-footer-link: #ffffff;
+  --color-footer-link-hover: #d1edee;
+
+  --color-banner-bg: #babbe0;
+  --color-banner-text: #000000;
+  --color-banner-link-text: #393939;
+  --color-banner-link-text-hover: #393939;
+
+  --color-link-text: #393939;
+  --color-link-text-hover: #ae610c;
+  --color-link-underline: #ae610c;
+
+  --color-pull-quote: #ae610c;
+  --color-pull-quote-border: #ffd373;
+
+  --color-horizontal-rule: #f5f5f5;
+  --color-sidebar-bg-color: #f5f5f5;
+  --color-squiggly: #ffcc5b;
+
+  --color-button-bg: var(--color-bg);
+  --color-button-hover-bg: #735a60;
+  --color-button-hover-text: #fff;
+  --color-button-text: #fff;
+
+  --color-list-border: #e7e7e8;
+
+  --color-table-head-bg-color: #178287;
+  --color-table-head-text-color: var(--color-white);
+
+  --color-bg-linkset-items: #d1edee;
+  --color-bg-linkset-items-center: var(--color-bg);
+  --color-bg-linkset-items-hover: #e7feff;
+  --color-bg-linkset-items-center-hover: #fbfbfb;
+
+  --color-bg-checkbox-largebox: #d1edee;
+
+  --color-gray: #dddddd;
+  --color-dark-gray: #333333;
+  --color-bg-toaster: #f5b362;
+  --color-text-toaster: #393939;
+  --color-button-bg-toaster: #ffffff;
+  --color-button-hover-bg-toaster: #000000;
+  --color-text-button-toaster: #000000;
+  --color-text-hover-button-toaster: #ffffff;
+  --color-text-link-toaster: #393939;
+  --color-text-hover-link-toaster: #d1edee;
+  --color-text-promo-author-byline: #5e5e5e;
+  --color-generic-promo-bg: #fce487;
+  --color-text-gray: #767676;
+  --newsletter-interests-label: #f8f8f8;
+
+  --font-1: "Barlow Condensed";
+  --font-2: "Barlow Condensed";
+  --font-3: "IBM Plex Serif", Georgia, serif;
+  --font-4: "farnham-headline";
+  --font-body: var(--font-1);
+  --font-size: 1.2rem;
+  --font-headline: var(--font-1);
+  --font-subheading: var(--font-1);
+  --font-list-title: var(--font-1);
+  --font-promo-title: var(--font-1);
+  --font-promo-description: var(--font-1);
+  --font-pull-quote: var(--font-1);
+  --font-related-list: var(--font-1);
+  --font-rating-card: var(--font-2);
+  --font-table: var(--font-1);
+  --font-action-box-title: var(--font-3);
+  --font-action-box-description: var(--font-3);
+  --font-caption: var(--font-1);
+  --font-credit: var(--font-3);
+  --font-rte-body: var(--font-3);
+
+  --body-1: 1.8rem;
+  --quote-1: 2.4rem;
+  --subhead-1: 1.8rem;
+  --byline-1-large: 1.3rem;
+  --byline-1: 1.6rem;
+  --heading-1: 4.394rem;
+  --heading-2: 3rem;
+  --heading-3: 2.812rem;
+  --heading-4: 2.2rem;
+  --heading-5: 1.8rem;
+  --subhead-1-large: 1.8rem;
+  --title-1: 4.4rem;
+  --title-1-large: 4rem;
+  --title-1-extra-large: 6rem;
+  --title-2: 2.4rem;
+  --title-3: 3.5rem;
+  --title-4: 2.2rem;
+  --title-8: 2.5rem;
+  --description-2: 1.8rem;
+  --category-1: 1.5rem;
+  --eyebrowFontSize: 26px;
+
+  --quote-1: 2.6rem;
+  --subhead-1: 1.8rem;
+  --subhead-1-large: 2.2rem;
+  --title-1: 4.4rem;
+  --title-1-large: 5.4rem;
+  --title-1-extra-large: 12rem;
+  --title-2: 3rem;
+  --title-5: 1.6rem;
+  --headerHeight: 145px;
+  --listItemPadding: 12px;
+  --category-1-kerning: 1.35px;
+  --description-3: 1.6rem;
+}
+
+:root {
+  --body-1: 1.8rem;
+  --byline-1: 1.5rem;
+  --byline-1-large: 1.3rem;
+  --caption-1: 1.3rem;
+  --caption-2: 1.3rem;
+  --credit-1: 1.4rem;
+  --description-1: 1.8rem;
+  --description-2: 1.6rem;
+  --description-3: 1.5rem;
+  --heading-1: 3.125rem;
+  --heading-2: 2.5rem;
+  --heading-3: 2rem;
+  --heading-4: 1.6rem;
+  --heading-5: 1.6rem;
+  --label-1: 1.5rem;
+  --label-1-small: 1.4rem;
+  --label-1-medium: 1.5rem;
+  --label-1-large: 1.5rem;
+  --label-2: 1.4rem;
+  --label-3: 1.4rem;
+  --label-4: 1.4rem;
+  --label-5: 1.2rem;
+  --label-6: 1rem;
+  --quote-1: 2rem;
+  --subhead-1: 1.6rem;
+  --subhead-1-large: 1.8rem;
+  --subhead-2: 1.6rem;
+  --table-1: 1.6rem;
+  --title-1: 3.4rem;
+  --title-1-large: 4rem;
+  --title-1-extra-large: 6rem;
+  --title-2: 2.2rem;
+  --title-3: 2.8rem;
+  --title-4: 1.8rem;
+  --title-5: 1.6rem;
+  --title-6: 1.4rem;
+  --title-7: 1.2rem;
+  --title-8: 1.6rem;
+  --page-title: 3rem;
+  --page-description: 1.6rem;
+  --category-1: 1.4rem;
+  --category-1-kerning: 1.26px;
+}
+@include respond-up(xs) {
+  :root {
+    --heading-1: 4.15rem;
+    --heading-2: 3rem;
+    --heading-3: 2.656rem;
+    --heading-4: 2.125rem;
+    --heading-5: 1.7rem;
+    --description-3: 1.6rem;
+    --label-1-small: 1.5rem;
+    --label-1-medium: 1.6rem;
+    --label-1-large: 1.8rem;
+    --label-3: 1.9rem;
+    --title-4: 2.2rem;
+    --page-title: 3.8rem;
+    --page-description: 1.8rem;
+    --category-1: 1.5rem;
+    --category-1-kerning: 1.35px;
+  }
+}
+
+@include respond-up(sm) {
+  :root {
+    --body-1: 1.8rem;
+    --quote-1: 2.4rem;
+    --subhead-1: 1.8rem;
+    --byline-1-large: 1.3rem;
+    --byline-1: 1.6rem;
+    --heading-1: 4.394rem;
+    --heading-2: 3rem;
+    --heading-3: 2.812rem;
+    --heading-4: 2.2rem;
+    --heading-5: 1.8rem;
+    --subhead-1-large: 1.8rem;
+    --title-1: 4.4rem;
+    --title-1-large: 4rem;
+    --title-1-extra-large: 6rem;
+    --title-2: 2.4rem;
+    --title-3: 3.5rem;
+    --title-8: 2.5rem;
+    --description-2: 1.8rem;
+    --category-1: 1.5rem;
+  }
+}
+
+@include respond-up(lg) {
+  :root {
+    --byline-1-large: 1.6rem;
+  }
+}
+
+@include respond-up(xl) {
+  :root {
+    --quote-1: 2.6rem;
+    --subhead-1: 1.8rem;
+    --subhead-1-large: 2.2rem;
+    --title-1: 4.4rem;
+    --title-1-large: 5.4rem;
+    --title-1-extra-large: 12rem;
+    --title-2: 3rem;
+    --title-5: 1.6rem;
+  }
+}

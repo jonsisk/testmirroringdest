@@ -1,0 +1,98 @@
+.story-layout-headline_above {
+  .overlay-header {
+    .overlay-image {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      text-align: center;
+      .logo-overlay {
+        position: relative;
+        left: 0;
+        top: 0;
+        padding: 20px;
+        right: 0;
+        background-color: var(--color-header-bg);
+        text-align: left;
+        order: -1;
+      }
+      .breadcrumbs {
+        order: 0;
+        padding-top: 46px;
+        padding-inline-start: 2rem;
+        padding-inline-end: 2rem;
+      }
+      h1.headline {
+        order: 2;
+        padding-inline-start: 2rem;
+        padding-inline-end: 2rem;
+      }
+      h2.sub-headline {
+        order: 3;
+        padding-inline-start: 2rem;
+        padding-inline-end: 2rem;
+      }
+      .byline {
+        order: 4;
+        padding-inline-start: 2rem;
+        padding-inline-end: 2rem;
+        border-bottom: 0 none;
+      }
+      figure.overlay-image {
+        order: 10;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        text-align: left;
+        picture img {
+          width: 100%;
+        }
+      }
+    }
+    .overlay-text {
+      color: var(--color-primary-text-inverse);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      left: 0;
+      padding-left: 0;
+      padding-right: 0;
+      position: absolute;
+      bottom: 30px;
+      text-align: center;
+      width: 100%;
+      z-index: 2;
+      justify-content: flex-end;
+      flex-wrap: nowrap;
+      align-content: center;
+      align-items: center;
+
+      .breadcrumbs a {
+        color: var(--color-white);
+      }
+      h1.headline {
+        color: var(--color-white);
+        max-width: 762px;
+        margin: 0 auto 10px;
+      }
+      h2.sub-headline {
+        color: var(--color-white);
+      }
+
+      .byline {
+        border-bottom: none;
+        span {
+          color: var(--color-white);
+
+          a {
+            color: var(--color-white);
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  @include respond-down(sm) {
+  }
+}

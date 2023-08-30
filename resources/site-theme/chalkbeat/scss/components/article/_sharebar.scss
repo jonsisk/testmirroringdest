@@ -1,0 +1,49 @@
+.share-bar {
+  margin-top: 16px;
+  margin-left: auto;
+  margin-bottom: 16px;
+  display: flex;
+  position: relative;
+
+  ul {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, 30px);
+    list-style: none;
+
+    li {
+      a {
+        display: block;
+        width: 30px;
+        svg {
+          align-items: center;
+          border: 0;
+          height: 21px;
+          width: 21px;
+        }
+      }
+      a.twitter-share-button {
+        fill: #1da1f2;
+      }
+
+      a.facebook-share-button {
+        fill: #4c67a1;
+      }
+    }
+  }
+
+  a.republish-link {
+    background-color: var(--color-border);
+    transition: opacity 0.3s;
+    color: var(--color-dark-gray);
+    border-radius: 20px;
+    padding: 8px;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+  }
+}
