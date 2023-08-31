@@ -157,6 +157,7 @@
   --page-description: 1.6rem;
   --category-1: 1.4rem;
   --category-1-kerning: 1.26px;
+  --cx-page-width-max: 100%;
 }
 @include respond-up(xs) {
   :root {
@@ -175,6 +176,7 @@
     --page-description: 1.8rem;
     --category-1: 1.5rem;
     --category-1-kerning: 1.35px;
+    --cx-page-width-max: 100%;
   }
 }
 
@@ -199,12 +201,14 @@
     --title-8: 2.5rem;
     --description-2: 1.8rem;
     --category-1: 1.5rem;
+    --cx-page-width-max: 100%;
   }
 }
 
 @include respond-up(lg) {
   :root {
     --byline-1-large: 1.6rem;
+    --cx-page-width-max: 1140px;
   }
 }
 

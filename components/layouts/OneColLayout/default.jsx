@@ -19,11 +19,7 @@ const OneColLayout = ({ children }) => {
           <div className="overlay-text">{overlayText}</div>
         </div>
         <section role="main" id="main" className="main" tabIndex="-1">
-          <div className="container layout-section">
-            <div className="row-">
-              <div className="col">{fullWidth}</div>
-            </div>
-          </div>
+          <div className="container layout-section">{fullWidth}</div>
         </section>
         <footer className="footer">{footer}</footer>
       </div>

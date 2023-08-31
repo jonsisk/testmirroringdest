@@ -79,17 +79,18 @@ const NewsletterInterestFeature = ({ customFields }) => {
           </div>
         ))}
       </div>
-
-      <div className="interest-description">{signupCopy}</div>
-      <NewsletterSignup
-        newsletterSignupEndpoint={newsletterSignupEndpoint}
-        website={arcSite}
-        interestIds={selectedValues}
-        thankYouMsg={thankYouMsg}
-        validation={validateSelection}
-        disclaimer={disclaimer}
-        layout="horizontal"
-      />
+      <div className="interests-form">
+        <div className="interest-description">{signupCopy}</div>
+        <NewsletterSignup
+          newsletterSignupEndpoint={newsletterSignupEndpoint}
+          website={arcSite}
+          interestIds={selectedValues}
+          thankYouMsg={thankYouMsg}
+          validation={validateSelection}
+          disclaimer={disclaimer}
+          layout="horizontal"
+        />
+      </div>
     </div>
   );
 };
