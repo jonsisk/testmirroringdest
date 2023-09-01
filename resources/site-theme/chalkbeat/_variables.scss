@@ -1,7 +1,7 @@
 :root {
   --color-white: #ffffff;
   --color-black: #000000;
-  --color-bg: #544459;
+  --color-bg: #222222;
   --color-primary: #babbe0;
   --color-primary-text: #393939;
   --color-secondary-text: #393939;
@@ -15,9 +15,9 @@
   --color-header-border: var(--color-bg);
   --color-header-bottom-border: var(--color-bg);
   --color-header-date-line-text: #babbe0;
-  --color-header-donate-button-bg: #fce487;
-  --color-header-newsletter-button-bg: #f5b362;
-  --color-header-link-text-hover: #735a60;
+  --color-header-donate-button-bg: #ffd373;
+  --color-header-newsletter-button-bg: #cb90d0;
+  --color-header-link-text-hover: #178287;
 
   --color-footer-bg: var(--color-bg);
   --color-footer-text: #e0e0e0;
@@ -30,10 +30,10 @@
   --color-banner-link-text-hover: #393939;
 
   --color-link-text: #393939;
-  --color-link-text-hover: #ae610c;
-  --color-link-underline: #ae610c;
+  --color-link-text-hover: #178287;
+  --color-link-underline: #178287;
 
-  --color-pull-quote: #ae610c;
+  --color-pull-quote: #178287;
   --color-pull-quote-border: #ffd373;
 
   --color-horizontal-rule: #f5f5f5;
@@ -41,7 +41,7 @@
   --color-squiggly: #ffcc5b;
 
   --color-button-bg: var(--color-bg);
-  --color-button-hover-bg: #735a60;
+  --color-button-hover-bg: #178287;
   --color-button-hover-text: #fff;
   --color-button-text: #fff;
 
@@ -59,7 +59,7 @@
 
   --color-gray: #dddddd;
   --color-dark-gray: #333333;
-  --color-bg-toaster: #f5b362;
+  --color-bg-toaster: #178287;
   --color-text-toaster: #393939;
   --color-button-bg-toaster: #ffffff;
   --color-button-hover-bg-toaster: #000000;
