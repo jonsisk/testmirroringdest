@@ -1,0 +1,35 @@
+blockquote {
+  &.pullquote {
+    font-family: var(--font-1);
+    font-size: var(--quote-1);
+    line-height: 1.2;
+    letter-spacing: 0;
+    font-weight: 600;
+    color: var(--color-pull-quote);
+    position: relative;
+    padding-top: 16px;
+    padding-left: 0;
+    margin-bottom: 20px;
+    font-style: italic;
+    p {
+      font-family: var(--font-1);
+      font-size: var(--quote-1);
+      line-height: 1.2;
+      letter-spacing: 0;
+      font-weight: 600;
+      color: var(--color-pull-quote);
+      font-style: italic;
+      padding: 0;
+      margin: 0;
+    }
+    &:before {
+      background-color: var(--color-pull-quote-border);
+      content: "";
+      height: 3px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 65px;
+    }
+  }
+}
