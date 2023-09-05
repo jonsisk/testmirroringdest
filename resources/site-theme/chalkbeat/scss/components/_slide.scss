@@ -1,12 +1,7 @@
 //slider
 .container-img{
-  width: 700px;
-  height: auto;
-}
-.content-slider{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+
 }
 .big-images picture{
   height: 0;
@@ -14,6 +9,7 @@
   position: relative;
   padding-bottom: 75%;
   img{
+    opacity: 0.8;
     object-fit: cover;
     width: auto;
     min-height: 100%;
@@ -28,7 +24,7 @@
     padding-bottom: 75%;
     margin-top: 1rem;
     img{
-      opacity: 0.7;
+      opacity: 0.8;
       object-fit: cover;
       width: auto;
       min-height: 100%;
@@ -51,10 +47,8 @@
 .slick-prev{
   left: 0 !important;
 }
-
 .slick-prev, .slick-next{
   color: #fff;
-  z-index: 30;
   border-radius: 50%;
   background-color: var(--color-primary);
   width: 30px;
@@ -87,7 +81,6 @@
 }
 .slick-slide, .slide {
   border: none !important;
-  
 }
 
 .slide {

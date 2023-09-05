@@ -287,34 +287,12 @@ function parseArticleItem(item, index, arcSite, phrases, id, customFields) {
     case "gallery":
       console.log("gallery", item);
       return (
-        <section key={key} className="block-margin-bottom gallery">
-          {/* <h1>hola</h1> */}
+        <div key={key} className="block-margin-bottom gallery content-slider">
           <NewGallery
             galleryElements={item.content_elements}
             resizerURL={getProperties(arcSite)?.resizerURL}
           />
-          <Gallery
-            galleryElements={item.content_elements}
-            resizerURL={getProperties(arcSite)?.resizerURL}
-            ansId={item._id}
-            ansHeadline={item.headlines.basic ? item.headlines.basic : ""}
-            autoplayPhraseLabels={{
-              start: phrases.t("global.gallery-autoplay-label-start"),
-              stop: phrases.t("global.gallery-autoplay-label-stop"),
-            }}
-            controlsFont={getThemeStyle(arcSite)["primary-font-family"]}
-            expandPhrase={phrases.t("global.gallery-expand-button")}
-            autoplayPhrase={phrases.t("global.gallery-autoplay-button")}
-            pausePhrase={phrases.t("global.gallery-pause-autoplay-button")}
-            pageCountPhrase={
-              /* istanbul ignore next */ (current, total) =>
-                phrases.t("global.gallery-page-count-text", { current, total })
-            }
-            displayTitle={!hideGalleryTitle}
-            displayCaption={!hideGalleryCaption}
-            displayCredits={!hideGalleryCredits}
-          />
-        </section>
+        </div>
       );
     case "custom_embed":
       switch (item.subtype) {
@@ -406,18 +384,18 @@ export const ArticleBodyChainCivicPresentation = ({ children, customFields = {},
     }),
     ...(copyright
       ? [
-        parseArticleItem(
-          {
-            type: "copyright",
-            content: copyright,
-          },
-          "copyright-text",
-          arcSite,
-          null, // phrases not used by text type
-          null, // id not used by text type
-          {} // customFields only used in video
-        ),
-      ]
+          parseArticleItem(
+            {
+              type: "copyright",
+              content: copyright,
+            },
+            "copyright-text",
+            arcSite,
+            null, // phrases not used by text type
+            null, // id not used by text type
+            {} // customFields only used in video
+          ),
+        ]
       : []),
   ];
 

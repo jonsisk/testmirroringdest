@@ -34,7 +34,6 @@ const NewGallery = ({ galleryElements, resizerURL }) => {
       selector: selectorRef.current,
     });
   }, []);
-
   return (
     <div className="container-img">
       <Slider {...settings} asNavFor={swiper.selector} ref={imageRef}>

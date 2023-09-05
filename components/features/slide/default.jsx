@@ -20,14 +20,14 @@ const settings = {
   arrow: true,
   autoplay: false,
   nextArrow: (
-    <div>
+    <div className="slider-right-arrow">
       <svg>
         <use xlinkHref="#icon-arrow-right"></use>
       </svg>
     </div>
   ),
   prevArrow: (
-    <div>
+    <div className="slider-left-arrow">
       <svg>
         <use xlinkHref="#icon-arrow-left"></use>
       </svg>
