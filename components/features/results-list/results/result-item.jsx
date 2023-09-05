@@ -30,6 +30,8 @@ const ResultItem = React.memo(
         subtype,
       } = element;
 
+      if (!websites) return null;
+
       const actualSite = Object.keys(websites).find((key) => key.includes("-"));
 
       const { websiteName } = getProperties(actualSite);
