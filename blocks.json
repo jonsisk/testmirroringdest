@@ -121,6 +121,9 @@
         "siteProperties": {
           "websiteName": "Chalkbeat",
           "websiteDomain": "https://www.chalkbeat.arcpublishing.com",
+          "lightBackgroundLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1693859076120.svg",
+          "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1693859077745.svg",
+          "fallbackImage": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1693859077943.svg",
           "querylyId": "12a8b884283a4e73",
           "querylyOrg": "civicnewscompany",
           "republishHeader": "This story was originally published by Chalkbeat. Sign up for their newsletters at <a href='https://ckbe.at/newsletters' >ckbe.at/newsletters</a>",
