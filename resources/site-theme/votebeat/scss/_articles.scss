@@ -169,7 +169,10 @@ figcaption {
 aside.sidebar {
   background-color: var(--color-sidebar-bg-color);
   padding: 24px;
-
+  @include respond-down(sm) {
+    width: 100%;
+    margin: 20px 0;
+  }
   p {
     font-size: 1.6rem;
     --font: var(--font-rte-body);
@@ -194,12 +197,20 @@ aside.sidebar {
     margin-left: 10px;
     width: 45%;
     margin-right: 5%;
+    @include respond-down(sm) {
+      width: 100%;
+      margin: 20px 0;
+    }
   }
   &.float-left {
     float: left;
     margin-right: 10px;
     width: 45%;
     margin-left: 5%;
+    @include respond-down(sm) {
+      width: 100%;
+      margin: 20px 0;
+    }
   }
 }
 
