@@ -12,7 +12,7 @@ const StaticLayout = ({ children }) => {
       <div className={`site-${arcSite} page-staticLayout`}>
         <header className="header">{navigation}</header>
         <div className="fullWidth1">{fullWidth1}</div>
-        <section role="main" tabIndex="-1">
+        <section role="main" className="container" tabIndex="-1">
           <div className="contentTitle">{contentTitle}</div>
           <div className="contentBody">{contentBody}</div>
         </section>
