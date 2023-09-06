@@ -37,7 +37,6 @@ const ResultItem = React.memo(
       const { websiteName } = getProperties(actualSite);
 
       const imageURL = extractImageFromStory(element);
-
       const url = websites[arcSite].website_url;
 
       const getMainSection = (element) => {

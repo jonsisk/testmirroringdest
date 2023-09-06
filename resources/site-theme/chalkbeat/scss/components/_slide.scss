@@ -1,0 +1,129 @@
+//slider
+.container-img{
+  width: 100%;
+
+}
+.big-images picture{
+  height: 0;
+  display: block;
+  position: relative;
+  padding-bottom: 75%;
+  img{
+    opacity: 0.8;
+    object-fit: cover;
+    width: auto;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+  }
+} 
+.small-images picture{
+    height: 0;
+    display: block;
+    position: relative;
+    padding-bottom: 75%;
+    margin-top: 1rem;
+    img{
+      opacity: 0.8;
+      object-fit: cover;
+      width: auto;
+      min-height: 100%;
+      min-width: 100%;
+      position: absolute;
+    }
+} 
+
+//carrousel
+.slick-track{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 40%;
+}
+.slick-next{
+  right: 0 !important;
+}
+.slick-prev{
+  left: 0 !important;
+}
+.slick-prev, .slick-next{
+  color: #fff;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  width: 30px;
+  height: 30px;
+  display: flex!important;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  svg{
+    width: 15px;
+    height: 15px;
+  }
+  &:hover{
+    background-color: white;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+  }
+  &::after, &::before{
+    content: "";
+  }
+}
+.slider-container {
+  width: 80%;
+  margin: auto;
+}
+.slider{
+  height: 50%;
+  width: 100%;
+  border: none;
+}
+.slick-slide, .slide {
+  border: none !important;
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  align-items: center;
+  height: 420px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.overline{
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  letter-spacing: 1.35px;
+  text-transform: uppercase;
+  font-weight: 600;
+  width: 100%;
+  text-align: left;
+  margin: 15px 0 5px 0;
+}
+
+.image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.description {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.author {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin: 10px 0;
+}

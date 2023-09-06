@@ -10,7 +10,7 @@ import React from "react";
 const OverlayLeadImage = ({ customFields }) => {
   const { globalContent, arcSite } = useFusionContext();
   const lead_art = globalContent.promo_items.lead_art || globalContent.promo_items.basic;
-  const { lightBackgroundLogo, lightBackgroundLogoAlt } = getProperties(arcSite);
+  const { lightBackgroundLogoAlt, primaryLogo } = getProperties(arcSite);
   const { hideImageCaption, hideImageCredits, hideImageTitle } = customFields;
   const {
     url,
@@ -38,7 +38,7 @@ const OverlayLeadImage = ({ customFields }) => {
     <>
       <div className="logo-overlay">
         <a aria-label="home page" href="/" data-cms-ai="0">
-          <img className="PageLogo-image" src={lightBackgroundLogo} alt={lightBackgroundLogoAlt} />
+          <img className="PageLogo-image" src={primaryLogo} alt={lightBackgroundLogoAlt} />
         </a>
       </div>
       <figure className="overlay-image">
