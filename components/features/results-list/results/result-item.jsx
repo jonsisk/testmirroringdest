@@ -14,7 +14,6 @@ const ResultItem = React.memo(
       imagePropertiesFeatured,
       targetFallbackImage,
       placeholderResizedImageOptions,
-      showAsList,
       showByline,
       showDescription,
       showHeadline,
@@ -25,6 +24,7 @@ const ResultItem = React.memo(
     }) => {
       const {
         description: { basic: descriptionText } = {},
+        subheadlines: { basic: subheadlines } = {},
         headlines: { basic: headlineText } = {},
         websites,
         subtype,
@@ -110,7 +110,11 @@ const ResultItem = React.memo(
                 </div>
 
                 <div className="PagePromo-description">
-                  {showDescription && descriptionText ? <p>{descriptionText}</p> : null}
+                  {showDescription && subheadlines ? (
+                    <p>{subheadlines}</p>
+                  ) : showDescription && descriptionText ? (
+                    <p>{descriptionText}</p>
+                  ) : null}
                 </div>
 
                 <div className="PagePromo-byline">
