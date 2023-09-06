@@ -1,6 +1,5 @@
 import { MetaData } from "@wpmedia/engine-theme-sdk";
 import { useFusionContext } from "fusion:context";
-import getTranslatedPhrases from "fusion:intl";
 import getProperties from "fusion:properties";
 import React from "react";
 import CivicMetaTags from "../base/metatags/metatags.components.jsx";
@@ -168,7 +167,6 @@ const CivicOutputType = ({
     ]),
   ].join(";");
 
-  const phrases = getTranslatedPhrases(getProperties(arcSite).locale || "en");
   const theme = arcSite?.split("-")[0];
 
   // custom metaValue to override specific keys and still use the default <Meta> component
@@ -302,7 +300,7 @@ const CivicOutputType = ({
         {comscoreNoScript(comscoreID)}
         {googleTagManagerNoScript(gtmID)}
         <a className="skip-main" href="#main">
-          {phrases.t("default-output-block.skip-main")}
+          Skip to main content
         </a>
         <div id="fusion-app" className="layout-section">
           {children}

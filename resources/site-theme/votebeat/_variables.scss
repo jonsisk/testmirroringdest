@@ -33,7 +33,7 @@
   --color-link-text-hover: #ae610c;
   --color-link-underline: #ae610c;
 
-  --color-pull-quote: #ae610c;
+  --color-pull-quote: #178287;
   --color-pull-quote-border: #ffd373;
 
   --color-horizontal-rule: #f5f5f5;
@@ -94,7 +94,6 @@
   --font-rte-body: var(--font-3);
 
   --body-1: 1.8rem;
-  --quote-1: 2.4rem;
   --subhead-1: 1.8rem;
   --byline-1-large: 1.3rem;
   --byline-1: 1.6rem;
@@ -110,7 +109,6 @@
   --category-1: 1.5rem;
   --eyebrowFontSize: 26px;
 
-  --quote-1: 2.6rem;
   --headerHeight: 145px;
   --listItemPadding: 12px;
   --category-1-kerning: 1.35px;
@@ -157,6 +155,7 @@
   --page-description: 1.6rem;
   --category-1: 1.4rem;
   --category-1-kerning: 1.26px;
+  --cx-page-width-max: 100%;
 }
 @include respond-up(xs) {
   :root {
@@ -175,6 +174,7 @@
     --page-description: 1.8rem;
     --category-1: 1.5rem;
     --category-1-kerning: 1.35px;
+    --cx-page-width-max: 100%;
   }
 }
 
@@ -199,12 +199,14 @@
     --title-8: 2.5rem;
     --description-2: 1.8rem;
     --category-1: 1.5rem;
+    --cx-page-width-max: 100%;
   }
 }
 
 @include respond-up(lg) {
   :root {
     --byline-1-large: 1.6rem;
+    --cx-page-width-max: 1140px;
   }
 }
 

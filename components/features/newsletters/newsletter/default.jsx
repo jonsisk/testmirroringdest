@@ -2,8 +2,8 @@ import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
 import React from "react";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import NewsletterSignup from "../../../base/newsletter/newsletter-signup.component";
+import { replaceSiteVariables } from "../../../helpers/site.helper";
 import useRenderForBreakpoint from "../../../hooks/use-renderforbreakpoint";
 import { deviceRender } from "../../../utilities/customFields";
 import { newsletterInterests } from "../../../utilities/newsletters";
@@ -14,7 +14,7 @@ import { newsletterInterests } from "../../../utilities/newsletters";
  */
 const NewsletterFeature = ({ customFields }) => {
   const { arcSite, contextPath, deployment, outputType } = useFusionContext();
-  const { recaptchaSiteKey, newsletterSignupEndpoint } = getProperties(arcSite);
+  const { newsletterSignupEndpoint, websiteName } = getProperties(arcSite);
   const {
     title,
     style,
@@ -34,37 +34,39 @@ const NewsletterFeature = ({ customFields }) => {
     renderDesktop,
   });
 
+  const selectedNewsletterInterests = newsletterInterests
+    .filter((int) => int.slug === newsletter)
+    .map((int) => int.id);
+
   if (!shouldRender || outputType === "amp") {
     return null;
   }
 
+  const replacedDescription = replaceSiteVariables(description, websiteName);
+
   return (
-    <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
-      <div className={`newsletter-breaker-wrapper ${style}`}>
-        <div className="newsletter-feature">
-          <div className="info">
-            {showImage && style === "vertical" && (
-              <img
-                src={deployment(`${contextPath}/resources/images/votebeat/icon-news.svg`)}
-                alt={description}
-              />
-            )}
-            <h3>{title}</h3>
-            <p>{description}</p>
-          </div>
-          <NewsletterSignup
-            newsletterSignupEndpoint={newsletterSignupEndpoint}
-            layout={style}
-            website={arcSite}
-            interestIds={[
-              newsletterInterests.filter((int) => int.slug === newsletter).map((int) => int.id),
-            ]}
-            thankYouMsg={thankYouMsg}
-            disclaimer={disclaimer}
-          />
+    <div className={`newsletter-breaker-wrapper ${style}`}>
+      <div className="newsletter-feature">
+        <div className="info">
+          {showImage && style === "vertical" && (
+            <img
+              src={deployment(`${contextPath}/resources/images/votebeat/icon-news.svg`)}
+              alt={replacedDescription}
+            />
+          )}
+          <h3>{title}</h3>
+          <p>{replacedDescription}</p>
         </div>
+        <NewsletterSignup
+          newsletterSignupEndpoint={newsletterSignupEndpoint}
+          layout={style}
+          website={arcSite}
+          interestIds={selectedNewsletterInterests}
+          thankYouMsg={thankYouMsg}
+          disclaimer={disclaimer}
+        />
       </div>
-    </GoogleReCaptchaProvider>
+    </div>
   );
 };
 

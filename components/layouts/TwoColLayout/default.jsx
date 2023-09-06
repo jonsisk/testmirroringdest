@@ -1,11 +1,14 @@
 import { useFusionContext } from "fusion:context";
+import getProperties from "fusion:properties";
 import React from "react";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 const TwoColLayout = ({ children }) => {
   const [navigation, fullWidth1, main, rightRail, fullWidth2, footer] = children;
   const { arcSite } = useFusionContext();
+  const { recaptchaSiteKey } = getProperties(arcSite);
   return (
-    <>
+    <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
       <div className={`site-${arcSite} custom-layout page-twoColumn`}>
         <header className="header">{navigation}</header>
         <section role="main" tabIndex="-1">
@@ -18,7 +21,7 @@ const TwoColLayout = ({ children }) => {
         </section>
         <footer className="footer">{footer}</footer>
       </div>
-    </>
+    </GoogleReCaptchaProvider>
   );
 };
 

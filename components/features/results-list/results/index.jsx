@@ -125,8 +125,6 @@ const Results = ({
     setQueryOffset((oldOffset) => oldOffset + configuredSize);
   }, [configuredSize, setQueryOffset]);
 
-  const [firstElement, ...restElements] = viewableElements;
-
   if (showAsList) {
     return viewableElements?.length > 0 && !isServerSideLazy ? (
       <div className="results-list-container">
@@ -164,7 +162,8 @@ const Results = ({
         )}
       </div>
     ) : null;
-  } else {
+  } else if (!showAsList && viewableElements?.length > 0) {
+    const [firstElement, ...restElements] = viewableElements;
     return viewableElements?.length > 0 && !isServerSideLazy ? (
       <div className="results-list-container">
         <div className="PageListP-items-column">
@@ -189,30 +188,33 @@ const Results = ({
           />
         </div>
         <div className="PageListP-items-column">
-          {restElements.map((element, index) => (
-            <ResultItem
-              key={`result-card-${element._id}`}
-              ref={elementRefs[index]}
-              arcSite={arcSite}
-              element={element}
-              imageProperties={imageProperties}
-              imagePropertiesFeatured={imagePropertiesFeatured}
-              placeholderResizedImageOptions={placeholderResizedImageOptions}
-              showAsList={showAsList}
-              showByline={showByline}
-              showDate={showDate}
-              showDescription={showDescription}
-              showHeadline={showHeadline}
-              showImage={showImage}
-              showItemOverline={showItemOverline}
-              targetFallbackImage={targetFallbackImage}
-              keepPrimaryWebsite={keepPrimaryWebsite}
-              showFeatured={showFeatured}
-            />
-          ))}
+          {restElements &&
+            restElements.map((element, index) => (
+              <ResultItem
+                key={`result-card-${element._id}`}
+                ref={elementRefs[index]}
+                arcSite={arcSite}
+                element={element}
+                imageProperties={imageProperties}
+                imagePropertiesFeatured={imagePropertiesFeatured}
+                placeholderResizedImageOptions={placeholderResizedImageOptions}
+                showAsList={showAsList}
+                showByline={showByline}
+                showDate={showDate}
+                showDescription={showDescription}
+                showHeadline={showHeadline}
+                showImage={showImage}
+                showItemOverline={showItemOverline}
+                targetFallbackImage={targetFallbackImage}
+                keepPrimaryWebsite={keepPrimaryWebsite}
+                showFeatured={showFeatured}
+              />
+            ))}
         </div>
       </div>
     ) : null;
+  } else {
+    return null;
   }
 };
 

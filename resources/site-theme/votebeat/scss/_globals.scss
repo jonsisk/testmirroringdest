@@ -64,3 +64,15 @@ h5 {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+.container {
+  max-width: var(--cx-page-width-max);
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: stretch;
+  padding-left: 20px;
+  padding-right: 20px;
+  flex-direction: column;
+}

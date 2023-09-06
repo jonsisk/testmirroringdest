@@ -13,7 +13,7 @@ export const getSchema = (globalContent, logo, baseUrl, websiteName) => {
     display_date,
     publish_date,
     last_updated_date,
-    subheadlines,
+    description,
     credits,
     canonical_url,
     promo_items,
@@ -36,14 +36,14 @@ export const getSchema = (globalContent, logo, baseUrl, websiteName) => {
         "headline": "${headlines.basic.replace(/['"]+/g, "")}",
         "datePublished": "${date}",
         "dateModified": "${last_updated_date}",
-        "description": "${subheadlines.basic.replace(/['"]+/g, "")}",
+        "description": "${description?.basic?.replace(/['"]+/g, "")}",
         "author": [
             ${credits.by
               .map((author) => {
                 return `{
                     "@type": "Person",
                     "name": "${author.name}",
-                    "url" : "${author.url}"
+                    "url" : "${author?.url}"
                 }`;
               })
               .join(",")}

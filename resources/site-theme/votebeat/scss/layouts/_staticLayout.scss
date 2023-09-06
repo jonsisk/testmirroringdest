@@ -1,0 +1,35 @@
+.page-staticLayout {
+  .container {
+    max-width: 730px;
+  }
+  .contentTitle {
+    position: relative;
+    text-align: center;
+    padding-bottom: 24px;
+    padding-top: 64px;
+    border-bottom: 1px solid #e7e7e8;
+    text-align: center;
+    margin-bottom: 32px;
+    h1 {
+      --font: var(--font-headline);
+      margin-bottom: 16px;
+      font-family: var(--font-1);
+      font-size: var(--title-1);
+      font-weight: 600;
+      letter-spacing: normal;
+      line-height: 1.2;
+      text-align: center;
+    }
+    h2 {
+      font-size: var(--subhead-1);
+      font-weight: 400;
+      margin-top: 16px;
+      font-family: var(--font-1);
+      font-size: var(--title-2);
+      letter-spacing: normal;
+      line-height: 1.25;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+}
