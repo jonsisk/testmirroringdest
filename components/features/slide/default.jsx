@@ -1,7 +1,6 @@
 import PropTypes from "@arc-fusion/prop-types";
 import { isServerSide, LazyLoad } from "@wpmedia/engine-theme-sdk";
-import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
-import { HeadingSection, Overline, Byline, Heading, SecondaryFont } from "@wpmedia/shared-styles";
+import { HeadingSection } from "@wpmedia/shared-styles";
 import { useContent } from "fusion:content";
 import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
@@ -40,6 +39,8 @@ const Carrousel = ({ customFields }) => {
   const {
     lazyLoad,
     listContentConfig: { contentService, contentConfigValues },
+    title,
+    subtitle,
   } = customFields;
 
   const isServerSideLazy = lazyLoad && isServerSide() && !isAdmin;
@@ -64,6 +65,18 @@ const Carrousel = ({ customFields }) => {
   return (
     <LazyLoad enabled={lazyLoad && !isAdmin}>
       <HeadingSection>
+        <div className="PageList-header">
+          <svg className="PageList-header-squiggly">
+            <use xlinkHref="#squiggly"></use>
+          </svg>
+          <div className="PageList-header-title-wrap">
+            <div className="PageList-header-title">{title}</div>
+          </div>
+
+          <div className="PageList-header-description">
+            <p>{subtitle}</p>
+          </div>
+        </div>
         <Slider {...settings} className="slider">
           {content_elements?.length > 0 &&
             !isServerSideLazy &&
@@ -88,6 +101,14 @@ Carrousel.icon = "arc-list";
 
 Carrousel.propTypes = {
   customFields: PropTypes.shape({
+    title: PropTypes.string.tag({
+      label: "Title",
+      group: "Configure Content",
+    }),
+    subtitle: PropTypes.string.tag({
+      label: "Subtitle",
+      group: "Configure Content",
+    }),
     listContentConfig: PropTypes.contentConfig("ans-feed").tag({
       group: "Configure Content",
       label: "Display Content Info",

@@ -1,6 +1,6 @@
-import { isServerSide, LazyLoad, Image } from "@wpmedia/engine-theme-sdk";
+import { Image } from "@wpmedia/engine-theme-sdk";
 import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
-import { HeadingSection, Overline, Byline, Heading, SecondaryFont } from "@wpmedia/shared-styles";
+import { Overline, Byline, Heading, SecondaryFont } from "@wpmedia/shared-styles";
 import getProperties from "fusion:properties";
 import React from "react";
 
@@ -10,7 +10,7 @@ export const SlideCard = ({
   targetFallbackImage,
   placeholderResizedImageOptions,
 }) => {
-  const { fallbackImage, locale, primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
+  const { primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
   const imageProperties = {
     smallWidth: 158,
     smallHeight: 89,
