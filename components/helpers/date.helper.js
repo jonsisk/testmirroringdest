@@ -33,12 +33,29 @@ export const getUserDate = (date, showTime = false) => {
     return null;
   }
   var now = dayjs();
-  const STANDARD_FORMAT = now.year() > dayjs(date).year() ? "MMM D, YYYY" : "MMM D";
+  const STANDARD_FORMAT = now.year() > dayjs(date).year() ? "MMMM D, YYYY" : "MMMM D";
 
   const FORMAT = showTime
-    ? `MMM D, YYYY, h:mma ${insertTimezoneIntoTemplate(date)}`
+    ? `MMMM D, YYYY, h:mma ${insertTimezoneIntoTemplate(date)}`
     : STANDARD_FORMAT;
-  return dayjs.utc(date).local().format(FORMAT);
+
+  const nowFormated = dayjs
+    .utc(date)
+    .local()
+    .format("MMMM D, YYYY, h:mma")
+    .replace(",", "")
+    .split(" ");
+  const userDateFormated = now.utc().format("MMMM D, YYYY, h:mma").replace(",", "").split(" ");
+  let isToday = false;
+  if (
+    nowFormated[0] === userDateFormated[0] &&
+    nowFormated[1] === userDateFormated[1] &&
+    nowFormated[2] === userDateFormated[2]
+  ) {
+    isToday = true;
+  }
+
+  return isToday ? `Today, ${userDateFormated[3]}` : dayjs.utc(date).local().format(FORMAT);
 };
 
 export const insertTimezoneIntoTemplate = (date, { brackets } = { brackets: "[]" }) => {
