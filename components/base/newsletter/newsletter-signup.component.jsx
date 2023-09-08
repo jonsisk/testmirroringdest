@@ -113,7 +113,7 @@ const NewsletterSignup = ({
             />
           )}
           <input type="hidden" name="recaptcha" value={recaptchaValue} />
-          <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
+
           {layout !== "horizontal" && (
             <div className="buttonContainer">
               <button type="submit" disabled={isSubmitting}>
@@ -122,9 +122,11 @@ const NewsletterSignup = ({
             </div>
           )}
           {errorMessage && <div className="alert alert-danger mt-3">{errorMessage}</div>}
+
+          <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
         </form>
       ) : (
-        <p>{thankYouMsg}</p>
+        <p className="thankYouMsgNews">{thankYouMsg}</p>
       )}
     </div>
   );

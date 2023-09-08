@@ -72,8 +72,8 @@ const StickyNewsletterFeature = ({ customFields }) => {
             website={arcSite}
             interestIds={filteredInterests}
             thankYouMsg={thankYouMsg}
+            disclaimer={disclaimer}
           />
-          <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
         </div>
         {!closed && (
           <div className="close-wrapper">
