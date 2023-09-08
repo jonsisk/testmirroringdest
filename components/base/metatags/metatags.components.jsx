@@ -36,6 +36,21 @@ const CivicMetaTags = ({ content, parselyTags, arcSite, websiteUrl, websiteName,
           ></link>
         </>
       );
+    case "author":
+      if (content?.authors?.length > 0) {
+        const { byline, slug } = content.authors[0];
+        return (
+          <>
+            <link
+              type="application/rss+xml"
+              rel="alternate"
+              title={`${byline} - ${websiteName}`}
+              href={`${websiteUrl}/arc/outboundfeeds/rss/author/${slug}/`}
+            ></link>
+          </>
+        );
+      }
+      return null;
     case "homepage":
       return (
         <>
