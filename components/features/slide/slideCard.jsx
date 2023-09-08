@@ -26,7 +26,7 @@ export const SlideCard = ({
   const imageURL = extractImageFromStory(slide);
 
   return (
-    <div className="slide">
+    <div className="slide article-slide">
       <Image
         {...imageProperties}
         url={imageURL !== null ? imageURL : targetFallbackImage}

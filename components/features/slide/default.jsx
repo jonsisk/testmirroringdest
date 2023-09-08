@@ -65,7 +65,7 @@ const Carrousel = ({ customFields }) => {
   return (
     <LazyLoad enabled={lazyLoad && !isAdmin}>
       <HeadingSection>
-        <div className="PageList-header">
+        <div className="PageList-header articles-slider">
           <svg className="PageList-header-squiggly">
             <use xlinkHref="#squiggly"></use>
           </svg>
