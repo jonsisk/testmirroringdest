@@ -104,13 +104,7 @@ const NewsletterSignup = ({
             )}
           </label>
           {layout !== "horizontal" && (
-            <input
-              type="email"
-              name="email"
-              placeholder="your@email.com"
-              onChange={handleInputChange}
-              required
-            />
+            <input type="email" name="email" onChange={handleInputChange} required />
           )}
           <input type="hidden" name="recaptcha" value={recaptchaValue} />
 
