@@ -32,6 +32,29 @@ const settings = {
       </svg>
     </div>
   ),
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+      },
+    },
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 const Carrousel = ({ customFields }) => {
   const { arcSite, isAdmin, deployment, contextPath } = useFusionContext();
