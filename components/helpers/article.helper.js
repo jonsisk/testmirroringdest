@@ -36,6 +36,10 @@ export const getAdPathForContent = (content, arcSite) => {
   return adPath;
 };
 
+export const getActualSite = (websites) => {
+  return Object.keys(websites).find((key) => key.includes("-"));
+};
+
 /**
  * For GAM, main bureau is 'national' and sub-bureau is the second part of arcSite
  * @param {*} arcSite

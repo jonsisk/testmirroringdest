@@ -9,6 +9,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@wpmedia/shared-styles/scss/_results-list.scss";
+import { useArticleStore } from "../stores/articles.store";
 import { SlideCard } from "./slideCard";
 
 const settings = {
@@ -67,6 +68,7 @@ const Carrousel = ({ customFields }) => {
   } = customFields;
 
   const isServerSideLazy = lazyLoad && isServerSide() && !isAdmin;
+  const addArticle = useArticleStore((state) => state.addArticle);
 
   const requestedResultList = useContent({
     source: isServerSideLazy ? null : contentService,
@@ -84,6 +86,12 @@ const Carrousel = ({ customFields }) => {
     query: { raw_image_url: targetFallbackImage, respect_aspect_ratio: true },
   });
   const { content_elements } = requestedResultList;
+
+  if (content_elements) {
+    content_elements.forEach((element) => {
+      addArticle(element._id);
+    });
+  }
 
   return (
     <LazyLoad enabled={lazyLoad && !isAdmin}>

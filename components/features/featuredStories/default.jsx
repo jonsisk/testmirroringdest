@@ -1,17 +1,14 @@
 import PropTypes from "@arc-fusion/prop-types";
-import { isServerSide, LazyLoad } from "@wpmedia/engine-theme-sdk";
 import { useFusionContext } from "fusion:context";
 import getTranslatedPhrases from "fusion:intl";
 import getProperties from "fusion:properties";
 import React from "react";
-import { useArticleStore } from "../stores/articles.store";
-import Results from "./results";
 import { resolveDefaultPromoElements } from "./results/helpers";
+import Results from "./results/index";
 
-const ResultsListCivic = ({ customFields }) => {
-  const { arcSite, contextPath, deployment, isAdmin } = useFusionContext();
+const FeaturedStoriesCivic = ({ customFields }) => {
+  const { arcSite, contextPath, deployment } = useFusionContext();
   const {
-    lazyLoad,
     listContentConfig: { contentService, contentConfigValues },
     keepPrimaryWebsite,
   } = customFields;
@@ -43,7 +40,7 @@ const ResultsListCivic = ({ customFields }) => {
     : fallbackImage;
   const promoElements = resolveDefaultPromoElements(customFields);
   const phrases = getTranslatedPhrases(locale || "en");
-  const isServerSideLazy = lazyLoad && isServerSide() && !isAdmin;
+
   const configuredOffset =
     parseInt(contentConfigValues?.offset, 10) ||
     parseInt(contentConfigValues?.feedOffset, 10) ||
@@ -52,44 +49,37 @@ const ResultsListCivic = ({ customFields }) => {
   const configuredSize =
     parseInt(contentConfigValues?.size, 10) || parseInt(contentConfigValues?.feedSize, 10) || 10;
 
-  const articles = useArticleStore((state) => state.articles);
-
   return (
-    <LazyLoad enabled={lazyLoad && !isAdmin}>
-      <div className="List">
-        <Results
-          arcSite={arcSite}
-          configuredOffset={configuredOffset}
-          configuredSize={configuredSize}
-          contentConfigValues={contentConfigValues}
-          contentService={contentService}
-          imageProperties={imageProperties}
-          imagePropertiesFeatured={imagePropertiesFeatured}
-          isServerSideLazy={isServerSideLazy}
-          phrases={phrases}
-          showAsList={true}
-          showByline={promoElements.showByline}
-          showDate={promoElements.showDate}
-          showDescription={promoElements.showDescription}
-          showHeadline={promoElements.showHeadline}
-          showImage={promoElements.showImage}
-          showItemOverline={promoElements.showItemOverline}
-          targetFallbackImage={targetFallbackImage}
-          keepPrimaryWebsite={keepPrimaryWebsite}
-          showPagination={promoElements.showPagination}
-          showFeatured={promoElements.showFeatured}
-          filteredArticles={articles}
-        />
-      </div>
-    </LazyLoad>
+    <div className="Front-Page">
+      <Results
+        arcSite={arcSite}
+        configuredOffset={configuredOffset}
+        configuredSize={configuredSize}
+        contentConfigValues={contentConfigValues}
+        contentService={contentService}
+        imageProperties={imageProperties}
+        imagePropertiesFeatured={imagePropertiesFeatured}
+        isServerSideLazy={false}
+        phrases={phrases}
+        showByline={promoElements.showByline}
+        showDate={promoElements.showDate}
+        showDescription={promoElements.showDescription}
+        showHeadline={promoElements.showHeadline}
+        showImage={promoElements.showImage}
+        showItemOverline={promoElements.showItemOverline}
+        targetFallbackImage={targetFallbackImage}
+        keepPrimaryWebsite={keepPrimaryWebsite}
+        showPagination={promoElements.showPagination}
+        showFeatured={promoElements.showFeatured}
+      />
+    </div>
   );
 };
 
-ResultsListCivic.label = "Results List – Civic";
+FeaturedStoriesCivic.label = "Featured Stories – Civic";
+FeaturedStoriesCivic.static = true;
 
-ResultsListCivic.icon = "arc-list";
-
-ResultsListCivic.propTypes = {
+FeaturedStoriesCivic.propTypes = {
   customFields: PropTypes.shape({
     keepPrimaryWebsite: PropTypes.bool.tag({
       label: "Keep primary website URL",
@@ -142,13 +132,7 @@ ResultsListCivic.propTypes = {
       defaultValue: true,
       group: "Show promo elements",
     }),
-    lazyLoad: PropTypes.bool.tag({
-      name: "Lazy Load block?",
-      defaultValue: false,
-      description:
-        "Turning on lazy-loading will prevent this block from being loaded on the page until it is nearly in-view for the user.",
-    }),
   }),
 };
 
-export default ResultsListCivic;
+export default FeaturedStoriesCivic;
