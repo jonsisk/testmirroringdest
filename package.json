@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/arc-partners/CivicNewsCompany-Themes-PageBuilder-Fusion-Features-Mirror#readme",
   "devDependencies": {
-    "@arc-fusion/cli": "^2.1.0",
+    "@arc-fusion/cli": "^2.1.1",
     "@babel/core": "^7.22.5",
     "@babel/eslint-parser": "^7.22.5",
     "@babel/plugin-proposal-decorators": "^7.22.5",
