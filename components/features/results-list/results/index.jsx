@@ -4,7 +4,7 @@ import getProperties from "fusion:properties";
 import React, { createRef, useCallback, useEffect, useReducer, useState } from "react";
 import ResultItem from "../../../base/article/result-list.component";
 import { getActualSite } from "../../../helpers/article.helper";
-import { reduceResultList } from "./helpers";
+import { reduceResultList } from "../../../helpers/list.helpers";
 
 const Results = ({
   arcSite,

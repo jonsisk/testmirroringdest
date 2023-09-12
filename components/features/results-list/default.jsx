@@ -4,9 +4,9 @@ import { useFusionContext } from "fusion:context";
 import getTranslatedPhrases from "fusion:intl";
 import getProperties from "fusion:properties";
 import React from "react";
+import { resolveDefaultPromoElements } from "../../helpers/list.helpers";
 import { useArticleStore } from "../stores/articles.store";
 import Results from "./results";
-import { resolveDefaultPromoElements } from "./results/helpers";
 
 const ResultsListCivic = ({ customFields }) => {
   const { arcSite, contextPath, deployment, isAdmin } = useFusionContext();

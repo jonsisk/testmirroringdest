@@ -3,8 +3,8 @@ import getProperties from "fusion:properties";
 import React, { createRef, useCallback, useEffect, useReducer, useState } from "react";
 import ResultItem from "../../../base/article/result-list.component";
 import { getActualSite } from "../../../helpers/article.helper";
+import { reduceResultList } from "../../../helpers/list.helpers";
 import { useArticleStore } from "../../stores/articles.store";
-import { reduceResultList } from "./helpers";
 
 const Results = ({
   arcSite,
@@ -23,12 +23,11 @@ const Results = ({
   showImage = false,
   showItemOverline = false,
   targetFallbackImage,
-  showPagination = true,
   showFeatured = true,
   keepPrimaryWebsite = false,
   filteredArticles = [],
 }) => {
-  const [queryOffset, setQueryOffset] = useState(configuredOffset);
+  const [queryOffset] = useState(configuredOffset);
   const addArticle = useArticleStore((state) => state.addArticle);
 
   const placeholderResizedImageOptions = useContent({
@@ -119,16 +118,6 @@ const Results = ({
     0,
     queryOffset + configuredSize - configuredOffset
   );
-
-  const fullListLength = resultList?.count
-    ? resultList?.count - configuredOffset
-    : resultList?.content_elements.length;
-
-  const isThereMore = requestedResultList?.next || viewableElements?.length < fullListLength;
-
-  const onReadMoreClick = useCallback(() => {
-    setQueryOffset((oldOffset) => oldOffset + configuredSize);
-  }, [configuredSize, setQueryOffset]);
 
   const getWebsiteName = (element) => {
     const { websiteName } = getProperties(getActualSite(element.websites));

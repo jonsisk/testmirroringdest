@@ -3,7 +3,7 @@ import { useFusionContext } from "fusion:context";
 import getTranslatedPhrases from "fusion:intl";
 import getProperties from "fusion:properties";
 import React from "react";
-import { resolveDefaultPromoElements } from "./results/helpers";
+import { resolveDefaultPromoElements } from "../../helpers/list.helpers";
 import Results from "./results/index";
 
 const FeaturedStoriesCivic = ({ customFields }) => {
@@ -69,7 +69,6 @@ const FeaturedStoriesCivic = ({ customFields }) => {
         showItemOverline={promoElements.showItemOverline}
         targetFallbackImage={targetFallbackImage}
         keepPrimaryWebsite={keepPrimaryWebsite}
-        showPagination={promoElements.showPagination}
         showFeatured={promoElements.showFeatured}
       />
     </div>
@@ -119,11 +118,6 @@ FeaturedStoriesCivic.propTypes = {
     }),
     showDate: PropTypes.bool.tag({
       label: "Show date",
-      defaultValue: true,
-      group: "Show promo elements",
-    }),
-    showPagination: PropTypes.bool.tag({
-      label: "Show pagination",
       defaultValue: true,
       group: "Show promo elements",
     }),
