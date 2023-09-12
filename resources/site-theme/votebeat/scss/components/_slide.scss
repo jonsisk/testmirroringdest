@@ -40,7 +40,9 @@
     align-content: center;
     align-items: center;
     justify-content: center;
-
+    @include respond-down(xs) {
+      opacity: 0.5;
+    }
     svg {
       width: 15px;
       height: 15px;
@@ -140,6 +142,9 @@
       --font: var(--font-promo-description);
       color: var(--color-secondary-text);
       width: 100%;
+      @include respond-down(xs) {
+        display: none !important;
+      }
     }
     .results-list--description-author-container {
       width: 100%;
@@ -175,7 +180,7 @@
     .slick-track {
       height: auto;
       .slick-slide {
-        padding: 0 80px 0 0;
+        padding: 0 100px 0 0;
       }
     }
     .article-slide {
@@ -184,10 +189,10 @@
       height: auto;
       padding: 0 20px;
       picture {
-        width: 80px;
-        flex: 0 0 80px;
+        width: 100px;
+        flex: 0 0 100px;
         img {
-          width: 80px;
+          width: 100px;
           height: auto;
         }
       }
