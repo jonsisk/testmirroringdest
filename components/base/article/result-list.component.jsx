@@ -1,9 +1,8 @@
 import { Image } from "@wpmedia/engine-theme-sdk";
 import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
-import getProperties from "fusion:properties";
 import React from "react";
-import Byline from "../../../base/byline/byline.component";
-import { getWebsiteDomain } from "../../../helpers/site.helper";
+import { getWebsiteDomain } from "../../helpers/site.helper";
+import Byline from "../byline/byline.component";
 
 const ResultItem = React.memo(
   React.forwardRef(
@@ -21,6 +20,7 @@ const ResultItem = React.memo(
       showItemOverline,
       showFeatured,
       keepPrimaryWebsite,
+      websiteName,
     }) => {
       const {
         description: { basic: descriptionText } = {},
@@ -31,10 +31,6 @@ const ResultItem = React.memo(
       } = element;
 
       if (!websites) return null;
-
-      const actualSite = Object.keys(websites).find((key) => key.includes("-"));
-
-      const { websiteName } = getProperties(actualSite);
 
       const imageURL = extractImageFromStory(element);
       const url = websites[arcSite].website_url;

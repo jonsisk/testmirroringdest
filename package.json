@@ -45,6 +45,7 @@
     "react-oembed-container": "^1.0.1",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
-    "use-breakpoint": "^3.1.1"
+    "use-breakpoint": "^3.1.1",
+    "zustand": "^4.4.1"
   }
 }
