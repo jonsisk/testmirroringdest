@@ -2,9 +2,11 @@
 import React from "react";
 import { getUserDate } from "../../helpers/date.helper";
 
-const Byline = ({ element, showTime = true, websiteDomain }) => {
+const Byline = ({ element, showTime = false, websiteDomain }) => {
   const credits = element?.credits?.by;
+
   const { display_date: displayDate, publish_date: publishDate } = element;
+
   return (
     <div className="byline">
       <span className="author">
@@ -12,17 +14,21 @@ const Byline = ({ element, showTime = true, websiteDomain }) => {
         {credits?.map((author) => {
           if (author.slug) {
             return (
-              <a key={author.slug} href={`${websiteDomain}/authors/${author.slug}`}>
-                {author.name}
-              </a>
+              <div key={author.slug} className="Page-byline">
+                <div className="Page-authors">
+                  <a href={`${websiteDomain}/authors/${author.slug}`}>{author.name}</a>
+                </div>
+              </div>
             );
           } else {
             return author.name;
           }
         })}
       </span>
-      <span className="separator">&nbsp;|&nbsp;</span>
-      <span className="date">{getUserDate(displayDate ? displayDate : publishDate, showTime)}</span>
+      {displayDate && <span className="date"> {getUserDate(displayDate, showTime)}</span>}
+      {publishDate && showTime && (
+        <span className="date"> | Updated: {getUserDate(publishDate, showTime)}</span>
+      )}
     </div>
   );
 };

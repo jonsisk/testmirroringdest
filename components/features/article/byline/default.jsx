@@ -8,8 +8,7 @@ import { getWebsiteDomain } from "../../../helpers/site.helper";
  */
 const BylineFeature = () => {
   const { globalContent, arcSite } = useFusionContext();
-
-  return <Byline element={globalContent} websiteDomain={getWebsiteDomain(arcSite)} />;
+  return <Byline element={globalContent} showTime websiteDomain={getWebsiteDomain(arcSite)} />;
 };
 
 BylineFeature.label = "Byline - Civic";
