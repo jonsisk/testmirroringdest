@@ -9,7 +9,12 @@ import HeaderSignup from "../../base/header-cb/header-signup.component";
 const Header = ({ customFields }) => {
   const context = useFusionContext();
   const { arcSite, outputType } = context;
+
+  console.log("----arcSite----->", arcSite);
+
   const { primaryLogo, primaryLogoAlt, topLevelUrl, parentCommunity } = getProperties(arcSite);
+
+  console.log("----primaryLogo----->", primaryLogo);
   const {
     tagline,
     communitiesTitle,
@@ -17,10 +22,6 @@ const Header = ({ customFields }) => {
     topicsTitle,
     topicsHierachy,
     linksHierachy,
-    jobsBoardCopy,
-    jobsBoardUrl,
-    eventsCopy,
-    eventsUrl,
   } = customFields;
 
   const communities = useContent({
@@ -47,8 +48,6 @@ const Header = ({ customFields }) => {
     },
   });
 
-  console.log("--------------------->", links);
-
   return (
     (outputType !== "amp" && (
       <div className="customheader">
@@ -62,34 +61,19 @@ const Header = ({ customFields }) => {
           communityNavigation={communities}
           topLevelUrl={topLevelUrl}
           linksNavigation={links}
-          link1Copy={jobsBoardCopy}
-          link1Url={jobsBoardUrl}
-          link2Copy={eventsCopy}
-          link2Url={eventsUrl}
-          link3Copy={jobsBoardCopy}
-          link3Url={jobsBoardUrl}
-          link4Copy={eventsCopy}
-          link4Url={eventsUrl}
         />
       </div>
     )) || (
       <HeaderAMP
         tagline={tagline}
-        jobsBoardCopy={jobsBoardCopy}
-        jobsBoardUrl={jobsBoardUrl}
-        eventsCopy={eventsCopy}
-        eventsUrl={eventsUrl}
         logoURL={primaryLogo}
         logoAlt={primaryLogoAlt}
+        topicsTitle={topicsTitle}
+        topicNavigation={topics}
+        communitiesTitle={communitiesTitle}
+        communityNavigation={communities}
         topLevelUrl={topLevelUrl}
-        link1Copy={jobsBoardCopy}
-        link1Url={jobsBoardUrl}
-        link2Copy={eventsCopy}
-        link2Url={eventsUrl}
-        link3Copy={jobsBoardCopy}
-        link3Url={jobsBoardUrl}
-        link4Copy={eventsCopy}
-        link4Url={eventsUrl}
+        linksNavigation={links}
       />
     )
   );
@@ -122,32 +106,9 @@ Header.propTypes = {
       label: "Topics Hierarchy",
       group: "Configure Content",
     }),
-
     linksHierachy: PropTypes.string.tag({
       defaultValue: "sections-menu",
       label: "Links Hierarchy",
-      group: "Configure Content",
-    }),
-    jobsBoardCopy: PropTypes.string.tag({
-      defaultValue: "Jobs Board",
-      label: "Jobs Board link text",
-      group: "Configure Content",
-    }),
-    jobsBoardUrl: PropTypes.string.tag({
-      defaultValue:
-        "https://jobs.chalkbeat.org/?_ga=2.35798752.1159973125.1647355477-775160776.1647355476",
-      label: "Jobs Board URL",
-      group: "Configure Content",
-    }),
-    eventsCopy: PropTypes.string.tag({
-      defaultValue: "Events",
-      label: "Events link text",
-      group: "Configure Content",
-    }),
-    eventsUrl: PropTypes.string.tag({
-      defaultValue:
-        "https://events.chalkbeat.org/?_ga=2.35798752.1159973125.1647355477-775160776.1647355476",
-      label: "Events URL",
       group: "Configure Content",
     }),
   }),

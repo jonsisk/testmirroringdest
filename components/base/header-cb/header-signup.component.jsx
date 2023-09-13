@@ -14,14 +14,6 @@ const HeaderSignup = ({
   topicsTitle,
   topLevelUrl,
   linksNavigation,
-  link1Copy,
-  link1Url,
-  link2Copy,
-  link2Url,
-  link3Copy,
-  link3Url,
-  link4Copy,
-  link4Url,
 }) => {
   const global = useBrowserGlobals();
   const [showCommunityPanel, setShowCommunityPanel] = useState(false);
@@ -169,39 +161,6 @@ const HeaderSignup = ({
                       </li>
                     ))}
 
-                  {/*
-                  <li className="Navigation-items-item item-about">
-                    <div className="NavigationItem ">
-                      <div className="NavigationItem-text">
-                        <a href={link1Url}>{link1Copy}</a>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li className="Navigation-items-item item-about">
-                    <div className="NavigationItem ">
-                      <div className="NavigationItem-text">
-                        <a href={link2Url}>{link2Copy}</a>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li className="Navigation-items-item item-about">
-                    <div className="NavigationItem ">
-                      <div className="NavigationItem-text">
-                        <a href={link3Url}>{link3Copy}</a>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li className="Navigation-items-item item-about">
-                    <div className="NavigationItem ">
-                      <div className="NavigationItem-text">
-                        <a href={link4Url}>{link4Copy}</a>
-                      </div>
-                    </div>
-                  </li>
-                              */}
                   <li id="item-more" className="Navigation-items-item item-more">
                     <div className="NavigationItem has-menu">
                       <div className="NavigationItem-text" onClick={handleClickMore}>
@@ -248,38 +207,6 @@ const HeaderSignup = ({
                                       </li>
                                     ))}
                                 </ul>
-                              </div>
-                            </div>
-                          </li>
-
-                          <li className="Navigation-items-item item-about">
-                            <div className="NavigationItem ">
-                              <div className="NavigationItem-text">
-                                <a href={link1Url}>{link1Copy}</a>
-                              </div>
-                            </div>
-                          </li>
-
-                          <li className="Navigation-items-item item-about">
-                            <div className="NavigationItem ">
-                              <div className="NavigationItem-text">
-                                <a href={link2Url}>{link2Copy}</a>
-                              </div>
-                            </div>
-                          </li>
-
-                          <li className="Navigation-items-item item-about">
-                            <div className="NavigationItem ">
-                              <div className="NavigationItem-text">
-                                <a href={link3Url}>{link3Copy}</a>
-                              </div>
-                            </div>
-                          </li>
-
-                          <li className="Navigation-items-item item-about">
-                            <div className="NavigationItem ">
-                              <div className="NavigationItem-text">
-                                <a href={link4Url}>{link4Copy}</a>
                               </div>
                             </div>
                           </li>

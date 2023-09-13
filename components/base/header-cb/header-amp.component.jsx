@@ -13,14 +13,6 @@ const HeaderAMP = ({
   topicsTitle,
   topLevelUrl,
   linksNavigation,
-  link1Copy,
-  link1Url,
-  link2Copy,
-  link2Url,
-  link3Copy,
-  link3Url,
-  link4Copy,
-  link4Url,
 }) => {
   return (
     <>
@@ -131,40 +123,6 @@ const HeaderAMP = ({
                       </div>
                     </li>
                   ))}
-
-                {/*
-                <li className="Navigation-items-item">
-                  <div className="NavigationItem">
-                    <div className="NavigationItem-text">
-                      <a href={link1Url}>{link1Copy}</a>
-                    </div>
-                  </div>
-                </li>
-
-                <li className="Navigation-items-item">
-                  <div className="NavigationItem">
-                    <div className="NavigationItem-text">
-                      <a href={link2Url}>{link2Copy}</a>
-                    </div>
-                  </div>
-                </li>
-
-                <li className="Navigation-items-item">
-                  <div className="NavigationItem">
-                    <div className="NavigationItem-text">
-                      <a href={link3Url}>{link3Copy}</a>
-                    </div>
-                  </div>
-                </li>
-
-                <li className="Navigation-items-item">
-                  <div className="NavigationItem">
-                    <div className="NavigationItem-text">
-                      <a href={link4Url}>{link4Copy}</a>
-                    </div>
-                  </div>
-                </li>
-                    */}
               </ul>
             </nav>
           </div>
