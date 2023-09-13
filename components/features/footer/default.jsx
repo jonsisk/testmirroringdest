@@ -8,7 +8,7 @@ const Footer = (props) => {
   const { arcSite, outputType } = useFusionContext();
   const { parentCommunity } = getProperties(arcSite);
   const { topHierachy, bottomHierarchy } = props.customFields;
-  const { primaryLogo, primaryLogoAlt } = getProperties(
+  const { primaryLogo, primaryLogoAlt, websiteDomain } = getProperties(
     parentCommunity ? parentCommunity : arcSite
   );
 
@@ -50,7 +50,11 @@ const Footer = (props) => {
                   {topFooter &&
                     topFooter.children.map((item) => (
                       <li key={item._id} className="FooterNavigation-items-item">
-                        <a href={item.url}>{item.display_name}</a>
+                        <a
+                          href={item.url.startsWith("/") ? `${websiteDomain}${item.url}` : item.url}
+                        >
+                          {item.display_name}
+                        </a>
                       </li>
                     ))}
                 </ul>
@@ -63,7 +67,11 @@ const Footer = (props) => {
                   {bottomFooter &&
                     bottomFooter.children.map((item) => (
                       <li key={item._id} className="FooterNavigation-items-item">
-                        <a href={item.url}>{item.display_name}</a>
+                        <a
+                          href={item.url.startsWith("/") ? `${websiteDomain}${item.url}` : item.url}
+                        >
+                          {item.display_name}
+                        </a>
                       </li>
                     ))}
                 </ul>

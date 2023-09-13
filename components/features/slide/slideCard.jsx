@@ -26,7 +26,7 @@ export const SlideCard = ({
   const imageURL = extractImageFromStory(slide);
 
   return (
-    <div className="slide">
+    <div className="slide article-slide">
       <Image
         {...imageProperties}
         url={imageURL !== null ? imageURL : targetFallbackImage}
@@ -36,16 +36,18 @@ export const SlideCard = ({
         }
         fallbackImage={targetFallbackImage}
       />
-      <Overline story={slide} className="overline" />
-      <Heading className="headline-text">{slide.headlines.basic}</Heading>
-      <div className="results-list--description-author-container">
-        <a href={slide.canonical_url} title={slide.headlines.basic}>
-          <SecondaryFont as="p" className="description-text">
-            {slide.description.basic}
-          </SecondaryFont>
-        </a>
-        <div className="results-list--author-date">
-          <Byline content={slide} list font="Primary" />
+      <div className="article-slide-info">
+        <Overline story={slide} className="overline" />
+        <Heading className="headline-text">{slide.headlines.basic}</Heading>
+        <div className="results-list--description-author-container">
+          <a href={slide.canonical_url} title={slide.headlines.basic}>
+            <SecondaryFont as="p" className="description-text">
+              {slide.description.basic}
+            </SecondaryFont>
+          </a>
+          <div className="results-list--author-date">
+            <Byline content={slide} list font="Primary" />
+          </div>
         </div>
       </div>
     </div>

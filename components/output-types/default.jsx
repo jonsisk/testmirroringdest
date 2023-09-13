@@ -228,6 +228,8 @@ const CivicOutputType = ({
           arcSite={arcSite}
           parselyTags={parselyTags}
           websiteUrl={actualDomain}
+          websiteName={websiteName}
+          pageType={metaValue("page-type")}
         />
         <link
           rel="apple-touch-icon"

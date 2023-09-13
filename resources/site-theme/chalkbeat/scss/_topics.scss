@@ -7,3 +7,16 @@ h1.section-title {
   line-height: 1.2;
   margin-bottom: 50px;
 }
+
+h2.section-tagline {
+  text-align: center;
+  padding: 0 20px;
+  font-family: var(--font-3);
+  font-size: var(--page-description);
+  font-weight: 400;
+  margin-bottom: 50px;
+
+  @include respond-up(lg) {
+    padding: 0 100px;
+  }
+}

@@ -9,6 +9,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@wpmedia/shared-styles/scss/_results-list.scss";
+import { useArticleStore } from "../stores/articles.store";
 import { SlideCard } from "./slideCard";
 
 const settings = {
@@ -32,6 +33,29 @@ const settings = {
       </svg>
     </div>
   ),
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+      },
+    },
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 const Carrousel = ({ customFields }) => {
   const { arcSite, isAdmin, deployment, contextPath } = useFusionContext();
@@ -44,6 +68,7 @@ const Carrousel = ({ customFields }) => {
   } = customFields;
 
   const isServerSideLazy = lazyLoad && isServerSide() && !isAdmin;
+  const addArticle = useArticleStore((state) => state.addArticle);
 
   const requestedResultList = useContent({
     source: isServerSideLazy ? null : contentService,
@@ -62,10 +87,16 @@ const Carrousel = ({ customFields }) => {
   });
   const { content_elements } = requestedResultList;
 
+  if (content_elements) {
+    content_elements.forEach((element) => {
+      addArticle(element._id);
+    });
+  }
+
   return (
     <LazyLoad enabled={lazyLoad && !isAdmin}>
       <HeadingSection>
-        <div className="PageList-header">
+        <div className="PageList-header articles-slider">
           <svg className="PageList-header-squiggly">
             <use xlinkHref="#squiggly"></use>
           </svg>
