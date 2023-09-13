@@ -10,6 +10,41 @@
     "is_default_website": false
   },
   {
+    "_id": "chalkbeat-indiana",
+    "display_name": "Chalkbeat Indiana",
+    "is_default_website": false
+  },
+  {
+    "_id": "chalkbeat-chicago",
+    "display_name": "Chalkbeat Chicago",
+    "is_default_website": false
+  },
+  {
+    "_id": "chalkbeat-newyork",
+    "display_name": "Chalkbeat New York",
+    "is_default_website": false
+  },
+  {
+    "_id": "chalkbeat-tennessee",
+    "display_name": "Chalkbeat Tennessee",
+    "is_default_website": false
+  },
+  {
+    "_id": "chalkbeat-detroit",
+    "display_name": "Chalkbeat Detroit",
+    "is_default_website": false
+  },
+  {
+    "_id": "chalkbeat-newark",
+    "display_name": "Chalkbeat Newark",
+    "is_default_website": false
+  },
+  {
+    "_id": "chalkbeat-philadelphia",
+    "display_name": "Chalkbeat Philadelphia",
+    "is_default_website": false
+  },
+  {
     "_id": "votebeat",
     "display_name": "Votebeat",
     "is_default_website": true
