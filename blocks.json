@@ -117,19 +117,7 @@
           "gtmIDAMP": "GTM-PX338RH"
         }
       },
-      "chalkbeat": {
-        "siteProperties": {
-          "websiteName": "Chalkbeat",
-          "websiteDomain": "https://www.chalkbeat.arcpublishing.com",
-          "lightBackgroundLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1693859076120.svg",
-          "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1693859077745.svg",
-          "fallbackImage": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1693859077943.svg",
-          "querylyId": "12a8b884283a4e73",
-          "querylyOrg": "civicnewscompany",
-          "republishHeader": "This story was originally published by Chalkbeat. Sign up for their newsletters at <a href='https://ckbe.at/newsletters' >ckbe.at/newsletters</a>",
-          "republishFooter": "Chalkbeat is a nonprofit news site covering educational change in public schools."
-        }
-      },
+
       "votebeat-texas": {
         "siteProperties": {
           "websiteName": "Votebeat Texas",
@@ -184,6 +172,34 @@
           "facebookAppId": "735437511148430",
           "gtmIDAMP": "GTM-PX338RH"
         }
+      }
+    },
+
+    "chalkbeat": {
+      "siteProperties": {
+        "websiteName": "Chalkbeat",
+        "websiteDomain": "https://www.chalkbeat.arcpublishing.com",
+        "lightBackgroundLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1693859076120.svg",
+        "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1693859077745.svg",
+        "fallbackImage": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1693859077943.svg",
+        "querylyId": "12a8b884283a4e73",
+        "querylyOrg": "civicnewscompany",
+        "republishHeader": "This story was originally published by Chalkbeat. Sign up for their newsletters at <a href='https://ckbe.at/newsletters' >ckbe.at/newsletters</a>",
+        "republishFooter": "Chalkbeat is a nonprofit news site covering educational change in public schools."
+      }
+    },
+
+    "chalkbeat-colorado": {
+      "siteProperties": {
+        "websiteName": "Chalkbeat Colorado",
+        "websiteDomain": "https://www.chalkbeat.arcpublishing.com",
+        "lightBackgroundLogo": "https://chalkbeat.brightspotcdn.com/1a/34/b39d81c64c4faec303d799f25768/cb-co-logo-center-2color-v2-2019.svgany-sandbox/1693859076120.svg",
+        "primaryLogo": "https://chalkbeat.brightspotcdn.com/1a/34/b39d81c64c4faec303d799f25768/cb-co-logo-center-2color-v2-2019.svg",
+        "fallbackImage": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1693859077943.svg",
+        "querylyId": "12a8b884283a4e73",
+        "querylyOrg": "civicnewscompany",
+        "republishHeader": "This story was originally published by Chalkbeat. Sign up for their newsletters at <a href='https://ckbe.at/newsletters' >ckbe.at/newsletters</a>",
+        "republishFooter": "Chalkbeat is a nonprofit news site covering educational change in public schools."
       }
     },
     "default": {

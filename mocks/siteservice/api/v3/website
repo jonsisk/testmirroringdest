@@ -5,6 +5,11 @@
     "is_default_website": false
   },
   {
+    "_id": "chalkbeat-colorado",
+    "display_name": "Chalkbeat Colorado",
+    "is_default_website": false
+  },
+  {
     "_id": "votebeat",
     "display_name": "Votebeat",
     "is_default_website": true

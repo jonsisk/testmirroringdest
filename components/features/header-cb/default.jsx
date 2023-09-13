@@ -16,6 +16,7 @@ const Header = ({ customFields }) => {
     communitiesHierachy,
     topicsTitle,
     topicsHierachy,
+    linksHierachy,
     jobsBoardCopy,
     jobsBoardUrl,
     eventsCopy,
@@ -38,15 +39,21 @@ const Header = ({ customFields }) => {
     },
   });
 
+  const links = useContent({
+    source: "header-links",
+    query: {
+      site: arcSite,
+      hierarchy: linksHierachy,
+    },
+  });
+
+  console.log("--------------------->", links);
+
   return (
     (outputType !== "amp" && (
       <div className="customheader">
         <HeaderSignup
           tagline={tagline}
-          jobsBoardCopy={jobsBoardCopy}
-          jobsBoardUrl={jobsBoardUrl}
-          eventsCopy={eventsCopy}
-          eventsUrl={eventsUrl}
           logoURL={primaryLogo}
           logoAlt={primaryLogoAlt}
           topicsTitle={topicsTitle}
@@ -54,6 +61,15 @@ const Header = ({ customFields }) => {
           communitiesTitle={communitiesTitle}
           communityNavigation={communities}
           topLevelUrl={topLevelUrl}
+          linksNavigation={links}
+          link1Copy={jobsBoardCopy}
+          link1Url={jobsBoardUrl}
+          link2Copy={eventsCopy}
+          link2Url={eventsUrl}
+          link3Copy={jobsBoardCopy}
+          link3Url={jobsBoardUrl}
+          link4Copy={eventsCopy}
+          link4Url={eventsUrl}
         />
       </div>
     )) || (
@@ -65,11 +81,15 @@ const Header = ({ customFields }) => {
         eventsUrl={eventsUrl}
         logoURL={primaryLogo}
         logoAlt={primaryLogoAlt}
-        topicsTitle={topicsTitle}
-        topicNavigation={topics}
-        communitiesTitle={communitiesTitle}
-        communityNavigation={communities}
         topLevelUrl={topLevelUrl}
+        link1Copy={jobsBoardCopy}
+        link1Url={jobsBoardUrl}
+        link2Copy={eventsCopy}
+        link2Url={eventsUrl}
+        link3Copy={jobsBoardCopy}
+        link3Url={jobsBoardUrl}
+        link4Copy={eventsCopy}
+        link4Url={eventsUrl}
       />
     )
   );
@@ -78,7 +98,7 @@ const Header = ({ customFields }) => {
 Header.propTypes = {
   customFields: PropTypes.shape({
     tagline: PropTypes.string.tag({
-      defaultValue: "Nonpartisan local reporting on elections and voting",
+      defaultValue: "Essential education reporting across America",
       label: "Tagline",
       group: "Configure Content",
     }),
@@ -100,6 +120,12 @@ Header.propTypes = {
     topicsHierachy: PropTypes.string.tag({
       defaultValue: "sections-menu",
       label: "Topics Hierarchy",
+      group: "Configure Content",
+    }),
+
+    linksHierachy: PropTypes.string.tag({
+      defaultValue: "sections-menu",
+      label: "Links Hierarchy",
       group: "Configure Content",
     }),
     jobsBoardCopy: PropTypes.string.tag({
@@ -127,6 +153,6 @@ Header.propTypes = {
   }),
 };
 
-Header.label = "Custom Header Chalkbeat - Civic";
+Header.label = "Header Chalkbeat - Civic";
 
 export default Header;

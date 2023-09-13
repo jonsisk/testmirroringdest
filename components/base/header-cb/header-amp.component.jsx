@@ -9,13 +9,18 @@ const HeaderAMP = ({
   logoAlt,
   communityNavigation,
   topicNavigation,
-  jobsBoardCopy,
-  jobsBoardUrl,
-  eventsCopy,
-  eventsUrl,
   communitiesTitle,
   topicsTitle,
   topLevelUrl,
+  linksNavigation,
+  link1Copy,
+  link1Url,
+  link2Copy,
+  link2Url,
+  link3Copy,
+  link3Url,
+  link4Copy,
+  link4Url,
 }) => {
   return (
     <>
@@ -75,49 +80,63 @@ const HeaderAMP = ({
                   </amp-accordion>
                 </li>
 
-                <li className="Navigation-items-item">
-                  <amp-accordion
-                    class="NavigationItem i-amphtml-element i-amphtml-layout-container i-amphtml-built i-amphtml-layout"
-                    i-amphtml-layout="container"
-                  >
-                    <section>
-                      <header
-                        className="NavigationItem-text i-amphtml-accordion-header"
-                        id="20_AMP_header_0"
-                        role="button"
-                        aria-controls="20_AMP_content_0"
-                        aria-expanded="false"
-                        tabIndex="0"
-                      >
-                        <span>{topicsTitle}</span>
+                {topicsTitle ? (
+                  <li className="Navigation-items-item">
+                    <amp-accordion
+                      class="NavigationItem i-amphtml-element i-amphtml-layout-container i-amphtml-built i-amphtml-layout"
+                      i-amphtml-layout="container"
+                    >
+                      <section>
+                        <header
+                          className="NavigationItem-text i-amphtml-accordion-header"
+                          id="20_AMP_header_0"
+                          role="button"
+                          aria-controls="20_AMP_content_0"
+                          aria-expanded="false"
+                          tabIndex="0"
+                        >
+                          <span>{topicsTitle}</span>
 
-                        <span className="NavigationItem-more-carat open">▾</span>
-                        <span className="NavigationItem-more-carat closed">▸</span>
-                      </header>
+                          <span className="NavigationItem-more-carat open">▾</span>
+                          <span className="NavigationItem-more-carat closed">▸</span>
+                        </header>
 
-                      <ul
-                        className="NavigationItem-items i-amphtml-accordion-content"
-                        id="20_AMP_content_0"
-                        aria-labelledby="20_AMP_header_0"
-                        role="region"
-                      >
-                        {topicNavigation &&
-                          topicNavigation.children.map((item) => (
-                            <li key={item._id} className="NavigationItem-items-item">
-                              <a className="NavigationLink" href={`${topLevelUrl}${item._id}`}>
-                                {item.name}
-                              </a>
-                            </li>
-                          ))}
-                      </ul>
-                    </section>
-                  </amp-accordion>
-                </li>
+                        <ul
+                          className="NavigationItem-items i-amphtml-accordion-content"
+                          id="20_AMP_content_0"
+                          aria-labelledby="20_AMP_header_0"
+                          role="region"
+                        >
+                          {topicNavigation &&
+                            topicNavigation.children.map((item) => (
+                              <li key={item._id} className="NavigationItem-items-item">
+                                <a className="NavigationLink" href={`${topLevelUrl}${item._id}`}>
+                                  {item.name}
+                                </a>
+                              </li>
+                            ))}
+                        </ul>
+                      </section>
+                    </amp-accordion>
+                  </li>
+                ) : null}
 
+                {linksNavigation &&
+                  linksNavigation.children.map((item) => (
+                    <li className="Navigation-items-item item-about">
+                      <div className="NavigationItem ">
+                        <div className="NavigationItem-text">
+                          <a href={item.url}>{item.display_name}</a>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+
+                {/*
                 <li className="Navigation-items-item">
                   <div className="NavigationItem">
                     <div className="NavigationItem-text">
-                      <a href={jobsBoardUrl}>{jobsBoardCopy}</a>
+                      <a href={link1Url}>{link1Copy}</a>
                     </div>
                   </div>
                 </li>
@@ -125,10 +144,27 @@ const HeaderAMP = ({
                 <li className="Navigation-items-item">
                   <div className="NavigationItem">
                     <div className="NavigationItem-text">
-                      <a href={eventsUrl}>{eventsCopy}</a>
+                      <a href={link2Url}>{link2Copy}</a>
                     </div>
                   </div>
                 </li>
+
+                <li className="Navigation-items-item">
+                  <div className="NavigationItem">
+                    <div className="NavigationItem-text">
+                      <a href={link3Url}>{link3Copy}</a>
+                    </div>
+                  </div>
+                </li>
+
+                <li className="Navigation-items-item">
+                  <div className="NavigationItem">
+                    <div className="NavigationItem-text">
+                      <a href={link4Url}>{link4Copy}</a>
+                    </div>
+                  </div>
+                </li>
+                    */}
               </ul>
             </nav>
           </div>

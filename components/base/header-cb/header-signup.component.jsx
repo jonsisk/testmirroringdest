@@ -10,13 +10,18 @@ const HeaderSignup = ({
   logoAlt,
   communityNavigation,
   topicNavigation,
-  jobsBoardCopy,
-  jobsBoardUrl,
-  eventsCopy,
-  eventsUrl,
   communitiesTitle,
   topicsTitle,
   topLevelUrl,
+  linksNavigation,
+  link1Copy,
+  link1Url,
+  link2Copy,
+  link2Url,
+  link3Copy,
+  link3Url,
+  link4Copy,
+  link4Url,
 }) => {
   const global = useBrowserGlobals();
   const [showCommunityPanel, setShowCommunityPanel] = useState(false);
@@ -115,38 +120,60 @@ const HeaderSignup = ({
                     </div>
                   </li>
 
-                  <li
-                    className="Navigation-items-item item-topics"
-                    onMouseEnter={handleMouseEnterTopics}
-                    onMouseLeave={handleMouseLeaveTopics}
-                  >
-                    <div className="NavigationItem  has-menu">
-                      <div className="NavigationItem-text">
-                        <span>{topicsTitle}</span>
+                  {topicsTitle ? (
+                    <li
+                      className="Navigation-items-item item-topics"
+                      onMouseEnter={handleMouseEnterTopics}
+                      onMouseLeave={handleMouseLeaveTopics}
+                    >
+                      <div className="NavigationItem  has-menu">
+                        <div className="NavigationItem-text">
+                          <span>{topicsTitle}</span>
 
-                        <div className="NavigationItem-more">
-                          <button aria-label="More">
-                            <svg className="chevron">
-                              <use xlinkHref="#chevron-down"></use>
-                            </svg>
-                          </button>
+                          <div className="NavigationItem-more">
+                            <button aria-label="More">
+                              <svg className="chevron">
+                                <use xlinkHref="#chevron-down"></use>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+
+                        <div
+                          className="NavigationItem-items"
+                          style={{ display: showTopicPanel ? "block" : "none" }}
+                        >
+                          <ul>
+                            {topicNavigation &&
+                              topicNavigation.children.map((item) => (
+                                <li key={item._id} className="NavigationItem-items-item">
+                                  <a className="NavigationLink" href={`${topLevelUrl}${item._id}`}>
+                                    {item.name}
+                                  </a>
+                                </li>
+                              ))}
+                          </ul>
                         </div>
                       </div>
+                    </li>
+                  ) : null}
 
-                      <div
-                        className="NavigationItem-items"
-                        style={{ display: showTopicPanel ? "block" : "none" }}
-                      >
-                        <ul>
-                          {topicNavigation &&
-                            topicNavigation.children.map((item) => (
-                              <li key={item._id} className="NavigationItem-items-item">
-                                <a className="NavigationLink" href={`${topLevelUrl}${item._id}`}>
-                                  {item.name}
-                                </a>
-                              </li>
-                            ))}
-                        </ul>
+                  {linksNavigation &&
+                    linksNavigation.children.map((item) => (
+                      <li className="Navigation-items-item item-about">
+                        <div className="NavigationItem ">
+                          <div className="NavigationItem-text">
+                            <a href={item.url}>{item.display_name}</a>
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+
+                  {/*
+                  <li className="Navigation-items-item item-about">
+                    <div className="NavigationItem ">
+                      <div className="NavigationItem-text">
+                        <a href={link1Url}>{link1Copy}</a>
                       </div>
                     </div>
                   </li>
@@ -154,7 +181,7 @@ const HeaderSignup = ({
                   <li className="Navigation-items-item item-about">
                     <div className="NavigationItem ">
                       <div className="NavigationItem-text">
-                        <a href={jobsBoardUrl}>{jobsBoardCopy}</a>
+                        <a href={link2Url}>{link2Copy}</a>
                       </div>
                     </div>
                   </li>
@@ -162,11 +189,19 @@ const HeaderSignup = ({
                   <li className="Navigation-items-item item-about">
                     <div className="NavigationItem ">
                       <div className="NavigationItem-text">
-                        <a href={eventsUrl}>{eventsCopy}</a>
+                        <a href={link3Url}>{link3Copy}</a>
                       </div>
                     </div>
                   </li>
 
+                  <li className="Navigation-items-item item-about">
+                    <div className="NavigationItem ">
+                      <div className="NavigationItem-text">
+                        <a href={link4Url}>{link4Copy}</a>
+                      </div>
+                    </div>
+                  </li>
+                              */}
                   <li id="item-more" className="Navigation-items-item item-more">
                     <div className="NavigationItem has-menu">
                       <div className="NavigationItem-text" onClick={handleClickMore}>
@@ -217,18 +252,34 @@ const HeaderSignup = ({
                             </div>
                           </li>
 
-                          <li className="NavigationItem-items-item" data-show="false">
+                          <li className="Navigation-items-item item-about">
                             <div className="NavigationItem ">
                               <div className="NavigationItem-text">
-                                <a href={jobsBoardUrl}>{jobsBoardCopy}</a>
+                                <a href={link1Url}>{link1Copy}</a>
                               </div>
                             </div>
                           </li>
 
-                          <li className="NavigationItem-items-item" data-show="false">
+                          <li className="Navigation-items-item item-about">
                             <div className="NavigationItem ">
                               <div className="NavigationItem-text">
-                                <a href={eventsUrl}>{eventsCopy}</a>
+                                <a href={link2Url}>{link2Copy}</a>
+                              </div>
+                            </div>
+                          </li>
+
+                          <li className="Navigation-items-item item-about">
+                            <div className="NavigationItem ">
+                              <div className="NavigationItem-text">
+                                <a href={link3Url}>{link3Copy}</a>
+                              </div>
+                            </div>
+                          </li>
+
+                          <li className="Navigation-items-item item-about">
+                            <div className="NavigationItem ">
+                              <div className="NavigationItem-text">
+                                <a href={link4Url}>{link4Copy}</a>
                               </div>
                             </div>
                           </li>
