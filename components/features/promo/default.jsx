@@ -4,7 +4,7 @@ import React from "react";
 
 const Promo = ({ customFields }) => {
   const { contextPath, deployment, outputType } = useFusionContext();
-  const { title, description, ctaCopy, ctaURL, bgColor } = customFields;
+  const { title, description, ctaCopy, ctaURL, bgColor, imageName } = customFields;
 
   if (outputType === "amp") return null;
 
@@ -18,7 +18,7 @@ const Promo = ({ customFields }) => {
               alt="Flag"
               width="52"
               height="68"
-              src={deployment(`${contextPath}/resources/images/votebeat/flag.png`)}
+              src={deployment(`${contextPath}/resources/images/${imageName}.png`)}
             />
           </div>
 
@@ -66,6 +66,10 @@ Promo.propTypes = {
     }),
     bgColor: PropTypes.string.tag({
       label: "Background Color in hex (e.g: #fce487)",
+      group: "Configure Content",
+    }),
+    imageName: PropTypes.string.tag({
+      label: "Image name (e.g: votebeat/flag or chalkbeat/hart)",
       group: "Configure Content",
     }),
   }),
