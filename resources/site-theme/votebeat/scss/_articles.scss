@@ -540,3 +540,42 @@ main article {
     }
   }
 }
+
+.full-author-bio {
+  &--details {
+
+  }
+}
+
+.author-name {
+  font-family: var(--font,var(--font-1));
+  font-size: var(--heading-1);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.author-title {
+  font-family: var(--font,var(--font-3));
+  font-size: var(--body-font-size);
+  line-height: 1.2;
+}
+
+.author-bio {
+  font-family: var(--font,var(--font-3));
+  font-size: var(--body-font-size);
+}
+
+.PagePromo-title {
+  a {
+    font-family: inherit;
+    font-size: inherit;
+  }
+}
+
+.social-container {
+  border: none;
+
+  .connect-label {
+    display: none;
+  }
+}

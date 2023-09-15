@@ -48,8 +48,8 @@
         }
 
         .PagePromo-title {
-          font-family: var(--font-1, var(--font-1)) !important;
-          font-size: 1.8rem;
+          font-family: var(--font,var(--font-1));
+          font-size: var(--title-4);
           letter-spacing: normal;
           line-height: 1.22;
           font-weight: 600;

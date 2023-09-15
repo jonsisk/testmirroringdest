@@ -1,8 +1,7 @@
 .newsletter-sticky {
   margin-bottom: 20px;
   margin-top: 20px;
-  background-color: var(--color-bg-toaster);
-  opacity: 95%;
+  background-color: var(--color-bg-toaster-rgb);
   padding-top: 26px !important;
   padding-bottom: 26px !important;
   display: flex;
@@ -15,37 +14,47 @@
 
   .content {
     display: flex;
-    max-width: 800px;
+    max-width: 1084px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 36px 12px;
+    align-items: center;
+
     .col-desc {
-      text-align: center;
+      text-align: left;
+
       h3 {
         font-family: var(--font-3);
         font-size: 25px;
         font-weight: 600;
         letter-spacing: normal;
         line-height: 1.2;
-        margin-top: 24px;
         margin-bottom: 4px;
+        color: #fff;
       }
+
       p {
         font-size: 1.75rem;
-        margin-bottom: 20px;
+        margin-bottom: 0;
         letter-spacing: 0px;
         font-family: var(--font-2);
+        color: #fff;
       }
     }
     .col-info {
       text-align: left;
+
       p.small {
-        font-family: var(--font-2);
-        line-height: 1;
-        font-size: 1.26rem;
+        max-width: 330px;
         margin-top: 10px;
+        font-family: var(--font-2);
+        font-size: 1.26rem;
+        line-height: 1;
+        color: #fff;
+
         a,
         a * {
           text-decoration: none;
+          color: #fff;
         }
       }
 
@@ -55,13 +64,16 @@
         flex-direction: row;
         align-content: flex-start;
         padding-right: 20px;
+
         label {
-          text-align: left;
-          display: block;
-          font-size: 1.35rem;
           padding: 0;
           margin-bottom: 3.2px;
+          font-size: 1.35rem;
+          color: #fff;
+          text-align: left;
+          display: block;
           flex: 0 0 100%;
+
           span.input-required {
             opacity: 0.75;
           }
@@ -498,6 +510,7 @@
   a {
     text-decoration: none;
   }
+
   .content {
     grid-template-columns: 1fr;
     display: grid;
@@ -506,8 +519,10 @@
     height: fit-content;
     max-width: 800px;
     margin: 0 auto;
+
     .col-desc {
       text-align: left;
+
       h3 {
         font-family: var(--font-3);
         font-size: 25px;
@@ -517,6 +532,7 @@
         margin-top: 24px;
         margin-bottom: 4px;
       }
+
       p {
         font-size: 1.75rem;
         margin-bottom: 20px;
@@ -524,8 +540,10 @@
         font-family: var(--font-2);
       }
     }
+
     .col-info {
       text-align: left;
+
       form {
         border-top: none;
         font-size: 1.6rem;
@@ -535,10 +553,15 @@
         margin-left: 0;
         margin-right: 0;
         text-align: left;
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
 
         label.emailInput-label {
           text-align: left;
           display: block;
+          flex-basis: 100%;
+
           span {
             font-size: 1.35rem;
             padding: 0;
@@ -559,6 +582,7 @@
           width: 100%;
           color: var(--color-black) !important;
           line-height: 1.6;
+          flex: 1 0 0%;
         }
 
         button {
@@ -573,7 +597,7 @@
           color: var(--color-white);
           border: 1px solid var(--color-button-border);
           padding: 12px 16px;
-          width: 40%;
+          width: 100%;
           border-radius: 2px;
           font-weight: 600;
           line-height: 1;

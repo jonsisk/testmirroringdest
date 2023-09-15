@@ -76,3 +76,17 @@ h5 {
   padding-right: 20px;
   flex-direction: column;
 }
+
+@media only screen and (min-width: 568px) {
+  :root {
+    --social-text-size: 1.0625rem;
+    --body-font-size: 1.7rem
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  :root {
+    --social-text-size: 1.125rem;
+    --body-font-size: 1.8rem
+  }
+}
