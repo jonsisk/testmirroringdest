@@ -285,7 +285,6 @@ function parseArticleItem(item, index, arcSite, phrases, id, customFields) {
         </section>
       );
     case "gallery":
-      console.log("gallery", item);
       return (
         <div key={key} className="block-margin-bottom gallery content-slider">
           <NewGallery
