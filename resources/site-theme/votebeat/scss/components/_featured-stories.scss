@@ -1,0 +1,20 @@
+.results-list-container {
+  &.ListG {
+    .PageListP-items-column:last-of-type {
+      grid-template-columns: 2fr;
+    }
+  }
+
+  &.ListA {
+    .PageListP-items-column:last-of-type {
+      grid-template-columns: 2fr;
+      .PageListH-items-item {
+        .PagePromo-standard {
+          .PagePromo-media {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

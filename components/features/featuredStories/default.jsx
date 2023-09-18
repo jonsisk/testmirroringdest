@@ -11,6 +11,7 @@ const FeaturedStoriesCivic = ({ customFields }) => {
   const {
     listContentConfig: { contentService, contentConfigValues },
     keepPrimaryWebsite,
+    listType,
   } = customFields;
   const { fallbackImage, locale, primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
   const imageProperties = {
@@ -70,6 +71,7 @@ const FeaturedStoriesCivic = ({ customFields }) => {
         targetFallbackImage={targetFallbackImage}
         keepPrimaryWebsite={keepPrimaryWebsite}
         showFeatured={promoElements.showFeatured}
+        listType={listType}
       />
     </div>
   );
@@ -80,6 +82,11 @@ FeaturedStoriesCivic.static = true;
 
 FeaturedStoriesCivic.propTypes = {
   customFields: PropTypes.shape({
+    listType: PropTypes.oneOf(["ListG", "ListP", "ListA"]).tag({
+      defaultValue: "ListG",
+      group: "Configure Content",
+      label: "Style",
+    }),
     keepPrimaryWebsite: PropTypes.bool.tag({
       label: "Keep primary website URL",
       defaultValue: true,

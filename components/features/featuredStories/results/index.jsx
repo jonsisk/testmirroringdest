@@ -6,6 +6,12 @@ import { getActualSite } from "../../../helpers/article.helper";
 import { reduceResultList } from "../../../helpers/list.helpers";
 import { useArticleStore } from "../../stores/articles.store";
 
+const sizeMap = {
+  ListG: 3,
+  ListP: 5,
+  ListA: 9,
+};
+
 const Results = ({
   arcSite,
   configuredOffset,
@@ -26,6 +32,7 @@ const Results = ({
   showFeatured = true,
   keepPrimaryWebsite = false,
   filteredArticles = [],
+  listType,
 }) => {
   const [queryOffset] = useState(configuredOffset);
   const addArticle = useArticleStore((state) => state.addArticle);
@@ -114,9 +121,12 @@ const Results = ({
     }
   }, [focalElement]);
 
+  //get the min val between configuredSize and a specific value depending on listStyle value
+  const actualSize = Math.min(configuredSize, sizeMap[listType]);
+
   const viewableElements = resultList?.content_elements.slice(
     0,
-    queryOffset + configuredSize - configuredOffset
+    queryOffset + actualSize - configuredOffset
   );
 
   const getWebsiteName = (element) => {
@@ -130,41 +140,20 @@ const Results = ({
     });
   }
 
-  if (viewableElements?.length > 0) {
-    const [firstElement, ...restElements] = viewableElements;
-    return viewableElements?.length > 0 && !isServerSideLazy ? (
-      <div className="results-list-container">
-        <div className="PageListP-items-column">
-          <ResultItem
-            key={`result-card-${firstElement._id}`}
-            ref={elementRefs[0]}
-            arcSite={arcSite}
-            element={firstElement}
-            imageProperties={imagePropertiesFeatured}
-            imagePropertiesFeatured={imagePropertiesFeatured}
-            placeholderResizedImageOptions={placeholderResizedImageOptions}
-            showAsList={false}
-            showByline={showByline}
-            showDate={showDate}
-            showDescription={showDescription}
-            showHeadline={showHeadline}
-            showImage={showImage}
-            showItemOverline={showItemOverline}
-            targetFallbackImage={targetFallbackImage}
-            keepPrimaryWebsite={keepPrimaryWebsite}
-            showFeatured={showFeatured}
-            websiteName={getWebsiteName(firstElement)}
-          />
-        </div>
-        <div className="PageListP-items-column">
-          {restElements &&
-            restElements.map((element, index) => (
+  switch (listType) {
+    case "ListP":
+    case "ListG":
+      if (viewableElements?.length > 0) {
+        const [firstElement, ...restElements] = viewableElements;
+        return viewableElements?.length > 0 && !isServerSideLazy ? (
+          <div className={`results-list-container ${listType}`}>
+            <div className="PageListP-items-column">
               <ResultItem
-                key={`result-card-${element._id}`}
-                ref={elementRefs[index]}
+                key={`result-card-${firstElement._id}`}
+                ref={elementRefs[0]}
                 arcSite={arcSite}
-                element={element}
-                imageProperties={imageProperties}
+                element={firstElement}
+                imageProperties={imagePropertiesFeatured}
                 imagePropertiesFeatured={imagePropertiesFeatured}
                 placeholderResizedImageOptions={placeholderResizedImageOptions}
                 showAsList={false}
@@ -177,14 +166,129 @@ const Results = ({
                 targetFallbackImage={targetFallbackImage}
                 keepPrimaryWebsite={keepPrimaryWebsite}
                 showFeatured={showFeatured}
-                websiteName={getWebsiteName(element)}
+                websiteName={getWebsiteName(firstElement)}
               />
-            ))}
-        </div>
-      </div>
-    ) : null;
-  } else {
-    return null;
+            </div>
+            <div className="PageListP-items-column">
+              {restElements &&
+                restElements.map((element, index) => (
+                  <ResultItem
+                    key={`result-card-${element._id}`}
+                    ref={elementRefs[index]}
+                    arcSite={arcSite}
+                    element={element}
+                    imageProperties={imageProperties}
+                    imagePropertiesFeatured={imagePropertiesFeatured}
+                    placeholderResizedImageOptions={placeholderResizedImageOptions}
+                    showAsList={false}
+                    showByline={showByline}
+                    showDate={showDate}
+                    showDescription={showDescription}
+                    showHeadline={showHeadline}
+                    showImage={showImage}
+                    showItemOverline={showItemOverline}
+                    targetFallbackImage={targetFallbackImage}
+                    keepPrimaryWebsite={keepPrimaryWebsite}
+                    showFeatured={showFeatured}
+                    websiteName={getWebsiteName(element)}
+                  />
+                ))}
+            </div>
+          </div>
+        ) : null;
+      } else {
+        return null;
+      }
+
+    case "ListA":
+      if (viewableElements?.length > 0) {
+        const [firstElement, ...restElements] = viewableElements;
+        //slice the viewableElements in 3 groups, the first element, the next 4 elements and the last 4 elements
+        const secondGroup = restElements.slice(0, 4);
+        const thirdGroup = restElements.slice(4, 8);
+        return viewableElements?.length > 0 && !isServerSideLazy ? (
+          <div className={`results-list-container ${listType}`}>
+            <div className="PageListP-items-column">
+              <ResultItem
+                key={`result-card-${firstElement._id}`}
+                ref={elementRefs[0]}
+                arcSite={arcSite}
+                element={firstElement}
+                imageProperties={imagePropertiesFeatured}
+                imagePropertiesFeatured={imagePropertiesFeatured}
+                placeholderResizedImageOptions={placeholderResizedImageOptions}
+                showAsList={false}
+                showByline={showByline}
+                showDate={showDate}
+                showDescription={showDescription}
+                showHeadline={showHeadline}
+                showImage={showImage}
+                showItemOverline={showItemOverline}
+                targetFallbackImage={targetFallbackImage}
+                keepPrimaryWebsite={keepPrimaryWebsite}
+                showFeatured={showFeatured}
+                websiteName={getWebsiteName(firstElement)}
+              />
+            </div>
+            <div className="PageListP-items-column">
+              {secondGroup &&
+                secondGroup.map((element, index) => (
+                  <ResultItem
+                    key={`result-card-${element._id}`}
+                    ref={elementRefs[index]}
+                    arcSite={arcSite}
+                    element={element}
+                    imageProperties={imageProperties}
+                    imagePropertiesFeatured={imagePropertiesFeatured}
+                    placeholderResizedImageOptions={placeholderResizedImageOptions}
+                    showAsList={false}
+                    showByline={showByline}
+                    showDate={showDate}
+                    showDescription={false}
+                    showHeadline={showHeadline}
+                    showImage={false}
+                    showItemOverline={showItemOverline}
+                    targetFallbackImage={targetFallbackImage}
+                    keepPrimaryWebsite={keepPrimaryWebsite}
+                    showFeatured={false}
+                    websiteName={getWebsiteName(element)}
+                  />
+                ))}
+            </div>
+
+            <div className="items-row-below">
+              {thirdGroup &&
+                thirdGroup.map((element, index) => (
+                  <ResultItem
+                    key={`result-card-${element._id}`}
+                    ref={elementRefs[index]}
+                    arcSite={arcSite}
+                    element={element}
+                    imageProperties={imageProperties}
+                    imagePropertiesFeatured={imagePropertiesFeatured}
+                    placeholderResizedImageOptions={placeholderResizedImageOptions}
+                    showAsList={false}
+                    showByline={showByline}
+                    showDate={showDate}
+                    showDescription={false}
+                    showHeadline={showHeadline}
+                    showImage={true}
+                    showItemOverline={showItemOverline}
+                    targetFallbackImage={targetFallbackImage}
+                    keepPrimaryWebsite={keepPrimaryWebsite}
+                    showFeatured={false}
+                    websiteName={getWebsiteName(element)}
+                  />
+                ))}
+            </div>
+          </div>
+        ) : null;
+      } else {
+        return null;
+      }
+
+    default:
+      return null;
   }
 };
 
