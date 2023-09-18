@@ -24,13 +24,16 @@ const ResultItem = React.memo(
     }) => {
       const {
         description: { basic: descriptionText } = {},
-        subheadlines: { basic: subheadlines } = {},
-        headlines: { basic: headlineText } = {},
+        subheadlines: { basic: basicSubheadlines, print: feedSubheadlines } = {},
+        headlines: { basic: basicHeadline, web: feedHeadline } = {},
         websites,
         subtype,
       } = element;
 
       if (!websites) return null;
+
+      const headlineText = feedHeadline || basicHeadline;
+      const subheadlines = feedSubheadlines || basicSubheadlines;
 
       const imageURL = extractImageFromStory(element);
       const url = websites[arcSite].website_url;
