@@ -24,8 +24,8 @@ const ResultItem = React.memo(
     }) => {
       const {
         description: { basic: descriptionText } = {},
-        subheadlines: { basic: basicSubheadlines, print: feedSubheadlines } = {},
-        headlines: { basic: basicHeadline, web: feedHeadline } = {},
+        subheadlines: { basic: basicSubheadlines } = {},
+        headlines: { basic: basicHeadline, web: feedHeadline, print: feedSubheadlines } = {},
         websites,
         subtype,
       } = element;
