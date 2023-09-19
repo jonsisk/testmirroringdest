@@ -7,10 +7,6 @@
       "title": "Custom settings",
       "subcategories": [
         {
-          "id": "global",
-          "title": "Global settings"
-        },
-        {
           "id": "republish",
           "title": "Republish settings"
         },
@@ -26,22 +22,6 @@
     }
   ],
   "fields": [
-    {
-      "fieldId": "parentCommunity",
-      "fieldType": "text",
-      "fieldTitle": "Parent community (e.g: votebeat / chalkbeat). Associates the site with a parent community to share content like menu hierarchy, footer, etc.",
-      "fieldCategory": "custom",
-      "fieldSubcategory": "global",
-      "fieldTarget": "site"
-    },
-    {
-      "fieldId": "topLevelUrl",
-      "fieldType": "url",
-      "fieldTitle": "Top level url for topics, no slash at the end (e.g.: if Votebeat Arizona, provide Votebeat URL)",
-      "fieldCategory": "custom",
-      "fieldSubcategory": "global",
-      "fieldTarget": "site"
-    },
     {
       "fieldId": "republishHeader",
       "fieldType": "text",
@@ -73,22 +53,6 @@
       "fieldTitle": "Recaptcha Site Key",
       "fieldCategory": "custom",
       "fieldSubcategory": "newsletters",
-      "fieldTarget": "site"
-    },
-    {
-      "fieldId": "parselyTags",
-      "fieldType": "text",
-      "fieldTitle": "Parsely tags, comma separated",
-      "fieldCategory": "custom",
-      "fieldSubcategory": "integrations",
-      "fieldTarget": "site"
-    },
-    {
-      "fieldId": "gamSiteId",
-      "fieldType": "text",
-      "fieldTitle": "GAM site ID, usually 'national' for main site",
-      "fieldCategory": "custom",
-      "fieldSubcategory": "integrations",
       "fieldTarget": "site"
     },
     {

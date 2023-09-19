@@ -12,7 +12,6 @@ const HeaderSignup = ({
   topicNavigation,
   communitiesTitle,
   topicsTitle,
-  topLevelUrl,
   linksNavigation,
 }) => {
   const global = useBrowserGlobals();
@@ -139,7 +138,7 @@ const HeaderSignup = ({
                             {topicNavigation &&
                               topicNavigation.children.map((item) => (
                                 <li key={item._id} className="NavigationItem-items-item">
-                                  <a className="NavigationLink" href={`${topLevelUrl}${item._id}`}>
+                                  <a className="NavigationLink" href={item._id}>
                                     {item.name}
                                   </a>
                                 </li>
@@ -152,7 +151,7 @@ const HeaderSignup = ({
 
                   {linksNavigation &&
                     linksNavigation.children.map((item) => (
-                      <li className="Navigation-items-item item-about">
+                      <li key={item._id} className="Navigation-items-item item-about">
                         <div className="NavigationItem ">
                           <div className="NavigationItem-text">
                             <a href={item.url}>{item.display_name}</a>
@@ -230,11 +229,7 @@ const HeaderSignup = ({
           </div>
 
           <div className="Page-header-end">
-            <a
-              href={`${topLevelUrl}/newsletters/`}
-              className="Button newsletter-button"
-              data-cms-ai="0"
-            >
+            <a href="/newsletters/" className="Button newsletter-button" data-cms-ai="0">
               Sign Up
             </a>
 

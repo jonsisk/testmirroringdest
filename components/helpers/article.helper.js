@@ -36,8 +36,11 @@ export const getAdPathForContent = (content, arcSite) => {
   return adPath;
 };
 
-export const getActualSite = (websites) => {
-  return Object.keys(websites).find((key) => key.includes("-"));
+export const getActualSiteName = (element) => {
+  const siteSection = element?.taxonomy?.sections?.find(
+    (section) => section.additional_properties?.original?.bureau?.is_bureau_section === "true"
+  );
+  return siteSection?.additional_properties?.original?.site?.site_title;
 };
 
 /**
