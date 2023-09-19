@@ -5,11 +5,14 @@ import PropTypes from "prop-types";
 import React from "react";
 import HeaderAMP from "../../base/header/header-amp.component";
 import HeaderSignup from "../../base/header/header-signup.component";
+import { isSiteSection, getSiteProperties } from "../../helpers/site.helper";
 
 const Header = ({ customFields }) => {
   const context = useFusionContext();
-  const { arcSite, outputType } = context;
-  const { primaryLogo, primaryLogoAlt, topLevelUrl, parentCommunity } = getProperties(arcSite);
+  const { arcSite, outputType, globalContent } = context;
+  let { primaryLogo, primaryLogoAlt } = isSiteSection(globalContent)
+    ? getSiteProperties(globalContent)
+    : getProperties(arcSite);
   const {
     tagline,
     communitiesTitle,
@@ -23,7 +26,7 @@ const Header = ({ customFields }) => {
   const communities = useContent({
     source: "site-service-hierarchy-civic",
     query: {
-      site: parentCommunity || arcSite,
+      site: arcSite,
       hierarchy: communitiesHierachy,
     },
   });
@@ -31,7 +34,7 @@ const Header = ({ customFields }) => {
   const topics = useContent({
     source: "site-service-hierarchy-civic",
     query: {
-      site: parentCommunity || arcSite,
+      site: arcSite,
       hierarchy: topicsHierachy,
     },
   });
@@ -49,7 +52,6 @@ const Header = ({ customFields }) => {
           topicNavigation={topics}
           communitiesTitle={communitiesTitle}
           communityNavigation={communities}
-          topLevelUrl={topLevelUrl}
         />
       </div>
     )) || (
@@ -63,7 +65,6 @@ const Header = ({ customFields }) => {
         topicNavigation={topics}
         communitiesTitle={communitiesTitle}
         communityNavigation={communities}
-        topLevelUrl={topLevelUrl}
       />
     )
   );
