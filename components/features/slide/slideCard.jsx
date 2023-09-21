@@ -22,7 +22,7 @@ export const SlideCard = ({
     breakpoints,
     resizerURL,
   };
-
+  console.log(slide, "slide");
   const imageURL = extractImageFromStory(slide);
 
   return (
@@ -38,13 +38,13 @@ export const SlideCard = ({
       />
       <div className="article-slide-info">
         <Overline story={slide} className="overline" />
-        <Heading className="headline-text">{slide.headlines.basic}</Heading>
+        <a href={slide.canonical_url} target="_blank" rel="noreferrer">
+          <Heading className="headline-text">{slide.headlines.basic}</Heading>
+        </a>
         <div className="results-list--description-author-container">
-          <a href={slide.canonical_url} title={slide.headlines.basic}>
-            <SecondaryFont as="p" className="description-text">
-              {slide.description.basic}
-            </SecondaryFont>
-          </a>
+          <SecondaryFont as="p" className="description-text">
+            {slide.description.basic}
+          </SecondaryFont>
           <div className="results-list--author-date">
             <Byline content={slide} list font="Primary" />
           </div>
