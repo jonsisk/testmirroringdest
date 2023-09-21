@@ -1,8 +1,7 @@
 import { useContent } from "fusion:content";
-import getProperties from "fusion:properties";
 import React, { createRef, useCallback, useEffect, useReducer, useState } from "react";
 import ResultItem from "../../../base/article/result-list.component";
-import { getActualSite } from "../../../helpers/article.helper";
+import { getActualSiteName } from "../../../helpers/article.helper";
 import { reduceResultList } from "../../../helpers/list.helpers";
 import { useArticleStore } from "../../stores/articles.store";
 
@@ -120,8 +119,7 @@ const Results = ({
   );
 
   const getWebsiteName = (element) => {
-    const { websiteName } = getProperties(getActualSite(element.websites));
-    return websiteName;
+    return getActualSiteName(element);
   };
 
   if (viewableElements) {

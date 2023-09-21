@@ -18,6 +18,9 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 10px;
+    @include respond-down(xs) {
+      flex-direction: column;
+    }
     .col-desc {
       text-align: center;
       h3 {
@@ -55,6 +58,10 @@
         flex-direction: row;
         align-content: flex-start;
         padding-right: 20px;
+        @include respond-down(xs) {
+          padding-right: 0;
+        }
+
         label {
           text-align: left;
           display: block;
@@ -101,7 +108,16 @@
         }
       }
     }
-
+    @include respond-down(xs) {
+      label.emailInput-label + input {
+        flex: 0 0 60%;
+      }
+      label.emailInput-label + input + input + .buttonContainer {
+        flex: 0 0 27%;
+        font-size: 0.9375rem;
+        white-space: nowrap;
+      }
+    }
     .close-wrapper {
       // flex-shrink: 0;
       text-align: right;
@@ -560,7 +576,9 @@
           color: var(--color-black) !important;
           line-height: 1.6;
         }
-
+        label.emailInput-label + input + input + .buttonContainer {
+          margin-top: 36px;
+        }
         button {
           border-radius: 0;
           cursor: pointer;
@@ -586,6 +604,10 @@
           line-height: 1.6;
           height: auto;
           border: 0;
+
+          @include respond-down(xs) {
+            width: 100%;
+          }
         }
       }
     }

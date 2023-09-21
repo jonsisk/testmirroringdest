@@ -115,7 +115,7 @@ const NewsletterSignup = ({
               </button>
             </div>
           )}
-          {errorMessage && <div className="alert alert-danger mt-3">{errorMessage}</div>}
+          {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
 
           <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
         </form>
