@@ -5,15 +5,11 @@ const LinksBarCivic = (props) => {
   const blocks = props.children;
 
   return (
-    <section>
-      <nav>
-        <ul>
-          <li>
-            <div>{blocks}</div>
-          </li>
-        </ul>
+    <div className="SectionNavigation-navContainer">
+      <nav className="SectionNavigation">
+        <div className="SectionNavigation-items">{blocks}</div>
       </nav>
-    </section>
+    </div>
   );
 };
 
