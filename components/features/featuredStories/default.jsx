@@ -75,7 +75,6 @@ const FeaturedStoriesCivic = ({ customFields }) => {
 };
 
 FeaturedStoriesCivic.label = "Featured Stories – Civic";
-FeaturedStoriesCivic.static = true;
 
 FeaturedStoriesCivic.propTypes = {
   customFields: PropTypes.shape({
