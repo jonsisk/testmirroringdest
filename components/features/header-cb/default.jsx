@@ -60,6 +60,7 @@ const Header = ({ customFields }) => {
           communitiesTitle={communitiesTitle}
           communityNavigation={communities}
           linksNavigation={links}
+          logoHref={globalContent?.site_section ? globalContent?.site_section._id : "/"}
         />
       </div>
     )) || (

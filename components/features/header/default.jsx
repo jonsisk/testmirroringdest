@@ -10,7 +10,7 @@ import { isSiteSection, getSiteProperties } from "../../helpers/site.helper";
 const Header = ({ customFields }) => {
   const context = useFusionContext();
   const { arcSite, outputType, globalContent } = context;
-  let { primaryLogo, primaryLogoAlt } = isSiteSection(globalContent)
+  const { primaryLogo, primaryLogoAlt } = isSiteSection(globalContent)
     ? getSiteProperties(globalContent)
     : getProperties(arcSite);
   const {
@@ -52,6 +52,7 @@ const Header = ({ customFields }) => {
           topicNavigation={topics}
           communitiesTitle={communitiesTitle}
           communityNavigation={communities}
+          logoHref={globalContent?.site_section ? globalContent?.site_section._id : "/"}
         />
       </div>
     )) || (
