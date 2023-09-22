@@ -9,7 +9,7 @@ import { useArticleStore } from "../stores/articles.store";
 import Results from "./results";
 
 const ResultsListCivic = ({ customFields }) => {
-  const { arcSite, contextPath, deployment, isAdmin } = useFusionContext();
+  const { arcSite, contextPath, deployment, isAdmin, globalContent } = useFusionContext();
   const {
     lazyLoad,
     listContentConfig: { contentService, contentConfigValues },
@@ -77,6 +77,7 @@ const ResultsListCivic = ({ customFields }) => {
           showPagination={promoElements.showPagination}
           showFeatured={promoElements.showFeatured}
           filteredArticles={articles}
+          globalContent={globalContent}
         />
       </div>
     </LazyLoad>

@@ -20,6 +20,7 @@ const ResultItem = React.memo(
       showImage,
       showItemOverline,
       showFeatured,
+      globalContent,
     }) => {
       const {
         description: { basic: descriptionText } = {},
@@ -38,7 +39,7 @@ const ResultItem = React.memo(
       const url = websites[arcSite].website_url;
 
       const getMainSection = (element) => {
-        const primarySection = getPrimarySection(element);
+        const primarySection = getPrimarySection(element, globalContent);
         if (
           !primarySection ||
           primarySection?.additional_properties?.original?.bureau?.is_bureau_section == "true"

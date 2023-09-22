@@ -24,6 +24,7 @@ const Results = ({
   targetFallbackImage,
   showFeatured = true,
   filteredArticles = [],
+  globalContent,
 }) => {
   const [queryOffset] = useState(configuredOffset);
   const addArticle = useArticleStore((state) => state.addArticle);
@@ -150,6 +151,7 @@ const Results = ({
             targetFallbackImage={targetFallbackImage}
             showFeatured={showFeatured}
             websiteName={getWebsiteName(firstElement)}
+            globalContent={globalContent}
           />
         </div>
         <div className="PageListP-items-column">
@@ -173,6 +175,7 @@ const Results = ({
                 targetFallbackImage={targetFallbackImage}
                 showFeatured={showFeatured}
                 websiteName={getWebsiteName(element)}
+                globalContent={globalContent}
               />
             ))}
         </div>

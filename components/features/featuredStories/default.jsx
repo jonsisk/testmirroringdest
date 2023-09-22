@@ -7,7 +7,7 @@ import { resolveDefaultPromoElements } from "../../helpers/list.helpers";
 import Results from "./results/index";
 
 const FeaturedStoriesCivic = ({ customFields }) => {
-  const { arcSite, contextPath, deployment } = useFusionContext();
+  const { arcSite, contextPath, deployment, globalContent } = useFusionContext();
   const {
     listContentConfig: { contentService, contentConfigValues },
   } = customFields;
@@ -68,6 +68,7 @@ const FeaturedStoriesCivic = ({ customFields }) => {
         showItemOverline={promoElements.showItemOverline}
         targetFallbackImage={targetFallbackImage}
         showFeatured={promoElements.showFeatured}
+        globalContent={globalContent}
       />
     </div>
   );

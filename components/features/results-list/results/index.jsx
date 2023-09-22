@@ -27,6 +27,7 @@ const Results = ({
   showPagination = true,
   showFeatured = true,
   filteredArticles = [],
+  globalContent,
 }) => {
   const [queryOffset, setQueryOffset] = useState(configuredOffset);
 
@@ -152,6 +153,7 @@ const Results = ({
           targetFallbackImage={targetFallbackImage}
           showFeatured={showFeatured}
           websiteName={getWebsiteName(element)}
+          globalContent={globalContent}
         />
       ))}
       {isThereMore && showPagination && showAsList && (
