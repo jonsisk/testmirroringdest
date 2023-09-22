@@ -5,10 +5,20 @@ const LinkCivic = ({ customFields }) => {
   const { linkName, linkURL } = customFields;
 
   return (
-    <div className="follow">
-      <a href={linkURL} target="_blank" className="" data-cms-ai="0" rel="noreferrer">
-        {linkName}
-      </a>
+    <div className="SectionNavigation-items-item">
+      <div className="SectionNavigationItem">
+        <div className="SectionNavigationItem-text">
+          <a
+            href={linkURL}
+            target="_blank"
+            className="SectionNavigationItem-text-link"
+            data-cms-ai="0"
+            rel="noreferrer"
+          >
+            {linkName}
+          </a>
+        </div>
+      </div>
     </div>
   );
 };
