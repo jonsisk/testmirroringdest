@@ -4,7 +4,7 @@
  * context, and includes stories that have been rendered by
  * other components on the page.
  */
-import { transformFeedData } from "../helpers/tranformers.helper";
+import getResizedImageData from "@wpmedia/resizer-image-block";
 
 const params = {
   feedSize: "number",
@@ -69,5 +69,5 @@ export default {
   resolve,
   schemaName: "ans-feed",
   params,
-  transform: (data, query) => transformFeedData(data, query),
+  transform: (data, query) => getResizedImageData(data, null, null, null, query["arc-site"]),
 };
