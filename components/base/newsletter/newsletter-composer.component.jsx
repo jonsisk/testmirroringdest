@@ -17,7 +17,7 @@ const NewsletterComposer = ({ embed }) => {
   const { websiteName, newsletterSignupEndpoint } = getProperties(arcSite);
   const { title, description, thankYouMsg } = newsletterCopy[arcSite] || newsletterCopy["default"];
 
-  const composerNewsletter = newsletterInterests
+  const composerNewsletter = newsletterInterests[arcSite]
     .filter((int) => int.slug === embed.config?.newsletter)
     .map((int) => int.id);
 

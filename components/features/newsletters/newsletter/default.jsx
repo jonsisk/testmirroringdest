@@ -35,7 +35,7 @@ const NewsletterFeature = ({ customFields }) => {
     renderDesktop,
   });
 
-  const selectedNewsletterInterests = newsletterInterests
+  const selectedNewsletterInterests = newsletterInterests[arcSite]
     .filter((int) => int.slug === newsletter)
     .map((int) => int.id);
 

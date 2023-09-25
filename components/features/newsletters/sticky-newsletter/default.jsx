@@ -49,7 +49,7 @@ const StickyNewsletterFeature = ({ customFields }) => {
     }
   };
 
-  const filteredInterests = newsletterInterests
+  const filteredInterests = newsletterInterests[arcSite]
     .filter((int) => int.slug === newsletter)
     .map((int) => int.id);
 
