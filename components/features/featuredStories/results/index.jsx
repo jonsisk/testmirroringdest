@@ -1,5 +1,6 @@
 import { useContent } from "fusion:content";
 import React, { createRef, useCallback, useEffect, useReducer, useState } from "react";
+import HeroItem from "../../../base/article/hero-article.component";
 import ResultItem from "../../../base/article/result-list.component";
 import { getActualSiteName } from "../../../helpers/article.helper";
 import { reduceResultList } from "../../../helpers/list.helpers";
@@ -10,6 +11,11 @@ const sizeMap = {
   ListP: 5,
   ListA: 9,
   ListU: 7,
+  ListZ: 6,
+  ListAH: 5,
+  ListQ: 5,
+  ListS: 1,
+  ListT: 5,
 };
 
 const Results = ({
@@ -20,6 +26,7 @@ const Results = ({
   contentService,
   imageProperties,
   imagePropertiesFeatured,
+  imagePropertiesHero,
   isServerSideLazy = false,
   phrases,
   showByline = false,
@@ -362,6 +369,324 @@ const Results = ({
                     showItemOverline={showItemOverline}
                     targetFallbackImage={targetFallbackImage}
                     showFeatured={false}
+                    websiteName={getWebsiteName(element)}
+                    globalContent={globalContent}
+                  />
+                ))}
+            </div>
+          </div>
+        ) : null;
+      } else {
+        return null;
+      }
+
+    case "ListZ":
+      if (viewableElements?.length > 0) {
+        const [firstElement, secondElement, ...restElements] = viewableElements;
+        //slice the viewableElements in 3 groups
+        return viewableElements?.length > 0 && !isServerSideLazy ? (
+          <div className={`results-list-container ${listType}`}>
+            <div className="PageListP-items-column">
+              <ResultItem
+                key={`result-card-${firstElement._id}`}
+                ref={elementRefs[0]}
+                arcSite={arcSite}
+                element={firstElement}
+                imageProperties={imagePropertiesFeatured}
+                imagePropertiesFeatured={imagePropertiesFeatured}
+                placeholderResizedImageOptions={placeholderResizedImageOptions}
+                showAsList={false}
+                showByline={showByline}
+                showDate={showDate}
+                showDescription={showDescription}
+                showHeadline={showHeadline}
+                showImage={showImage}
+                showItemOverline={showItemOverline}
+                targetFallbackImage={targetFallbackImage}
+                showFeatured={showFeatured}
+                websiteName={getWebsiteName(firstElement)}
+                globalContent={globalContent}
+              />
+            </div>
+            <div className="PageListP-items-column">
+              <ResultItem
+                key={`result-card-${secondElement._id}`}
+                ref={elementRefs[1]}
+                arcSite={arcSite}
+                element={secondElement}
+                imageProperties={imagePropertiesFeatured}
+                imagePropertiesFeatured={imagePropertiesFeatured}
+                placeholderResizedImageOptions={placeholderResizedImageOptions}
+                showAsList={false}
+                showByline={showByline}
+                showDate={showDate}
+                showDescription={showDescription}
+                showHeadline={showHeadline}
+                showImage={showImage}
+                showItemOverline={showItemOverline}
+                targetFallbackImage={targetFallbackImage}
+                showFeatured={showFeatured}
+                websiteName={getWebsiteName(secondElement)}
+                globalContent={globalContent}
+              />
+            </div>
+
+            <div className="items-row-below">
+              {restElements &&
+                restElements.map((element, index) => (
+                  <ResultItem
+                    key={`result-card-${element._id}`}
+                    ref={elementRefs[index]}
+                    arcSite={arcSite}
+                    element={element}
+                    imageProperties={imageProperties}
+                    imagePropertiesFeatured={imagePropertiesFeatured}
+                    placeholderResizedImageOptions={placeholderResizedImageOptions}
+                    showAsList={false}
+                    showByline={showByline}
+                    showDate={showDate}
+                    showDescription={false}
+                    showHeadline={showHeadline}
+                    showImage={false}
+                    showItemOverline={showItemOverline}
+                    targetFallbackImage={targetFallbackImage}
+                    showFeatured={false}
+                    websiteName={getWebsiteName(element)}
+                    globalContent={globalContent}
+                  />
+                ))}
+            </div>
+          </div>
+        ) : null;
+      } else {
+        return null;
+      }
+
+    case "ListAH":
+      if (viewableElements?.length > 0) {
+        const [firstElement, ...restElements] = viewableElements;
+        const secondGroup = restElements.slice(0, 2);
+        const thirdGroup = restElements.slice(2);
+        return viewableElements?.length > 0 && !isServerSideLazy ? (
+          <div className={`results-list-container ${listType}`}>
+            <div className="PageListP-items-column">
+              <ResultItem
+                key={`result-card-${firstElement._id}`}
+                ref={elementRefs[0]}
+                arcSite={arcSite}
+                element={firstElement}
+                imageProperties={imagePropertiesFeatured}
+                imagePropertiesFeatured={imagePropertiesFeatured}
+                placeholderResizedImageOptions={placeholderResizedImageOptions}
+                showAsList={false}
+                showByline={showByline}
+                showDate={showDate}
+                showDescription={showDescription}
+                showHeadline={showHeadline}
+                showImage={showImage}
+                showItemOverline={showItemOverline}
+                targetFallbackImage={targetFallbackImage}
+                showFeatured={showFeatured}
+                websiteName={getWebsiteName(firstElement)}
+                globalContent={globalContent}
+              />
+            </div>
+            <div className="PageListP-items-column">
+              {secondGroup &&
+                secondGroup.map((element, index) => (
+                  <ResultItem
+                    key={`result-card-${element._id}`}
+                    ref={elementRefs[index]}
+                    arcSite={arcSite}
+                    element={element}
+                    imageProperties={imageProperties}
+                    imagePropertiesFeatured={imagePropertiesFeatured}
+                    placeholderResizedImageOptions={placeholderResizedImageOptions}
+                    showAsList={false}
+                    showByline={showByline}
+                    showDate={false}
+                    showDescription={true}
+                    showHeadline={showHeadline}
+                    showImage={true}
+                    showItemOverline={showItemOverline}
+                    targetFallbackImage={targetFallbackImage}
+                    showFeatured={false}
+                    websiteName={getWebsiteName(element)}
+                    globalContent={globalContent}
+                  />
+                ))}
+            </div>
+
+            <div className="items-row-below">
+              {thirdGroup &&
+                thirdGroup.map((element, index) => (
+                  <ResultItem
+                    key={`result-card-${element._id}`}
+                    ref={elementRefs[index]}
+                    arcSite={arcSite}
+                    element={element}
+                    imageProperties={imageProperties}
+                    imagePropertiesFeatured={imagePropertiesFeatured}
+                    placeholderResizedImageOptions={placeholderResizedImageOptions}
+                    showAsList={false}
+                    showByline={showByline}
+                    showDate={showDate}
+                    showDescription={false}
+                    showHeadline={showHeadline}
+                    showImage={false}
+                    showItemOverline={showItemOverline}
+                    targetFallbackImage={targetFallbackImage}
+                    showFeatured={false}
+                    websiteName={getWebsiteName(element)}
+                    globalContent={globalContent}
+                  />
+                ))}
+            </div>
+          </div>
+        ) : null;
+      } else {
+        return null;
+      }
+
+    case "ListQ":
+      if (viewableElements?.length > 0) {
+        const [firstElement, ...restElements] = viewableElements;
+        const secondGroup = restElements.slice(0, 4);
+        return viewableElements?.length > 0 && !isServerSideLazy ? (
+          <div className={`results-list-container ${listType}`}>
+            <div className="PageListH-items-column">
+              <HeroItem
+                key={`result-card-${firstElement._id}`}
+                ref={elementRefs[0]}
+                arcSite={arcSite}
+                element={firstElement}
+                imageProperties={imagePropertiesFeatured}
+                imagePropertiesFeatured={imagePropertiesHero}
+                placeholderResizedImageOptions={placeholderResizedImageOptions}
+                showByline={showByline}
+                showDate={showDate}
+                showDescription={true}
+                showHeadline={showHeadline}
+                showImage={showImage}
+                showItemOverline={showItemOverline}
+                targetFallbackImage={targetFallbackImage}
+                showFeatured={showFeatured}
+                websiteName={getWebsiteName(firstElement)}
+                globalContent={globalContent}
+              />
+            </div>
+            <div className="items-row-below">
+              {secondGroup &&
+                secondGroup.map((element, index) => (
+                  <ResultItem
+                    key={`result-card-${element._id}`}
+                    ref={elementRefs[index]}
+                    arcSite={arcSite}
+                    element={element}
+                    imageProperties={imageProperties}
+                    imagePropertiesFeatured={imagePropertiesFeatured}
+                    placeholderResizedImageOptions={placeholderResizedImageOptions}
+                    showAsList={false}
+                    showByline={showByline}
+                    showDate={showDate}
+                    showDescription={false}
+                    showHeadline={showHeadline}
+                    showImage={showImage}
+                    showItemOverline={showItemOverline}
+                    targetFallbackImage={targetFallbackImage}
+                    showFeatured={showFeatured}
+                    websiteName={getWebsiteName(element)}
+                    globalContent={globalContent}
+                  />
+                ))}
+            </div>
+          </div>
+        ) : null;
+      } else {
+        return null;
+      }
+
+    case "ListS":
+      if (viewableElements?.length > 0) {
+        const firstElement = viewableElements[0];
+        return viewableElements?.length > 0 && !isServerSideLazy ? (
+          <div className={`results-list-container ${listType}`}>
+            <div className="PageListH-items-column">
+              <HeroItem
+                key={`result-card-${firstElement._id}`}
+                ref={elementRefs[0]}
+                arcSite={arcSite}
+                element={firstElement}
+                imageProperties={imagePropertiesFeatured}
+                imagePropertiesFeatured={imagePropertiesHero}
+                placeholderResizedImageOptions={placeholderResizedImageOptions}
+                showByline={showByline}
+                showDate={showDate}
+                showDescription={true}
+                showHeadline={showHeadline}
+                showImage={showImage}
+                showItemOverline={showItemOverline}
+                targetFallbackImage={targetFallbackImage}
+                showFeatured={showFeatured}
+                websiteName={getWebsiteName(firstElement)}
+                globalContent={globalContent}
+                style="overlay"
+              />
+            </div>
+          </div>
+        ) : null;
+      } else {
+        return null;
+      }
+
+    case "ListT":
+      if (viewableElements?.length > 0) {
+        const [firstElement, ...restElements] = viewableElements;
+        const secondGroup = restElements.slice(0, 4);
+        return viewableElements?.length > 0 && !isServerSideLazy ? (
+          <div className={`results-list-container ${listType}`}>
+            <div className="PageListH-items-column">
+              <HeroItem
+                key={`result-card-${firstElement._id}`}
+                ref={elementRefs[0]}
+                arcSite={arcSite}
+                element={firstElement}
+                imageProperties={imagePropertiesFeatured}
+                imagePropertiesFeatured={imagePropertiesHero}
+                placeholderResizedImageOptions={placeholderResizedImageOptions}
+                showByline={showByline}
+                showDate={showDate}
+                showDescription={true}
+                showHeadline={showHeadline}
+                showImage={showImage}
+                showItemOverline={showItemOverline}
+                targetFallbackImage={targetFallbackImage}
+                showFeatured={showFeatured}
+                websiteName={getWebsiteName(firstElement)}
+                globalContent={globalContent}
+                style="overlay"
+              />
+            </div>
+            <div className="items-row-below">
+              {secondGroup &&
+                secondGroup.map((element, index) => (
+                  <ResultItem
+                    key={`result-card-${element._id}`}
+                    ref={elementRefs[index]}
+                    arcSite={arcSite}
+                    element={element}
+                    imageProperties={imageProperties}
+                    imagePropertiesFeatured={imagePropertiesFeatured}
+                    placeholderResizedImageOptions={placeholderResizedImageOptions}
+                    showAsList={false}
+                    showByline={showByline}
+                    showDate={showDate}
+                    showDescription={false}
+                    showHeadline={showHeadline}
+                    showImage={showImage}
+                    showItemOverline={showItemOverline}
+                    targetFallbackImage={targetFallbackImage}
+                    showFeatured={showFeatured}
                     websiteName={getWebsiteName(element)}
                     globalContent={globalContent}
                   />

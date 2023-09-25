@@ -35,6 +35,18 @@ const FeaturedStoriesCivic = ({ customFields }) => {
     breakpoints,
     resizerURL,
   };
+  const imagePropertiesHero = {
+    smallWidth: 768,
+    smallHeight: 432,
+    mediumWidth: 768,
+    mediumHeight: 432,
+    largeWidth: 1440,
+    largeHeight: 810,
+    primaryLogoAlt,
+    breakpoints,
+    resizerURL,
+  };
+
   const targetFallbackImage = !fallbackImage.includes("http")
     ? deployment(`${contextPath}/${fallbackImage}`)
     : fallbackImage;
@@ -59,6 +71,7 @@ const FeaturedStoriesCivic = ({ customFields }) => {
         contentService={contentService}
         imageProperties={imageProperties}
         imagePropertiesFeatured={imagePropertiesFeatured}
+        imagePropertiesHero={imagePropertiesHero}
         isServerSideLazy={false}
         phrases={phrases}
         showByline={promoElements.showByline}
@@ -80,7 +93,17 @@ FeaturedStoriesCivic.label = "Featured Stories – Civic";
 
 FeaturedStoriesCivic.propTypes = {
   customFields: PropTypes.shape({
-    listType: PropTypes.oneOf(["ListG", "ListP", "ListA", "ListU"]).tag({
+    listType: PropTypes.oneOf([
+      "ListG",
+      "ListP",
+      "ListA",
+      "ListU",
+      "ListZ",
+      "ListAH",
+      "ListQ",
+      "ListS",
+      "ListT",
+    ]).tag({
       defaultValue: "ListG",
       group: "Configure Content",
       label: "Style",
