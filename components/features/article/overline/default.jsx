@@ -24,6 +24,7 @@ const OverlineFeature = () => {
             sec._id != primarySection?._id &&
             sec.additional_properties?.original?.bureau?.is_bureau_section !== "true"
         )
+        .slice(0, primarySection ? 2 : 3)
         .map((section) => {
           return (
             <a key={section._id} href={section.path}>
