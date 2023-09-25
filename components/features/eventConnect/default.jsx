@@ -7,17 +7,15 @@ import { useGetEvents } from "../../hooks/use-getevents";
 import { useGetJobs } from "../../hooks/use-getjobs";
 
 const Events = ({ customFields }) => {
-  const { contextPath, deployment, outputType, arcSite } = useFusionContext();
-  const { title, subtitle, buttonLink, buttonLabel, htmlTitle } = customFields;
-  const { primaryLogo, primaryLogoAlt, topLevelUrl, parentCommunity } = getProperties(arcSite);
+  const { outputType, arcSite } = useFusionContext();
+  const { title, subtitle, buttonLink, buttonLabel, htmlTitle, count, bereau } = customFields;
   const pruebaproper = getProperties(arcSite);
   const pruebacontext = useFusionContext();
   console.log(pruebacontext, "pruebacontext");
   console.log(pruebaproper, "pruebaproper");
-  console.log(arcSite, "arcSite");
   const events = useGetEvents({
-    bureau: "indiana",
-    count: 5,
+    bureau: bereau,
+    count: count,
   });
 
   if (outputType === "amp") return null;
@@ -111,6 +109,14 @@ Events.propTypes = {
       label: "linkButton",
       group: "Configure Content",
       ctaUrl: PropTypes.string,
+    }),
+    count: PropTypes.number.tag({
+      label: "count",
+      group: "Configure Content",
+    }),
+    bereau: PropTypes.string.tag({
+      label: "bereau",
+      group: "Configure Content",
     }),
     buttonLabel: PropTypes.string.tag({
       label: "labelButton",
