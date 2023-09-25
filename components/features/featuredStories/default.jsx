@@ -10,6 +10,7 @@ const FeaturedStoriesCivic = ({ customFields }) => {
   const { arcSite, contextPath, deployment, globalContent } = useFusionContext();
   const {
     listContentConfig: { contentService, contentConfigValues },
+    listType,
   } = customFields;
   const { fallbackImage, locale, primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
   const imageProperties = {
@@ -68,6 +69,7 @@ const FeaturedStoriesCivic = ({ customFields }) => {
         showItemOverline={promoElements.showItemOverline}
         targetFallbackImage={targetFallbackImage}
         showFeatured={promoElements.showFeatured}
+        listType={listType}
         globalContent={globalContent}
       />
     </div>
@@ -78,6 +80,11 @@ FeaturedStoriesCivic.label = "Featured Stories – Civic";
 
 FeaturedStoriesCivic.propTypes = {
   customFields: PropTypes.shape({
+    listType: PropTypes.oneOf(["ListG", "ListP", "ListA"]).tag({
+      defaultValue: "ListG",
+      group: "Configure Content",
+      label: "Style",
+    }),
     listContentConfig: PropTypes.contentConfig("ans-feed").tag({
       group: "Configure Content",
       label: "Display Content Info",
