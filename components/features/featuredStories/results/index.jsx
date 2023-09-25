@@ -23,8 +23,8 @@ const Results = ({
   showItemOverline = false,
   targetFallbackImage,
   showFeatured = true,
-  keepPrimaryWebsite = false,
   filteredArticles = [],
+  globalContent,
 }) => {
   const [queryOffset] = useState(configuredOffset);
   const addArticle = useArticleStore((state) => state.addArticle);
@@ -51,16 +51,16 @@ const Results = ({
         case "story-feed-sections-civic":
         case "story-feed-no-dup-civic":
         case "story-feed-tag": {
-          return { feedOffset: offset, feedSize: size, keepPrimaryWebsite };
+          return { feedOffset: offset, feedSize: size };
         }
         case "content-api-collections": {
-          return { from: offset, size: configuredSize, getNext: true, keepPrimaryWebsite };
+          return { from: offset, size: configuredSize, getNext: true };
         }
         default: {
           break;
         }
       }
-      return { offset, size, keepPrimaryWebsite };
+      return { offset, size };
     },
     [configuredOffset, configuredSize, contentService]
   );
@@ -149,9 +149,9 @@ const Results = ({
             showImage={showImage}
             showItemOverline={showItemOverline}
             targetFallbackImage={targetFallbackImage}
-            keepPrimaryWebsite={keepPrimaryWebsite}
             showFeatured={showFeatured}
             websiteName={getWebsiteName(firstElement)}
+            globalContent={globalContent}
           />
         </div>
         <div className="PageListP-items-column">
@@ -173,9 +173,9 @@ const Results = ({
                 showImage={showImage}
                 showItemOverline={showItemOverline}
                 targetFallbackImage={targetFallbackImage}
-                keepPrimaryWebsite={keepPrimaryWebsite}
                 showFeatured={showFeatured}
                 websiteName={getWebsiteName(element)}
+                globalContent={globalContent}
               />
             ))}
         </div>

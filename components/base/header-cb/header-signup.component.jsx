@@ -13,6 +13,7 @@ const HeaderSignup = ({
   communitiesTitle,
   topicsTitle,
   linksNavigation,
+  logoHref,
 }) => {
   const global = useBrowserGlobals();
   const [showCommunityPanel, setShowCommunityPanel] = useState(false);
@@ -65,7 +66,7 @@ const HeaderSignup = ({
       <div className="Page-header-wrap">
         <div className="Page-header-bar">
           <div className="Page-header-bar-logo">
-            <a aria-label="home page" href="/" data-cms-ai="0">
+            <a aria-label="home page" href={logoHref} data-cms-ai="0">
               <img className="PageLogo-image" src={logoURL} alt={logoAlt} />
             </a>
           </div>

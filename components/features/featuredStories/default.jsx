@@ -7,10 +7,9 @@ import { resolveDefaultPromoElements } from "../../helpers/list.helpers";
 import Results from "./results/index";
 
 const FeaturedStoriesCivic = ({ customFields }) => {
-  const { arcSite, contextPath, deployment } = useFusionContext();
+  const { arcSite, contextPath, deployment, globalContent } = useFusionContext();
   const {
     listContentConfig: { contentService, contentConfigValues },
-    keepPrimaryWebsite,
   } = customFields;
   const { fallbackImage, locale, primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
   const imageProperties = {
@@ -68,25 +67,17 @@ const FeaturedStoriesCivic = ({ customFields }) => {
         showImage={promoElements.showImage}
         showItemOverline={promoElements.showItemOverline}
         targetFallbackImage={targetFallbackImage}
-        keepPrimaryWebsite={keepPrimaryWebsite}
         showFeatured={promoElements.showFeatured}
+        globalContent={globalContent}
       />
     </div>
   );
 };
 
 FeaturedStoriesCivic.label = "Featured Stories – Civic";
-FeaturedStoriesCivic.static = true;
 
 FeaturedStoriesCivic.propTypes = {
   customFields: PropTypes.shape({
-    keepPrimaryWebsite: PropTypes.bool.tag({
-      label: "Keep primary website URL",
-      defaultValue: true,
-      group: "Configure Content",
-      description:
-        "If selected, the primary website URL will be used for the link of the story instead of the current site.",
-    }),
     listContentConfig: PropTypes.contentConfig("ans-feed").tag({
       group: "Configure Content",
       label: "Display Content Info",

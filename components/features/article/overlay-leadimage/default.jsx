@@ -3,6 +3,7 @@ import { Image, ImageMetadata } from "@wpmedia/engine-theme-sdk";
 import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
 import React from "react";
+import { isSiteSection, getSiteProperties } from "../../../helpers/site.helper";
 
 /**
  * Overlay lead image for article layout
@@ -10,7 +11,9 @@ import React from "react";
 const OverlayLeadImage = ({ customFields }) => {
   const { globalContent, arcSite } = useFusionContext();
   const lead_art = globalContent.promo_items.lead_art || globalContent.promo_items.basic;
-  const { lightBackgroundLogoAlt, primaryLogo } = getProperties(arcSite);
+  const { primaryLogo, lightBackgroundLogoAlt } = isSiteSection(globalContent)
+    ? getSiteProperties(globalContent)
+    : getProperties(arcSite);
   const { hideImageCaption, hideImageCredits, hideImageTitle } = customFields;
   const {
     url,
