@@ -59,7 +59,7 @@ const NewsletterInterestFeature = ({ customFields }) => {
       <p dangerouslySetInnerHTML={{ __html: description }} />
 
       <div className="interests">
-        {newsletterInterests.map((interest) => (
+        {newsletterInterests[arcSite].map((interest) => (
           <div className="interest" key={interest.slug}>
             <label>
               <input

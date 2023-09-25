@@ -40,15 +40,11 @@ const NewsletterComposer = ({ embed }) => {
 
           <p className="small">
             <i>By signing up, you agree to our</i>
-            <a
-              href="https://www.votebeat.org/pages/privacy-policy"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="/pages/privacy-policy" target="_blank" rel="noreferrer">
               <i> Privacy Notice</i>
             </a>
             <i> and European users agree to the data transfer policy. You may also receive</i>
-            <a href="https://www.votebeat.org/dedicated-emails" target="_blank" rel="noreferrer">
+            <a href="/dedicated-emails" target="_blank" rel="noreferrer">
               <i> occasional messages from sponsors</i>
             </a>
             <i>.</i>
