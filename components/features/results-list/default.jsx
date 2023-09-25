@@ -9,11 +9,10 @@ import { useArticleStore } from "../stores/articles.store";
 import Results from "./results";
 
 const ResultsListCivic = ({ customFields }) => {
-  const { arcSite, contextPath, deployment, isAdmin } = useFusionContext();
+  const { arcSite, contextPath, deployment, isAdmin, globalContent } = useFusionContext();
   const {
     lazyLoad,
     listContentConfig: { contentService, contentConfigValues },
-    keepPrimaryWebsite,
   } = customFields;
   const { fallbackImage, locale, primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
   const imageProperties = {
@@ -75,10 +74,10 @@ const ResultsListCivic = ({ customFields }) => {
           showImage={promoElements.showImage}
           showItemOverline={promoElements.showItemOverline}
           targetFallbackImage={targetFallbackImage}
-          keepPrimaryWebsite={keepPrimaryWebsite}
           showPagination={promoElements.showPagination}
           showFeatured={promoElements.showFeatured}
           filteredArticles={articles}
+          globalContent={globalContent}
         />
       </div>
     </LazyLoad>
@@ -91,13 +90,6 @@ ResultsListCivic.icon = "arc-list";
 
 ResultsListCivic.propTypes = {
   customFields: PropTypes.shape({
-    keepPrimaryWebsite: PropTypes.bool.tag({
-      label: "Keep primary website URL",
-      defaultValue: true,
-      group: "Configure Content",
-      description:
-        "If selected, the primary website URL will be used for the link of the story instead of the current site.",
-    }),
     listContentConfig: PropTypes.contentConfig("ans-feed").tag({
       group: "Configure Content",
       label: "Display Content Info",

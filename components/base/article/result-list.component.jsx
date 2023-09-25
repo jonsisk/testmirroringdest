@@ -1,6 +1,7 @@
 import { Image } from "@wpmedia/engine-theme-sdk";
 import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
 import React from "react";
+import { getPrimarySection } from "../../helpers/article.helper";
 import { getWebsiteDomain } from "../../helpers/site.helper";
 import Byline from "../byline/byline.component";
 
@@ -19,25 +20,31 @@ const ResultItem = React.memo(
       showImage,
       showItemOverline,
       showFeatured,
-      keepPrimaryWebsite,
-      websiteName,
+      globalContent,
     }) => {
       const {
         description: { basic: descriptionText } = {},
-        subheadlines: { basic: subheadlines } = {},
-        headlines: { basic: headlineText } = {},
+        subheadlines: { basic: basicSubheadlines } = {},
+        headlines: { basic: basicHeadline, web: feedHeadline, print: feedSubheadlines } = {},
         websites,
         subtype,
       } = element;
 
       if (!websites) return null;
 
+      const headlineText = feedHeadline || basicHeadline;
+      const subheadlines = feedSubheadlines || basicSubheadlines;
+
       const imageURL = extractImageFromStory(element);
       const url = websites[arcSite].website_url;
 
       const getMainSection = (element) => {
-        const primarySection = element?.taxonomy?.primary_section;
-        if (!primarySection) return null;
+        const primarySection = getPrimarySection(element, globalContent);
+        if (
+          !primarySection ||
+          primarySection?.additional_properties?.original?.bureau?.is_bureau_section == "true"
+        )
+          return null;
         return (
           <a href={primarySection.path} title={primarySection.name} className="eyebrow">
             {primarySection.name}
@@ -86,15 +93,7 @@ const ResultItem = React.memo(
               <div className="PagePromo-content">
                 {showItemOverline ? (
                   <div className="PagePromo-category">
-                    {showItemOverline && !keepPrimaryWebsite ? getMainSection(element) : null}
-                    {showItemOverline && keepPrimaryWebsite && Object.keys(websites).length <= 1
-                      ? getMainSection(element)
-                      : null}
-                    {showItemOverline && keepPrimaryWebsite && Object.keys(websites).length > 1 ? (
-                      <a href={url} title={headlineText} className="eyebrow">
-                        {"FROM " + websiteName}
-                      </a>
-                    ) : null}
+                    {showItemOverline && getMainSection(element)}
                   </div>
                 ) : null}
 

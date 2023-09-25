@@ -113,14 +113,9 @@ const CivicOutputType = ({
     fallbackImage,
     comscoreID,
     querylyId,
-    parentCommunity,
     facebookAppId,
     locale = "en",
   } = getProperties(arcSite);
-
-  const actualDomain = parentCommunity
-    ? getProperties(parentCommunity).websiteDomain
-    : websiteDomain;
 
   const chartbeatInline = `
     (function() {
@@ -206,7 +201,7 @@ const CivicOutputType = ({
              * author, homepage, *search, section, and tag will still go to the current site domain
              */
             metaValue("page-type")?.match(/^(article|gallery|video)$/)
-              ? getProperties(globalContent?.canonical_website)?.websiteDomain || null
+              ? getProperties(arcSite)?.websiteDomain || null
               : null
           }
           facebookAdmins={facebookAdmins}
@@ -227,7 +222,7 @@ const CivicOutputType = ({
           content={globalContent}
           arcSite={arcSite}
           parselyTags={parselyTags}
-          websiteUrl={actualDomain}
+          websiteUrl={websiteDomain}
           websiteName={websiteName}
           pageType={metaValue("page-type")}
         />
@@ -288,12 +283,12 @@ const CivicOutputType = ({
         {api?.retail?.script ? (
           <script defer data-integration="arcp" src={api?.retail?.script} />
         ) : null}
-        {querylyCode(querylyId, parentCommunity || arcSite, metaValue("page-type"))}
+        {querylyCode(querylyId, arcSite, metaValue("page-type"))}
         {globalContent && (
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: getSchema(globalContent, primaryLogo, actualDomain, websiteName),
+              __html: getSchema(globalContent, primaryLogo, websiteDomain, websiteName),
             }}
           ></script>
         )}

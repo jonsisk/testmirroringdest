@@ -64,16 +64,6 @@ function parseArticleItem(item, index, arcSite, phrases, id, customFields) {
         />
       ) : null;
     }
-    case "copyright": {
-      return content && content.length > 0 ? (
-        <StyledText
-          primaryColor={getThemeStyle(arcSite)["primary-color"]}
-          className="body-paragraph body-copyright"
-          key={key}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
-      ) : null;
-    }
     case "divider": {
       return (
         <Fragment key={key}>

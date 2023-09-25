@@ -5,16 +5,16 @@ import PropTypes from "prop-types";
 import React from "react";
 import HeaderAMP from "../../base/header-cb/header-amp.component";
 import HeaderSignup from "../../base/header-cb/header-signup.component";
+import { isSiteSection, getSiteProperties } from "../../helpers/site.helper";
 
 const Header = ({ customFields }) => {
   const context = useFusionContext();
-  const { arcSite, outputType } = context;
+  const { arcSite, outputType, globalContent } = context;
 
-  console.log("----arcSite----->", arcSite);
+  let { primaryLogo, primaryLogoAlt } = isSiteSection(globalContent)
+    ? getSiteProperties(globalContent)
+    : getProperties(arcSite);
 
-  const { primaryLogo, primaryLogoAlt, topLevelUrl, parentCommunity } = getProperties(arcSite);
-
-  console.log("----primaryLogo----->", primaryLogo);
   const {
     tagline,
     communitiesTitle,
@@ -27,7 +27,7 @@ const Header = ({ customFields }) => {
   const communities = useContent({
     source: "site-service-hierarchy-civic",
     query: {
-      site: parentCommunity || arcSite,
+      site: arcSite,
       hierarchy: communitiesHierachy,
     },
   });
@@ -35,7 +35,7 @@ const Header = ({ customFields }) => {
   const topics = useContent({
     source: "site-service-hierarchy-civic",
     query: {
-      site: parentCommunity || arcSite,
+      site: arcSite,
       hierarchy: topicsHierachy,
     },
   });
@@ -59,8 +59,8 @@ const Header = ({ customFields }) => {
           topicNavigation={topics}
           communitiesTitle={communitiesTitle}
           communityNavigation={communities}
-          topLevelUrl={topLevelUrl}
           linksNavigation={links}
+          logoHref={globalContent?.site_section ? globalContent?.site_section._id : "/"}
         />
       </div>
     )) || (
@@ -72,7 +72,6 @@ const Header = ({ customFields }) => {
         topicNavigation={topics}
         communitiesTitle={communitiesTitle}
         communityNavigation={communities}
-        topLevelUrl={topLevelUrl}
         linksNavigation={links}
       />
     )

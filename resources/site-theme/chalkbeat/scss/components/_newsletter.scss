@@ -18,7 +18,9 @@
     margin: 0 auto;
     padding: 36px 12px;
     align-items: center;
-
+    @include respond-down(xs) {
+      flex-direction: column;
+    }
     .col-desc {
       text-align: left;
 
@@ -64,7 +66,9 @@
         flex-direction: row;
         align-content: flex-start;
         padding-right: 20px;
-
+        @include respond-down(xs) {
+          padding-right: 0;
+        }
         label {
           padding: 0;
           margin-bottom: 3.2px;
@@ -113,7 +117,16 @@
         }
       }
     }
-
+    @include respond-down(xs) {
+      label.emailInput-label + input {
+        flex: 0 0 60%;
+      }
+      label.emailInput-label + input + input + .buttonContainer {
+        flex: 0 0 27%;
+        font-size: 0.9375rem;
+        white-space: nowrap;
+      }
+    }
     .close-wrapper {
       // flex-shrink: 0;
       text-align: right;
@@ -365,6 +378,9 @@
     @include respond-down(xs) {
       max-width: 100%;
     }
+    .alert {
+      font-size: 1.5rem;
+    }
   }
 
   h1 {
@@ -584,7 +600,9 @@
           line-height: 1.6;
           flex: 1 0 0%;
         }
-
+        label.emailInput-label + input + input + .buttonContainer {
+          margin-top: 36px;
+        }
         button {
           border-radius: 0;
           cursor: pointer;
@@ -610,6 +628,10 @@
           line-height: 1.6;
           height: auto;
           border: 0;
+
+          @include respond-down(xs) {
+            width: 100%;
+          }
         }
       }
     }

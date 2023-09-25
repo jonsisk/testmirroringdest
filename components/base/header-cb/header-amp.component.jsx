@@ -11,7 +11,6 @@ const HeaderAMP = ({
   topicNavigation,
   communitiesTitle,
   topicsTitle,
-  topLevelUrl,
   linksNavigation,
 }) => {
   return (
@@ -102,7 +101,7 @@ const HeaderAMP = ({
                           {topicNavigation &&
                             topicNavigation.children.map((item) => (
                               <li key={item._id} className="NavigationItem-items-item">
-                                <a className="NavigationLink" href={`${topLevelUrl}${item._id}`}>
+                                <a className="NavigationLink" href={item._id}>
                                   {item.name}
                                 </a>
                               </li>
@@ -115,7 +114,7 @@ const HeaderAMP = ({
 
                 {linksNavigation &&
                   linksNavigation.children.map((item) => (
-                    <li className="Navigation-items-item item-about">
+                    <li key={item._id} className="Navigation-items-item item-about">
                       <div className="NavigationItem ">
                         <div className="NavigationItem-text">
                           <a href={item.url}>{item.display_name}</a>

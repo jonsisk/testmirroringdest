@@ -60,7 +60,7 @@
   --color-gray: #dddddd;
   --color-dark-gray: #333333;
   --color-bg-toaster: #178287;
-  --color-bg-toaster-rgb: rgba(23,130,135, 0.95);
+  --color-bg-toaster-rgb: rgba(23, 130, 135, 0.95);
   --color-text-toaster: #393939;
   --color-button-bg-toaster: #ffffff;
   --color-button-hover-bg-toaster: #000000;
@@ -72,6 +72,10 @@
   --color-generic-promo-bg: #fce487;
   --color-text-gray: #767676;
   --newsletter-interests-label: #f8f8f8;
+
+  --color-section-nav-background: #f5f5f5;
+  --color-section-nav-text: var(--color-primary-text);
+  --color-section-nav-text-hover: var(--color-primary);
 
   --font-1: "Barlow Condensed";
   --font-2: "Barlow Condensed";

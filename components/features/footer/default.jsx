@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const Footer = (props) => {
-  const { arcSite, outputType } = useFusionContext();
+  const { arcSite, outputType, globalContent } = useFusionContext();
   const { parentCommunity } = getProperties(arcSite);
   const { topHierachy, bottomHierarchy } = props.customFields;
   const { primaryLogo, primaryLogoAlt, websiteDomain } = getProperties(
@@ -39,7 +39,10 @@ const Footer = (props) => {
         <div className="Page-footer-container">
           <div className="Page-footer-container-section Page-footer-container-links">
             <div className="Page-footer-container-logo">
-              <a aria-label="home page" href="/">
+              <a
+                aria-label="home page"
+                href={globalContent?.site_section ? globalContent?.site_section._id : "/"}
+              >
                 <img className="PageLogo-image" src={primaryLogo} alt={primaryLogoAlt} />
               </a>
             </div>

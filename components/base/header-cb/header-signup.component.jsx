@@ -12,8 +12,8 @@ const HeaderSignup = ({
   topicNavigation,
   communitiesTitle,
   topicsTitle,
-  topLevelUrl,
   linksNavigation,
+  logoHref,
 }) => {
   const global = useBrowserGlobals();
   const [showCommunityPanel, setShowCommunityPanel] = useState(false);
@@ -66,7 +66,7 @@ const HeaderSignup = ({
       <div className="Page-header-wrap">
         <div className="Page-header-bar">
           <div className="Page-header-bar-logo">
-            <a aria-label="home page" href="/" data-cms-ai="0">
+            <a aria-label="home page" href={logoHref} data-cms-ai="0">
               <img className="PageLogo-image" src={logoURL} alt={logoAlt} />
             </a>
           </div>
@@ -139,7 +139,7 @@ const HeaderSignup = ({
                             {topicNavigation &&
                               topicNavigation.children.map((item) => (
                                 <li key={item._id} className="NavigationItem-items-item">
-                                  <a className="NavigationLink" href={`${topLevelUrl}${item._id}`}>
+                                  <a className="NavigationLink" href={item._id}>
                                     {item.name}
                                   </a>
                                 </li>
@@ -152,7 +152,7 @@ const HeaderSignup = ({
 
                   {linksNavigation &&
                     linksNavigation.children.map((item) => (
-                      <li className="Navigation-items-item item-about">
+                      <li key={item._id} className="Navigation-items-item item-about">
                         <div className="NavigationItem ">
                           <div className="NavigationItem-text">
                             <a href={item.url}>{item.display_name}</a>
@@ -230,11 +230,7 @@ const HeaderSignup = ({
           </div>
 
           <div className="Page-header-end">
-            <a
-              href={`${topLevelUrl}/newsletters/`}
-              className="Button newsletter-button"
-              data-cms-ai="0"
-            >
+            <a href="/newsletters/" className="Button newsletter-button" data-cms-ai="0">
               Sign Up
             </a>
 

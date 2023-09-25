@@ -4,9 +4,10 @@
  * context, and includes stories that have been rendered by
  * other components on the page.
  */
-import { transformFeedData } from "../helpers/tranformers.helper";
+import getResizedImageData from "@wpmedia/resizer-image-block";
 
 const params = {
+  includeSections: "text",
   feedSize: "number",
   feedOffset: "number",
 };
@@ -17,7 +18,7 @@ const params = {
  * @return {String[]} the itemString now in an array
  */
 export const itemsToArray = (itemString = "") =>
-  itemString.split(",").map((item) => item.replace(/"/g, ""));
+  itemString?.split(",").map((item) => item.replace(/"/g, ""));
 
 /**
  * @func pattern
@@ -26,7 +27,9 @@ export const itemsToArray = (itemString = "") =>
  */
 const pattern = (key = {}) => {
   const website = key["arc-site"];
-  const { filteredArticles, feedOffset, feedSize } = key;
+  const { includeSections, filteredArticles, feedOffset, feedSize } = key;
+
+  const sectionsIncluded = itemsToArray(includeSections) || [];
 
   const body = {
     query: {
@@ -54,6 +57,26 @@ const pattern = (key = {}) => {
     },
   };
 
+  if (includeSections) {
+    //push another object into body.query.bool.must
+    body.query.bool.must.push({
+      nested: {
+        path: "taxonomy.sections",
+        query: {
+          bool: {
+            must: [
+              {
+                terms: {
+                  "taxonomy.sections._id": sectionsIncluded,
+                },
+              },
+            ],
+          },
+        },
+      },
+    });
+  }
+
   const encodedBody = encodeURI(JSON.stringify(body));
 
   const exludeFields = ["content_elements", "additional_properties"].join(",");
@@ -69,5 +92,5 @@ export default {
   resolve,
   schemaName: "ans-feed",
   params,
-  transform: (data, query) => transformFeedData(data, query),
+  transform: (data, query) => getResizedImageData(data, null, null, null, query["arc-site"]),
 };

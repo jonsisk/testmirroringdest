@@ -1,6 +1,7 @@
 import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
 import React from "react";
+import { isSiteSection, getSiteProperties } from "../../helpers/site.helper";
 import useSticky from "../../hooks/use-sticky";
 import "./styles.scss";
 
@@ -10,14 +11,18 @@ import "./styles.scss";
 const StickyHeader = () => {
   const { sticky, stickyRef } = useSticky();
   const { globalContent, arcSite, outputType } = useFusionContext();
-  const { websiteDomain, lightBackgroundLogo, lightBackgroundLogoAlt } = getProperties(arcSite);
+  const { websiteDomain } = getProperties(arcSite);
+  const { lightBackgroundLogo, lightBackgroundLogoAlt } = isSiteSection(globalContent)
+    ? getSiteProperties(globalContent)
+    : getProperties(arcSite);
+
   const encodedArticleUrl = encodeURIComponent(`${websiteDomain}${globalContent?.canonical_url}`);
 
   if (outputType == "amp") return null;
 
   return (
     <div ref={stickyRef} className={`sticky-header ${sticky ? "show" : ""}`}>
-      <a href="/">
+      <a href={globalContent?.site_section ? globalContent?.site_section._id : "/"}>
         <img
           height="60"
           width="60"

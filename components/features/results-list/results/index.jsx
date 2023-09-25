@@ -1,9 +1,9 @@
 import { Button, BUTTON_STYLES, BUTTON_TYPES } from "@wpmedia/shared-styles";
 import { useContent } from "fusion:content";
-import getProperties from "fusion:properties";
+// import getProperties from "fusion:properties";
 import React, { createRef, useCallback, useEffect, useReducer, useState } from "react";
 import ResultItem from "../../../base/article/result-list.component";
-import { getActualSite } from "../../../helpers/article.helper";
+import { getActualSiteName } from "../../../helpers/article.helper";
 import { reduceResultList } from "../../../helpers/list.helpers";
 
 const Results = ({
@@ -26,8 +26,8 @@ const Results = ({
   targetFallbackImage,
   showPagination = true,
   showFeatured = true,
-  keepPrimaryWebsite = false,
   filteredArticles = [],
+  globalContent,
 }) => {
   const [queryOffset, setQueryOffset] = useState(configuredOffset);
 
@@ -48,21 +48,19 @@ const Results = ({
         requestedOffset === configuredOffset ? configuredOffset : requestedOffset + configuredSize;
       switch (contentService) {
         case "story-feed-author":
-        case "story-feed-author-civic":
         case "story-feed-sections":
-        case "story-feed-sections-civic":
         case "story-feed-no-dup-civic":
         case "story-feed-tag": {
-          return { feedOffset: offset, feedSize: size, keepPrimaryWebsite };
+          return { feedOffset: offset, feedSize: size };
         }
         case "content-api-collections": {
-          return { from: offset, size: configuredSize, getNext: true, keepPrimaryWebsite };
+          return { from: offset, size: configuredSize, getNext: true };
         }
         default: {
           break;
         }
       }
-      return { offset, size, keepPrimaryWebsite };
+      return { offset, size };
     },
     [configuredOffset, configuredSize, contentService]
   );
@@ -131,8 +129,7 @@ const Results = ({
   }, [configuredSize, setQueryOffset]);
 
   const getWebsiteName = (element) => {
-    const { websiteName } = getProperties(getActualSite(element.websites));
-    return websiteName;
+    return getActualSiteName(element);
   };
 
   return viewableElements?.length > 0 && !isServerSideLazy ? (
@@ -154,9 +151,9 @@ const Results = ({
           showImage={showImage}
           showItemOverline={showItemOverline}
           targetFallbackImage={targetFallbackImage}
-          keepPrimaryWebsite={keepPrimaryWebsite}
           showFeatured={showFeatured}
           websiteName={getWebsiteName(element)}
+          globalContent={globalContent}
         />
       ))}
       {isThereMore && showPagination && showAsList && (

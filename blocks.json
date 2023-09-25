@@ -67,6 +67,9 @@
     "@wpmedia/small-manual-promo-block",
     "@wpmedia/small-promo-block",
     "@wpmedia/story-feed-tag-content-source-block",
+    "@wpmedia/story-feed-query-content-source-block",
+    "@wpmedia/story-feed-author-content-source-block",
+    "@wpmedia/story-feed-sections-content-source-block",
     "@wpmedia/subheadline-block",
     "@wpmedia/subscriptions-block",
     "@wpmedia/tag-title-block",
@@ -83,97 +86,20 @@
   ],
   "values": {
     "sites": {
-      "votebeat-arizona": {
-        "siteProperties": {
-          "websiteName": "Votebeat Arizona",
-          "websiteDomain": "https://civicnewscompany-votebeat-arizona-sandbox.web.arc-cdn.net",
-          "topLevelUrl": "https://civicnewscompany-votebeat-sandbox.web.arc-cdn.net",
-          "lightBackgroundLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1691069702610.svg",
-          "lightBackgroundLogoAlt": "Votebeat Arizona",
-          "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881719208.svg",
-          "primaryLogoAlt": "Votebeat Arizona",
-          "fallbackImage": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1692729507153.svg",
-          "copyrightText": "Votebeat Arizona",
-          "parselyTags": "www.votebeat.org,arizona.votebeat.org,front-page",
-          "parentCommunity": "votebeat",
-          "facebookAppId": "735437511148430",
-          "gtmIDAMP": "GTM-PX338RH"
-        }
-      },
-      "votebeat-pennsylvania": {
-        "siteProperties": {
-          "websiteName": "Votebeat Pennsylvania",
-          "websiteDomain": "https://civicnewscompany-votebeat-pennsylvania-sandbox.web.arc-cdn.net",
-          "topLevelUrl": "https://civicnewscompany-votebeat-sandbox.web.arc-cdn.net",
-          "lightBackgroundLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1691069671106.svg",
-          "lightBackgroundLogoAlt": "Votebeat Pennsylvania",
-          "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881936197.svg",
-          "primaryLogoAlt": "Votebeat Pennsylvania",
-          "fallbackImage": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1692729507153.svg",
-          "fallbackImageAlt": "Votebeat Pennsylvania",
-          "parselyTags": "www.votebeat.org,pennsylvania.votebeat.org,front-page",
-          "parentCommunity": "votebeat",
-          "facebookAppId": "735437511148430",
-          "gtmIDAMP": "GTM-PX338RH"
-        }
-      },
       "chalkbeat": {
         "siteProperties": {
           "websiteName": "Chalkbeat",
           "websiteDomain": "https://www.chalkbeat.arcpublishing.com",
           "lightBackgroundLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1693859076120.svg",
+          "lightBackgroundLogoAlt": "chalkbeat-light",
           "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1693859077745.svg",
+          "primaryLogoAlt": "chalkbeat-light",
           "fallbackImage": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1693859077943.svg",
+          "resizerURL": "https://civicnewscompany-chalkbeat-prod.web.arc-cdn.net/resizer",
           "querylyId": "12a8b884283a4e73",
           "querylyOrg": "civicnewscompany",
           "republishHeader": "This story was originally published by Chalkbeat. Sign up for their newsletters at <a href='https://ckbe.at/newsletters' >ckbe.at/newsletters</a>",
-          "republishFooter": "Chalkbeat is a nonprofit news site covering educational change in public schools."
-        }
-      },
-      "chalkbeat-colorado": {
-        "siteProperties": {
-          "websiteName": "Chalkbeat Colorado",
-          "websiteDomain": "https://www.chalkbeat.arcpublishing.com",
-          "lightBackgroundLogo": "https://chalkbeat.brightspotcdn.com/1a/34/b39d81c64c4faec303d799f25768/cb-co-logo-center-2color-v2-2019.svgany-sandbox/1693859076120.svg",
-          "primaryLogo": "https://chalkbeat.brightspotcdn.com/1a/34/b39d81c64c4faec303d799f25768/cb-co-logo-center-2color-v2-2019.svg",
-          "fallbackImage": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1693859077943.svg",
-          "querylyId": "12a8b884283a4e73",
-          "querylyOrg": "civicnewscompany",
-          "parentCommunity": "chalkbeat",
-          "republishHeader": "This story was originally published by Chalkbeat. Sign up for their newsletters at <a href='https://ckbe.at/newsletters' >ckbe.at/newsletters</a>",
-          "republishFooter": "Chalkbeat is a nonprofit news site covering educational change in public schools."
-        }
-      },
-      "votebeat-texas": {
-        "siteProperties": {
-          "websiteName": "Votebeat Texas",
-          "websiteDomain": "https://civicnewscompany-votebeat-texas-sandbox.web.arc-cdn.net",
-          "topLevelUrl": "https://civicnewscompany-votebeat-sandbox.web.arc-cdn.net",
-          "lightBackgroundLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1691069822745.svg",
-          "lightBackgroundLogoAlt": "Votebeat Texas",
-          "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689882010778.svg",
-          "primaryLogoAlt": "Votebeat Texas",
-          "fallbackImage": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1692729507153.svg",
-          "fallbackImageAlt": "Votebeat Texas",
-          "parselyTags": "www.votebeat.org,texas.votebeat.org,front-page",
-          "parentCommunity": "votebeat",
-          "facebookAppId": "735437511148430",
-          "gtmIDAMP": "GTM-PX338RH"
-        }
-      },
-      "votebeat-michigan": {
-        "siteProperties": {
-          "websiteName": "Votebeat Michigan",
-          "websiteDomain": "https://civicnewscompany-votebeat-michigan-sandbox.web.arc-cdn.net",
-          "topLevelUrl": "https://civicnewscompany-votebeat-sandbox.web.arc-cdn.net",
-          "lightBackgroundLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1691069783924.svg",
-          "lightBackgroundLogoAlt": "Votebeat Michigan",
-          "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881853460.svg",
-          "primaryLogoAlt": "Votebeat Michigan",
-          "fallbackImage": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1692729507153.svg",
-          "fallbackImageAlt": "Votebeat Michigan",
-          "parselyTags": "www.votebeat.org,michigan.votebeat.org,front-page",
-          "parentCommunity": "votebeat",
+          "republishFooter": "Chalkbeat is a nonprofit news site covering educational change in public schools.",
           "facebookAppId": "735437511148430",
           "gtmIDAMP": "GTM-PX338RH"
         }
@@ -182,19 +108,16 @@
         "siteProperties": {
           "websiteName": "Votebeat",
           "websiteDomain": "https://civicnewscompany-votebeat-sandbox.web.arc-cdn.net",
-          "topLevelUrl": "https://civicnewscompany-votebeat-sandbox.web.arc-cdn.net",
           "lightBackgroundLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1691070563624.svg",
-          "lightBackgroundLogoAlt": "votebeat-national-light",
+          "lightBackgroundLogoAlt": "votebeat-light",
           "primaryLogo": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1689881637555.svg",
-          "primaryLogoAlt": "votebeat-national-light",
+          "primaryLogoAlt": "votebeat-light",
           "fallbackImage": "https://static.themebuilder.aws.arc.pub/civicnewscompany-sandbox/1692729507153.svg",
-          "fallbackImageAlt": "votebeat-national-light",
           "resizerURL": "https://civicnewscompany-votebeat-prod.web.arc-cdn.net/resizer",
           "querylyId": "97c1487e2c4b47a2",
           "querylyOrg": "civicnewscompany",
           "republishHeader": "This article was <a href='#canonicalUrl#' target='_blank' rel='canonical'>originally published</a> by <a href='#websiteDomain#' target='_blank'>Votebeat</a>, a nonprofit news organization covering local election administration and voting access.",
           "republishFooter": "Votebeat is a nonprofit news organization committed to reporting the nuanced truth about elections and voting at a time of crisis in America.",
-          "parselyTags": "www.votebeat.org,front-page",
           "facebookAppId": "735437511148430",
           "gtmIDAMP": "GTM-PX338RH"
         }
