@@ -21,7 +21,7 @@ const OverlineFeature = () => {
       {sections
         ?.filter(
           (sec) =>
-            sec._id != primarySection._id &&
+            sec._id != primarySection?._id &&
             sec.additional_properties?.original?.bureau?.is_bureau_section !== "true"
         )
         .map((section) => {
