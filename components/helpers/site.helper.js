@@ -19,6 +19,7 @@ export const getSiteProperties = (globalContent) => {
       lightBackgroundLogoAlt: section.site?.site_title,
       parselyTags: section.bureau.parsely_tags,
       gamSiteId: section.bureau.gam_site_id,
+      websiteName: section.site?.site_title,
     };
   }
   return {};

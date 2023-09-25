@@ -3,7 +3,7 @@ import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
 import React from "react";
 import NewsletterSignup from "../../../base/newsletter/newsletter-signup.component";
-import { replaceSiteVariables } from "../../../helpers/site.helper";
+import { replaceSiteVariables, getSiteProperties } from "../../../helpers/site.helper";
 import useRenderForBreakpoint from "../../../hooks/use-renderforbreakpoint";
 import { deviceRender } from "../../../utilities/customFields";
 import { newsletterInterests } from "../../../utilities/newsletters";
@@ -13,8 +13,9 @@ import { newsletterInterests } from "../../../utilities/newsletters";
  * @returns
  */
 const NewsletterFeature = ({ customFields }) => {
-  const { arcSite, contextPath, deployment, outputType } = useFusionContext();
+  const { arcSite, contextPath, deployment, outputType, globalContent } = useFusionContext();
   const { newsletterSignupEndpoint, websiteName } = getProperties(arcSite);
+  const { websiteName: globalContentWebsite } = getSiteProperties(globalContent);
   const {
     title,
     style,
@@ -42,7 +43,10 @@ const NewsletterFeature = ({ customFields }) => {
     return null;
   }
 
-  const replacedDescription = replaceSiteVariables(description, websiteName);
+  const replacedDescription = replaceSiteVariables(
+    description,
+    globalContentWebsite || websiteName
+  );
 
   return (
     <div className={`newsletter-breaker-wrapper ${style}`}>
