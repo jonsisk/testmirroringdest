@@ -9,6 +9,7 @@ const sizeMap = {
   ListG: 3,
   ListP: 5,
   ListA: 9,
+  ListU: 7,
 };
 
 const Results = ({
@@ -271,6 +272,93 @@ const Results = ({
                     showDescription={false}
                     showHeadline={showHeadline}
                     showImage={true}
+                    showItemOverline={showItemOverline}
+                    targetFallbackImage={targetFallbackImage}
+                    showFeatured={false}
+                    websiteName={getWebsiteName(element)}
+                    globalContent={globalContent}
+                  />
+                ))}
+            </div>
+          </div>
+        ) : null;
+      } else {
+        return null;
+      }
+
+    case "ListU":
+      if (viewableElements?.length > 0) {
+        const [firstElement, ...restElements] = viewableElements;
+        //slice the viewableElements in 3 groups
+        const secondGroup = restElements.slice(0, 2);
+        const thirdGroup = restElements.slice(2);
+        return viewableElements?.length > 0 && !isServerSideLazy ? (
+          <div className={`results-list-container ${listType}`}>
+            <div className="PageListP-items-column">
+              <ResultItem
+                key={`result-card-${firstElement._id}`}
+                ref={elementRefs[0]}
+                arcSite={arcSite}
+                element={firstElement}
+                imageProperties={imagePropertiesFeatured}
+                imagePropertiesFeatured={imagePropertiesFeatured}
+                placeholderResizedImageOptions={placeholderResizedImageOptions}
+                showAsList={false}
+                showByline={showByline}
+                showDate={showDate}
+                showDescription={showDescription}
+                showHeadline={showHeadline}
+                showImage={showImage}
+                showItemOverline={showItemOverline}
+                targetFallbackImage={targetFallbackImage}
+                showFeatured={showFeatured}
+                websiteName={getWebsiteName(firstElement)}
+                globalContent={globalContent}
+              />
+            </div>
+            <div className="PageListP-items-column">
+              {secondGroup &&
+                secondGroup.map((element, index) => (
+                  <ResultItem
+                    key={`result-card-${element._id}`}
+                    ref={elementRefs[index]}
+                    arcSite={arcSite}
+                    element={element}
+                    imageProperties={imageProperties}
+                    imagePropertiesFeatured={imagePropertiesFeatured}
+                    placeholderResizedImageOptions={placeholderResizedImageOptions}
+                    showAsList={false}
+                    showByline={showByline}
+                    showDate={showDate}
+                    showDescription={false}
+                    showHeadline={showHeadline}
+                    showImage={true}
+                    showItemOverline={showItemOverline}
+                    targetFallbackImage={targetFallbackImage}
+                    showFeatured={false}
+                    websiteName={getWebsiteName(element)}
+                    globalContent={globalContent}
+                  />
+                ))}
+            </div>
+
+            <div className="PageListP-items-column">
+              {thirdGroup &&
+                thirdGroup.map((element, index) => (
+                  <ResultItem
+                    key={`result-card-${element._id}`}
+                    ref={elementRefs[index]}
+                    arcSite={arcSite}
+                    element={element}
+                    imageProperties={imageProperties}
+                    imagePropertiesFeatured={imagePropertiesFeatured}
+                    placeholderResizedImageOptions={placeholderResizedImageOptions}
+                    showAsList={false}
+                    showByline={showByline}
+                    showDate={showDate}
+                    showDescription={false}
+                    showHeadline={showHeadline}
+                    showImage={false}
                     showItemOverline={showItemOverline}
                     targetFallbackImage={targetFallbackImage}
                     showFeatured={false}

@@ -80,7 +80,7 @@ FeaturedStoriesCivic.label = "Featured Stories – Civic";
 
 FeaturedStoriesCivic.propTypes = {
   customFields: PropTypes.shape({
-    listType: PropTypes.oneOf(["ListG", "ListP", "ListA"]).tag({
+    listType: PropTypes.oneOf(["ListG", "ListP", "ListA", "ListU"]).tag({
       defaultValue: "ListG",
       group: "Configure Content",
       label: "Style",
