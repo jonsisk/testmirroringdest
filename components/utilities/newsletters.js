@@ -147,4 +147,11 @@ export const newsletterCopy = {
     thankYouMessage:
       "Thank you for subscribing to Votebeat! Check your inbox for a confirmation email.",
   },
+  chalkbeat: {
+    title: "We show up.",
+    description:
+      "You can’t always get to the school board meeting. %SITE_NAME% reporters will be there to report the news you need. Follow along with our daily newsletter.",
+    thankYouMessage:
+      "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
+  },
 };
