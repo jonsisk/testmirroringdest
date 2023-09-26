@@ -7,6 +7,12 @@
     align-items: flex-start;
     grid-template-columns: 100% !important;
 
+    p.centered-text {
+      font-size: var(--page-description);
+      font-family: var(--font-3);
+      text-align: center;
+    }
+
     .fullWidth1 {
       flex: 0 0 100%;
 
