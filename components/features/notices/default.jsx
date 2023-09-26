@@ -52,30 +52,32 @@ const NoticeList = ({ customFields }) => {
   return (
     <LazyLoad enabled={lazyLoad && !isAdmin}>
       <HeadingSection>
-        <div className="PageList-header articles-slider">
-          <svg className="PageList-header-squiggly">
-            <use xlinkHref="#squiggly"></use>
-          </svg>
-          <div className="PageList-header-title-wrap">
-            <div className="PageList-header-title">{title}</div>
-          </div>
+        <div className="noticesListContainer">
+          <div className="PageList-header articles-slider">
+            <svg className="PageList-header-squiggly">
+              <use xlinkHref="#squiggly"></use>
+            </svg>
+            <div className="PageList-header-title-wrap">
+              <div className="PageList-header-title">{title}</div>
+            </div>
 
-          <div className="PageList-header-description">
-            <p>{subtitle}</p>
+            <div className="PageList-header-description">
+              <p>{subtitle}</p>
+            </div>
           </div>
-        </div>
-        <div className={`noticesContainer columns-${columns}`}>
-          {content_elements?.length > 0 &&
-            !isServerSideLazy &&
-            content_elements.map((slide, index) => (
-              <NoticeCard
-                key={index}
-                slide={slide}
-                arcSite={arcSite}
-                targetFallbackImage={targetFallbackImage}
-                placeholderResizedImageOptions={placeholderResizedImageOptions}
-              />
-            ))}
+          <div className={`noticesContainer columns-${columns}`}>
+            {content_elements?.length > 0 &&
+              !isServerSideLazy &&
+              content_elements.map((slide, index) => (
+                <NoticeCard
+                  key={index}
+                  slide={slide}
+                  arcSite={arcSite}
+                  targetFallbackImage={targetFallbackImage}
+                  placeholderResizedImageOptions={placeholderResizedImageOptions}
+                />
+              ))}
+          </div>
         </div>
       </HeadingSection>
     </LazyLoad>
