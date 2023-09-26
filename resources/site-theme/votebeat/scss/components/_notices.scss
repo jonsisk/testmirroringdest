@@ -1,0 +1,16 @@
+.noticesContainer{
+  grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  grid-row-gap: 30px;
+  grid-column-gap: 20px;
+  padding: 0;
+  &.columns-2{
+    grid-template-columns: 1fr 1fr;
+  }
+  &.columns-3{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  &.columns-4{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
