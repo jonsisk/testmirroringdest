@@ -3,11 +3,11 @@ import React from "react";
 import { useGetJobs } from "../../hooks/use-getjobs";
 
 const BreakerJobs = ({ customFields }) => {
+  const { title, buttonLabel, buttonLink, htmlTitle, bereau } = customFields;
   const jobs = useGetJobs({
-    bureau: "chicago",
+    bureau: bereau,
   });
   console.log(jobs, "jobs");
-  const { title, buttonLabel, buttonLink, htmlTitle } = customFields;
   return (
     <div className="Breaker-wrapper">
       <div className="Breaker-content-header">
@@ -78,6 +78,10 @@ BreakerJobs.propTypes = {
     }),
     buttonLabel: PropTypes.string.tag({
       label: "labelButton",
+      group: "Configure Content",
+    }),
+    bereau: PropTypes.string.tag({
+      label: "bereau",
       group: "Configure Content",
     }),
     htmlTitle: PropTypes.string.tag({
