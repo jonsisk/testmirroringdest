@@ -1,0 +1,105 @@
+.AuthorListA {
+  display: block;
+  --listItemPadding: 12px;
+  counter-increment: 1;
+  ul {
+    list-style: none;
+    li {
+      padding-top: var(--listItemPadding);
+      padding-bottom: var(--listItemPadding);
+      border-top: 1px solid var(--color-list-border);
+      &:first-child {
+        border-top: 0 !important;
+      }
+      &:last-child {
+        margin-bottom: 3rem;
+      }
+      .AuthorPromo {
+        display: flex;
+        align-items: flex-start;
+        &:hover a {
+          animation-name: lineClamp !important;
+        }
+        .PagePromo-media {
+          flex-shrink: 0;
+          margin-right: 20px;
+          width: 80px;
+          img {
+            border-radius: 100%;
+            width: 80px;
+          }
+        }
+        .AuthorPromo-content {
+          width: 100%;
+          .PagePromo-title {
+            padding-bottom: 10px;
+            font-family: var(--font, var(--font-1));
+            font-size: var(--title-4);
+            letter-spacing: normal;
+            line-height: 1.22;
+            font-weight: 600;
+            height: auto;
+            transition: all 1s 1s ease-in-out;
+            a {
+              --color-link-text: var(--color-primary-text);
+              --color-link-text-hover: var(--color-primary);
+              &:hover {
+                color: var(--color-link-text-hover) !important;
+              }
+            }
+          }
+          .PagePromo-label {
+            font-family: var(--font, var(--font-1));
+            font-size: var(--label-1);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: normal;
+            line-height: normal;
+            a {
+              --color-link-text: var(--color-section-text);
+              --color-link-text-hover: var(--color-primary);
+              --color-link-text: var(--color-tertiary-text);
+              --color-link-text-hover: var(--color-tertiary-text);
+            }
+          }
+          .Link-icon {
+            display: none;
+          }
+          a {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            animation-direction: normal;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0.2s;
+            animation-duration: 0.5s;
+            animation-name: none;
+          }
+          @keyframes lineClamp {
+            0% {
+              -webkit-line-clamp: 3;
+            }
+            20% {
+              -webkit-line-clamp: 4;
+            }
+            40% {
+              -webkit-line-clamp: 5;
+            }
+            60% {
+              -webkit-line-clamp: 6;
+            }
+            80% {
+              -webkit-line-clamp: 7;
+            }
+            100% {
+              -webkit-line-clamp: 15;
+            }
+          }
+        }
+      }
+    }
+  }
+}
