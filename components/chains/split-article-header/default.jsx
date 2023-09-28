@@ -15,7 +15,7 @@ const SplitArticleHeader = (props) => {
   switch (style) {
     case "right":
       return (
-        <div className="split-header">
+        <div className={`split-header ${style}`}>
           <div className="split-text-container">
             <a aria-label="home page" href="/" data-cms-ai="0">
               <img className="split-logo" src={lightBackgroundLogo} alt={lightBackgroundLogoAlt} />
@@ -27,7 +27,7 @@ const SplitArticleHeader = (props) => {
       );
     case "left":
       return (
-        <div className="split-header">
+        <div className={`split-header ${style}`}>
           <div className="split-image-container">{articleImage}</div>
           <div className="split-text-container">
             <a aria-label="home page" href="/" data-cms-ai="0">
