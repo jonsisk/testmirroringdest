@@ -1,0 +1,34 @@
+.story-layout-split_right {
+  .split-header {
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    @media (max-width: 1100px) {
+      flex-direction: column;
+    }
+
+    .split-image-container,
+    .split-text-container {
+      flex: 1;
+    }
+
+    .split-text-container {
+      padding: 20px;
+    }
+
+    .split-image-container {
+      figure {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .split-logo {
+      max-height: 50px;
+    }
+  }
+}
