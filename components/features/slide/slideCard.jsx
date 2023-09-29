@@ -42,7 +42,7 @@ export const SlideCard = ({
         <div className="results-list--description-author-container">
           <a href={slide.canonical_url} title={slide.headlines.basic}>
             <SecondaryFont as="p" className="description-text">
-              {slide.description.basic}
+              {slide.subheadlines?.basic}
             </SecondaryFont>
           </a>
           <div className="results-list--author-date">

@@ -2725,6 +2725,8 @@ a:hover {
 .RichTextBody p a:hover {
   color: var(--color-link-text-hover);
 }
+
+article > ul,
 .RichTextBody > ul,
 .RichTextBody > ul li > ul,
 .RichTextBody p > ul,
@@ -2732,6 +2734,13 @@ a:hover {
   list-style: disc;
   padding: 0 0 0 20px;
   margin: 10px 0 10px 10px;
+}
+article > ul > li {
+  --font: var(--font-rte-body);
+  font-family: var(--font, var(--font-1));
+  font-size: var(--body-1);
+  font-weight: 400;
+  line-height: 1.6;
 }
 .RichTextBody > ol,
 .RichTextBody > ul li > ol,
@@ -3385,6 +3394,9 @@ p.body-paragraph a {
   font-weight: 600 !important;
   letter-spacing: normal !important;
 }
+.article-body-wrapper h3 {
+  font-size: var(--heading-3);
+}
 
 .header {
   background: var(--color-header-bg);
@@ -3468,4 +3480,60 @@ section.top a {
 
 .see-more {
   display: none !important;
+}
+
+figure.lead-art-wrapper {
+  margin-top: 20px;
+}
+
+.PageList-header > svg {
+  display: none;
+}
+.PageList-header-title {
+  --font: var(--font-list-title);
+  font-family: var(--font, var(--font-1));
+  font-size: var(--title-2);
+  letter-spacing: 0;
+  line-height: 1.2;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 36px;
+  color: var(--titleColor, var(--color-list-title));
+  text-transform: uppercase;
+}
+
+.PagePromo-standard {
+  display: flex;
+  flex-direction: row;
+}
+.PagePromo-media {
+  flex-shrink: 0;
+  max-width: 330px;
+  margin: 0 0 0 20px;
+  order: 2;
+  width: 30%;
+}
+.PagePromo-content {
+  flex-grow: 1;
+}
+.PagePromo-category {
+  font-family: var(--font, var(--font-1));
+  font-size: var(--label-1);
+  font-weight: 700;
+  letter-spacing: 1;
+  text-transform: uppercase;
+}
+.PagePromo-category a {
+  color: var(--color-primary-theme);
+}
+.PagePromo-title {
+  font-family: var(--font, var(--font-1));
+  font-size: var(--title-5);
+  letter-spacing: 0;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.PageListH-items-item {
+  margin-bottom: 30px;
 }

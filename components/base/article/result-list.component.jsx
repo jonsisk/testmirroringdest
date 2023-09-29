@@ -59,7 +59,13 @@ const ResultItem = React.memo(
               subtype === "standard" || subtype === undefined || !showFeatured ? "" : "featured"
             }`}
           >
-            <div className={`PagePromo-${subtype}`}>
+            <div
+              className={`PagePromo-${
+                subtype === "standard" || subtype === undefined || !showFeatured
+                  ? "standard"
+                  : subtype
+              }`}
+            >
               <div className="PagePromo-media">
                 {showImage ? (
                   <a href={url} title={headlineText} aria-hidden="true" tabIndex="-1">

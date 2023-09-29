@@ -21,6 +21,8 @@ const NewsletterInterestFeature = ({ customFields }) => {
     title,
     description,
     thankYouMsg,
+    errorMsg,
+    buttonLabel,
     signupCopy,
     disclaimer,
     renderMobile,
@@ -59,7 +61,7 @@ const NewsletterInterestFeature = ({ customFields }) => {
       <p dangerouslySetInnerHTML={{ __html: description }} />
 
       <div className="interests">
-        {newsletterInterests.map((interest) => (
+        {newsletterInterests[arcSite].map((interest) => (
           <div className="interest" key={interest.slug}>
             <label>
               <input
@@ -86,6 +88,8 @@ const NewsletterInterestFeature = ({ customFields }) => {
           website={arcSite}
           interestIds={selectedValues}
           thankYouMsg={thankYouMsg}
+          errorMsg={errorMsg}
+          buttonLabel={buttonLabel}
           validation={validateSelection}
           disclaimer={disclaimer}
           layout="horizontal"
@@ -116,6 +120,16 @@ NewsletterInterestFeature.propTypes = {
       label: "Thank you message",
       group: "Configure Content",
       description: "Shown after the user submits the form.",
+    }),
+    errorMsg: PropTypes.string.tag({
+      label: "Error message",
+      group: "Configure Content",
+      description: "Shown in case of error",
+    }),
+    buttonLabel: PropTypes.string.tag({
+      label: "Submit button label",
+      default: "Sign Me Up",
+      group: "Configure Content",
     }),
     disclaimer: PropTypes.richtext.tag({
       label: "Disclaimer (HTML)",

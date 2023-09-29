@@ -3,7 +3,7 @@ import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
 import React from "react";
 import NewsletterSignup from "../../../base/newsletter/newsletter-signup.component";
-import { replaceSiteVariables } from "../../../helpers/site.helper";
+import { replaceSiteVariables, getSiteProperties } from "../../../helpers/site.helper";
 import useRenderForBreakpoint from "../../../hooks/use-renderforbreakpoint";
 import { deviceRender } from "../../../utilities/customFields";
 import { newsletterInterests } from "../../../utilities/newsletters";
@@ -13,14 +13,17 @@ import { newsletterInterests } from "../../../utilities/newsletters";
  * @returns
  */
 const NewsletterFeature = ({ customFields }) => {
-  const { arcSite, contextPath, deployment, outputType } = useFusionContext();
+  const { arcSite, contextPath, deployment, outputType, globalContent } = useFusionContext();
   const { newsletterSignupEndpoint, websiteName } = getProperties(arcSite);
+  const { websiteName: globalContentWebsite } = getSiteProperties(globalContent);
   const {
     title,
     style,
     description,
     showImage,
     thankYouMsg,
+    errorMsg,
+    buttonLabel,
     disclaimer,
     newsletter,
     renderMobile,
@@ -34,7 +37,7 @@ const NewsletterFeature = ({ customFields }) => {
     renderDesktop,
   });
 
-  const selectedNewsletterInterests = newsletterInterests
+  const selectedNewsletterInterests = newsletterInterests[arcSite]
     .filter((int) => int.slug === newsletter)
     .map((int) => int.id);
 
@@ -42,7 +45,10 @@ const NewsletterFeature = ({ customFields }) => {
     return null;
   }
 
-  const replacedDescription = replaceSiteVariables(description, websiteName);
+  const replacedDescription = replaceSiteVariables(
+    description,
+    globalContentWebsite || websiteName
+  );
 
   return (
     <div className={`newsletter-breaker-wrapper ${style}`}>
@@ -63,6 +69,8 @@ const NewsletterFeature = ({ customFields }) => {
           website={arcSite}
           interestIds={selectedNewsletterInterests}
           thankYouMsg={thankYouMsg}
+          errorMsg={errorMsg}
+          buttonLabel={buttonLabel}
           disclaimer={disclaimer}
         />
       </div>
@@ -97,6 +105,16 @@ NewsletterFeature.propTypes = {
       label: "Thank you message",
       group: "Configure Content",
       description: "Shown after the user submits the form.",
+    }),
+    errorMsg: PropTypes.string.tag({
+      label: "Error message",
+      group: "Configure Content",
+      description: "Shown in case of error",
+    }),
+    buttonLabel: PropTypes.string.tag({
+      label: "Submit button label",
+      default: "Sign Me Up",
+      group: "Configure Content",
     }),
     disclaimer: PropTypes.richtext.tag({
       label: "Disclaimer (HTML)",

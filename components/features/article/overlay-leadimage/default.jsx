@@ -14,7 +14,7 @@ const OverlayLeadImage = ({ customFields }) => {
   const { primaryLogo, lightBackgroundLogoAlt } = isSiteSection(globalContent)
     ? getSiteProperties(globalContent)
     : getProperties(arcSite);
-  const { hideImageCaption, hideImageCredits, hideImageTitle } = customFields;
+  const { hideLogo, hideImageCaption, hideImageCredits, hideImageTitle } = customFields;
   const {
     url,
     subtitle,
@@ -39,11 +39,13 @@ const OverlayLeadImage = ({ customFields }) => {
 
   return (
     <>
-      <div className="logo-overlay">
-        <a aria-label="home page" href="/" data-cms-ai="0">
-          <img className="PageLogo-image" src={primaryLogo} alt={lightBackgroundLogoAlt} />
-        </a>
-      </div>
+      {!hideLogo && (
+        <div className="logo-overlay">
+          <a aria-label="home page" href="/" data-cms-ai="0">
+            <img className="PageLogo-image" src={primaryLogo} alt={lightBackgroundLogoAlt} />
+          </a>
+        </div>
+      )}
       <figure className="overlay-image">
         <Image
           resizedImageOptions={resizedImageOptions}
@@ -76,20 +78,23 @@ OverlayLeadImage.description = "Lead image as overlay on article";
 
 OverlayLeadImage.propTypes = {
   customFields: PropTypes.shape({
+    hideLogo: PropTypes.bool.tag({
+      description: "Hide logo from overlay",
+      label: "Hide Logo",
+      defaultValue: false,
+      group: "Image Display Options",
+    }),
     hideImageTitle: PropTypes.bool.tag({
-      description: "This display option applies to all Images in the Article Body.",
       label: "Hide Title",
       defaultValue: false,
       group: "Image Display Options",
     }),
     hideImageCaption: PropTypes.bool.tag({
-      description: "This display option applies to all Images in the Article Body.",
       label: "Hide Caption",
       defaultValue: false,
       group: "Image Display Options",
     }),
     hideImageCredits: PropTypes.bool.tag({
-      description: "This display option applies to all Images in the Article Body.",
       label: "Hide Credits",
       defaultValue: false,
       group: "Image Display Options",

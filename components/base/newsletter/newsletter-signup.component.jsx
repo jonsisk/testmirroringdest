@@ -11,6 +11,8 @@ const NewsletterSignup = ({
   website,
   interestIds,
   thankYouMsg,
+  errorMsg,
+  buttonLabel,
   validation,
   disclaimer,
   layout = "standard",
@@ -79,7 +81,7 @@ const NewsletterSignup = ({
       setErrorMessage(
         alreadyMember
           ? "You're already subscribed to this newsletter."
-          : "An error occurred. Please try again later."
+          : errorMsg || "An error occurred. Please try again later."
       );
       handleReCaptchaVerify();
     }
@@ -98,7 +100,7 @@ const NewsletterSignup = ({
               <span className="TextInput-Newsletter-wrap">
                 <input type="email" name="email" onChange={handleInputChange} required />
                 <button type="submit" className="buttonContainer" disabled={isSubmitting}>
-                  Submit
+                  {buttonLabel || "Submit"}
                 </button>
               </span>
             )}
@@ -111,7 +113,7 @@ const NewsletterSignup = ({
           {layout !== "horizontal" && (
             <div className="buttonContainer">
               <button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Sending..." : "Sign Me Up"}
+                {isSubmitting ? "Sending..." : buttonLabel || "Sign Me Up"}
               </button>
             </div>
           )}

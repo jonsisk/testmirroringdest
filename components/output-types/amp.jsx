@@ -8,8 +8,7 @@ import IconsMap from "../features/iconsMap/default";
 
 const AmpOutputType = (props) => {
   const { arcSite, children, globalContent } = props;
-  const { gtmIDAMP, parentCommunity, primaryLogo, websiteDomain, websiteName } =
-    getProperties(arcSite);
+  const { gtmIDAMP, primaryLogo, websiteDomain, websiteName } = getProperties(arcSite);
 
   const canonicalUrl = `${websiteDomain}${globalContent?.canonical_url}`;
 
@@ -103,7 +102,7 @@ const AmpOutputType = (props) => {
           custom-element="amp-facebook"
           async
         />
-        <props.Resource path={`resources/site-theme/${parentCommunity || arcSite}/amp.css`}>
+        <props.Resource path={`resources/site-theme/${arcSite}/amp.css`}>
           {({ data }) =>
             data && (
               <style
