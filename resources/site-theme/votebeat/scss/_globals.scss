@@ -60,9 +60,21 @@ h5 {
     width: 1100px;
   }
 }
+
+.main > .container,
 #main > .container {
   margin-left: auto !important;
   margin-right: auto !important;
+  @include respond-up(lg) {
+    max-width: 730px !important;
+  }
+}
+
+.ArticlePage .main > .container {
+  max-width: 100% !important;
+  @include respond-up(lg) {
+    max-width: 730px !important;
+  }
 }
 .container {
   max-width: var(--cx-page-width-max);
@@ -80,13 +92,13 @@ h5 {
 @media only screen and (min-width: 568px) {
   :root {
     --social-text-size: 1.0625rem;
-    --body-font-size: 1.7rem
+    --body-font-size: 1.7rem;
   }
 }
 
 @media only screen and (min-width: 768px) {
   :root {
     --social-text-size: 1.125rem;
-    --body-font-size: 1.8rem
+    --body-font-size: 1.8rem;
   }
 }
