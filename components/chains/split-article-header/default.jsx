@@ -28,13 +28,13 @@ const SplitArticleHeader = (props) => {
     case "left":
       return (
         <div className={`split-header ${style}`}>
-          <div className="split-image-container">{articleImage}</div>
-          <div className="split-text-container">
+          <div className="split-image-container">
             <a aria-label="home page" href="/" data-cms-ai="0">
               <img className="split-logo" src={lightBackgroundLogo} alt={lightBackgroundLogoAlt} />
             </a>
-            {elements}
+            {articleImage}
           </div>
+          <div className="split-text-container">{elements}</div>
         </div>
       );
     default:
