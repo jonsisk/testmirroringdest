@@ -85,10 +85,79 @@
       clear: both;
     }
 
+    table.dataTable {
+      max-width: 730px;
+      margin-bottom: 14px;
+      text-align: left;
+      margin-bottom: 8px;
+      border-collapse: collapse;
+      border: none;
+      min-width: 0;
+      line-height: normal;
+      font-size: var(--body-1);
+      width: 100%;
+      word-break: normal;
+
+      thead {
+        tr {
+          display: table-row;
+          text-align: left;
+
+          th {
+            font-family: var(--font-1);
+            position: relative;
+            padding-right: 16px;
+            display: table-cell;
+            color: var(--color-table-head-text-color);
+            background-color: var(--color-table-head-bg-color);
+            padding: 0.5625em 0.625em;
+            font-size: var(--tableHeadingFontSize);
+            font-weight: 600;
+          }
+        }
+      }
+      tbody {
+        tr {
+          display: table-row;
+          margin-bottom: 10px;
+          &.even {
+            td {
+              background-color: #f5f5f5;
+            }
+          }
+          td {
+            border: 1px solid var(--color-table-cell-border, #ccd1d5);
+            font-size: 16px;
+            padding: 0.5625em 0.625em;
+            height: auto;
+            min-height: 0;
+            font-family: var(--font-3);
+            font-weight: 400;
+          }
+        }
+      }
+    }
+
     .RichTextSidebarModule {
       background-color: var(--color-sidebar-bg-color);
       margin-bottom: 1.2rem;
       padding: 24px;
+    }
+    .Enhancement {
+      .title {
+        font-family: var(--font-1);
+        font-size: var(--title-3);
+        line-height: 1.2;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+    }
+    .TableHtmlModule {
+      max-width: 730px;
+      display: block;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+      overflow: auto;
     }
   }
 }
