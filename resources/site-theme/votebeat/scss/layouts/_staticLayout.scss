@@ -32,4 +32,18 @@
       text-align: center;
     }
   }
+
+  .contentBody {
+    h4 {
+      font-family: var(--font-1);
+      line-height: 1.2;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+
+      small {
+        font-size: 75%;
+        font-weight: 600;
+      }
+    }
+  }
 }
