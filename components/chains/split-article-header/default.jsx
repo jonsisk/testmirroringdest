@@ -17,7 +17,7 @@ const SplitArticleHeader = (props) => {
       return (
         <div className={`split-header ${style}`}>
           <div className="split-text-container">
-            <a aria-label="home page" href="/" data-cms-ai="0">
+            <a className="split-logo-link" aria-label="home page" href="/" data-cms-ai="0">
               <img className="split-logo" src={lightBackgroundLogo} alt={lightBackgroundLogoAlt} />
             </a>
             {elements}
@@ -29,7 +29,7 @@ const SplitArticleHeader = (props) => {
       return (
         <div className={`split-header ${style}`}>
           <div className="split-image-container">
-            <a aria-label="home page" href="/" data-cms-ai="0">
+            <a className="split-logo-link" aria-label="home page" href="/" data-cms-ai="0">
               <img className="split-logo" src={lightBackgroundLogo} alt={lightBackgroundLogoAlt} />
             </a>
             {articleImage}
