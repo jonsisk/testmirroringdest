@@ -97,7 +97,10 @@
           max-height: var(--max-height);
           display: block;
           figcaption {
-            padding: 8px 16px 0 50%;
+            padding: 8px 16px 0 70%;
+            @media (min-width: 1400px) {
+              padding: 8px 16px 0 50%;
+            }
           }
           picture {
             display: block;
@@ -109,6 +112,24 @@
               object-position: center;
               height: var(--height);
               max-height: var(--max-height);
+            }
+          }
+        }
+      }
+      &.left {
+        .split-image-container {
+          figure {
+            figcaption {
+              padding: 8px 70% 0 16px;
+            }
+          }
+        }
+        @media (min-width: 1400px) {
+          .split-image-container {
+            figure {
+              figcaption {
+                padding: 8px 50% 0 16px;
+              }
             }
           }
         }
