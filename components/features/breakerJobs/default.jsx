@@ -1,13 +1,14 @@
 import PropTypes from "@arc-fusion/prop-types";
+import { useFusionContext } from "fusion:context";
 import React from "react";
 import { useGetJobs } from "../../hooks/use-getjobs";
 
 const BreakerJobs = ({ customFields }) => {
+  const { contextPath, deployment } = useFusionContext();
   const { title, buttonLabel, buttonLink, htmlTitle, bereau } = customFields;
   const jobs = useGetJobs({
     bureau: bereau,
   });
-  console.log(jobs, "jobs");
   return (
     <div className="Breaker-wrapper">
       <div className="Breaker-content-header">
@@ -15,11 +16,9 @@ const BreakerJobs = ({ customFields }) => {
           <img
             className="Image"
             alt="icon-jobs"
-            srcSet="https://chalkbeat.brightspotcdn.com/dims4/default/d08ebc2/2147483647/strip/true/crop/78x83+0+0/resize/78x83!/quality/90/?url=https%3A%2F%2Fchorus-production-chalkbeat.s3.amazonaws.com%2Fbrightspot%2F33%2Fe7%2Faa3478f34a6cab364893d0877fb9%2Fcb-icon-signpost.0.png 1x,https://chalkbeat.brightspotcdn.com/dims4/default/9316b48/2147483647/strip/true/crop/78x83+0+0/resize/156x166!/quality/90/?url=https%3A%2F%2Fchorus-production-chalkbeat.s3.amazonaws.com%2Fbrightspot%2F33%2Fe7%2Faa3478f34a6cab364893d0877fb9%2Fcb-icon-signpost.0.png 2x"
             width="78"
             height="83"
-            data-src="https://chalkbeat.brightspotcdn.com/dims4/default/d08ebc2/2147483647/strip/true/crop/78x83+0+0/resize/78x83!/quality/90/?url=https%3A%2F%2Fchorus-production-chalkbeat.s3.amazonaws.com%2Fbrightspot%2F33%2Fe7%2Faa3478f34a6cab364893d0877fb9%2Fcb-icon-signpost.0.png"
-            src="https://chalkbeat.brightspotcdn.com/dims4/default/d08ebc2/2147483647/strip/true/crop/78x83+0+0/resize/78x83!/quality/90/?url=https%3A%2F%2Fchorus-production-chalkbeat.s3.amazonaws.com%2Fbrightspot%2F33%2Fe7%2Faa3478f34a6cab364893d0877fb9%2Fcb-icon-signpost.0.png"
+            src={deployment(`${contextPath}/resources/images/votebeat/iconJobs.png`)}
           />
         </div>
 
