@@ -22,6 +22,8 @@ const NewsletterFeature = ({ customFields }) => {
     description,
     showImage,
     thankYouMsg,
+    errorMsg,
+    buttonLabel,
     disclaimer,
     newsletter,
     renderMobile,
@@ -67,6 +69,8 @@ const NewsletterFeature = ({ customFields }) => {
           website={arcSite}
           interestIds={selectedNewsletterInterests}
           thankYouMsg={thankYouMsg}
+          errorMsg={errorMsg}
+          buttonLabel={buttonLabel}
           disclaimer={disclaimer}
         />
       </div>
@@ -101,6 +105,16 @@ NewsletterFeature.propTypes = {
       label: "Thank you message",
       group: "Configure Content",
       description: "Shown after the user submits the form.",
+    }),
+    errorMsg: PropTypes.string.tag({
+      label: "Error message",
+      group: "Configure Content",
+      description: "Shown in case of error",
+    }),
+    buttonLabel: PropTypes.string.tag({
+      label: "Submit button label",
+      default: "Sign Me Up",
+      group: "Configure Content",
     }),
     disclaimer: PropTypes.richtext.tag({
       label: "Disclaimer (HTML)",

@@ -5,7 +5,7 @@ import { getPrimarySection } from "../../helpers/article.helper";
 import { getWebsiteDomain } from "../../helpers/site.helper";
 import Byline from "../byline/byline.component";
 
-const ResultItem = React.memo(
+const HeroItem = React.memo(
   React.forwardRef(
     ({
       arcSite,
@@ -17,10 +17,9 @@ const ResultItem = React.memo(
       showByline,
       showDescription,
       showHeadline,
-      showImage,
       showItemOverline,
-      showFeatured,
       globalContent,
+      style,
     }) => {
       const {
         description: { basic: descriptionText } = {},
@@ -54,48 +53,8 @@ const ResultItem = React.memo(
 
       return (
         <>
-          <div
-            className={`PageListH-items-item ${
-              subtype === "standard" || subtype === undefined || !showFeatured ? "" : "featured"
-            }`}
-          >
-            <div
-              className={`PagePromo-${
-                subtype === "standard" || subtype === undefined || !showFeatured
-                  ? "standard"
-                  : subtype
-              }`}
-            >
-              <div className="PagePromo-media">
-                {showImage ? (
-                  <a href={url} title={headlineText} aria-hidden="true" tabIndex="-1">
-                    {subtype === "standard" || subtype === undefined || !showFeatured ? (
-                      <Image
-                        {...imageProperties}
-                        url={imageURL !== null ? imageURL : targetFallbackImage}
-                        alt={imageURL !== null ? headlineText : imageProperties.primaryLogoAlt}
-                        resizedImageOptions={
-                          imageURL !== null
-                            ? extractResizedParams(element)
-                            : placeholderResizedImageOptions
-                        }
-                      />
-                    ) : (
-                      <Image
-                        {...imagePropertiesFeatured}
-                        url={imageURL !== null ? imageURL : targetFallbackImage}
-                        alt={imageURL !== null ? headlineText : imageProperties.primaryLogoAlt}
-                        resizedImageOptions={
-                          imageURL !== null
-                            ? extractResizedParams(element)
-                            : placeholderResizedImageOptions
-                        }
-                      />
-                    )}
-                  </a>
-                ) : null}
-              </div>
-
+          <div className={`PageListQ-items-item ${style}`}>
+            <div className={`PagePromo-${subtype}`}>
               <div className="PagePromo-content">
                 {showItemOverline ? (
                   <div className="PagePromo-category">
@@ -131,6 +90,20 @@ const ResultItem = React.memo(
                   ) : null}
                 </div>
               </div>
+              <div className="PagePromo-media">
+                <a href={url} title={headlineText} aria-hidden="true" tabIndex="-1">
+                  <Image
+                    {...imagePropertiesFeatured}
+                    url={imageURL !== null ? imageURL : targetFallbackImage}
+                    alt={imageURL !== null ? headlineText : imageProperties.primaryLogoAlt}
+                    resizedImageOptions={
+                      imageURL !== null
+                        ? extractResizedParams(element)
+                        : placeholderResizedImageOptions
+                    }
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </>
@@ -139,4 +112,4 @@ const ResultItem = React.memo(
   )
 );
 
-export default ResultItem;
+export default HeroItem;

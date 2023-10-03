@@ -9,7 +9,8 @@ import { useArticleStore } from "../stores/articles.store";
 import Results from "./results";
 
 const ResultsListCivic = ({ customFields }) => {
-  const { arcSite, contextPath, deployment, isAdmin, globalContent } = useFusionContext();
+  const { arcSite, contextPath, deployment, isAdmin, globalContent, outputType } =
+    useFusionContext();
   const {
     lazyLoad,
     listContentConfig: { contentService, contentConfigValues },
@@ -58,6 +59,7 @@ const ResultsListCivic = ({ customFields }) => {
       <div className="List">
         <Results
           arcSite={arcSite}
+          outputType={outputType}
           configuredOffset={configuredOffset}
           configuredSize={configuredSize}
           contentConfigValues={contentConfigValues}

@@ -22,7 +22,9 @@ const StickyNewsletterFeature = ({ customFields }) => {
   const {
     title,
     description,
+    errorMsg,
     thankYouMsg,
+    buttonLabel,
     disclaimer,
     newsletter,
     renderMobile,
@@ -78,7 +80,9 @@ const StickyNewsletterFeature = ({ customFields }) => {
             website={arcSite}
             interestIds={filteredInterests}
             thankYouMsg={thankYouMsg}
+            errorMsg={errorMsg}
             disclaimer={disclaimer}
+            buttonLabel={buttonLabel}
           />
         </div>
         {!closed && (
@@ -122,6 +126,16 @@ StickyNewsletterFeature.propTypes = {
       label: "Thank you message",
       group: "Configure Content",
       description: "Shown after the user submits the form.",
+    }),
+    errorMsg: PropTypes.string.tag({
+      label: "Error message",
+      group: "Configure Content",
+      description: "Shown in case of error",
+    }),
+    buttonLabel: PropTypes.string.tag({
+      label: "Submit button label",
+      default: "Sign Me Up",
+      group: "Configure Content",
     }),
     disclaimer: PropTypes.richtext.tag({
       label: "Disclaimer (HTML)",

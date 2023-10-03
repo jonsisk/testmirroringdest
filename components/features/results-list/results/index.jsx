@@ -8,6 +8,7 @@ import { reduceResultList } from "../../../helpers/list.helpers";
 
 const Results = ({
   arcSite,
+  outputType,
   configuredOffset,
   configuredSize,
   contentConfigValues,
@@ -144,12 +145,12 @@ const Results = ({
           imagePropertiesFeatured={imagePropertiesFeatured}
           placeholderResizedImageOptions={placeholderResizedImageOptions}
           showAsList={showAsList}
-          showByline={showByline}
-          showDate={showDate}
-          showDescription={showDescription}
+          showByline={showByline && outputType !== "amp"}
+          showDate={showDate && outputType !== "amp"}
+          showDescription={showDescription && outputType !== "amp"}
           showHeadline={showHeadline}
           showImage={showImage}
-          showItemOverline={showItemOverline}
+          showItemOverline={showItemOverline || outputType === "amp"}
           targetFallbackImage={targetFallbackImage}
           showFeatured={showFeatured}
           websiteName={getWebsiteName(element)}
