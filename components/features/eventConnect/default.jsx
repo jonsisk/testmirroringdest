@@ -1,25 +1,20 @@
 import { useFusionContext } from "fusion:context";
-import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
 import React from "react";
 import { getUserDate } from "../../helpers/date.helper";
 import { useGetEvents } from "../../hooks/use-getevents";
-import { useGetJobs } from "../../hooks/use-getjobs";
 
 const Events = ({ customFields }) => {
-  const { outputType, arcSite } = useFusionContext();
-  const { title, subtitle, buttonLink, buttonLabel, htmlTitle, count, bereau } = customFields;
-  const pruebaproper = getProperties(arcSite);
-  const pruebacontext = useFusionContext();
-  console.log(pruebacontext, "pruebacontext");
-  console.log(pruebaproper, "pruebaproper");
+  const { outputType, contextPath, deployment } = useFusionContext();
+  const { title, subtitle, buttonLink, buttonLabel, htmlTitle, count, bereau, imageName } =
+    customFields;
+
   const events = useGetEvents({
     bureau: bereau,
     count: count,
   });
 
   if (outputType === "amp") return null;
-  console.log(events, "events");
   return (
     <div className="Breaker-wrapper-connect">
       <div className="Breaker-content-header">
@@ -27,11 +22,9 @@ const Events = ({ customFields }) => {
           <img
             className="Image"
             alt="icon-events"
-            srcSet="https://chalkbeat.brightspotcdn.com/dims4/default/fc0ec5b/2147483647/strip/true/crop/105x95+0+0/resize/105x95!/quality/90/?url=https%3A%2F%2Fchorus-production-chalkbeat.s3.amazonaws.com%2Fbrightspot%2F8a%2Fdc%2F2e5fd7664be79f23ffea8ba4df66%2Fcb-icon-calendar-2x-v2.0.png 1x,https://chalkbeat.brightspotcdn.com/dims4/default/4f043ef/2147483647/strip/true/crop/105x95+0+0/resize/210x190!/quality/90/?url=https%3A%2F%2Fchorus-production-chalkbeat.s3.amazonaws.com%2Fbrightspot%2F8a%2Fdc%2F2e5fd7664be79f23ffea8ba4df66%2Fcb-icon-calendar-2x-v2.0.png 2x"
             width="105"
             height="95"
-            data-src="https://chalkbeat.brightspotcdn.com/dims4/default/fc0ec5b/2147483647/strip/true/crop/105x95+0+0/resize/105x95!/quality/90/?url=https%3A%2F%2Fchorus-production-chalkbeat.s3.amazonaws.com%2Fbrightspot%2F8a%2Fdc%2F2e5fd7664be79f23ffea8ba4df66%2Fcb-icon-calendar-2x-v2.0.png"
-            src="https://chalkbeat.brightspotcdn.com/dims4/default/fc0ec5b/2147483647/strip/true/crop/105x95+0+0/resize/105x95!/quality/90/?url=https%3A%2F%2Fchorus-production-chalkbeat.s3.amazonaws.com%2Fbrightspot%2F8a%2Fdc%2F2e5fd7664be79f23ffea8ba4df66%2Fcb-icon-calendar-2x-v2.0.png"
+            src={deployment(`${contextPath}/resources/images/${imageName}.png`)}
           />
         </div>
 
@@ -124,6 +117,10 @@ Events.propTypes = {
     }),
     htmlTitle: PropTypes.string.tag({
       label: "name of the html element",
+      group: "Configure Content",
+    }),
+    imageName: PropTypes.string.tag({
+      label: "Image name (e.g: votebeat/flag or chalkbeat/hart)",
       group: "Configure Content",
     }),
   }),
