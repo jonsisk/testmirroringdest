@@ -32,20 +32,21 @@ export const getUserDate = (date, showTime = false) => {
   if (!date) {
     return null;
   }
-  var now = dayjs();
+  let now = dayjs();
+  let userDate = dayjs(date);
   const STANDARD_FORMAT = now.year() > dayjs(date).year() ? "MMMM D, YYYY" : "MMMM D";
 
   const FORMAT = showTime
     ? `MMMM D, YYYY, h:mma ${insertTimezoneIntoTemplate(date)}`
     : STANDARD_FORMAT;
 
-  const nowFormated = dayjs
-    .utc(date)
+  const nowFormated = dayjs.utc().local().format("MMMM D, YYYY, h:mma").replace(",", "").split(" ");
+  const userDateFormated = userDate.utc().format("MMMM D, YYYY, h:mma").replace(",", "").split(" ");
+  const userDateLocalFormated = userDate
     .local()
     .format("MMMM D, YYYY, h:mma")
     .replace(",", "")
     .split(" ");
-  const userDateFormated = now.utc().format("MMMM D, YYYY, h:mma").replace(",", "").split(" ");
   let isToday = false;
   if (
     nowFormated[0] === userDateFormated[0] &&
@@ -55,7 +56,11 @@ export const getUserDate = (date, showTime = false) => {
     isToday = true;
   }
 
-  return isToday ? `Today, ${userDateFormated[3]}` : dayjs.utc(date).local().format(FORMAT);
+  const localTimeZone = Date().toString().split(" ")[5].substring(0, 6);
+
+  return isToday
+    ? `Today, ${userDateLocalFormated[3]} ${localTimeZone}`
+    : dayjs.utc(date).local().format(FORMAT);
 };
 
 export const insertTimezoneIntoTemplate = (date, { brackets } = { brackets: "[]" }) => {
