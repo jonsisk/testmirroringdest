@@ -4,7 +4,7 @@ import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import NewsletterSignup from "../../../base/newsletter/newsletter-signup.component";
-import { replaceSiteVariables } from "../../../helpers/site.helper";
+import { replaceSiteVariables, getSiteProperties } from "../../../helpers/site.helper";
 import useRenderForBreakpoint from "../../../hooks/use-renderforbreakpoint";
 import useSticky from "../../../hooks/use-sticky";
 import { deviceRender } from "../../../utilities/customFields";
@@ -16,8 +16,9 @@ import { newsletterInterests } from "../../../utilities/newsletters";
 const StickyNewsletterFeature = ({ customFields }) => {
   const { sticky, stickyRef } = useSticky("up");
   const context = useFusionContext();
-  const { arcSite, outputType } = context;
+  const { arcSite, outputType, globalContent } = context;
   const { newsletterSignupEndpoint, websiteName } = getProperties(arcSite);
+  const { websiteName: globalContentWebsite } = getSiteProperties(globalContent);
   const {
     title,
     description,
@@ -48,7 +49,7 @@ const StickyNewsletterFeature = ({ customFields }) => {
     }
   };
 
-  const filteredInterests = newsletterInterests
+  const filteredInterests = newsletterInterests[arcSite]
     .filter((int) => int.slug === newsletter)
     .map((int) => int.id);
 
@@ -56,13 +57,18 @@ const StickyNewsletterFeature = ({ customFields }) => {
     return null;
   }
 
-  const replacedDescription = replaceSiteVariables(description, websiteName);
+  const replacedTitle = replaceSiteVariables(title, globalContentWebsite || websiteName);
+
+  const replacedDescription = replaceSiteVariables(
+    description,
+    globalContentWebsite || websiteName
+  );
 
   return (
     <div ref={stickyRef} className={`newsletter-sticky ${!closed && sticky ? "sticky" : ""}`}>
       <div className="content">
         <div className="col-desc">
-          <h3>{title}</h3>
+          <h3>{replacedTitle}</h3>
           <p>{replacedDescription}</p>
         </div>
 
