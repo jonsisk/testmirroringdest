@@ -5,7 +5,7 @@ import { useGetJobs } from "../../hooks/use-getjobs";
 
 const BreakerJobs = ({ customFields }) => {
   const { contextPath, deployment } = useFusionContext();
-  const { title, buttonLabel, buttonLink, htmlTitle, bereau, imageName } = customFields;
+  const { title, buttonLabel, buttonLink, htmlTitle, bereau } = customFields;
   const jobs = useGetJobs({
     bureau: bereau,
   });
@@ -18,7 +18,7 @@ const BreakerJobs = ({ customFields }) => {
             alt="icon-jobs"
             width="78"
             height="83"
-            src={deployment(`${contextPath}/resources/images/${imageName}.png`)}
+            src={deployment(`${contextPath}/resources/images/votebeat/iconJobs.png`)}
           />
         </div>
 
@@ -85,10 +85,6 @@ BreakerJobs.propTypes = {
     }),
     htmlTitle: PropTypes.string.tag({
       label: "name of the html element",
-      group: "Configure Content",
-    }),
-    imageName: PropTypes.string.tag({
-      label: "Image name (e.g: votebeat/flag or chalkbeat/hart)",
       group: "Configure Content",
     }),
   }),

@@ -6,8 +6,7 @@ import { useGetEvents } from "../../hooks/use-getevents";
 
 const Events = ({ customFields }) => {
   const { outputType, contextPath, deployment } = useFusionContext();
-  const { title, subtitle, buttonLink, buttonLabel, htmlTitle, count, bereau, imageName } =
-    customFields;
+  const { title, subtitle, buttonLink, buttonLabel, htmlTitle, count, bereau } = customFields;
 
   const events = useGetEvents({
     bureau: bereau,
@@ -24,7 +23,7 @@ const Events = ({ customFields }) => {
             alt="icon-events"
             width="105"
             height="95"
-            src={deployment(`${contextPath}/resources/images/${imageName}.png`)}
+            src={deployment(`${contextPath}/resources/images/votebeat/iconEvents.png`)}
           />
         </div>
 
@@ -117,10 +116,6 @@ Events.propTypes = {
     }),
     htmlTitle: PropTypes.string.tag({
       label: "name of the html element",
-      group: "Configure Content",
-    }),
-    imageName: PropTypes.string.tag({
-      label: "Image name (e.g: votebeat/flag or chalkbeat/hart)",
       group: "Configure Content",
     }),
   }),
