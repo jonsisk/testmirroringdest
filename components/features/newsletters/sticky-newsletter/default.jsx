@@ -4,7 +4,7 @@ import getProperties from "fusion:properties";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import NewsletterSignup from "../../../base/newsletter/newsletter-signup.component";
-import { replaceSiteVariables } from "../../../helpers/site.helper";
+import { replaceSiteVariables, getSiteProperties } from "../../../helpers/site.helper";
 import useRenderForBreakpoint from "../../../hooks/use-renderforbreakpoint";
 import useSticky from "../../../hooks/use-sticky";
 import { deviceRender } from "../../../utilities/customFields";
@@ -16,12 +16,15 @@ import { newsletterInterests } from "../../../utilities/newsletters";
 const StickyNewsletterFeature = ({ customFields }) => {
   const { sticky, stickyRef } = useSticky("up");
   const context = useFusionContext();
-  const { arcSite, outputType } = context;
+  const { arcSite, outputType, globalContent } = context;
   const { newsletterSignupEndpoint, websiteName } = getProperties(arcSite);
+  const { websiteName: globalContentWebsite } = getSiteProperties(globalContent);
   const {
     title,
     description,
+    errorMsg,
     thankYouMsg,
+    buttonLabel,
     disclaimer,
     newsletter,
     renderMobile,
@@ -48,7 +51,7 @@ const StickyNewsletterFeature = ({ customFields }) => {
     }
   };
 
-  const filteredInterests = newsletterInterests
+  const filteredInterests = newsletterInterests[arcSite]
     .filter((int) => int.slug === newsletter)
     .map((int) => int.id);
 
@@ -56,13 +59,18 @@ const StickyNewsletterFeature = ({ customFields }) => {
     return null;
   }
 
-  const replacedDescription = replaceSiteVariables(description, websiteName);
+  const replacedTitle = replaceSiteVariables(title, globalContentWebsite || websiteName);
+
+  const replacedDescription = replaceSiteVariables(
+    description,
+    globalContentWebsite || websiteName
+  );
 
   return (
     <div ref={stickyRef} className={`newsletter-sticky ${!closed && sticky ? "sticky" : ""}`}>
       <div className="content">
         <div className="col-desc">
-          <h3>{title}</h3>
+          <h3>{replacedTitle}</h3>
           <p>{replacedDescription}</p>
         </div>
 
@@ -72,7 +80,9 @@ const StickyNewsletterFeature = ({ customFields }) => {
             website={arcSite}
             interestIds={filteredInterests}
             thankYouMsg={thankYouMsg}
+            errorMsg={errorMsg}
             disclaimer={disclaimer}
+            buttonLabel={buttonLabel}
           />
         </div>
         {!closed && (
@@ -116,6 +126,16 @@ StickyNewsletterFeature.propTypes = {
       label: "Thank you message",
       group: "Configure Content",
       description: "Shown after the user submits the form.",
+    }),
+    errorMsg: PropTypes.string.tag({
+      label: "Error message",
+      group: "Configure Content",
+      description: "Shown in case of error",
+    }),
+    buttonLabel: PropTypes.string.tag({
+      label: "Submit button label",
+      default: "Sign Me Up",
+      group: "Configure Content",
     }),
     disclaimer: PropTypes.richtext.tag({
       label: "Disclaimer (HTML)",

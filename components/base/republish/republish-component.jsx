@@ -6,18 +6,11 @@ import { getRepublishableArticle } from "../../helpers/republish.helper";
  * Handles the textarea display of a republished article
  */
 const RepublishComponent = ({ arcSite, article, type }) => {
-  const { websiteName, websiteDomain, republishHeader, republishFooter, parentCommunity } =
-    getProperties(arcSite);
+  const { websiteName, websiteDomain, republishHeader, republishFooter } = getProperties(arcSite);
 
   let repHeader = republishHeader;
   let repFooter = republishFooter;
 
-  if (parentCommunity) {
-    const { republishHeader: parentHeader, republishFooter: parentFooter } =
-      getProperties(parentCommunity);
-    repHeader = parentHeader;
-    repFooter = parentFooter;
-  }
   const output = getRepublishableArticle(
     article,
     type,

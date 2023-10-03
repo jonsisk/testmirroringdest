@@ -81,11 +81,13 @@ h2.sub-headline {
     font-weight: 400;
     line-height: 1.6;
   }
+
   ul > [class^="list__StyledListItem"] {
     list-style: disc;
     padding: 8px;
     margin: 0 0 0 20px;
   }
+
   ul li {
     --font: var(--font-rte-body);
     font-family: var(--font, var(--font-1));
@@ -173,7 +175,10 @@ figcaption {
 aside.sidebar {
   background-color: var(--color-sidebar-bg-color);
   padding: 24px;
-
+  @include respond-down(sm) {
+    width: 100%;
+    margin: 20px 0;
+  }
   p {
     font-size: 1.6rem;
     --font: var(--font-rte-body);
@@ -198,12 +203,20 @@ aside.sidebar {
     margin-left: 10px;
     width: 45%;
     margin-right: 5%;
+    @include respond-down(sm) {
+      width: 100%;
+      margin: 20px 0;
+    }
   }
   &.float-left {
     float: left;
     margin-right: 10px;
     width: 45%;
     margin-left: 5%;
+    @include respond-down(sm) {
+      width: 100%;
+      margin: 20px 0;
+    }
   }
 }
 
@@ -211,7 +224,6 @@ aside div:last-child {
   position: sticky;
   top: 65px;
 }
-
 .article-body-wrapper,
 main article {
   font-family: var(--font-1);
@@ -519,7 +531,18 @@ main article {
       margin-top: 0;
     }
   }
-
+  figure.article-body-image-container.article-body-image-container--mobile-right-float {
+    float: right;
+    width: 40%;
+    max-width: 360px;
+    margin: 10px 0 10px 5%;
+  }
+  figure.article-body-image-container.article-body-image-container--mobile-left-float {
+    float: left;
+    width: 40%;
+    max-width: 360px;
+    margin: 10px 5% 10px 0;
+  }
   @media only screen and (max-width: 567px) {
     .floatLeft-group,
     .floatRight-group {
@@ -548,11 +571,13 @@ main article {
   font-family: var(--font, var(--font-1));
   font-size: var(--heading-1);
   font-weight: 600;
+  line-height: 1.2;
 }
 
 .author-title {
   font-family: var(--font, var(--font-3));
   font-size: var(--body-font-size);
+  line-height: 1.2;
 }
 
 .author-bio {

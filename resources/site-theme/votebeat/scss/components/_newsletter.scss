@@ -369,6 +369,9 @@
     @include respond-down(xs) {
       max-width: 100%;
     }
+    .alert {
+      font-size: 1.5rem;
+    }
   }
 
   h1 {
@@ -622,4 +625,8 @@
       }
     }
   }
+}
+
+.thankYouMsgNews {
+  font-size: 1.75rem;
 }
