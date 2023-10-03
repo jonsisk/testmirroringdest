@@ -22,7 +22,6 @@ export const SlideCard = ({
     breakpoints,
     resizerURL,
   };
-  console.log(slide, "slide");
   const imageURL = extractImageFromStory(slide);
 
   return (

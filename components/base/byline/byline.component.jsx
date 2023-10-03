@@ -2,13 +2,13 @@
 import React from "react";
 import { getUserDate } from "../../helpers/date.helper";
 
-const Byline = ({ element, showTime = false, websiteDomain }) => {
+const Byline = ({ element, showTime = false, websiteDomain, showBorder }) => {
   const credits = element?.credits?.by;
 
   const { display_date: displayDate, publish_date: publishDate } = element;
 
   return (
-    <div className="byline">
+    <div className={showBorder === false ? "bylineNotice" : "byline"}>
       <span className="author">
         By&nbsp;
         {credits?.map((author) => {
