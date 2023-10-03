@@ -13,6 +13,7 @@ const NoticeListCivic = ({ customFields }) => {
   const {
     lazyLoad,
     columns,
+    title,
     listContentConfig: { contentService, contentConfigValues },
   } = customFields;
   const { fallbackImage, locale, primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
@@ -56,7 +57,7 @@ const NoticeListCivic = ({ customFields }) => {
 
   return (
     <LazyLoad enabled={lazyLoad && !isAdmin}>
-      <div className="List">
+      <div className="noticesListContainer">
         <NoticeCard
           arcSite={arcSite}
           columns={columns}
@@ -68,6 +69,7 @@ const NoticeListCivic = ({ customFields }) => {
           imagePropertiesFeatured={imagePropertiesFeatured}
           isServerSideLazy={isServerSideLazy}
           phrases={phrases}
+          title={title}
           showAsList={true}
           showByline={promoElements.showByline}
           showDate={promoElements.showDate}
@@ -95,6 +97,11 @@ NoticeListCivic.propTypes = {
     listContentConfig: PropTypes.contentConfig("ans-feed").tag({
       group: "Configure Content",
       label: "Display Content Info",
+    }),
+    title: PropTypes.string.tag({
+      label: "title",
+      defaultValue: "Notice List – Civic",
+      group: "Configure Content",
     }),
     showItemOverline: PropTypes.bool.tag({
       label: "Show overline",

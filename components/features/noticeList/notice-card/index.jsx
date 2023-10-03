@@ -16,6 +16,7 @@ const NoticeCard = ({
   imageProperties,
   imagePropertiesFeatured,
   isServerSideLazy = false,
+  title,
   showAsList = true,
   showByline = false,
   showDate = false,
@@ -133,40 +134,50 @@ const NoticeCard = ({
   };
 
   return viewableElements?.length > 0 && !isServerSideLazy ? (
-    <div className={`noticesContainer columns-${columns}`}>
-      {viewableElements.map((element, index) => (
-        <ResultItem
-          key={`result-card-${element._id}`}
-          ref={elementRefs[index]}
-          arcSite={arcSite}
-          element={element}
-          imageProperties={imageProperties}
-          imagePropertiesFeatured={imagePropertiesFeatured}
-          placeholderResizedImageOptions={placeholderResizedImageOptions}
-          showAsList={showAsList}
-          showByline={showByline}
-          showDate={showDate}
-          showDescription={showDescription}
-          showHeadline={showHeadline}
-          showImage={showImage}
-          showItemOverline={showItemOverline}
-          targetFallbackImage={targetFallbackImage}
-          showFeatured={showFeatured}
-          websiteName={getWebsiteName(element)}
-          globalContent={globalContent}
-        />
-      ))}
-      {isThereMore && showPagination && showAsList && (
-        <div className="see-more">
-          <Button
-            ariaLabel={"More Stories"}
-            buttonStyle={BUTTON_STYLES.PRIMARY}
-            buttonTypes={BUTTON_TYPES.LABEL_ONLY}
-            onClick={onReadMoreClick}
-            text={"More Stories"}
-          />
+    <div className="noticesListContainer">
+      <div className="PageList-header articles-slider">
+        <svg className="PageList-header-squiggly">
+          <use xlinkHref="#squiggly"></use>
+        </svg>
+        <div className="PageList-header-title-wrap">
+          <div className="PageList-header-title">{title}</div>
         </div>
-      )}
+      </div>
+      <div className={`noticesContainer columns-${columns}`}>
+        {viewableElements.map((element, index) => (
+          <ResultItem
+            key={`result-card-${element._id}`}
+            ref={elementRefs[index]}
+            arcSite={arcSite}
+            element={element}
+            imageProperties={imageProperties}
+            imagePropertiesFeatured={imagePropertiesFeatured}
+            placeholderResizedImageOptions={placeholderResizedImageOptions}
+            showAsList={showAsList}
+            showByline={showByline}
+            showDate={showDate}
+            showDescription={showDescription}
+            showHeadline={showHeadline}
+            showImage={showImage}
+            showItemOverline={showItemOverline}
+            targetFallbackImage={targetFallbackImage}
+            showFeatured={showFeatured}
+            websiteName={getWebsiteName(element)}
+            globalContent={globalContent}
+          />
+        ))}
+        {isThereMore && showPagination && showAsList && (
+          <div className="see-more">
+            <Button
+              ariaLabel={"More Stories"}
+              buttonStyle={BUTTON_STYLES.PRIMARY}
+              buttonTypes={BUTTON_TYPES.LABEL_ONLY}
+              onClick={onReadMoreClick}
+              text={"More Stories"}
+            />
+          </div>
+        )}
+      </div>
     </div>
   ) : null;
 };
