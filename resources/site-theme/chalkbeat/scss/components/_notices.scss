@@ -1,0 +1,45 @@
+.noticesListContainer {
+  margin-top: 24px;
+  .noticesContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    grid-row-gap: 30px;
+    grid-column-gap: 20px;
+    padding: 0;
+    .article-slide {
+      .overline {
+        display: none;
+      }
+    }
+    &.columns-2 {
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 3.75rem;
+      .article-slide {
+        picture {
+          padding-right: 2rem;
+        }
+        h2.headline-text {
+          font-family: var(--font, var(--font-1));
+          font-size: var(--title-3);
+          line-height: 1.2;
+          font-weight: 700;
+        }
+      }
+    }
+    &.columns-3 {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    &.columns-4 {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      .article-slide {
+        h2.headline-text {
+          font-family: var(--font, var(--font-1));
+          font-size: var(--title-5);
+          letter-spacing: normal;
+          line-height: 1.2;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
