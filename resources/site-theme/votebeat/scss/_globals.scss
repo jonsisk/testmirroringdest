@@ -53,11 +53,11 @@ h5 {
   margin-right: auto !important;
   margin-left: auto !important;
   width: 100%;
-  @include respond-up(xs) {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    max-width: 730px !important;
-  }
+  // @include respond-up(xs) {
+  //   padding-left: 16px !important;
+  //   padding-right: 16px !important;
+  //   max-width: 730px !important;
+  // }
   @include respond-up(lg) {
     width: 1100px;
   }
