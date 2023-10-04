@@ -1,6 +1,6 @@
-import getResizedImageData from "@wpmedia/resizer-image-block";
 import axios from "axios";
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from "fusion:environment";
+import getResizedImageData from "../../components/helpers/image.helper";
 
 const fetch = async ({ _id, section, website_url, "arc-site": arcSite }) => {
   // get the article

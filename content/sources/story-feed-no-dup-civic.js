@@ -4,7 +4,7 @@
  * context, and includes stories that have been rendered by
  * other components on the page.
  */
-import getResizedImageData from "@wpmedia/resizer-image-block";
+import getResizedImageData from "../../components/helpers/image.helper";
 
 const params = {
   includeSections: "text",

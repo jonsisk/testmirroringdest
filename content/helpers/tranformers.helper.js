@@ -1,5 +1,5 @@
-import getResizedImageData from "@wpmedia/resizer-image-block";
 import getProperties from "fusion:properties";
+import getResizedImageData from "../../components/helpers/image.helper";
 
 export const transformFeedData = (data, query) => {
   const transformedData = getResizedImageData(data, null, null, null, query["arc-site"]);
