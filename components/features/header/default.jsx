@@ -21,6 +21,7 @@ const Header = ({ customFields }) => {
     topicsHierachy,
     aboutUsCopy,
     aboutUsUrl,
+    donateUrl,
   } = customFields;
 
   const communities = useContent({
@@ -53,6 +54,7 @@ const Header = ({ customFields }) => {
           communitiesTitle={communitiesTitle}
           communityNavigation={communities}
           logoHref={globalContent?.site_section ? globalContent?.site_section._id : "/"}
+          donateUrl={donateUrl}
         />
       </div>
     )) || (
@@ -106,6 +108,10 @@ Header.propTypes = {
     aboutUsUrl: PropTypes.string.tag({
       defaultValue: "https://www.votebeat.org/pages/about-votebeat",
       label: "About Us URL",
+      group: "Configure Content",
+    }),
+    donateUrl: PropTypes.string.tag({
+      label: "Donate URL",
       group: "Configure Content",
     }),
   }),
