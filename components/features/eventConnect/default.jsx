@@ -94,28 +94,28 @@ Events.propTypes = {
       group: "Configure Content",
     }),
     subtitle: PropTypes.string.tag({
-      label: "SubTitle",
+      label: "Subtitle",
       group: "Configure Content",
     }),
     buttonLink: PropTypes.string.tag({
-      label: "linkButton",
+      label: "Button Link",
       group: "Configure Content",
       ctaUrl: PropTypes.string,
     }),
     count: PropTypes.number.tag({
-      label: "count",
+      label: "Amount",
       group: "Configure Content",
     }),
     bereau: PropTypes.string.tag({
-      label: "bereau",
+      label: "Bureau",
       group: "Configure Content",
     }),
     buttonLabel: PropTypes.string.tag({
-      label: "labelButton",
+      label: "Button Label",
       group: "Configure Content",
     }),
     htmlTitle: PropTypes.string.tag({
-      label: "name of the html element",
+      label: "Events title",
       group: "Configure Content",
     }),
   }),

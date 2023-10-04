@@ -20,7 +20,6 @@ $breakpoints: (
 
 // @include respond-above(sm) {}
 @mixin respond-up($breakpoint) {
-
   // If the breakpoint exists in the map.
   @if map-has-key($breakpoints, $breakpoint) {
     // Get the breakpoint value.
@@ -32,9 +31,7 @@ $breakpoints: (
     }
 
     // If the breakpoint doesn't exist in the map.
-  }
-
-  @else {
+  } @else {
     // Log a warning.
     @warn 'Invalid breakpoint: #{$breakpoint}.';
   }
@@ -42,7 +39,6 @@ $breakpoints: (
 
 // @include respond-below(sm) {}
 @mixin respond-down($breakpoint) {
-
   // If the breakpoint exists in the map.
   @if map-has-key($breakpoints, $breakpoint) {
     // Get the breakpoint value.
@@ -54,9 +50,7 @@ $breakpoints: (
     }
 
     // If the breakpoint doesn't exist in the map.
-  }
-
-  @else {
+  } @else {
     // Log a warning.
     @warn 'Invalid breakpoint: #{$breakpoint}.';
   }
@@ -64,7 +58,6 @@ $breakpoints: (
 
 // @include respond-between(sm, md) {}
 @mixin respond-between($lower, $upper) {
-
   // If both the lower and upper breakpoints exist in the map.
   @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
     // Get the lower and upper breakpoints.
@@ -77,18 +70,15 @@ $breakpoints: (
     }
 
     // If one or both of the breakpoints don't exist.
-  }
-
-  @else {
-
+  } @else {
     // If lower breakpoint is invalid.
-    @if (map-has-key($breakpoints, $lower)==false) {
+    @if (map-has-key($breakpoints, $lower) ==false) {
       // Log a warning.
       @warn 'Your lower breakpoint was invalid: #{$lower}.';
     }
 
     // If upper breakpoint is invalid.
-    @if (map-has-key($breakpoints, $upper)==false) {
+    @if (map-has-key($breakpoints, $upper) ==false) {
       // Log a warning.
       @warn 'Your upper breakpoint was invalid: #{$upper}.';
     }
@@ -98,14 +88,12 @@ $breakpoints: (
 @mixin media-breakpoint-only($screen) {
   @if map-has-key($breakpoints, $screen) {
     $min-width: map-get($breakpoints, $screen);
-    $max-width: if($screen =='xs', 0, map-get($breakpoints, $screen - 1));
+    $max-width: if($screen == "xs", 0, map-get($breakpoints, $screen - 1));
 
     @media (min-width: $min-width) and (max-width: $max-width) {
       @content;
     }
-  }
-
-  @else {
+  } @else {
     @warn "No existe un breakpoint llamado '#{$screen}' en el mapa de breakpoints.";
   }
 }

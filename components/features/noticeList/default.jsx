@@ -79,7 +79,7 @@ const NoticeListCivic = ({ customFields }) => {
           showItemOverline={promoElements.showItemOverline}
           targetFallbackImage={targetFallbackImage}
           showPagination={promoElements.showPagination}
-          showFeatured={promoElements.showFeatured}
+          showFeatured={false}
           filteredArticles={articles}
           globalContent={globalContent}
         />
@@ -88,7 +88,7 @@ const NoticeListCivic = ({ customFields }) => {
   );
 };
 
-NoticeListCivic.label = "Notice List – Civic";
+NoticeListCivic.label = "Story Grid – Civic";
 
 NoticeListCivic.icon = "arc-list";
 
@@ -100,7 +100,6 @@ NoticeListCivic.propTypes = {
     }),
     title: PropTypes.string.tag({
       label: "title",
-      defaultValue: "Notice List – Civic",
       group: "Configure Content",
     }),
     showItemOverline: PropTypes.bool.tag({
@@ -140,11 +139,6 @@ NoticeListCivic.propTypes = {
     }),
     showPagination: PropTypes.bool.tag({
       label: "Show pagination",
-      defaultValue: true,
-      group: "Show promo elements",
-    }),
-    showFeatured: PropTypes.bool.tag({
-      label: "Show featured article layout",
       defaultValue: true,
       group: "Show promo elements",
     }),

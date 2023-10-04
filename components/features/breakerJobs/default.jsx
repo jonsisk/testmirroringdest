@@ -60,7 +60,7 @@ const BreakerJobs = ({ customFields }) => {
   );
 };
 
-BreakerJobs.label = "BreakerJobs – Civic";
+BreakerJobs.label = "Jobs – Civic";
 
 BreakerJobs.icon = "arc-list";
 
@@ -71,20 +71,20 @@ BreakerJobs.propTypes = {
       group: "Configure Content",
     }),
     buttonLink: PropTypes.string.tag({
-      label: "linkButton",
+      label: "Button Link",
       group: "Configure Content",
       ctaUrl: PropTypes.string,
     }),
     buttonLabel: PropTypes.string.tag({
-      label: "labelButton",
+      label: "Button Label",
       group: "Configure Content",
     }),
     bereau: PropTypes.string.tag({
-      label: "bereau",
+      label: "Bureau",
       group: "Configure Content",
     }),
     htmlTitle: PropTypes.string.tag({
-      label: "name of the html element",
+      label: "Subtitle",
       group: "Configure Content",
     }),
   }),
