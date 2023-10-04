@@ -142,13 +142,9 @@ StickyNewsletterFeature.propTypes = {
       group: "Configure Content",
       description: "Shown below the form. Accepts HTML.",
     }),
-    newsletter: PropTypes.oneOf([
-      "votebeat-national",
-      "votebeat-arizona",
-      "votebeat-michigan",
-      "votebeat-pennsylvania",
-      "votebeat-texas",
-    ]).tag({
+    newsletter: PropTypes.oneOf(
+      [].concat(...Object.values(newsletterInterests).map((list) => list.map((item) => item.slug)))
+    ).tag({
       defaultValue: "votebeat-national",
       label: "Newsletter",
       group: "Configure Content",
