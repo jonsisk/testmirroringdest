@@ -15,7 +15,7 @@ const Promo = ({ customFields }) => {
           <div className="GenericPagePromoModule-icon">
             <img
               className="Image"
-              alt="Flag"
+              alt={imageName}
               width="52"
               height="68"
               src={deployment(`${contextPath}/resources/images/${imageName}.png`)}
@@ -42,7 +42,7 @@ const Promo = ({ customFields }) => {
   );
 };
 
-Promo.label = "Promo - Civic";
+Promo.label = "Promo Banner - Civic";
 Promo.description = "Right rail promo banner";
 Promo.static = true;
 
@@ -68,8 +68,8 @@ Promo.propTypes = {
       label: "Background Color in hex (e.g: #fce487)",
       group: "Configure Content",
     }),
-    imageName: PropTypes.string.tag({
-      label: "Image name (e.g: votebeat/flag or chalkbeat/hart)",
+    imageName: PropTypes.oneOf(["flag", "heart"]).tag({
+      label: "Image",
       group: "Configure Content",
     }),
   }),
