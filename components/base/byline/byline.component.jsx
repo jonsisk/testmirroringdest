@@ -2,7 +2,7 @@
 import React from "react";
 import { getUserDate } from "../../helpers/date.helper";
 
-const Byline = ({ element, showTime = false, websiteDomain, showBorder }) => {
+const Byline = ({ element, showTime = true, websiteDomain, showBorder }) => {
   const credits = element?.credits?.by;
 
   const { display_date: displayDate, publish_date: publishDate } = element;
@@ -25,9 +25,14 @@ const Byline = ({ element, showTime = false, websiteDomain, showBorder }) => {
           }
         })}
       </span>
-      {displayDate && <span className="date"> {getUserDate(displayDate, showTime)}</span>}
+      <span className="separator">&nbsp;|&nbsp;</span>
+      {displayDate && <span className="date">{getUserDate(displayDate, showTime)}</span>}
+
       {publishDate && showTime && (
-        <span className="date"> | Updated: {getUserDate(publishDate, showTime)}</span>
+        <>
+          <span className="separator">&nbsp;|&nbsp;</span>
+          <span className="date">Updated: {getUserDate(publishDate, showTime)}</span>
+        </>
       )}
     </div>
   );
