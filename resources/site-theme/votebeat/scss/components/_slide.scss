@@ -2,6 +2,13 @@
   height: 50%;
   width: 100%;
   border: none;
+  @include respond-down(xs) {
+    width: 80vw;
+    overflow: visible !important;
+  }
+  @include respond-up(xs) {
+    margin: 0 -30px 60px -30px;
+  }
   .slick-list {
     padding-bottom: 24px;
   }
@@ -42,6 +49,7 @@
     justify-content: center;
     @include respond-down(xs) {
       opacity: 0.5;
+      display: none !important;
     }
     svg {
       width: 15px;
@@ -75,6 +83,8 @@
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    @media screen {
+    }
   }
 
   .article-slide {
@@ -177,6 +187,9 @@
     }
   }
   @include respond-down(xs) {
+    .slick-list {
+      overflow: visible !important;
+    }
     .slick-track {
       height: auto;
       .slick-slide {
@@ -188,9 +201,13 @@
       flex-direction: row;
       height: auto;
       padding: 0 20px;
+      @include respond-down(xs) {
+        padding: 0;
+      }
       picture {
         width: 100px;
         flex: 0 0 100px;
+        padding-right: 16px;
         img {
           width: 100px;
           height: auto;
