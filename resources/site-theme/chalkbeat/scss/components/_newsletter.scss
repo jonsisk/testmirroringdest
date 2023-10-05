@@ -166,7 +166,7 @@
     grid-template-columns: 1fr;
     display: grid;
     width: 50%;
-    background-color: var(--color-primary);
+    background-color: var(--color-form-background);
     padding: 24px;
     text-align: center;
     height: fit-content;
@@ -182,7 +182,7 @@
     &.horizontal {
       grid-template-columns: 1fr;
       display: grid;
-      background-color: var(--color-primary);
+      background-color: var(--color-form-background);
       padding: 16px;
       text-align: center;
       height: fit-content;
@@ -207,7 +207,7 @@
         display: flex;
         content: "";
         width: 100%;
-        background-color: var(--color-primary);
+        background-color: var(--color-form-background);
         padding: 24px;
         text-align: center;
         height: 200px;
@@ -520,7 +520,7 @@
 }
 
 .newsletter-composer {
-  background-color: var(--color-primary);
+  background-color: var(--color-form-background);
   padding: 24px;
 
   a {
