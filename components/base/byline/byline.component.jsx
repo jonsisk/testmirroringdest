@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import React from "react";
-import { getUserDate } from "../../helpers/date.helper";
+import { getUserDate, isDateAfter } from "../../helpers/date.helper";
 
 const Byline = ({ element, showTime = true, websiteDomain, showBorder }) => {
   const credits = element?.credits?.by;
@@ -28,7 +28,8 @@ const Byline = ({ element, showTime = true, websiteDomain, showBorder }) => {
       <span className="separator">&nbsp;|&nbsp;</span>
       {displayDate && <span className="date">{getUserDate(displayDate, showTime)}</span>}
 
-      {publishDate && showTime && (
+      {/* print only if publishDate is after displayDate */}
+      {isDateAfter(publishDate, displayDate) && showTime && (
         <>
           <span className="separator">&nbsp;|&nbsp;</span>
           <span className="date">Updated: {getUserDate(publishDate, showTime)}</span>

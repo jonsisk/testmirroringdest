@@ -28,6 +28,14 @@ export const getDateForMetadata = (date) => {
   return dayjs.utc(date).tz("America/New_York").format(FORMAT);
 };
 
+export const isDateAfter = (date1, date2) => {
+  if (!date1 || !date2) {
+    return null;
+  }
+
+  return dayjs(date1).isAfter(date2);
+};
+
 export const getUserDate = (date, showTime = false) => {
   if (!date) {
     return null;
