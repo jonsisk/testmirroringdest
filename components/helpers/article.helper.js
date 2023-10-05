@@ -62,7 +62,12 @@ export const getPrimarySection = (element, globalContent) => {
     };
   }
 
-  if (!primarySection || primarySection?._id === globalContent?.site_section?._id) return null;
+  if (
+    !primarySection ||
+    primarySection?._id === globalContent?.site_section?._id ||
+    primarySection?.additional_properties.original?.site?.disabled
+  )
+    return null;
 
   return {
     name: primarySection.name,

@@ -43,7 +43,7 @@
         grid-area: 1 / 2 / 2 / 3;
         display: flex;
 
-        .PageListH-items-item  {
+        .PageListH-items-item {
           width: 50%;
           padding-top: 0;
           padding-bottom: 0;
@@ -78,7 +78,7 @@
       grid-area: 2 / 2 / 3 / 3;
       display: flex;
 
-      .PageListH-items-item  {
+      .PageListH-items-item {
         width: 50%;
         padding-top: 0;
         border-top: none;
@@ -133,7 +133,7 @@
   }
 
   &.ListU {
-    grid-template-columns: .5fr .25fr .25fr;
+    grid-template-columns: 0.5fr 0.25fr 0.25fr;
 
     .PageListP-items-column {
       &:nth-child(2) {
@@ -178,8 +178,8 @@
   }
 
   &.ListZ {
-    grid-auto-columns: 1fr; 
-    grid-template-columns: .5fr 0.5fr; 
+    grid-auto-columns: 1fr;
+    grid-template-columns: 0.5fr 0.5fr;
     grid-template-rows: auto auto;
 
     .PageListP-items-column {
@@ -230,15 +230,15 @@
 
   @media (min-width: 769px) {
     &.ListA {
-      .items-row-below {  
+      .items-row-below {
         .PageListH-items-item {
           flex-basis: 25%;
           padding-right: 15px;
-          
+
           .PagePromo-media {
             width: 100%;
           }
-  
+
           .PagePromo-standard {
             flex-direction: column;
           }
@@ -249,7 +249,7 @@
     &.ListU {
       .PageListP-items-column {
         &:nth-child(3) {
-          .PageListH-items-item  {
+          .PageListH-items-item {
             padding-top: 12px;
 
             &:first-child {
@@ -273,14 +273,14 @@
         }
       }
 
-      .items-row-below {  
+      .items-row-below {
         .PageListH-items-item {
           width: 50%;
-  
+
           &:nth-child(odd) {
             padding-right: 10px;
           }
-  
+
           &:nth-child(even) {
             padding-left: 10px;
           }
