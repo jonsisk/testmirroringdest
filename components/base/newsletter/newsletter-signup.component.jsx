@@ -100,7 +100,7 @@ const NewsletterSignup = ({
               <span className="TextInput-Newsletter-wrap">
                 <input type="email" name="email" onChange={handleInputChange} required />
                 <button type="submit" className="buttonContainer" disabled={isSubmitting}>
-                  {buttonLabel || "Submit"}
+                  {buttonLabel || "Sign Me Up"}
                 </button>
               </span>
             )}
