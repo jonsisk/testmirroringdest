@@ -1,14 +1,4 @@
 .results-list-container {
-  &.ListG {
-    .PageListP-items-column:last-of-type {
-      grid-template-columns: 2fr;
-    }
-
-    .PagePromo-author .byline {
-      padding-bottom: 0;
-    }
-  }
-
   &.ListA {
     .PageListP-items-column {
       grid-area: 1 / 1 / 2 / 2;
@@ -40,21 +30,93 @@
     .items-row-below {
       display: flex;
       flex-wrap: wrap;
+    }
+  }
 
-      .PageListH-items-item {
-        flex-basis: 25%;
-        padding-right: 15px;
+  &.ListAH {
+    .PageListP-items-column {
+      &:nth-child(1) {
+        grid-area: 1 / 1 / 3 / 2;
+      }
+
+      &:nth-child(2) {
+        grid-area: 1 / 2 / 2 / 3;
+        display: flex;
+
+        .PageListH-items-item  {
+          width: 50%;
+          padding-top: 0;
+          padding-bottom: 0;
+          border-top: none;
+
+          &:nth-child(1) {
+            padding-right: 10px;
+          }
+
+          &:nth-child(2) {
+            padding-left: 10px;
+          }
+        }
 
         .PagePromo-standard {
           flex-direction: column;
+
+          .PagePromo-media {
+            width: 100%;
+            margin-right: 0;
+          }
         }
 
-        .PagePromo-media {
-          width: 100%;
+        .PagePromo-author .byline {
+          padding-bottom: 0;
+          margin-bottom: 0;
         }
       }
     }
 
+    .items-row-below {
+      grid-area: 2 / 2 / 3 / 3;
+      display: flex;
+
+      .PageListH-items-item  {
+        width: 50%;
+        padding-top: 0;
+        border-top: none;
+
+        &:nth-child(1) {
+          padding-right: 10px;
+        }
+
+        &:nth-child(2) {
+          padding-left: 10px;
+        }
+      }
+
+      .PagePromo-standard {
+        flex-direction: column;
+        padding-top: var(--listItemPadding);
+        border-top: 1px solid var(--color-list-border);
+
+        .PagePromo-media {
+          display: none;
+        }
+      }
+
+      .PagePromo-author .byline {
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &.ListG {
+    .PageListP-items-column:last-of-type {
+      grid-template-columns: 2fr;
+    }
+
+    .PagePromo-author .byline {
+      padding-bottom: 0;
+    }
   }
 
   &.ListP {
@@ -134,7 +196,6 @@
 
         .PagePromo-author .byline {
           padding-bottom: 0;
-          margin-bottom: 0;
         }
       }
     }
@@ -145,18 +206,12 @@
       flex-wrap: wrap;
 
       .PageListH-items-item {
-        width: 50%;
-
-        &:nth-child(odd) {
-          padding-right: 10px;
-        }
-
-        &:nth-child(even) {
-          padding-left: 10px;
-        }
+        border-top: none;
       }
 
       .PagePromo-standard {
+        border-top: 1px solid var(--color-list-border);
+
         .PagePromo-media {
           display: none;
         }
@@ -165,6 +220,93 @@
       .PagePromo-author .byline {
         padding-bottom: 0;
         margin-bottom: 0;
+      }
+
+      .PagePromo-title a {
+        font-size: 18px;
+      }
+    }
+  }
+
+  @media (min-width: 769px) {
+    &.ListA {
+      .items-row-below {  
+        .PageListH-items-item {
+          flex-basis: 25%;
+          padding-right: 15px;
+          
+          .PagePromo-media {
+            width: 100%;
+          }
+  
+          .PagePromo-standard {
+            flex-direction: column;
+          }
+        }
+      }
+    }
+
+    &.ListU {
+      .PageListP-items-column {
+        &:nth-child(3) {
+          .PageListH-items-item  {
+            padding-top: 12px;
+
+            &:first-child {
+              padding-top: 0;
+            }
+          }
+
+          .PagePromo-title {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+
+    &.ListZ {
+      .PageListP-items-column {
+        &:nth-child(2) {
+          .PagePromo-author .byline {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .items-row-below {  
+        .PageListH-items-item {
+          width: 50%;
+  
+          &:nth-child(odd) {
+            padding-right: 10px;
+          }
+  
+          &:nth-child(even) {
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    &.ListA {
+      .PageListP-items-column {
+        &:nth-child(1) {
+          padding-bottom: 12px;
+        }
+      }
+
+      .items-row-below {
+        flex-direction: column;
+      }
+    }
+
+    &.ListZ {
+      .items-row-below {
+        .PageListH-items-item {
+          width: 100%;
+        }
       }
     }
   }
