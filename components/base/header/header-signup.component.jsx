@@ -15,6 +15,7 @@ const HeaderSignup = ({
   communitiesTitle,
   topicsTitle,
   logoHref,
+  donateUrl,
 }) => {
   const global = useBrowserGlobals();
   const [showCommunityPanel, setShowCommunityPanel] = useState(false);
@@ -237,11 +238,7 @@ const HeaderSignup = ({
               Sign Up
             </a>
 
-            <a
-              href="https://checkout.fundjournalism.org/memberform?org_id=chalkbeat&campaign=7015A000001PuQv"
-              className="Button donate-button"
-              data-cms-ai="0"
-            >
+            <a href={donateUrl} className="Button donate-button" data-cms-ai="0">
               Donate
             </a>
           </div>

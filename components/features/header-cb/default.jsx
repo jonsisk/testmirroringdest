@@ -22,6 +22,7 @@ const Header = ({ customFields }) => {
     topicsTitle,
     topicsHierachy,
     linksHierachy,
+    donateUrl,
   } = customFields;
 
   const communities = useContent({
@@ -61,6 +62,7 @@ const Header = ({ customFields }) => {
           communityNavigation={communities}
           linksNavigation={links}
           logoHref={globalContent?.site_section ? globalContent?.site_section._id : "/"}
+          donateUrl={donateUrl}
         />
       </div>
     )) || (
@@ -108,6 +110,10 @@ Header.propTypes = {
     linksHierachy: PropTypes.string.tag({
       defaultValue: "sections-menu",
       label: "Links Hierarchy",
+      group: "Configure Content",
+    }),
+    donateUrl: PropTypes.string.tag({
+      label: "Donate URL",
       group: "Configure Content",
     }),
   }),

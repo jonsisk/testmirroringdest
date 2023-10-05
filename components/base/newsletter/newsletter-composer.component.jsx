@@ -42,6 +42,7 @@ const NewsletterComposer = ({ embed }) => {
             website={arcSite}
             interestIds={composerNewsletter}
             thankYouMsg={thankYouMsg}
+            layout="powerup"
           />
 
           <p className="small">

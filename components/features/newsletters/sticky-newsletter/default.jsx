@@ -83,6 +83,7 @@ const StickyNewsletterFeature = ({ customFields }) => {
             errorMsg={errorMsg}
             disclaimer={disclaimer}
             buttonLabel={buttonLabel}
+            layout="sticky"
           />
         </div>
         {!closed && (
