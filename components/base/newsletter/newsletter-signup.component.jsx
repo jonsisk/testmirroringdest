@@ -110,16 +110,41 @@ const NewsletterSignup = ({
           )}
           <input type="hidden" name="recaptcha" value={recaptchaValue} />
 
-          {layout !== "horizontal" && (
-            <div className="buttonContainer">
-              <button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Sending..." : buttonLabel || "Sign Me Up"}
-              </button>
-            </div>
+          {layout == "vertical" && (
+            <>
+              <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
+              <div className="buttonContainer">
+                <button type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : buttonLabel || "Sign Me Up"}
+                </button>
+              </div>
+            </>
+          )}
+          {layout == "sticky" && (
+            <>
+              <div className="buttonContainer">
+                <button type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : buttonLabel || "Sign Me Up"}
+                </button>
+              </div>
+              <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
+            </>
+          )}
+          {layout == "horizontal" && (
+            <>
+              <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
+            </>
+          )}
+          {layout == "powerup" && (
+            <>
+              <div className="buttonContainer">
+                <button type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : buttonLabel || "Sign Me Up"}
+                </button>
+              </div>
+            </>
           )}
           {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-
-          <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
         </form>
       ) : (
         <p className="thankYouMsgNews">{thankYouMsg}</p>
