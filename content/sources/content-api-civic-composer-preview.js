@@ -1,6 +1,7 @@
 import axios from "axios";
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from "fusion:environment";
 import getResizedImageData from "../../components/helpers/image.helper";
+import { addAdPath } from "../helpers/tranformers.helper";
 
 const fetch = async ({ _id, section, "arc-site": arcSite }) => {
   // get the article
@@ -17,7 +18,10 @@ const fetch = async ({ _id, section, "arc-site": arcSite }) => {
   // we convert it to a section meaning
   // going from vb-arizona to /arizona
   // we ignore vb-national
-  if (!section) return articleData;
+  if (!section) {
+    addAdPath(articleData, arcSite);
+    return articleData;
+  }
   const actualSection = section?.split("-")?.[1];
   const sectionName = actualSection !== "national" ? `/${actualSection}` : null;
 
@@ -34,6 +38,7 @@ const fetch = async ({ _id, section, "arc-site": arcSite }) => {
   });
 
   articleData["site_section"] = sectionData;
+  addAdPath(articleData);
   return articleData;
 };
 

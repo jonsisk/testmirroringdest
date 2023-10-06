@@ -1,6 +1,7 @@
 import axios from "axios";
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from "fusion:environment";
 import getResizedImageData from "../../components/helpers/image.helper";
+import { addAdPath } from "../helpers/tranformers.helper";
 
 const fetch = async ({ _id, section, website_url, "arc-site": arcSite }) => {
   // get the article
@@ -15,7 +16,10 @@ const fetch = async ({ _id, section, website_url, "arc-site": arcSite }) => {
     },
   });
 
-  if (!section) return articleData;
+  if (!section) {
+    addAdPath(articleData, arcSite);
+    return articleData;
+  }
 
   const { data: sectionData } = await axios({
     method: "GET",
@@ -29,6 +33,8 @@ const fetch = async ({ _id, section, website_url, "arc-site": arcSite }) => {
   });
 
   articleData["site_section"] = sectionData;
+  addAdPath(articleData);
+
   return articleData;
 };
 
