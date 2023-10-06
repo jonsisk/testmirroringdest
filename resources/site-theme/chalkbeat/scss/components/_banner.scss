@@ -1,117 +1,121 @@
 .banner {
-    display: inherit;
-    background: var(--color-banner-bg);
-    color: var(--color-banner-text);
-    padding: 0;
-    margin: 0;
-    position: relative;
-    height: auto;
+  display: inherit;
+  background: var(--color-banner-bg);
+  color: var(--color-banner-text);
+  padding: 0;
+  margin: 0;
+  position: relative;
+  height: auto;
 }
 
 @media only screen and (min-width: 768px) {
-    .banner {
-        padding-left: 32px;
-        padding-right: 32px
-    }
+  .banner {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 }
 
 @media only screen and (min-width: 1100px) {
-    .banner {
-        padding-left: 32px;
-        padding-right: 32px
-    }
+  .banner {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 }
 
 @media only screen and (min-width: 1280px) {
-    .banner {
-        padding-left: 60px;
-        padding-right: 60px
-    }
+  .banner {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
 }
 
 @media only screen and (min-width: 1100px) {
-    .banner {
-        padding-left: calc(50% - 542px);
-        padding-right: calc(50% - 542px)
+  .banner {
+    .banner-content {
+      justify-content: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      line-height: 1.2;
     }
-
-    .banner[data-width=full-constrained] {
-        padding-left: calc(50% - 365px);
-        padding-right: calc(50% - 365px)
-    }
+  }
 }
 
 .banner-content {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: flex-start;
 }
 
 .banner-close {
-    align-items: center;
-    background: none;
-    border: 0;
-    cursor: pointer;
-    right: 10px;
-    top: calc(50% - 18px);
-    position: absolute;
-    width: 30px
+  align-items: center;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  right: 10px;
+  top: calc(50% - 10px);
+  position: absolute;
+  width: 30px;
 }
 
 .banner-close svg {
-    fill: var(--color-banner-text);
-    height: 15px;
-    width: 15px
+  fill: var(--color-banner-text);
+  height: 15px;
+  width: 15px;
 }
 
 .banner-link {
-    font-family: var(--font-3);
-    font-size: 1.8rem;
-    font-weight: 400;
-    display: block;
-    flex-grow: 1;
-    text-decoration: underline;
-    color: var(--color-banner-link-text)
+  font-family: var(--font-3);
+  font-size: 1.8rem;
+  font-weight: 400;
+  display: block;
+  flex-grow: 0;
+  text-decoration: underline;
+  color: var(--color-banner-link-text);
 }
 
 .banner-link:hover {
-    color: var(--color-banner-link-text-hover)
+  color: var(--color-banner-link-text-hover);
 }
 
 .banner a {
-    --color-link-text: var(--color-primary);
-    margin-right: 24px;
-    line-height: 1.2;
+  --color-link-text: var(--color-primary);
+  margin-right: 24px;
+  line-height: 1.2;
 }
 
 .banner-title {
-    font-weight: 400;
-    font-size: 1.6rem;
+  font-weight: bolder;
+  font-family: var(--font, var(--font-1));
+  font-size: 1.6rem;
+  margin-right: 1.375rem;
 }
 
-.banner[data-banner=show] {
-    display: block
+.banner[data-banner="show"] {
+  display: block;
 }
 
 @media only screen and (max-width: 567px) {
-    .banner-title {
-        min-width: 100%
-    }
+  .banner-title {
+    min-width: 100%;
+  }
 }
 
 @media only screen and (min-width: 568px) {
-    .banner-title {
-        font-size: 2.6rem
-    }
+  .banner-title {
+    font-size: var(--title-4);
+    letter-spacing: normal;
+    line-height: 1.2;
+  }
 
-    .banner-link {
-        text-align: center
-    }
+  .banner-link {
+    text-align: center;
+  }
 }
 
 @media only screen and (min-width: 768px) {
-    .banner-close {
-        right: 30px
-    }
+  .banner-close {
+    right: 30px;
+  }
 }
