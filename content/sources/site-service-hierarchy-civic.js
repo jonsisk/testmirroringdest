@@ -1,7 +1,7 @@
 export default {
   resolve(resolveParams) {
-    const { hierarchy, sectionId, site } = resolveParams;
-    return `/site/v3/navigation/${site}?${hierarchy ? `hierarchy=${hierarchy}` : ""}${
+    const { hierarchy, sectionId, "arc-site": arcSite } = resolveParams;
+    return `/site/v3/navigation/${arcSite}?${hierarchy ? `hierarchy=${hierarchy}` : ""}${
       sectionId ? `&_id=${sectionId}` : ""
     }`;
   },
@@ -9,7 +9,6 @@ export default {
   params: {
     hierarchy: "text",
     sectionId: "text",
-    site: "text",
   },
   transform: (data, query) => {
     let idMatch = false;
