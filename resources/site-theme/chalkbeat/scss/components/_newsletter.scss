@@ -37,6 +37,7 @@
       p {
         font-size: 1.75rem;
         margin-bottom: 0;
+        padding-right: 1rem;
         letter-spacing: 0px;
         font-family: var(--font-2);
         color: #fff;
@@ -83,12 +84,13 @@
           }
         }
         input {
-          flex: 0 0 64%;
+          flex: 0 0 60%;
           border-color: var(--color-white);
           border: 1px solid #fff;
           font-size: 1.35rem;
           padding: 4px;
-          height: auto;
+          margin-bottom: 8px;
+          height: 36px;
           width: 100%;
           color: var(--color-black) !important;
           line-height: 1.6;
@@ -143,6 +145,7 @@
         border: 0;
         background: none;
         cursor: pointer;
+        white-space: nowrap;
 
         svg {
           margin-left: 4px;
