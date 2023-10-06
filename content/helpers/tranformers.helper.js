@@ -8,3 +8,16 @@ export const addAdPath = (content, arcSite) => {
     content["adpath"] = getProperties(arcSite)?.gamSiteId;
   }
 };
+
+/** Do transformation on article/story data needed for customization
+ * e.g.: - remove image credit creators to avoid concatenation
+ */
+export const processArticleData = (article) => {
+  // remove image credit name, leave only 'affiliation' field
+  // remove it from lead image
+  if (article?.promo_items?.basic?.type === "image") {
+    article.promo_items.basic.credits.by = [];
+  }
+
+  return article;
+};
