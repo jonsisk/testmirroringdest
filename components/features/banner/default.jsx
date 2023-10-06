@@ -31,7 +31,9 @@ const Banner = ({ customFields }) => {
         </a>
 
         <button className="banner-close" onClick={handleClick}>
-          <span>X</span>
+          <svg id="close-x" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.336 7L0 .664.664 0 7 6.336 13.336 0 14 .664 7.664 7 14 13.336l-.664.664L7 7.664.664 14 0 13.336 6.336 7z"></path>
+          </svg>
         </button>
       </div>
     </div>

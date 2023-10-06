@@ -2,6 +2,13 @@
   height: 50%;
   width: 100%;
   border: none;
+  @include respond-down(xs) {
+    width: 80vw;
+    overflow: visible !important;
+  }
+  @include respond-up(xs) {
+    margin: 0 -30px 60px -30px;
+  }
   .slick-list {
     padding-bottom: 24px;
   }
@@ -40,7 +47,10 @@
     align-content: center;
     align-items: center;
     justify-content: center;
-
+    @include respond-down(xs) {
+      opacity: 0.5;
+      display: none !important;
+    }
     svg {
       width: 15px;
       height: 15px;
@@ -78,7 +88,7 @@
   .article-slide {
     picture {
       width: 100%;
-      padding-right: 16px;
+      // padding-right: 16px;
       img {
         width: 100%;
         height: auto;
@@ -175,10 +185,13 @@
     }
   }
   @include respond-down(xs) {
+    .slick-list {
+      overflow: visible !important;
+    }
     .slick-track {
       height: auto;
       .slick-slide {
-        padding: 0 80px 0 0;
+        padding: 0 100px 0 0;
       }
     }
     .article-slide {
@@ -186,17 +199,19 @@
       flex-direction: row;
       height: auto;
       padding: 0 20px;
+      @include respond-down(xs) {
+        padding: 0;
+      }
       picture {
         width: 100px;
         flex: 0 0 100px;
+        padding-right: 16px;
         img {
           width: 100px;
           height: auto;
         }
       }
-      .description-text {
-        display: none !important;
-      }
+
       .article-slide-info {
         flex: 0 0 auto;
         flex-direction: column;
@@ -210,7 +225,6 @@
     }
   }
 }
-
 .articles-slider .PageList-header-description {
   font-family: var(--font-1);
   font-size: 1.8rem;
