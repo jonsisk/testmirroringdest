@@ -101,7 +101,8 @@
           "republishHeader": "This story was originally published by Chalkbeat. Sign up for their newsletters at <a href='https://ckbe.at/newsletters' >ckbe.at/newsletters</a>",
           "republishFooter": "Chalkbeat is a nonprofit news site covering educational change in public schools.",
           "facebookAppId": "735437511148430",
-          "gtmIDAMP": "GTM-PX338RH"
+          "gtmIDAMP": "GTM-PX338RH",
+          "gamSiteId": "national"
         }
       },
       "votebeat": {
@@ -119,7 +120,8 @@
           "republishHeader": "This article was <a href='#canonicalUrl#' target='_blank' rel='canonical'>originally published</a> by <a href='#websiteDomain#' target='_blank'>Votebeat</a>, a nonprofit news organization covering local election administration and voting access.",
           "republishFooter": "Votebeat is a nonprofit news organization committed to reporting the nuanced truth about elections and voting at a time of crisis in America.",
           "facebookAppId": "735437511148430",
-          "gtmIDAMP": "GTM-PX338RH"
+          "gtmIDAMP": "GTM-PX338RH",
+          "gamSiteId": "national"
         }
       }
     },
