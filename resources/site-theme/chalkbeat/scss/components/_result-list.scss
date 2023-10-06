@@ -21,6 +21,8 @@
     }
 
     .PagePromo-standard,
+    .PagePromo-split_left,
+    .PagePromo-split_right,
     .PagePromo-overlay,
     .PagePromo-headline_below,
     .PagePromo-headline_above {
@@ -48,7 +50,7 @@
         }
 
         .PagePromo-title {
-          font-family: var(--font,var(--font-1));
+          font-family: var(--font, var(--font-1));
           font-size: var(--title-4);
           letter-spacing: normal;
           line-height: 1.22;
@@ -99,6 +101,8 @@
     }
 
     .PagePromo-overlay,
+    .PagePromo-split_left,
+    .PagePromo-split_right,
     .PagePromo-headline_below,
     .PagePromo-headline_above {
       --titleFontSize: 36px;

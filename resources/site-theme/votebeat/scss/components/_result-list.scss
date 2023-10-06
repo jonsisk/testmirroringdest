@@ -21,6 +21,8 @@
     }
 
     .PagePromo-standard,
+    .PagePromo-split_left,
+    .PagePromo-split_right,
     .PagePromo-overlay,
     .PagePromo-headline_below,
     .PagePromo-headline_above {
@@ -120,6 +122,8 @@
 .List {
   .results-list-container {
     .PagePromo-overlay,
+    .PagePromo-split_left,
+    .PagePromo-split_right,
     .PagePromo-headline_below,
     .PagePromo-headline_above {
       --titleFontSize: 36px;
