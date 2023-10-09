@@ -132,6 +132,41 @@
     }
   }
 
+  &.ListQ {
+    display: block;
+
+    .items-row-below {
+      .PagePromo-standard {
+        flex-direction: column;
+
+        .PagePromo-media {
+          width: 100%;
+          max-width: none;
+          margin: 0;
+        }
+      }
+    }
+
+    @media (min-width: 769px) {
+      .items-row-below {
+        display: flex;
+        flex-wrap: wrap;
+  
+        .PageListH-items-item {
+          padding-top: 0;
+          border-top: none;
+          flex-basis: 25%;
+        }
+
+        .PagePromo-standard {
+          .PagePromo-media {
+            padding-right: 20px;
+          }
+        }
+      }
+    }
+  }
+
   &.ListU {
     grid-template-columns: .5fr .25fr .25fr;
 
