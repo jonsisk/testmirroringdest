@@ -67,7 +67,11 @@ const StickyNewsletterFeature = ({ customFields }) => {
   );
 
   return (
-    <div ref={stickyRef} className={`newsletter-sticky ${!closed && sticky ? "sticky" : ""}`}>
+    <div
+      ref={stickyRef}
+      className={`newsletter-sticky ${!closed && sticky ? "sticky" : ""} ${!closed ? "" : "closed"
+        }`}
+    >
       <div className="content">
         <div className="col-desc">
           <h3>{replacedTitle}</h3>

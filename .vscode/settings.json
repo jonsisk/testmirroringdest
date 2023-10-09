@@ -48,5 +48,6 @@
   "liveSassCompile.settings.excludeList": ["**/node_modules/**", ".vscode/**"],
   "liveSassCompile.settings.generateMap": true,
   "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"],
-  "editor.stickyScroll.enabled": true
+  "editor.stickyScroll.enabled": true,
+  "px-to-rem.px-per-rem":10,
 }
