@@ -54,12 +54,12 @@ const ResultItem = React.memo(
 
       return (
         <div className="notice-list-container">
-          <div className={`PageListH-items-item`}>
+          <div className={`PageListH-items-item `}>
             <div className="PagePromo">
               <div className="PagePromo-media">
                 {showImage ? (
                   <a href={url} title={headlineText} aria-hidden="true" tabIndex="-1">
-                    {subtype === "standard" || subtype === undefined || !showFeatured ? (
+                    {subtype === "standart" || subtype === undefined || !showFeatured ? (
                       <Image
                         {...imageProperties}
                         url={imageURL !== null ? imageURL : targetFallbackImage}

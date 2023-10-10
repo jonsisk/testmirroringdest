@@ -41,7 +41,10 @@
           margin-top: 0 !important;
           padding-bottom: 0 !important;
         }
-        .PagePromo,
+        .PagePromo{
+          display: block;
+          width: 100%;
+        }
         .PagePromo-standard {
           display: flex;
     
@@ -62,6 +65,9 @@
           .PagePromo-media {
             picture {
               display: block;
+              img{
+                width: 100%;
+              }
             }
           }
     
