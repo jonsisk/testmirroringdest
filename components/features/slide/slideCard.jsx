@@ -26,15 +26,17 @@ export const SlideCard = ({
 
   return (
     <div className="slide article-slide">
-      <Image
-        {...imageProperties}
-        url={imageURL !== null ? imageURL : targetFallbackImage}
-        alt="slide-imagse"
-        resizedImageOptions={
-          imageURL !== null ? extractResizedParams(slide) : placeholderResizedImageOptions
-        }
-        fallbackImage={targetFallbackImage}
-      />
+      <a href={slide.canonical_url} target="_blank" rel="noreferrer">
+        <Image
+          {...imageProperties}
+          url={imageURL !== null ? imageURL : targetFallbackImage}
+          alt="slide-imagse"
+          resizedImageOptions={
+            imageURL !== null ? extractResizedParams(slide) : placeholderResizedImageOptions
+          }
+          fallbackImage={targetFallbackImage}
+        />
+      </a>
       <div className="article-slide-info">
         <Overline story={slide} className="overline" />
         <a href={slide.canonical_url} target="_blank" rel="noreferrer">

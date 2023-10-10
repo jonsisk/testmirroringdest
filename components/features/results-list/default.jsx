@@ -14,6 +14,8 @@ const ResultsListCivic = ({ customFields }) => {
   const {
     lazyLoad,
     listContentConfig: { contentService, contentConfigValues },
+    title,
+    showTitle,
   } = customFields;
   const { fallbackImage, locale, primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
   const imageProperties = {
@@ -56,6 +58,16 @@ const ResultsListCivic = ({ customFields }) => {
 
   return (
     <LazyLoad enabled={lazyLoad && !isAdmin}>
+      {showTitle && (
+        <div className="PageList-header articles-slider">
+          <svg className="PageList-header-squiggly">
+            <use xlinkHref="#squiggly"></use>
+          </svg>
+          <div className="PageList-header-title-wrap">
+            <div className="PageList-header-title">{title}</div>
+          </div>
+        </div>
+      )}
       <div className="List">
         <Results
           arcSite={arcSite}
@@ -92,9 +104,13 @@ ResultsListCivic.icon = "arc-list";
 
 ResultsListCivic.propTypes = {
   customFields: PropTypes.shape({
-    listContentConfig: PropTypes.contentConfig("ans-feed").tag({
+    title: PropTypes.string.tag({
+      label: "Title",
       group: "Configure Content",
+    }),
+    listContentConfig: PropTypes.contentConfig("ans-feed").tag({
       label: "Display Content Info",
+      group: "Configure Content",
     }),
     showItemOverline: PropTypes.bool.tag({
       label: "Show overline",
@@ -109,6 +125,11 @@ ResultsListCivic.propTypes = {
     showImage: PropTypes.bool.tag({
       label: "Show image",
       defaultValue: true,
+      group: "Show promo elements",
+    }),
+    showTitle: PropTypes.bool.tag({
+      label: "Show title",
+      defaultValue: false,
       group: "Show promo elements",
     }),
     showDescription: PropTypes.bool.tag({
