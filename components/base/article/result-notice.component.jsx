@@ -53,17 +53,13 @@ const ResultItem = React.memo(
       };
 
       return (
-        <>
-          <div
-            className={`PageListH-items-item ${
-              subtype === "standard" || subtype === undefined || !showFeatured ? "" : "featured"
-            }`}
-          >
-            <div className={`PagePromo-${subtype}`}>
+        <div className="notice-list-container">
+          <div className={`PageListH-items-item `}>
+            <div className="PagePromo">
               <div className="PagePromo-media">
                 {showImage ? (
                   <a href={url} title={headlineText} aria-hidden="true" tabIndex="-1">
-                    {subtype === "standard" || subtype === undefined || !showFeatured ? (
+                    {subtype === "standart" || subtype === undefined || !showFeatured ? (
                       <Image
                         {...imageProperties}
                         url={imageURL !== null ? imageURL : targetFallbackImage}
@@ -128,7 +124,7 @@ const ResultItem = React.memo(
               </div>
             </div>
           </div>
-        </>
+        </div>
       );
     }
   )
