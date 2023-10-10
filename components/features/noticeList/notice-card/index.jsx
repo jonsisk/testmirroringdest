@@ -166,18 +166,18 @@ const NoticeCard = ({
             globalContent={globalContent}
           />
         ))}
-        {isThereMore && showPagination && showAsList && (
-          <div className="see-more">
-            <Button
-              ariaLabel={"More Stories"}
-              buttonStyle={BUTTON_STYLES.PRIMARY}
-              buttonTypes={BUTTON_TYPES.LABEL_ONLY}
-              onClick={onReadMoreClick}
-              text={"More Stories"}
-            />
-          </div>
-        )}
       </div>
+      {isThereMore && showPagination && showAsList && (
+        <div className="see-more">
+          <Button
+            ariaLabel={"More Stories"}
+            buttonStyle={BUTTON_STYLES.PRIMARY}
+            buttonTypes={BUTTON_TYPES.LABEL_ONLY}
+            onClick={onReadMoreClick}
+            text={"More Stories"}
+          />
+        </div>
+      )}
     </div>
   ) : null;
 };

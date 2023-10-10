@@ -57,7 +57,7 @@ const NoticeListCivic = ({ customFields }) => {
 
   return (
     <LazyLoad enabled={lazyLoad && !isAdmin}>
-      <div className="noticesListContainer">
+      <div>
         <NoticeCard
           arcSite={arcSite}
           columns={columns}
