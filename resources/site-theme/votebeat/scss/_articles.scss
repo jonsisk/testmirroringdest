@@ -295,6 +295,40 @@ main article {
     font-size: 2.4rem;
   }
 
+  figure {
+    display: block;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    figcaption {
+      padding: 0;
+      p {
+        font-family: var(--font-3);
+        font-size: var(--caption-1);
+        line-height: 1.6;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 10px;
+        color: var(--color-primary-text);
+        display: inline-block;
+        span {
+          color: black;
+          font-family: var(--font-1);
+          &::after {
+            content: "|";
+            display: inline-block;
+            height: 14px;
+            vertical-align: middle;
+            width: 1px;
+            text-indent: -999em;
+            border-left: 1px solid;
+            margin: 0px 8px 0px 4px;
+          }
+        }
+      }
+    }
+  }
+
   [data-type="small"] h2 {
     font-family: var(--font, var(--font-1));
     font-size: var(--heading-3);
