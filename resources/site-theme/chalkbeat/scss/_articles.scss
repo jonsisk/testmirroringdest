@@ -207,6 +207,9 @@ aside.sidebar {
       width: 100%;
       margin: 20px 0;
     }
+    figure {
+      margin: 20px 0px;
+    }
   }
   &.float-left {
     float: left;
@@ -216,6 +219,9 @@ aside.sidebar {
     @include respond-down(sm) {
       width: 100%;
       margin: 20px 0;
+    }
+    figure {
+      margin: 20px 0px;
     }
   }
 }
