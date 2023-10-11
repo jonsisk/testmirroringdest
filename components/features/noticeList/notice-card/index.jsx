@@ -174,7 +174,7 @@ const NoticeCard = ({
             buttonStyle={BUTTON_STYLES.PRIMARY}
             buttonTypes={BUTTON_TYPES.LABEL_ONLY}
             onClick={onReadMoreClick}
-            text={"More Stories"}
+            text={"Read More"}
           />
         </div>
       )}

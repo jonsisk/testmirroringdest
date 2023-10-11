@@ -11,6 +11,7 @@ export const SlideCard = ({
   placeholderResizedImageOptions,
 }) => {
   const { primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
+  const { websites } = slide;
   const imageProperties = {
     smallWidth: 158,
     smallHeight: 89,
@@ -23,12 +24,13 @@ export const SlideCard = ({
     resizerURL,
   };
   const imageURL = extractImageFromStory(slide);
-
+  const url = websites[arcSite].website_url;
   return (
     <div className="slide article-slide">
-      <a href={slide.canonical_url} target="_blank" rel="noreferrer">
+      <a href={url} target="_blank" rel="noreferrer">
         <Image
           {...imageProperties}
+          href={url}
           url={imageURL !== null ? imageURL : targetFallbackImage}
           alt="slide-imagse"
           resizedImageOptions={

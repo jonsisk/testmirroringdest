@@ -1,5 +1,6 @@
 import { Image } from "@wpmedia/engine-theme-sdk";
 import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
+import { Overline } from "@wpmedia/shared-styles";
 import React from "react";
 import { getPrimarySection } from "../../helpers/article.helper";
 import { getWebsiteDomain } from "../../helpers/site.helper";
@@ -85,7 +86,7 @@ const ResultItem = React.memo(
                   </a>
                 ) : null}
               </div>
-
+              <Overline story={element} className="overline" />
               <div className="PagePromo-content">
                 {showItemOverline ? (
                   <div className="PagePromo-category">
@@ -115,7 +116,7 @@ const ResultItem = React.memo(
                       <Byline
                         element={element}
                         showTime={false}
-                        showBorder={false}
+                        showBorder={true}
                         websiteDomain={getWebsiteDomain(arcSite)}
                       />
                     </div>

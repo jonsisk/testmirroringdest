@@ -108,19 +108,21 @@ const Carrousel = ({ customFields }) => {
             <p>{subtitle}</p>
           </div>
         </div>
-        <Slider {...settings} className="slider">
-          {content_elements?.length > 0 &&
-            !isServerSideLazy &&
-            content_elements.map((slide, index) => (
-              <SlideCard
-                key={index}
-                slide={slide}
-                arcSite={arcSite}
-                targetFallbackImage={targetFallbackImage}
-                placeholderResizedImageOptions={placeholderResizedImageOptions}
-              />
-            ))}
-        </Slider>
+        <div className="SliderWrapper">
+          <Slider {...settings} className="slider">
+            {content_elements?.length > 0 &&
+              !isServerSideLazy &&
+              content_elements.map((slide, index) => (
+                <SlideCard
+                  key={index}
+                  slide={slide}
+                  arcSite={arcSite}
+                  targetFallbackImage={targetFallbackImage}
+                  placeholderResizedImageOptions={placeholderResizedImageOptions}
+                />
+              ))}
+          </Slider>
+        </div>
       </HeadingSection>
     </LazyLoad>
   );
