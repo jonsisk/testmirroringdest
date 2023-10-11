@@ -207,10 +207,13 @@
       @include respond-down(xs) {
         padding: 0;
       }
-      picture {
+      > a {
         width: 100px;
         flex: 0 0 100px;
         padding-right: 16px;
+        picture {
+          width: 100%;
+        }
         img {
           width: 100px;
           height: auto;
