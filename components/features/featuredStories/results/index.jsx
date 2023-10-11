@@ -68,6 +68,7 @@ const Results = ({
         case "story-feed-tag": {
           return { feedOffset: offset, feedSize: size };
         }
+        case "content-api-collections-civic":
         case "content-api-collections": {
           return { from: offset, size: configuredSize, getNext: true };
         }
