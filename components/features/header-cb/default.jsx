@@ -108,7 +108,7 @@ Header.propTypes = {
       group: "Configure Content",
     }),
     linksHierachy: PropTypes.string.tag({
-      defaultValue: "sections-menu",
+      defaultValue: "header-links",
       label: "Links Hierarchy",
       group: "Configure Content",
     }),
