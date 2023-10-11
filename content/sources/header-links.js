@@ -1,7 +1,7 @@
 export default {
   resolve(resolveParams) {
-    const { sectionId, site } = resolveParams;
-    return `/site/v3/navigation/${site}?${`hierarchy=${"header-links"}`}${
+    const { hierarchy, sectionId, site } = resolveParams;
+    return `/site/v3/navigation/${site}?${`hierarchy=${hierarchy}`}${
       sectionId ? `&_id=${sectionId}` : ""
     }`;
   },
