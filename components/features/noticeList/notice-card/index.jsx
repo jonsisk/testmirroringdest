@@ -3,6 +3,7 @@ import { useContent } from "fusion:content";
 import { useFusionContext } from "fusion:context";
 import React, { createRef, useCallback, useEffect, useReducer, useState } from "react";
 /* import ResultItem from "../../../base/article/result-list.component"; */
+import { LIST_FILTER } from "../../../../content/helpers/filters.helper";
 import ResultItem from "../../../base/article/result-notice.component";
 import { getActualSiteName } from "../../../helpers/article.helper";
 import { reduceResultList } from "../../../helpers/list.helpers";
@@ -80,6 +81,7 @@ const NoticeCard = ({
       feature: "results-list",
       ...serviceQueryPage(queryOffset),
     },
+    filter: LIST_FILTER(arcSite),
   });
 
   const [resultList, alterResultList] = useReducer(reduceResultList, requestedResultList);

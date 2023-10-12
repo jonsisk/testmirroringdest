@@ -1,5 +1,6 @@
 import { useContent } from "fusion:content";
 import React, { createRef, useCallback, useEffect, useReducer, useState } from "react";
+import { LIST_FILTER } from "../../../../content/helpers/filters.helper";
 import HeroItem from "../../../base/article/hero-article.component";
 import ResultItem from "../../../base/article/result-list.component";
 import { getActualSiteName } from "../../../helpers/article.helper";
@@ -89,6 +90,7 @@ const Results = ({
       feature: "results-list",
       ...serviceQueryPage(queryOffset),
     },
+    filter: LIST_FILTER(arcSite),
   });
 
   const [resultList, alterResultList] = useReducer(reduceResultList, requestedResultList);

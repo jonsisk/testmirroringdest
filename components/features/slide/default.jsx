@@ -9,6 +9,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@wpmedia/shared-styles/scss/_results-list.scss";
+import { LIST_FILTER } from "../../../content/helpers/filters.helper";
 import { useArticleStore } from "../stores/articles.store";
 import { SlideCard } from "./slideCard";
 
@@ -76,6 +77,7 @@ const Carrousel = ({ customFields }) => {
       ...contentConfigValues,
       feature: "results-list",
     },
+    filter: LIST_FILTER(arcSite),
   });
 
   const targetFallbackImage = !fallbackImage.includes("http")
