@@ -120,11 +120,21 @@
   }
 
   &.ListP {
-    .PagePromo-title {
-      line-height: 1 !important;
+    .PageListP-items-column:first-of-type {
+      .PageListH-items-item > .PagePromo-standard {
+        .PagePromo-content {
+          margin-top: 16px;
+        }
+      }
+    }
 
-      > a {
-        font-size: 1.8rem;
+    .PageListP-items-column:last-of-type {
+      .PagePromo-title {
+        line-height: 1 !important;
+
+        > a {
+          font-size: 1.8rem;
+        }
       }
     }
     .PagePromo-author .byline {
@@ -151,7 +161,7 @@
       .items-row-below {
         display: flex;
         flex-wrap: wrap;
-  
+
         .PageListH-items-item {
           padding-top: 0;
           border-top: none;
