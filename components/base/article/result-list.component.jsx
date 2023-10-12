@@ -15,6 +15,7 @@ const ResultItem = React.memo(
       targetFallbackImage,
       placeholderResizedImageOptions,
       showByline,
+      showDate,
       showDescription,
       showHeadline,
       showImage,
@@ -125,6 +126,7 @@ const ResultItem = React.memo(
                       <Byline
                         element={element}
                         showTime={false}
+                        showDate={showDate}
                         websiteDomain={getWebsiteDomain(arcSite)}
                       />
                     </div>
