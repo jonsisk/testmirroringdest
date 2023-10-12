@@ -23,7 +23,7 @@
   }
   .slick-track {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 1rem;
     height: 40%;
@@ -182,7 +182,6 @@
         font-family: var(--font, var(--font-1));
         font-size: 1.5rem !important;
         line-height: 1.33;
-        display: inline-block;
         font-size: var(--font-size-promos-byline);
         line-height: normal;
         display: inline;
