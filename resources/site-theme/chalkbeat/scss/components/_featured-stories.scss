@@ -1,14 +1,4 @@
 .results-list-container {
-  &.ListG {
-    .PageListP-items-column:last-of-type {
-      grid-template-columns: 2fr;
-    }
-
-    .PagePromo-author .byline {
-      padding-bottom: 0;
-    }
-  }
-
   &.ListA {
     .PageListP-items-column {
       grid-area: 1 / 1 / 2 / 2;
@@ -40,29 +30,111 @@
     .items-row-below {
       display: flex;
       flex-wrap: wrap;
+    }
+  }
 
-      .PageListH-items-item {
-        flex-basis: 25%;
-        padding-right: 15px;
+  &.ListAH {
+    .PageListP-items-column {
+      &:nth-child(1) {
+        grid-area: 1 / 1 / 3 / 2;
+      }
+
+      &:nth-child(2) {
+        grid-area: 1 / 2 / 2 / 3;
+        display: flex;
+
+        .PageListH-items-item {
+          width: 50%;
+          padding-top: 0;
+          padding-bottom: 0;
+          border-top: none;
+
+          &:nth-child(1) {
+            padding-right: 10px;
+          }
+
+          &:nth-child(2) {
+            padding-left: 10px;
+          }
+        }
 
         .PagePromo-standard {
           flex-direction: column;
+
+          .PagePromo-media {
+            width: 100%;
+            margin-right: 0;
+          }
         }
 
-        .PagePromo-media {
-          width: 100%;
+        .PagePromo-author .byline {
+          padding-bottom: 0;
+          margin-bottom: 0;
         }
       }
     }
 
+    .items-row-below {
+      grid-area: 2 / 2 / 3 / 3;
+      display: flex;
+
+      .PageListH-items-item {
+        width: 50%;
+        padding-top: 0;
+        border-top: none;
+
+        &:nth-child(1) {
+          padding-right: 10px;
+        }
+
+        &:nth-child(2) {
+          padding-left: 10px;
+        }
+      }
+
+      .PagePromo-standard {
+        flex-direction: column;
+        padding-top: var(--listItemPadding);
+        border-top: 1px solid var(--color-list-border);
+
+        .PagePromo-media {
+          display: none;
+        }
+      }
+
+      .PagePromo-author .byline {
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &.ListG {
+    .PageListP-items-column:last-of-type {
+      grid-template-columns: 2fr;
+    }
+
+    .PagePromo-author .byline {
+      padding-bottom: 0;
+    }
   }
 
   &.ListP {
-    .PagePromo-title {
-      line-height: 1 !important;
+    .PageListP-items-column:first-of-type {
+      .PageListH-items-item > .PagePromo-standard {
+        .PagePromo-content {
+          margin-top: 16px;
+        }
+      }
+    }
 
-      > a {
-        font-size: 1.8rem;
+    .PageListP-items-column:last-of-type {
+      .PagePromo-title {
+        line-height: 1 !important;
+
+        > a {
+          font-size: 1.8rem;
+        }
       }
     }
     .PagePromo-author .byline {
@@ -70,8 +142,196 @@
     }
   }
 
+  &.ListQ {
+    .PageListH-items-column {
+      margin-bottom: 16px;
+      text-align: center;
+      .PageListQ-items-item {
+        .PagePromo-content {
+          .PagePromo-category {
+            font-family: var(--font);
+            font-size: var(--category-1);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: var(--category-1-kerning);
+            line-height: normal;
+            > a {
+              color: var(--color-link-text-hover) !important;
+            }
+          }
+          .PagePromo-title {
+            font-family: var(--font);
+            font-size: var(--title-2);
+            letter-spacing: normal;
+            line-height: 1.22;
+            font-weight: 600;
+            margin-top: 5px;
+          }
+          .PagePromo-description {
+            font-family: var(--font);
+            letter-spacing: normal;
+            line-height: 1.25;
+            font-size: var(--subhead-1);
+            font-weight: 400;
+            margin-top: 16px;
+            margin-bottom: 0px !important;
+          }
+          .PagePromo-byline > .PagePromo-author > .byline {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+    display: block;
+
+    @include respond-up(sm) {
+      .items-row-below {
+        .PagePromo-standard {
+          flex-direction: column;
+
+          .PagePromo-media {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+          }
+        }
+      }
+      .items-row-below {
+        display: flex;
+        flex-wrap: wrap;
+
+        .PageListH-items-item {
+          padding-top: 0;
+          border-top: none;
+          flex-basis: 25%;
+        }
+
+        .PagePromo-standard {
+          padding: 10px;
+        }
+      }
+    }
+  }
+
+  &.ListS,
+  &.ListT {
+    .PageListH-items-column {
+      margin-bottom: 16px;
+      text-align: left;
+      .PageListQ-items-item {
+        position: relative;
+        .PagePromo-content {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          background-color: #dedbdb;
+          padding: 16px;
+          width: 65%;
+          opacity: 0.85;
+
+          .PagePromo-category {
+            font-family: var(--font);
+            font-size: var(--category-1);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: var(--category-1-kerning);
+            line-height: normal;
+            > a {
+              color: var(--color-link-text-hover) !important;
+            }
+          }
+          .PagePromo-title {
+            font-family: var(--font);
+            font-size: var(--title-2);
+            letter-spacing: normal;
+            line-height: 1.22;
+            font-weight: 600;
+            margin-top: 5px;
+          }
+          .PagePromo-description {
+            font-family: var(--font);
+            letter-spacing: normal;
+            line-height: 1.25;
+            font-size: var(--subhead-1);
+            font-weight: 400;
+            margin-top: 16px;
+            margin-bottom: 0px !important;
+          }
+          .PagePromo-byline > .PagePromo-author > .byline {
+            border-bottom: none;
+            padding-bottom: 0px;
+          }
+        }
+      }
+    }
+    display: block;
+
+    @include respond-down(sm) {
+      .PageListH-items-column {
+        overflow: hidden;
+        .PageListQ-items-item {
+          position: relative;
+          .PagePromo-content {
+            position: absolute;
+            top: 40%;
+            left: 0;
+            background-color: #dedbdb;
+            padding: 16px;
+            width: 100%;
+            opacity: 0.85;
+          }
+        }
+      }
+    }
+
+    @include respond-down(xs) {
+      .PageListH-items-column {
+        overflow: hidden;
+        .PageListQ-items-item {
+          position: relative;
+          .PagePromo-content {
+            position: relative;
+            background-color: #fff;
+            padding: 16px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &.ListT {
+    @include respond-up(sm) {
+      .items-row-below {
+        .PagePromo-standard {
+          flex-direction: column;
+
+          .PagePromo-media {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+          }
+        }
+      }
+      .items-row-below {
+        display: flex;
+        flex-wrap: wrap;
+
+        .PageListH-items-item {
+          padding-top: 0;
+          border-top: none;
+          flex-basis: 25%;
+        }
+
+        .PagePromo-standard {
+          padding-right: 20px;
+        }
+      }
+    }
+  }
+
   &.ListU {
-    grid-template-columns: .5fr .25fr .25fr;
+    grid-template-columns: 0.5fr 0.25fr 0.25fr;
 
     .PageListP-items-column {
       &:nth-child(2) {
@@ -106,6 +366,11 @@
             border-top: none;
             padding-top: 0;
           }
+          .PagePromo-title {
+            > a {
+              font-size: 1.8rem;
+            }
+          }
         }
 
         .PagePromo-author .byline {
@@ -116,8 +381,8 @@
   }
 
   &.ListZ {
-    grid-auto-columns: 1fr; 
-    grid-template-columns: .5fr 0.5fr; 
+    grid-auto-columns: 1fr;
+    grid-template-columns: 0.5fr 0.5fr;
     grid-template-rows: auto auto;
 
     .PageListP-items-column {
@@ -134,7 +399,6 @@
 
         .PagePromo-author .byline {
           padding-bottom: 0;
-          margin-bottom: 0;
         }
       }
     }
@@ -145,18 +409,12 @@
       flex-wrap: wrap;
 
       .PageListH-items-item {
-        width: 50%;
-
-        &:nth-child(odd) {
-          padding-right: 10px;
-        }
-
-        &:nth-child(even) {
-          padding-left: 10px;
-        }
+        border-top: none;
       }
 
       .PagePromo-standard {
+        border-top: 1px solid var(--color-list-border);
+
         .PagePromo-media {
           display: none;
         }
@@ -165,6 +423,93 @@
       .PagePromo-author .byline {
         padding-bottom: 0;
         margin-bottom: 0;
+      }
+
+      .PagePromo-title a {
+        font-size: 18px;
+      }
+    }
+  }
+
+  @media (min-width: 769px) {
+    &.ListA {
+      .items-row-below {
+        .PageListH-items-item {
+          flex-basis: 25%;
+          padding-right: 15px;
+
+          .PagePromo-media {
+            width: 100%;
+          }
+
+          .PagePromo-standard {
+            flex-direction: column;
+          }
+        }
+      }
+    }
+
+    &.ListU {
+      .PageListP-items-column {
+        &:nth-child(3) {
+          .PageListH-items-item {
+            padding-top: 12px;
+
+            &:first-child {
+              padding-top: 0;
+            }
+          }
+
+          .PagePromo-title {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+
+    &.ListZ {
+      .PageListP-items-column {
+        &:nth-child(2) {
+          .PagePromo-author .byline {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .items-row-below {
+        .PageListH-items-item {
+          width: 50%;
+
+          &:nth-child(odd) {
+            padding-right: 10px;
+          }
+
+          &:nth-child(even) {
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    &.ListA {
+      .PageListP-items-column {
+        &:nth-child(1) {
+          padding-bottom: 12px;
+        }
+      }
+
+      .items-row-below {
+        flex-direction: column;
+      }
+    }
+
+    &.ListZ {
+      .items-row-below {
+        .PageListH-items-item {
+          width: 100%;
+        }
       }
     }
   }
