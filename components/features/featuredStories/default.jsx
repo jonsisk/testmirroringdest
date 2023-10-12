@@ -81,7 +81,7 @@ const FeaturedStoriesCivic = ({ customFields }) => {
         showImage={promoElements.showImage}
         showItemOverline={promoElements.showItemOverline}
         targetFallbackImage={targetFallbackImage}
-        showFeatured={promoElements.showFeatured}
+        showFeatured={false}
         listType={listType}
         globalContent={globalContent}
       />
@@ -139,11 +139,6 @@ FeaturedStoriesCivic.propTypes = {
     }),
     showDate: PropTypes.bool.tag({
       label: "Show date",
-      defaultValue: true,
-      group: "Show promo elements",
-    }),
-    showFeatured: PropTypes.bool.tag({
-      label: "Show featured article layout",
       defaultValue: true,
       group: "Show promo elements",
     }),

@@ -213,6 +213,11 @@
             border-top: none;
             padding-top: 0;
           }
+          .PagePromo-title {
+            > a {
+              font-size: 1.8rem;
+            }
+          }
         }
 
         .PagePromo-author .byline {
