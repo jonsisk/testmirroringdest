@@ -63,8 +63,9 @@
       .split-logo {
         display: block;
         position: relative;
-        width: 150px;
+        width: 175px !important;
         height: auto;
+        max-height: initial;
       }
     }
 
