@@ -81,7 +81,8 @@ const NewsletterSignup = ({
       setErrorMessage(
         alreadyMember
           ? "You're already subscribed to this newsletter."
-          : errorMsg || "An error occurred. Please try again later."
+          : errorMsg ||
+              "There was an error. If this problem persists, please email us at community@votebeat.org."
       );
       handleReCaptchaVerify();
     }
