@@ -16,7 +16,8 @@ const NewsletterComposer = ({ embed }) => {
   const { arcSite, globalContent, outputType } = context;
   const { websiteName, newsletterSignupEndpoint } = getProperties(arcSite);
   const { websiteName: globalContentWebsite } = getSiteProperties(globalContent);
-  const { title, description, thankYouMsg } = newsletterCopy[arcSite] || newsletterCopy["default"];
+  const { title, description, thankYouMessage } =
+    newsletterCopy[arcSite] || newsletterCopy["default"];
 
   if (outputType === "amp") return null;
 
@@ -41,7 +42,7 @@ const NewsletterComposer = ({ embed }) => {
             newsletterSignupEndpoint={newsletterSignupEndpoint}
             website={arcSite}
             interestIds={composerNewsletter}
-            thankYouMsg={thankYouMsg}
+            thankYouMsg={thankYouMessage}
             layout="powerup"
           />
 
