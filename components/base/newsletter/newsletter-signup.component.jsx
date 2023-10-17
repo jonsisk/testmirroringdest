@@ -82,7 +82,7 @@ const NewsletterSignup = ({
         alreadyMember
           ? "You're already subscribed to this newsletter."
           : errorMsg ||
-              "There was an error. If this problem persists, please email us at community@votebeat.org."
+              `There was an error. If this problem persists, please email us at community@${website}.org.`
       );
       handleReCaptchaVerify();
     }
