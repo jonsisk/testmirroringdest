@@ -86,7 +86,7 @@
       border: 0px;
       font-size: 1.9rem;
     }
-    :hover {
+    &:hover {
       background: var(--color-button-hover-bg);
       color: var(--color-button-hover-text);
     }
