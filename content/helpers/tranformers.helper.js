@@ -15,10 +15,18 @@ export const addAdPath = (content, arcSite) => {
 export const processArticleData = (article) => {
   // remove image credit name, leave only 'affiliation' field
   // remove it from lead image
-  if (article?.promo_items?.basic?.type === "image") {
+  if (
+    article?.promo_items?.basic?.type === "image" &&
+    article.promo_items.basic?.credits &&
+    article.promo_items.basic?.credits?.by
+  ) {
     article.promo_items.basic.credits.by = [];
   }
-  if (article?.promo_items?.lead_art?.type === "image") {
+  if (
+    article?.promo_items?.lead_art?.type === "image" &&
+    article.promo_items.lead_art?.credits &&
+    article.promo_items.lead_art?.credits?.by
+  ) {
     article.promo_items.lead_art.credits.by = [];
   }
 
