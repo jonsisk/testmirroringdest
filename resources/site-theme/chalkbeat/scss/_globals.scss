@@ -115,3 +115,8 @@ h5 {
     --body-font-size: 1.8rem;
   }
 }
+@include respond-down(lg) {
+  aside {
+    display: none !important;
+  }
+}
