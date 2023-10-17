@@ -18,6 +18,9 @@ export const processArticleData = (article) => {
   if (article?.promo_items?.basic?.type === "image") {
     article.promo_items.basic.credits.by = [];
   }
+  if (article?.promo_items?.lead_art?.type === "image") {
+    article.promo_items.lead_art.credits.by = [];
+  }
 
   return article;
 };
