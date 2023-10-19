@@ -25,6 +25,10 @@ export const getSiteProperties = (context) => {
       parselyTags: section.bureau.parsely_tags,
       gamSiteId: section.bureau.gam_site_id,
       websiteName: section.site?.site_title,
+      linksHierachy: section.bureau.links_hierarchy,
+      tagline: section.bureau.tagline,
+      hideTopics: section.bureau.hide_topics_in_header === "true",
+      topicsHierachy: section.bureau.topics_hierarchy,
     };
   }
   return {};

@@ -11,9 +11,14 @@ const Header = ({ customFields }) => {
   const context = useFusionContext();
   const { arcSite, outputType, globalContent } = context;
 
-  let { primaryLogo, primaryLogoAlt } = isSiteSection(globalContent)
-    ? getSiteProperties(context)
-    : getProperties(arcSite);
+  let {
+    primaryLogo,
+    primaryLogoAlt,
+    linksHierachy: bureauLinksHierarchy,
+    tagline: bureauTagline,
+    hideTopics,
+    topicsHierachy: bureauTopicsHierarchy,
+  } = isSiteSection(globalContent) ? getSiteProperties(context) : getProperties(arcSite);
 
   const {
     tagline,
@@ -37,7 +42,7 @@ const Header = ({ customFields }) => {
     source: "site-service-hierarchy-civic",
     query: {
       site: arcSite,
-      hierarchy: topicsHierachy,
+      hierarchy: bureauTopicsHierarchy || topicsHierachy,
     },
   });
 
@@ -45,7 +50,7 @@ const Header = ({ customFields }) => {
     source: "header-links",
     query: {
       site: arcSite,
-      hierarchy: linksHierachy,
+      hierarchy: bureauLinksHierarchy || linksHierachy,
     },
   });
 
@@ -53,11 +58,11 @@ const Header = ({ customFields }) => {
     (outputType !== "amp" && (
       <div className="customheader">
         <HeaderSignup
-          tagline={tagline}
+          tagline={bureauTagline || tagline}
           logoURL={primaryLogo}
           logoAlt={primaryLogoAlt}
-          topicsTitle={topicsTitle}
-          topicNavigation={topics}
+          topicsTitle={hideTopics ? null : topicsTitle}
+          topicNavigation={hideTopics ? null : topics}
           communitiesTitle={communitiesTitle}
           communityNavigation={communities}
           linksNavigation={links}
@@ -67,7 +72,7 @@ const Header = ({ customFields }) => {
       </div>
     )) || (
       <HeaderAMP
-        tagline={tagline}
+        tagline={bureauTagline || tagline}
         logoURL={primaryLogo}
         logoAlt={primaryLogoAlt}
         topicsTitle={topicsTitle}
