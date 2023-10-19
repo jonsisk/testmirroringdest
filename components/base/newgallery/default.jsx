@@ -35,39 +35,41 @@ const NewGallery = ({ galleryElements, resizerURL }) => {
     });
   }, []);
   return (
-    <div className="container-img">
-      <Slider {...settings} asNavFor={swiper.selector} ref={imageRef}>
-        {galleryElements?.length > 0 &&
-          galleryElements.map((slide, index) => (
-            <SliderSlickItem
-              key={index}
-              className={"big-images"}
-              slideIndex={index}
-              slide={slide}
-              resizerURL={resizerURL}
-            />
-          ))}
-      </Slider>
+    <div className="slider">
+      <div className="container-img">
+        <Slider {...settings} asNavFor={swiper.selector} ref={imageRef}>
+          {galleryElements?.length > 0 &&
+            galleryElements.map((slide, index) => (
+              <SliderSlickItem
+                key={index}
+                className={"big-images"}
+                slideIndex={index}
+                slide={slide}
+                resizerURL={resizerURL}
+              />
+            ))}
+        </Slider>
 
-      <Slider
-        asNavFor={swiper.image}
-        {...settings}
-        ref={selectorRef}
-        slidesToShow={3}
-        swipeToSlide={true}
-        focusOnSelect={true}
-      >
-        {galleryElements?.length > 0 &&
-          galleryElements.map((slide, index) => (
-            <SliderSlickItem
-              key={index}
-              className={"small-images"}
-              slideIndex={index}
-              slide={slide}
-              resizerURL={resizerURL}
-            />
-          ))}
-      </Slider>
+        <Slider
+          asNavFor={swiper.image}
+          {...settings}
+          ref={selectorRef}
+          slidesToShow={3}
+          swipeToSlide={true}
+          focusOnSelect={true}
+        >
+          {galleryElements?.length > 0 &&
+            galleryElements.map((slide, index) => (
+              <SliderSlickItem
+                key={index}
+                className={"small-images"}
+                slideIndex={index}
+                slide={slide}
+                resizerURL={resizerURL}
+              />
+            ))}
+        </Slider>
+      </div>
     </div>
   );
 };
