@@ -136,21 +136,21 @@ export const newsletterCopy = {
   default: {
     title: "Go beyond Election Day.",
     description:
-      "Meet the people and policies that protect election integrity year round in %SITE_NAME%' newsletter.",
+      "Meet the people and policies that protect election integrity year round in %SITE_NAME%'s newsletter.",
     thankYouMessage:
       "Thank you for subscribing to Votebeat! Check your inbox for a confirmation email.",
   },
   votebeat: {
     title: "Go beyond Election Day.",
     description:
-      "Meet the people and policies that protect election integrity year round in %SITE_NAME%' newsletter.",
+      "Meet the people and policies that protect election integrity year round in %SITE_NAME%'s newsletter.",
     thankYouMessage:
       "Thank you for subscribing to Votebeat! Check your inbox for a confirmation email.",
   },
   chalkbeat: {
     title: "We show up.",
     description:
-      "You can’t always get to the school board meeting. %SITE_NAME% reporters will be there to report the news you need. Follow along with our daily newsletter.",
+      "You can't always get to the school board meeting. %SITE_NAME% reporters will be there to report the news you need. Follow along with our daily newsletter.",
     thankYouMessage:
       "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
   },
