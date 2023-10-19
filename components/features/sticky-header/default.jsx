@@ -9,11 +9,12 @@ import "./styles.scss";
  * Article Sticky Header navigation
  */
 const StickyHeader = () => {
+  const context = useFusionContext();
   const { sticky, stickyRef } = useSticky();
-  const { globalContent, arcSite, outputType } = useFusionContext();
+  const { globalContent, arcSite, outputType } = context;
   const { websiteDomain } = getProperties(arcSite);
   const { lightBackgroundLogo, lightBackgroundLogoAlt } = isSiteSection(globalContent)
-    ? getSiteProperties(globalContent)
+    ? getSiteProperties(context)
     : getProperties(arcSite);
 
   const encodedArticleUrl = encodeURIComponent(`${websiteDomain}${globalContent?.canonical_url}`);

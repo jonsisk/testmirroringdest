@@ -83,6 +83,7 @@ export const LIST_FILTER = (arcSite) => `{
               inactive
               site {
                 site_title
+                is_internal
               }  
               bureau {
                 is_bureau_section
@@ -100,6 +101,7 @@ export const LIST_FILTER = (arcSite) => `{
               inactive
               site {
                 site_title
+                is_internal
               }  
               bureau {
                 is_bureau_section

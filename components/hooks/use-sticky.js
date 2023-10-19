@@ -20,6 +20,9 @@ const useSticky = (direction = "down") => {
         return;
       }
       if (direction && direction === "up") {
+        if (offset < stickyRef.current.offsetTop + 100) {
+          setOffset(stickyRef.current.offsetTop + 100);
+        }
         if (global.window.scrollY > 100) {
           setSticky(global.window.scrollY + global.window.innerHeight < offset);
         } else {

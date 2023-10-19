@@ -9,10 +9,11 @@ import { isSiteSection, getSiteProperties } from "../../../helpers/site.helper";
  * Overlay lead image for article layout
  */
 const OverlayLeadImage = ({ customFields }) => {
-  const { globalContent, arcSite } = useFusionContext();
+  const context = useFusionContext();
+  const { globalContent, arcSite } = context;
   const lead_art = globalContent.promo_items.lead_art || globalContent.promo_items.basic;
   const { primaryLogo, lightBackgroundLogoAlt } = isSiteSection(globalContent)
-    ? getSiteProperties(globalContent)
+    ? getSiteProperties(context)
     : getProperties(arcSite);
   const { hideLogo, hideImageCaption, hideImageCredits, hideImageTitle } = customFields;
   const {

@@ -203,6 +203,7 @@ aside {
   margin: 0 auto 20px auto;
   .breaker-full {
     height: 280px;
+    padding: 36px 0;
     @include respond-down(sm) {
       display: none;
     }

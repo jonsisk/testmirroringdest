@@ -13,9 +13,9 @@ import NewsletterSignup from "./newsletter-signup.component";
  */
 const NewsletterComposer = ({ embed }) => {
   const context = useFusionContext();
-  const { arcSite, globalContent, outputType } = context;
+  const { arcSite, outputType } = context;
   const { websiteName, newsletterSignupEndpoint } = getProperties(arcSite);
-  const { websiteName: globalContentWebsite } = getSiteProperties(globalContent);
+  const { websiteName: globalContentWebsite } = getSiteProperties(context);
   const { title, description, thankYouMessage } =
     newsletterCopy[arcSite] || newsletterCopy["default"];
 
