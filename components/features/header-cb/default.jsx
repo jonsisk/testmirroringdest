@@ -12,7 +12,7 @@ const Header = ({ customFields }) => {
   const { arcSite, outputType, globalContent } = context;
 
   let { primaryLogo, primaryLogoAlt } = isSiteSection(globalContent)
-    ? getSiteProperties(globalContent)
+    ? getSiteProperties(context)
     : getProperties(arcSite);
 
   const {

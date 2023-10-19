@@ -11,7 +11,7 @@ const Header = ({ customFields }) => {
   const context = useFusionContext();
   const { arcSite, outputType, globalContent } = context;
   const { primaryLogo, primaryLogoAlt } = isSiteSection(globalContent)
-    ? getSiteProperties(globalContent)
+    ? getSiteProperties(context)
     : getProperties(arcSite);
   const {
     tagline,

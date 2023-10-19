@@ -9,13 +9,18 @@ export const isSiteSection = (globalContent) => {
   return globalContent?.site_section?.bureau?.is_bureau_section === "true";
 };
 
-export const getSiteProperties = (globalContent) => {
+export const getSiteProperties = (context) => {
+  const { globalContent, contextPath, deployment } = context;
   if (isSiteSection(globalContent)) {
     const section = globalContent.site_section;
     return {
-      primaryLogo: section.bureau.primary_logo,
+      primaryLogo: section.bureau.primary_logo.startsWith("/")
+        ? deployment(`${contextPath}/resources/images${section.bureau.primary_logo}`)
+        : section.bureau.primary_logo,
       primaryLogoAlt: section.site?.site_title,
-      lightBackgroundLogo: section.bureau.light_background_logo,
+      lightBackgroundLogo: section.bureau.light_background_logo.startsWith("/")
+        ? deployment(`${contextPath}/resources/images${section.bureau.light_background_logo}`)
+        : section.bureau.light_background_logo,
       lightBackgroundLogoAlt: section.site?.site_title,
       parselyTags: section.bureau.parsely_tags,
       gamSiteId: section.bureau.gam_site_id,
