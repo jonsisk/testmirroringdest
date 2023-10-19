@@ -5,7 +5,7 @@ import { useContent } from "fusion:content";
 import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
 import React from "react";
-import { SlideCard } from "../slide/slideCard";
+import { LIST_FILTER } from "../../../content/helpers/filters.helper";
 import { StoriesCard } from "./storiesCard";
 
 const StoriesMissed = ({ customFields }) => {
@@ -24,6 +24,7 @@ const StoriesMissed = ({ customFields }) => {
       ...contentConfigValues,
       feature: "results-list",
     },
+    filter: LIST_FILTER(arcSite),
   });
   const targetFallbackImage = !fallbackImage.includes("http")
     ? deployment(`${contextPath}/${fallbackImage}`)

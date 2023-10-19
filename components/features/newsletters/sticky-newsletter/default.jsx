@@ -16,9 +16,9 @@ import { newsletterInterests } from "../../../utilities/newsletters";
 const StickyNewsletterFeature = ({ customFields }) => {
   const { sticky, stickyRef } = useSticky("up");
   const context = useFusionContext();
-  const { arcSite, outputType, globalContent } = context;
+  const { arcSite, outputType } = context;
   const { newsletterSignupEndpoint, websiteName } = getProperties(arcSite);
-  const { websiteName: globalContentWebsite } = getSiteProperties(globalContent);
+  const { websiteName: globalContentWebsite } = getSiteProperties(context);
   const {
     title,
     description,
@@ -69,8 +69,9 @@ const StickyNewsletterFeature = ({ customFields }) => {
   return (
     <div
       ref={stickyRef}
-      className={`newsletter-sticky ${!closed && sticky ? "sticky" : ""} ${!closed ? "" : "closed"
-        }`}
+      className={`newsletter-sticky ${!closed && sticky ? "sticky" : ""} ${
+        !closed ? "" : "closed"
+      }`}
     >
       <div className="content">
         <div className="col-desc">

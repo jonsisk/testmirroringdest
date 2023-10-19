@@ -2,7 +2,7 @@
 import React from "react";
 import { getUserDate, isDateAfter } from "../../helpers/date.helper";
 
-const Byline = ({ element, showTime = true, websiteDomain, showBorder }) => {
+const Byline = ({ element, showTime = true, showDate = true, websiteDomain, showBorder }) => {
   const credits = element?.credits?.by;
 
   //credits[credits.length] = credits[0];
@@ -41,11 +41,13 @@ const Byline = ({ element, showTime = true, websiteDomain, showBorder }) => {
           );
         })}
       </span>
-      <span className="separator">&nbsp;|&nbsp;</span>
-      {displayDate && <span className="date">{getUserDate(displayDate, showTime)}</span>}
+      {showDate && displayDate && <span className="separator">&nbsp;|&nbsp;</span>}
+      {showDate && displayDate && (
+        <span className="date">{getUserDate(displayDate, showTime)}</span>
+      )}
 
       {/* print only if publishDate is after displayDate */}
-      {isDateAfter(publishDate, displayDate) && showTime && (
+      {showDate && isDateAfter(publishDate, displayDate) && showTime && (
         <>
           <span className="separator">&nbsp;|&nbsp;</span>
           <span className="date">Updated: {getUserDate(publishDate, showTime)}</span>

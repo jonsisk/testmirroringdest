@@ -14,6 +14,7 @@ const NoticeListCivic = ({ customFields }) => {
     lazyLoad,
     columns,
     title,
+    readMoreUrl,
     listContentConfig: { contentService, contentConfigValues },
   } = customFields;
   const { fallbackImage, locale, primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
@@ -82,6 +83,7 @@ const NoticeListCivic = ({ customFields }) => {
           showFeatured={false}
           filteredArticles={articles}
           globalContent={globalContent}
+          readMoreUrl={readMoreUrl}
         />
       </div>
     </LazyLoad>
@@ -111,6 +113,11 @@ NoticeListCivic.propTypes = {
       label: "Columns",
       group: "Configure Content",
       defaultValue: "3",
+    }),
+    readMoreUrl: PropTypes.string.tag({
+      label: "Read More URL (relative)",
+      description: "If provided, Read more button will redirect to URL",
+      group: "Configure Content",
     }),
     showHeadline: PropTypes.bool.tag({
       label: "Show headline",

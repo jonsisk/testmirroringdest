@@ -1,5 +1,6 @@
 import { useContent } from "fusion:content";
 import React, { createRef, useCallback, useEffect, useReducer, useState } from "react";
+import { LIST_FILTER } from "../../../../content/helpers/filters.helper";
 import HeroItem from "../../../base/article/hero-article.component";
 import ResultItem from "../../../base/article/result-list.component";
 import { getActualSiteName } from "../../../helpers/article.helper";
@@ -68,6 +69,7 @@ const Results = ({
         case "story-feed-tag": {
           return { feedOffset: offset, feedSize: size };
         }
+        case "content-api-collections-civic":
         case "content-api-collections": {
           return { from: offset, size: configuredSize, getNext: true };
         }
@@ -88,6 +90,7 @@ const Results = ({
       feature: "results-list",
       ...serviceQueryPage(queryOffset),
     },
+    filter: LIST_FILTER(arcSite),
   });
 
   const [resultList, alterResultList] = useReducer(reduceResultList, requestedResultList);
@@ -504,8 +507,8 @@ const Results = ({
                     placeholderResizedImageOptions={placeholderResizedImageOptions}
                     showAsList={false}
                     showByline={showByline}
-                    showDate={false}
-                    showDescription={true}
+                    showDate={showDate}
+                    showDescription={showDescription}
                     showHeadline={showHeadline}
                     showImage={true}
                     showItemOverline={showItemOverline}
@@ -531,7 +534,7 @@ const Results = ({
                     showAsList={false}
                     showByline={showByline}
                     showDate={showDate}
-                    showDescription={false}
+                    showDescription={showDescription}
                     showHeadline={showHeadline}
                     showImage={false}
                     showItemOverline={showItemOverline}

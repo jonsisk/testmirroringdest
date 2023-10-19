@@ -5,11 +5,12 @@ import React from "react";
 import { isSiteSection, getSiteProperties } from "../../helpers/site.helper";
 
 const SplitArticleHeader = (props) => {
-  const { arcSite, globalContent } = useFusionContext();
+  const context = useFusionContext();
+  const { arcSite, globalContent } = context;
   const { style } = props.customFields;
   const [articleImage, ...elements] = props.children;
   const { lightBackgroundLogo, lightBackgroundLogoAlt } = isSiteSection(globalContent)
-    ? getSiteProperties(globalContent)
+    ? getSiteProperties(context)
     : getProperties(arcSite);
 
   switch (style) {

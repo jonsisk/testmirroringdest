@@ -2,6 +2,7 @@ import { Button, BUTTON_STYLES, BUTTON_TYPES } from "@wpmedia/shared-styles";
 import { useContent } from "fusion:content";
 // import getProperties from "fusion:properties";
 import React, { createRef, useCallback, useEffect, useReducer, useState } from "react";
+import { LIST_FILTER } from "../../../../content/helpers/filters.helper";
 import ResultItem from "../../../base/article/result-list.component";
 import { getActualSiteName } from "../../../helpers/article.helper";
 import { reduceResultList } from "../../../helpers/list.helpers";
@@ -49,11 +50,14 @@ const Results = ({
         requestedOffset === configuredOffset ? configuredOffset : requestedOffset + configuredSize;
       switch (contentService) {
         case "story-feed-author":
+        case "story-feed-author-civic":
         case "story-feed-sections":
+        case "story-feed-sections-civic":
         case "story-feed-no-dup-civic":
         case "story-feed-tag": {
           return { feedOffset: offset, feedSize: size };
         }
+        case "content-api-collections-civic":
         case "content-api-collections": {
           return { from: offset, size: configuredSize, getNext: true };
         }
@@ -74,6 +78,7 @@ const Results = ({
       feature: "results-list",
       ...serviceQueryPage(queryOffset),
     },
+    filter: LIST_FILTER(arcSite),
   });
 
   const [resultList, alterResultList] = useReducer(reduceResultList, requestedResultList);

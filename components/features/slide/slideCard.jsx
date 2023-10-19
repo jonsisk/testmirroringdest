@@ -13,12 +13,12 @@ export const SlideCard = ({
   const { primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
   const { websites } = slide;
   const imageProperties = {
-    smallWidth: 158,
-    smallHeight: 89,
-    mediumWidth: 274,
-    mediumHeight: 154,
-    largeWidth: 274,
-    largeHeight: 154,
+    smallWidth: 377,
+    smallHeight: 212,
+    mediumWidth: 400,
+    mediumHeight: 225,
+    largeWidth: 400,
+    largeHeight: 225,
     primaryLogoAlt,
     breakpoints,
     resizerURL,

@@ -14,7 +14,7 @@ const TwoColLayout = ({ children }) => {
         <section role="main" tabIndex="-1">
           <div className="fullWidth1">{fullWidth1}</div>
           <div className="twoColumn">
-            <main>{main}</main>
+            <main className="main">{main}</main>
             <aside>{rightRail}</aside>
           </div>
           <div className="fullWidth2">{fullWidth2}</div>

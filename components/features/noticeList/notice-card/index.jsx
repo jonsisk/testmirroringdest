@@ -1,7 +1,9 @@
 import { Button, BUTTON_STYLES, BUTTON_TYPES } from "@wpmedia/shared-styles";
 import { useContent } from "fusion:content";
+import { useFusionContext } from "fusion:context";
 import React, { createRef, useCallback, useEffect, useReducer, useState } from "react";
 /* import ResultItem from "../../../base/article/result-list.component"; */
+import { LIST_FILTER } from "../../../../content/helpers/filters.helper";
 import ResultItem from "../../../base/article/result-notice.component";
 import { getActualSiteName } from "../../../helpers/article.helper";
 import { reduceResultList } from "../../../helpers/list.helpers";
@@ -29,8 +31,10 @@ const NoticeCard = ({
   showFeatured = true,
   filteredArticles = [],
   globalContent,
+  readMoreUrl,
 }) => {
   const [queryOffset, setQueryOffset] = useState(configuredOffset);
+  const { contextPath } = useFusionContext();
 
   const placeholderResizedImageOptions = useContent({
     source: !targetFallbackImage.includes("/resources/") ? "resize-image-api" : null,
@@ -49,11 +53,14 @@ const NoticeCard = ({
         requestedOffset === configuredOffset ? configuredOffset : requestedOffset + configuredSize;
       switch (contentService) {
         case "story-feed-author":
+        case "story-feed-author-civic":
         case "story-feed-sections":
+        case "story-feed-sections-civic":
         case "story-feed-no-dup-civic":
         case "story-feed-tag": {
           return { feedOffset: offset, feedSize: size };
         }
+        case "content-api-collections-civic":
         case "content-api-collections": {
           return { from: offset, size: configuredSize, getNext: true };
         }
@@ -74,6 +81,7 @@ const NoticeCard = ({
       feature: "results-list",
       ...serviceQueryPage(queryOffset),
     },
+    filter: LIST_FILTER(arcSite),
   });
 
   const [resultList, alterResultList] = useReducer(reduceResultList, requestedResultList);
@@ -173,7 +181,9 @@ const NoticeCard = ({
             ariaLabel={"More Stories"}
             buttonStyle={BUTTON_STYLES.PRIMARY}
             buttonTypes={BUTTON_TYPES.LABEL_ONLY}
-            onClick={onReadMoreClick}
+            onClick={
+              readMoreUrl ? () => (window.location.href = `${readMoreUrl}`) : onReadMoreClick
+            }
             text={"Read More"}
           />
         </div>

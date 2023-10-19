@@ -10,9 +10,13 @@ import { isSiteSection, getSiteProperties } from "../../helpers/site.helper";
 const Header = ({ customFields }) => {
   const context = useFusionContext();
   const { arcSite, outputType, globalContent } = context;
-  const { primaryLogo, primaryLogoAlt } = isSiteSection(globalContent)
-    ? getSiteProperties(globalContent)
-    : getProperties(arcSite);
+  const {
+    primaryLogo,
+    primaryLogoAlt,
+    tagline: bureauTagline,
+    hideTopics,
+    topicsHierachy: bureauTopicsHierarchy,
+  } = isSiteSection(globalContent) ? getSiteProperties(context) : getProperties(arcSite);
   const {
     tagline,
     communitiesTitle,
@@ -36,7 +40,7 @@ const Header = ({ customFields }) => {
     source: "site-service-hierarchy-civic",
     query: {
       site: arcSite,
-      hierarchy: topicsHierachy,
+      hierarchy: bureauTopicsHierarchy || topicsHierachy,
     },
   });
 
@@ -44,13 +48,13 @@ const Header = ({ customFields }) => {
     (outputType !== "amp" && (
       <div className="customheader">
         <HeaderSignup
-          tagline={tagline}
+          tagline={bureauTagline || tagline}
           aboutUsCopy={aboutUsCopy}
           aboutUsUrl={aboutUsUrl}
           logoURL={primaryLogo}
           logoAlt={primaryLogoAlt}
-          topicsTitle={topicsTitle}
-          topicNavigation={topics}
+          topicsTitle={hideTopics ? null : topicsTitle}
+          topicNavigation={hideTopics ? null : topics}
           communitiesTitle={communitiesTitle}
           communityNavigation={communities}
           logoHref={globalContent?.site_section ? globalContent?.site_section._id : "/"}
@@ -59,13 +63,13 @@ const Header = ({ customFields }) => {
       </div>
     )) || (
       <HeaderAMP
-        tagline={tagline}
+        tagline={bureauTagline || tagline}
         aboutUsCopy={aboutUsCopy}
         aboutUsUrl={aboutUsUrl}
         logoURL={primaryLogo}
         logoAlt={primaryLogoAlt}
-        topicsTitle={topicsTitle}
-        topicNavigation={topics}
+        topicsTitle={hideTopics ? null : topicsTitle}
+        topicNavigation={hideTopics ? null : topics}
         communitiesTitle={communitiesTitle}
         communityNavigation={communities}
       />

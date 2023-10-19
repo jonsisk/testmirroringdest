@@ -13,9 +13,10 @@ import { newsletterInterests } from "../../../utilities/newsletters";
  * @returns
  */
 const NewsletterFeature = ({ customFields }) => {
-  const { arcSite, contextPath, deployment, outputType, globalContent } = useFusionContext();
+  const context = useFusionContext();
+  const { arcSite, contextPath, deployment, outputType } = context;
   const { newsletterSignupEndpoint, websiteName } = getProperties(arcSite);
-  const { websiteName: globalContentWebsite } = getSiteProperties(globalContent);
+  const { websiteName: globalContentWebsite } = getSiteProperties(context);
   const {
     title,
     style,

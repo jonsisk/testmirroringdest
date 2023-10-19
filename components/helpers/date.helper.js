@@ -1,11 +1,13 @@
 import dayjs from "dayjs";
 import advanced from "dayjs/plugin/advancedFormat";
+import isToday from "dayjs/plugin/isToday";
 import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(advanced);
+dayjs.extend(isToday);
 
 /**
  * Given a date, it returns a formatted date string with a fixed timezone, used for article republishing.
@@ -41,54 +43,20 @@ export const getUserDate = (date, showTime = false) => {
     return null;
   }
   let now = dayjs();
-  let userDate = dayjs(date);
   const STANDARD_FORMAT = now.year() > dayjs(date).year() ? "MMMM D, YYYY" : "MMMM D";
 
-  const FORMAT = showTime
-    ? `MMMM D, YYYY, h:mma ${insertTimezoneIntoTemplate(date)}`
-    : STANDARD_FORMAT;
+  let FORMAT;
+  const isToday = dayjs(date).isToday();
 
-  const nowFormated = dayjs.utc().local().format("MMMM D, YYYY, h:mma").replace(",", "").split(" ");
-  const userDateFormated = userDate.utc().format("MMMM D, YYYY, h:mma").replace(",", "").split(" ");
-  const userDateLocalFormated = userDate
-    .local()
-    .format("MMMM D, YYYY, h:mma")
-    .replace(",", "")
-    .split(" ");
-  let isToday = false;
-  if (
-    nowFormated[0] === userDateFormated[0] &&
-    nowFormated[1] === userDateFormated[1] &&
-    nowFormated[2] === userDateFormated[2]
-  ) {
-    isToday = true;
+  if (showTime) {
+    FORMAT = `MMMM D, YYYY, h:mma z`;
+  } else {
+    if (isToday) {
+      FORMAT = `[Today,] h:mma z`;
+    } else {
+      FORMAT = STANDARD_FORMAT;
+    }
   }
 
-  const localTimeZone = Date().toString().split(" ")[5].substring(0, 6);
-
-  return isToday
-    ? `Today, ${userDateLocalFormated[3]} ${localTimeZone}`
-    : dayjs.utc(date).local().format(FORMAT);
-};
-
-export const insertTimezoneIntoTemplate = (date, { brackets } = { brackets: "[]" }) => {
-  let openb = "[";
-  let closeb = "]";
-
-  if (brackets === "()") {
-    openb = "(";
-    closeb = ")";
-  }
-
-  const timezoneAbbr = getTimezoneAbbr(date);
-  return timezoneAbbr ? `${openb}${timezoneAbbr}${closeb}` : "";
-};
-
-export const getTimezoneAbbr = (date) => {
-  if (!date) {
-    return null;
-  }
-
-  const timeZoneAbbr = dayjs(date).format("z");
-  return timeZoneAbbr;
+  return dayjs.utc(date).local().format(FORMAT);
 };

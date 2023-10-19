@@ -1,6 +1,6 @@
 import { useFusionContext } from "fusion:context";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { getUserDate } from "../../helpers/date.helper";
 import { useGetEvents } from "../../hooks/use-getevents";
 
@@ -13,36 +13,49 @@ const Events = ({ customFields }) => {
     count: count,
   });
 
+  const EventsRef = useRef(null);
+  const Events2Ref = useRef(null);
+  const [EventsHeight, setEventsHeight] = useState(null);
+
+  useEffect(() => {
+    if (EventsRef.current) {
+      const height = EventsRef.current.clientHeight;
+      if (Events2Ref.current) {
+        Events2Ref.current.style.height = `${height}px`;
+        setEventsHeight(height);
+      }
+    }
+  }, [EventsHeight]);
+
   if (outputType === "amp") return null;
   return (
-    <div className="Breaker-wrapper-connect">
-      <div className="Breaker-content-header">
-        <div className="Breaker-content-header-icon">
-          <img
-            className="Image"
-            alt="icon-events"
-            width="105"
-            height="95"
-            src={deployment(`${contextPath}/resources/images/votebeat/iconEvents.png`)}
-          />
+    <>
+      <div className="Breaker-wrapper Events">
+        <div className="Breaker-content-header">
+          <div className="Breaker-content-header-icon">
+            <img
+              className="Image"
+              alt="icon-events"
+              width="105"
+              height="95"
+              src={deployment(`${contextPath}/resources/images/votebeat/iconEvents.png`)}
+            />
+          </div>
+          <h3 className="Breaker-content-header-title">{title}</h3>
+          <h4 className="Breaker-content-header-description">{subtitle}</h4>
+          <div>
+            <a
+              className="Breaker-content-header-CTALink Button"
+              href={buttonLink}
+              target="_blank"
+              data-cms-ai="0"
+              rel="noreferrer"
+            >
+              {buttonLabel}
+            </a>
+          </div>
         </div>
-
-        <h3 className="Breaker-content-header-title">{title}</h3>
-
-        <h4 className="Breaker-content-header-description">{subtitle}</h4>
-
-        <div>
-          <a
-            className="Breaker-content-header-CTALink Button"
-            href={buttonLink}
-            target="_blank"
-            data-cms-ai="0"
-            rel="noreferrer"
-          >
-            {buttonLabel}
-          </a>
-        </div>
-        <div className="Breaker-content-body">
+        <div className="Breaker-content-body" ref={EventsRef}>
           <h4 className="Breaker-content-body-title">{htmlTitle}</h4>
 
           <ol className="Breaker-content-body-list">
@@ -60,7 +73,7 @@ const Events = ({ customFields }) => {
                             <span data-date="">{getUserDate(event.pubDate)}</span>
                           </bsp-timestamp>
                         </span>
-                        <div className="PagePromoSimpleEvent-title">
+                        <span className="PagePromoSimpleEvent-title hyphen">
                           <a
                             className="Link"
                             href={event.link}
@@ -70,7 +83,7 @@ const Events = ({ customFields }) => {
                           >
                             {event.title}
                           </a>
-                        </div>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -78,8 +91,9 @@ const Events = ({ customFields }) => {
               ))}
           </ol>
         </div>
+        <div ref={Events2Ref} className="breaker-full"></div>
       </div>
-    </div>
+    </>
   );
 };
 
