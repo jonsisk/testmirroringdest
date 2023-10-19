@@ -10,7 +10,7 @@ const BylineFeature = () => {
   const { globalContent, arcSite } = useFusionContext();
   const { websiteDomain } = getProperties(arcSite);
 
-  return <Byline element={globalContent} websiteDomain={websiteDomain} />;
+  return <Byline element={globalContent} websiteDomain={websiteDomain} type="story" />;
 };
 
 BylineFeature.label = "Byline - Civic";

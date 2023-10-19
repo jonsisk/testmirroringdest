@@ -3,10 +3,17 @@ import React from "react";
 import { getUserDate, isDateAfter } from "../../helpers/date.helper";
 import Author from "./author.component";
 
-const Byline = ({ element, showTime = true, showDate = true, websiteDomain, showBorder }) => {
+const Byline = ({
+  element,
+  showTime = true,
+  showDate = true,
+  websiteDomain,
+  showBorder,
+  type = null,
+}) => {
   const credits = element?.credits?.by;
 
-  const { display_date: displayDate, publish_date: publishDate, type } = element;
+  const { display_date: displayDate, publish_date: publishDate } = element;
 
   //Render all authors for a story
   const renderAuthors = (authorsList) => {
