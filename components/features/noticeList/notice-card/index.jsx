@@ -34,7 +34,6 @@ const NoticeCard = ({
   readMoreUrl,
 }) => {
   const [queryOffset, setQueryOffset] = useState(configuredOffset);
-  const { contextPath } = useFusionContext();
 
   const placeholderResizedImageOptions = useContent({
     source: !targetFallbackImage.includes("/resources/") ? "resize-image-api" : null,

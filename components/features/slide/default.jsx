@@ -1,6 +1,6 @@
 import PropTypes from "@arc-fusion/prop-types";
 import { isServerSide, LazyLoad } from "@wpmedia/engine-theme-sdk";
-import { HeadingSection } from "@wpmedia/shared-styles";
+import { Button, BUTTON_STYLES, BUTTON_TYPES, HeadingSection } from "@wpmedia/shared-styles";
 import { useContent } from "fusion:content";
 import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
@@ -66,6 +66,8 @@ const Carrousel = ({ customFields }) => {
     listContentConfig: { contentService, contentConfigValues },
     title,
     subtitle,
+    buttonLabel,
+    buttonUrl,
   } = customFields;
 
   const isServerSideLazy = lazyLoad && isServerSide() && !isAdmin;
@@ -124,6 +126,17 @@ const Carrousel = ({ customFields }) => {
                 />
               ))}
           </Slider>
+          {buttonLabel && buttonUrl && (
+            <div className="see-more">
+              <Button
+                ariaLabel={buttonLabel}
+                buttonStyle={BUTTON_STYLES.PRIMARY}
+                buttonTypes={BUTTON_TYPES.LABEL_ONLY}
+                text={buttonLabel}
+                onClick={() => window.open(`${buttonUrl}`)}
+              />
+            </div>
+          )}
         </div>
       </HeadingSection>
     </LazyLoad>
@@ -142,6 +155,14 @@ Carrousel.propTypes = {
     }),
     subtitle: PropTypes.string.tag({
       label: "Subtitle",
+      group: "Configure Content",
+    }),
+    buttonLabel: PropTypes.string.tag({
+      label: "Button Label",
+      group: "Configure Content",
+    }),
+    buttonUrl: PropTypes.string.tag({
+      label: "Button URL",
       group: "Configure Content",
     }),
     listContentConfig: PropTypes.contentConfig("ans-feed").tag({
