@@ -10,30 +10,35 @@ const Byline = ({ element, showTime = true, websiteDomain, showBorder }) => {
 
   const { display_date: displayDate, publish_date: publishDate } = element;
 
-  console.log("---->", credits);
+  //console.log("---->", credits);
 
   return (
     <div className={showBorder === false ? "bylineNotice" : "byline"}>
       <span className="author">
         By&nbsp;
         {credits?.map((author) => {
-          if (author.slug) {
-            return (
-              <div key={author.slug} className="Page-byline">
-                <div className="Page-authors">
-                  {credits[0].name !== author.name &&
-                  credits[credits.length - 1].name !== author.name
-                    ? ", "
-                    : credits[credits.length - 1].name === author.name && credits.length > 1
-                    ? " and "
-                    : ""}
+          return (
+            <div key={author.slug} className="Page-byline">
+              <div className="Page-authors">
+                {credits.length > 3 &&
+                credits[0].name !== author.name &&
+                credits[1].name !== author.name &&
+                credits[2].name !== author.name
+                  ? " and " + credits.length - 3 + " more "
+                  : credits[0].name !== author.name &&
+                    credits[credits.length - 1].name !== author.name
+                  ? ", "
+                  : credits[credits.length - 1].name === author.name && credits.length > 1
+                  ? " and "
+                  : ""}
+                {author.slug ? (
                   <a href={`${websiteDomain}/authors/${author.slug}`}>{author.name}</a>
-                </div>
+                ) : (
+                  author.name
+                )}
               </div>
-            );
-          } else {
-            return author.name;
-          }
+            </div>
+          );
         })}
       </span>
       <span className="separator">&nbsp;|&nbsp;</span>
