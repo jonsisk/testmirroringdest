@@ -41,7 +41,8 @@ const HeroItem = React.memo(
         const primarySection = getPrimarySection(element, globalContent);
         if (
           !primarySection ||
-          primarySection?.additional_properties?.original?.bureau?.is_bureau_section == "true"
+          primarySection?.additional_properties?.original?.bureau?.is_bureau_section == "true" ||
+          primarySection?.additional_properties?.original?.site?.is_internal === "true"
         )
           return null;
         return (
