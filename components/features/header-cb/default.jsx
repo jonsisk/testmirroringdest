@@ -75,8 +75,8 @@ const Header = ({ customFields }) => {
         tagline={bureauTagline || tagline}
         logoURL={primaryLogo}
         logoAlt={primaryLogoAlt}
-        topicsTitle={topicsTitle}
-        topicNavigation={topics}
+        topicsTitle={hideTopics ? null : topicsTitle}
+        topicNavigation={hideTopics ? null : topics}
         communitiesTitle={communitiesTitle}
         communityNavigation={communities}
         linksNavigation={links}
