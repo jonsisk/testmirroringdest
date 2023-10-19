@@ -5,12 +5,7 @@ import { getUserDate, isDateAfter } from "../../helpers/date.helper";
 const Byline = ({ element, showTime = true, showDate = true, websiteDomain, showBorder }) => {
   const credits = element?.credits?.by;
 
-  //credits[credits.length] = credits[0];
-  //credits[credits.length - 1].name = "Elena " + Math.random();
-
   const { display_date: displayDate, publish_date: publishDate } = element;
-
-  //console.log("---->", credits);
 
   return (
     <div className={showBorder === false ? "bylineNotice" : "byline"}>
