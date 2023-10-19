@@ -10,8 +10,11 @@ const OverlineFeature = () => {
 
   let { primary_section: primarySection, sections } = globalContent.taxonomy;
 
-  if (primarySection?.additional_properties?.original?.bureau?.is_bureau_section === "true") {
-    // we won't show primary section if it's a bureu section
+  if (
+    primarySection?.additional_properties?.original?.bureau?.is_bureau_section === "true" ||
+    primarySection?.additional_properties?.original?.site?.is_internal === "true"
+  ) {
+    // we won't show primary section if it's a bureu section or internal section
     primarySection = null;
   }
 
@@ -22,7 +25,8 @@ const OverlineFeature = () => {
         ?.filter(
           (sec) =>
             sec._id != primarySection?._id &&
-            sec.additional_properties?.original?.bureau?.is_bureau_section !== "true"
+            sec.additional_properties?.original?.bureau?.is_bureau_section !== "true" &&
+            sec.additional_properties?.original?.site?.is_internal !== "true"
         )
         .slice(0, primarySection ? 2 : 3)
         .map((section) => {
