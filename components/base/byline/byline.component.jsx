@@ -5,7 +5,12 @@ import { getUserDate, isDateAfter } from "../../helpers/date.helper";
 const Byline = ({ element, showTime = true, websiteDomain, showBorder }) => {
   const credits = element?.credits?.by;
 
+  //credits[credits.length] = credits[0];
+  //credits[credits.length - 1].name = "Elena " + Math.random();
+
   const { display_date: displayDate, publish_date: publishDate } = element;
+
+  console.log("---->", credits);
 
   return (
     <div className={showBorder === false ? "bylineNotice" : "byline"}>
@@ -16,6 +21,12 @@ const Byline = ({ element, showTime = true, websiteDomain, showBorder }) => {
             return (
               <div key={author.slug} className="Page-byline">
                 <div className="Page-authors">
+                  {credits[0].name !== author.name &&
+                  credits[credits.length - 1].name !== author.name
+                    ? ", "
+                    : credits[credits.length - 1].name === author.name && credits.length > 1
+                    ? " and "
+                    : ""}
                   <a href={`${websiteDomain}/authors/${author.slug}`}>{author.name}</a>
                 </div>
               </div>
