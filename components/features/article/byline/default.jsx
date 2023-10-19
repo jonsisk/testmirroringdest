@@ -10,12 +10,6 @@ const BylineFeature = () => {
   const { globalContent, arcSite } = useFusionContext();
   const { websiteDomain } = getProperties(arcSite);
 
-  const credits = globalContent?.credits?.by;
-
-  console.log("-->", credits);
-  credits[credits.length] = credits[0];
-  credits[credits.length - 1].name = "Maria " + Math.random();
-
   return <Byline element={globalContent} websiteDomain={websiteDomain} />;
 };
 

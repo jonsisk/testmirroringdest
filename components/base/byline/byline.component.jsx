@@ -5,12 +5,7 @@ import { getUserDate, isDateAfter } from "../../helpers/date.helper";
 const Byline = ({ element, showTime = true, showDate = true, websiteDomain, showBorder }) => {
   const credits = element?.credits?.by;
 
-  //credits[credits.length] = credits[0];
-  //credits[credits.length - 1].name = "Elena " + Math.random();
-
   const { display_date: displayDate, publish_date: publishDate } = element;
-
-  //console.log("---->", credits);
 
   return (
     <div className={showBorder === false ? "bylineNotice" : "byline"}>
@@ -20,21 +15,31 @@ const Byline = ({ element, showTime = true, showDate = true, websiteDomain, show
           return (
             <div key={author.slug} className="Page-byline">
               <div className="Page-authors">
-                {credits.length > 3 &&
-                credits[0].name !== author.name &&
-                credits[1].name !== author.name &&
-                credits[2].name !== author.name
-                  ? " and " + credits.length - 3 + " more "
+                {credits.length > 3
+                  ? credits[3].name === author.name
+                    ? " and " + (credits.length - 3) + " more "
+                    : credits[0].name !== author.name &&
+                      credits[credits.length - 1].name !== author.name
+                    ? ", "
+                    : credits[credits.length - 1].name === author.name /*&& credits.length > 1*/
+                    ? " and "
+                    : ""
                   : credits[0].name !== author.name &&
                     credits[credits.length - 1].name !== author.name
                   ? ", "
-                  : credits[credits.length - 1].name === author.name && credits.length > 1
+                  : credits[credits.length - 1].name === author.name /*&& credits.length > 1*/
                   ? " and "
                   : ""}
-                {author.slug ? (
-                  <a href={`${websiteDomain}/authors/${author.slug}`}>{author.name}</a>
+                {credits[0].name === author.name ||
+                credits[1].name === author.name ||
+                credits[2].name === author.name ? (
+                  author.slug ? (
+                    <a href={`${websiteDomain}/authors/${author.slug}`}>{author.name}</a>
+                  ) : (
+                    author.name
+                  )
                 ) : (
-                  author.name
+                  ""
                 )}
               </div>
             </div>
