@@ -21,13 +21,13 @@ const Byline = ({ element, showTime = true, showDate = true, websiteDomain, show
                     : credits[0].name !== author.name &&
                       credits[credits.length - 1].name !== author.name
                     ? ", "
-                    : credits[credits.length - 1].name === author.name /*&& credits.length > 1*/
+                    : credits[credits.length - 1].name === author.name && credits.length > 1
                     ? " and "
                     : ""
                   : credits[0].name !== author.name &&
                     credits[credits.length - 1].name !== author.name
                   ? ", "
-                  : credits[credits.length - 1].name === author.name /*&& credits.length > 1*/
+                  : credits[credits.length - 1].name === author.name && credits.length > 1
                   ? " and "
                   : ""}
                 {credits[0].name === author.name ||
