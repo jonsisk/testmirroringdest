@@ -30,7 +30,7 @@ const Byline = ({
       } else {
         return (
           <>
-            <span>,</span>
+            <span className="coma">,</span>
             <Author key={index} author={author} websiteDomain={websiteDomain} />
           </>
         );
@@ -52,7 +52,8 @@ const Byline = ({
         )}
         {credits.length === 3 && (
           <>
-            <Author author={credits[0]} websiteDomain={websiteDomain} /> <span>,</span>
+            <Author author={credits[0]} websiteDomain={websiteDomain} />{" "}
+            <span className="coma">,</span>
             <Author author={credits[1]} websiteDomain={websiteDomain} />
             <span className="and">and</span>
             <Author author={credits[2]} websiteDomain={websiteDomain} />
@@ -63,7 +64,8 @@ const Byline = ({
             renderAuthors(credits)
           ) : (
             <>
-              <Author author={credits[0]} websiteDomain={websiteDomain} /> <span>,</span>
+              <Author author={credits[0]} websiteDomain={websiteDomain} />{" "}
+              <span className="coma">,</span>
               <Author author={credits[1]} websiteDomain={websiteDomain} />
               <span className="and">{` and ${credits.length - 2} more`}</span>
             </>

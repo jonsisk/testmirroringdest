@@ -103,6 +103,22 @@
     }
   }
 
+  .byline {
+    display: inline;
+    .author {
+      display: inline;
+      .Page-byline,
+      .Page-authors,
+      .and,
+      a {
+        display: inline;
+      }
+    }
+    .coma {
+      margin: 0 4px 0 -4px;
+    }
+  }
+
   .see-more {
     button {
       min-width: 120px;
