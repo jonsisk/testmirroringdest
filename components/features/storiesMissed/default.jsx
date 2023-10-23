@@ -35,34 +35,40 @@ const StoriesMissed = ({ customFields }) => {
   });
   const { content_elements } = requestedResultList ? requestedResultList : {};
   return (
-    <LazyLoad enabled={lazyLoad && !isAdmin}>
-      <HeadingSection>
-        <div className="PageList-header articles-slider">
-          <svg className="PageList-header-squiggly">
-            <use xlinkHref="#squiggly"></use>
-          </svg>
-          <div className="PageList-header-title-wrap">
-            <div className="PageList-header-title">{title}</div>
-          </div>
+    <div className="StoriesMissed PageListAA">
+      <LazyLoad enabled={lazyLoad && !isAdmin}>
+        <HeadingSection>
+          <div className="PageList-header articles-slider">
+            <svg className="PageList-header-squiggly">
+              <use xlinkHref="#squiggly"></use>
+            </svg>
+            <div className="PageList-header-title-wrap">
+              <div className="PageList-header-title">
+                <b>{title}</b>
+              </div>
+            </div>
 
-          <div className="PageList-header-description">
-            <p>{subtitle}</p>
+            <div className="PageList-header-description">
+              <p>{subtitle}</p>
+            </div>
           </div>
-        </div>
-        {content_elements?.length > 0 &&
-          !isServerSideLazy &&
-          content_elements.map((slide, index) => (
-            <StoriesCard
-              key={index}
-              slide={slide}
-              showImage={index === 0}
-              arcSite={arcSite}
-              targetFallbackImage={targetFallbackImage}
-              placeholderResizedImageOptions={placeholderResizedImageOptions}
-            />
-          ))}
-      </HeadingSection>
-    </LazyLoad>
+          <div className="PageListAA-items">
+            {content_elements?.length > 0 &&
+              !isServerSideLazy &&
+              content_elements.map((slide, index) => (
+                <StoriesCard
+                  key={index}
+                  slide={slide}
+                  showImage={index === 0}
+                  arcSite={arcSite}
+                  targetFallbackImage={targetFallbackImage}
+                  placeholderResizedImageOptions={placeholderResizedImageOptions}
+                />
+              ))}
+          </div>
+        </HeadingSection>
+      </LazyLoad>
+    </div>
   );
 };
 StoriesMissed.label = "StoriesList – Civic";
