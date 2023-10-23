@@ -38,11 +38,13 @@ const OverlayLeadImage = ({ customFields }) => {
     large: 900,
   };
 
+  const logoUrl = isSiteSection(globalContent) ? globalContent.site_section?._id : "/";
+
   return (
     <>
       {!hideLogo && (
         <div className="logo-overlay">
-          <a aria-label="home page" href="/" data-cms-ai="0">
+          <a aria-label="home page" href={logoUrl} data-cms-ai="0">
             <img className="PageLogo-image" src={primaryLogo} alt={lightBackgroundLogoAlt} />
           </a>
         </div>
