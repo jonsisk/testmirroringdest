@@ -89,7 +89,8 @@ const Carrousel = ({ customFields }) => {
     source: !targetFallbackImage.includes("/resources/") ? "resize-image-api" : null,
     query: { raw_image_url: targetFallbackImage, respect_aspect_ratio: true },
   });
-  const { content_elements } = requestedResultList;
+
+  const { content_elements } = requestedResultList ? requestedResultList : {};
 
   if (content_elements) {
     content_elements.forEach((element) => {
