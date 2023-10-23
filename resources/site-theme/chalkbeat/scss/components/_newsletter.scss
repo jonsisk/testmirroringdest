@@ -506,7 +506,14 @@
       height: auto;
       padding: 6px;
       font-family: var(--font-3);
-      width: 100%;
+      width: 80%;
+
+      @include respond-down(xs) {
+        width: 100%;
+      }
+      @include respond-between(xs, sm) {
+        width: 75%;
+      }
     }
   }
 
