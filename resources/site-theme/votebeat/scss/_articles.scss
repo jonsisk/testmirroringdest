@@ -703,3 +703,25 @@ main article {
     display: none;
   }
 }
+
+.byline {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+
+  .author {
+    display: inline-flex;
+    flex-wrap: wrap;
+    .Page-byline,
+    .Page-authors,
+    .and,
+    a {
+      display: inline;
+    }
+  }
+  .coma {
+    margin: 0 4px 0 -4px;
+  }
+}
