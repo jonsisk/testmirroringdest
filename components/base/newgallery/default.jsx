@@ -44,6 +44,7 @@ const NewGallery = ({ galleryElements, resizerURL }) => {
                 key={index}
                 className={"big-images"}
                 slideIndex={index}
+                showText={true}
                 slide={slide}
                 resizerURL={resizerURL}
               />
