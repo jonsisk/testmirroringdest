@@ -702,21 +702,16 @@ main article {
   }
 }
 
+.bylineNotice,
 .byline {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: center;
-  flex-direction: row;
-
+  display: inline-block;
   .author {
-    display: inline-flex;
-    flex-wrap: wrap;
+    display: inline !important;
     .Page-byline,
     .Page-authors,
     .and,
     a {
-      display: inline;
+      display: inline !important;
     }
   }
   .coma {
