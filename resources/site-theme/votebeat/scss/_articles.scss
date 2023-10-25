@@ -60,6 +60,10 @@ h2.sub-headline {
     letter-spacing: normal;
   }
 
+  figure + h2 {
+    margin-top: 20px;
+  }
+
   h2 {
     font-size: var(--heading-2);
   }

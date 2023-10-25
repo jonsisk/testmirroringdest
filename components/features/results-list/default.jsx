@@ -19,12 +19,12 @@ const ResultsListCivic = ({ customFields }) => {
   } = customFields;
   const { fallbackImage, locale, primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
   const imageProperties = {
-    smallWidth: 158,
-    smallHeight: 89,
-    mediumWidth: 274,
-    mediumHeight: 154,
-    largeWidth: 274,
-    largeHeight: 154,
+    smallWidth: 377,
+    smallHeight: 212,
+    mediumWidth: 377,
+    mediumHeight: 212,
+    largeWidth: 377,
+    largeHeight: 212,
     primaryLogoAlt,
     breakpoints,
     resizerURL,
