@@ -703,3 +703,20 @@ main article {
     display: none;
   }
 }
+
+.bylineNotice,
+.byline {
+  display: inline-block;
+  .author {
+    display: inline !important;
+    .Page-byline,
+    .Page-authors,
+    .and,
+    a {
+      display: inline !important;
+    }
+  }
+  .coma {
+    margin: 0 4px 0 -4px;
+  }
+}

@@ -79,7 +79,7 @@ const Byline = ({
       {/* print only if publishDate is after displayDate */}
       {showDate && isDateAfter(publishDate, displayDate) && showTime && (
         <>
-          <span className="separator">&nbsp;|&nbsp;</span>
+          <span className="separator">&nbsp;&nbsp;</span>
           <span className="date">Updated: {getUserDate(publishDate, showTime)}</span>
         </>
       )}
