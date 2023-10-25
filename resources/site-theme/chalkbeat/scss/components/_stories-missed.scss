@@ -1,8 +1,33 @@
 .StoriesMissed {
+  --color-link: #178287;
   .PageList-header {
     padding-bottom: 24px;
+    .PageList-header-title {
+      font-size: 2.6rem;
+    }
   }
-  .article-slide h2.headline-text {
-    font-size: 1.8rem;
+  .article-slide {
+    a.overline {
+      color: var(--color-link, var(--color-section-text));
+      &:hover {
+        color: var(--color-link, var(--color-section-text));
+      }
+    }
+    .article-slide-info a {
+      h2 {
+        font-size: 1.8rem;
+      }
+      &:hover {
+        h2 {
+          color: var(--color-link, var(--color-section-text));
+        }
+      }
+    }
+  }
+  .PageListAA-items .slide.article-slide .article-slide-info {
+    border-color: #e7e7e8 !important;
+  }
+  .PageListAA-items .slide.article-slide:last-child .article-slide-info {
+    border-bottom: 0 none !important;
   }
 }
