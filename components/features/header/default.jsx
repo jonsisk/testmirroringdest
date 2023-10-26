@@ -57,7 +57,7 @@ const Header = ({ customFields }) => {
           topicNavigation={hideTopics ? null : topics}
           communitiesTitle={communitiesTitle}
           communityNavigation={communities}
-          logoHref={globalContent?.site_section ? globalContent?.site_section._id : "/"}
+          logoHref={globalContent?.site_section ? `${globalContent?.site_section._id}/` : "/"}
           donateUrl={donateUrl}
         />
       </div>
