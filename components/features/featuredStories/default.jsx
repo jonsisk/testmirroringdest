@@ -109,6 +109,7 @@ FeaturedStoriesCivic.propTypes = {
     listType: PropTypes.oneOf([
       "ListG",
       "ListP",
+      "ListPA",
       "ListA",
       "ListU",
       "ListZ",
