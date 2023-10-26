@@ -218,6 +218,13 @@ aside.sidebar {
     width: 100%;
     margin: 20px 0;
   }
+
+  @include respond-up(lg) {
+    flex-direction: row !important;
+    max-width: fit-content !important;
+    width: 100% !important;
+  }
+
   p {
     font-size: 1.6rem;
     --font: var(--font-rte-body);
@@ -240,11 +247,15 @@ aside.sidebar {
   &.float-right {
     float: right;
     margin-left: 10px;
-    width: 45%;
+    width: 45% !important;
     margin-right: 5%;
     @include respond-down(sm) {
       width: 100%;
       margin: 20px 0;
+    }
+    @include respond-up(lg) {
+      width: 45% !important;
+      flex-direction: column !important;
     }
     figure {
       margin: 20px 0px;
@@ -258,6 +269,10 @@ aside.sidebar {
     @include respond-down(sm) {
       width: 100%;
       margin: 20px 0;
+    }
+    @include respond-up(lg) {
+      width: 45% !important;
+      flex-direction: column !important;
     }
     figure {
       margin: 20px 0px;

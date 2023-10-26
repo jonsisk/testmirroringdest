@@ -6,11 +6,11 @@ import React from "react";
  * @param {*} embed - power-up stored data (custom_embed)
  * @returns
  */
-const SidebarComposer = ({ embed }) => {
+const SidebarComposer = ({ embed, alignment }) => {
   const data = embed.config;
 
   return (
-    <div className="sidebar-composer">
+    <div className={`sidebar-composer ${alignment}`}>
       <h3>{data.title}</h3>
       {data.image_url && (
         <div className="logo">
