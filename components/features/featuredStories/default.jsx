@@ -26,11 +26,11 @@ const FeaturedStoriesCivic = ({ customFields }) => {
   };
   const imagePropertiesFeatured = {
     smallWidth: 768,
-    smallHeight: 432,
+    smallHeight: 512,
     mediumWidth: 768,
-    mediumHeight: 432,
+    mediumHeight: 512,
     largeWidth: 768,
-    largeHeight: 432,
+    largeHeight: 512,
     primaryLogoAlt,
     breakpoints,
     resizerURL,
@@ -48,12 +48,12 @@ const FeaturedStoriesCivic = ({ customFields }) => {
   };
 
   const imagePropertiesSquare = {
-    smallWidth: 400,
-    smallHeight: 300,
-    mediumWidth: 400,
-    mediumHeight: 300,
-    largeWidth: 400,
-    largeHeight: 300,
+    smallWidth: 600,
+    smallHeight: 450,
+    mediumWidth: 600,
+    mediumHeight: 450,
+    largeWidth: 600,
+    largeHeight: 450,
     primaryLogoAlt,
     breakpoints,
     resizerURL,

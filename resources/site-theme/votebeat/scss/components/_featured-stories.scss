@@ -1,4 +1,7 @@
 .results-list-container {
+  .PagePromo-category {
+    margin-top: 10px;
+  }
   &.ListA {
     .PageListP-items-column {
       grid-area: 1 / 1 / 2 / 2;
@@ -8,6 +11,9 @@
 
         .PagePromo-title {
           font-size: 2rem;
+        }
+        .PagePromo-category:first-of-type {
+          margin-top: 0;
         }
       }
 
@@ -125,21 +131,9 @@
     .PagePromo-author .byline {
       padding-bottom: 0;
     }
-
-    .PagePromo-content {
-      margin-top: 10px;
-    }
   }
 
   &.ListP {
-    .PageListP-items-column:first-of-type {
-      .PageListH-items-item > .PagePromo-standard {
-        .PagePromo-content {
-          margin-top: 16px;
-        }
-      }
-    }
-
     .PageListP-items-column:last-of-type {
       .PagePromo-title {
         line-height: 1 !important;
@@ -159,6 +153,9 @@
       margin-bottom: 16px;
       text-align: center;
       .PageListQ-items-item {
+        .PagePromo-media {
+          margin-top: 10px;
+        }
         .PagePromo-content {
           .PagePromo-category {
             font-family: var(--font-1);
@@ -251,6 +248,7 @@
             > a {
               color: var(--color-link-text-hover) !important;
             }
+            margin-top: 0;
           }
           .PagePromo-title {
             font-family: var(--font-1);
