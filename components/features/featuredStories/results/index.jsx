@@ -10,6 +10,7 @@ import { useArticleStore } from "../../stores/articles.store";
 const sizeMap = {
   ListG: 3,
   ListP: 5,
+  ListPA: 9,
   ListA: 9,
   ListU: 7,
   ListZ: 6,
@@ -28,6 +29,7 @@ const Results = ({
   imageProperties,
   imagePropertiesFeatured,
   imagePropertiesHero,
+  imagePropertiesSquare,
   isServerSideLazy = false,
   phrases,
   showByline = false,
@@ -296,6 +298,116 @@ const Results = ({
         return null;
       }
 
+    case "ListPA":
+      if (viewableElements?.length > 0) {
+        const [firstElement, ...restElements] = viewableElements;
+        //slice the viewableElements in 3 groups, the first element, the next 4 elements and the last 4 elements
+        const secondGroup = restElements.slice(0, 4);
+        const [secondFeatured, ...restSecond] = secondGroup;
+        const thirdGroup = restElements.slice(4, 8);
+        return viewableElements?.length > 0 && !isServerSideLazy ? (
+          <div className={`results-list-container ${listType}`}>
+            <div className="PageListP-items-column">
+              <ResultItem
+                key={`result-card-${firstElement._id}`}
+                ref={elementRefs[0]}
+                arcSite={arcSite}
+                element={firstElement}
+                imageProperties={imagePropertiesFeatured}
+                imagePropertiesFeatured={imagePropertiesFeatured}
+                placeholderResizedImageOptions={placeholderResizedImageOptions}
+                showAsList={false}
+                showByline={showByline}
+                showDate={showDate}
+                showDescription={showDescription}
+                showHeadline={showHeadline}
+                showImage={showImage}
+                showItemOverline={showItemOverline}
+                targetFallbackImage={targetFallbackImage}
+                showFeatured={showFeatured}
+                websiteName={getWebsiteName(firstElement)}
+                globalContent={globalContent}
+              />
+            </div>
+            <div className="PageListP-items-column">
+              {secondFeatured && (
+                <ResultItem
+                  key={`result-card-${secondFeatured._id}`}
+                  ref={elementRefs[1]}
+                  arcSite={arcSite}
+                  element={secondFeatured}
+                  imageProperties={imageProperties}
+                  imagePropertiesFeatured={imagePropertiesFeatured}
+                  placeholderResizedImageOptions={placeholderResizedImageOptions}
+                  showAsList={false}
+                  showByline={showByline}
+                  showDate={showDate}
+                  showDescription={false}
+                  showHeadline={showHeadline}
+                  showImage={true}
+                  showItemOverline={showItemOverline}
+                  targetFallbackImage={targetFallbackImage}
+                  showFeatured={false}
+                  websiteName={getWebsiteName(secondFeatured)}
+                  globalContent={globalContent}
+                />
+              )}
+              {restSecond &&
+                restSecond.map((element, index) => (
+                  <ResultItem
+                    key={`result-card-${element._id}`}
+                    ref={elementRefs[index]}
+                    arcSite={arcSite}
+                    element={element}
+                    imageProperties={imageProperties}
+                    imagePropertiesFeatured={imagePropertiesFeatured}
+                    placeholderResizedImageOptions={placeholderResizedImageOptions}
+                    showAsList={false}
+                    showByline={showByline}
+                    showDate={showDate}
+                    showDescription={false}
+                    showHeadline={showHeadline}
+                    showImage={false}
+                    showItemOverline={showItemOverline}
+                    targetFallbackImage={targetFallbackImage}
+                    showFeatured={false}
+                    websiteName={getWebsiteName(element)}
+                    globalContent={globalContent}
+                  />
+                ))}
+            </div>
+
+            <div className="items-row-below">
+              {thirdGroup &&
+                thirdGroup.map((element, index) => (
+                  <ResultItem
+                    key={`result-card-${element._id}`}
+                    ref={elementRefs[index]}
+                    arcSite={arcSite}
+                    element={element}
+                    imageProperties={imageProperties}
+                    imagePropertiesFeatured={imagePropertiesFeatured}
+                    placeholderResizedImageOptions={placeholderResizedImageOptions}
+                    showAsList={false}
+                    showByline={showByline}
+                    showDate={showDate}
+                    showDescription={false}
+                    showHeadline={showHeadline}
+                    showImage={true}
+                    showItemOverline={showItemOverline}
+                    targetFallbackImage={targetFallbackImage}
+                    showFeatured={false}
+                    websiteName={getWebsiteName(element)}
+                    globalContent={globalContent}
+                  />
+                ))}
+            </div>
+          </div>
+        ) : null;
+      } else {
+        return null;
+      }
+
     case "ListU":
       if (viewableElements?.length > 0) {
         const [firstElement, ...restElements] = viewableElements;
@@ -417,8 +529,8 @@ const Results = ({
                 ref={elementRefs[1]}
                 arcSite={arcSite}
                 element={secondElement}
-                imageProperties={imagePropertiesFeatured}
-                imagePropertiesFeatured={imagePropertiesFeatured}
+                imageProperties={imagePropertiesSquare}
+                imagePropertiesFeatured={imagePropertiesSquare}
                 placeholderResizedImageOptions={placeholderResizedImageOptions}
                 showAsList={false}
                 showByline={showByline}

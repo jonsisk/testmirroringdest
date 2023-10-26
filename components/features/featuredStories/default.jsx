@@ -26,11 +26,11 @@ const FeaturedStoriesCivic = ({ customFields }) => {
   };
   const imagePropertiesFeatured = {
     smallWidth: 768,
-    smallHeight: 432,
+    smallHeight: 512,
     mediumWidth: 768,
-    mediumHeight: 432,
+    mediumHeight: 512,
     largeWidth: 768,
-    largeHeight: 432,
+    largeHeight: 512,
     primaryLogoAlt,
     breakpoints,
     resizerURL,
@@ -42,6 +42,18 @@ const FeaturedStoriesCivic = ({ customFields }) => {
     mediumHeight: 432,
     largeWidth: 1440,
     largeHeight: 810,
+    primaryLogoAlt,
+    breakpoints,
+    resizerURL,
+  };
+
+  const imagePropertiesSquare = {
+    smallWidth: 600,
+    smallHeight: 450,
+    mediumWidth: 600,
+    mediumHeight: 450,
+    largeWidth: 600,
+    largeHeight: 450,
     primaryLogoAlt,
     breakpoints,
     resizerURL,
@@ -72,6 +84,7 @@ const FeaturedStoriesCivic = ({ customFields }) => {
         imageProperties={imageProperties}
         imagePropertiesFeatured={imagePropertiesFeatured}
         imagePropertiesHero={imagePropertiesHero}
+        imagePropertiesSquare={imagePropertiesSquare}
         isServerSideLazy={false}
         phrases={phrases}
         showByline={promoElements.showByline}
@@ -96,6 +109,7 @@ FeaturedStoriesCivic.propTypes = {
     listType: PropTypes.oneOf([
       "ListG",
       "ListP",
+      "ListPA",
       "ListA",
       "ListU",
       "ListZ",

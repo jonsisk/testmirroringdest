@@ -1,6 +1,14 @@
 .sidebar-composer {
   padding: 15px;
-  background-color: lightgray;
-  float: right;
-  width: 50%;
+  background-color: #f5f5f5;
+  width: 100%;
+
+  &.left {
+    float: left;
+    width: 50%;
+  }
+  &.right {
+    float: right;
+    width: 50%;
+  }
 }
