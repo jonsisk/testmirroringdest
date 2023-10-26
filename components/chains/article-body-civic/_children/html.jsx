@@ -10,16 +10,8 @@ const StyledDiv = styled.div`
   }
 `;
 
-const HTML = ({ id, content, primaryColor }) => {
-  console.log(extractTableData(content), "content-----");
+const HTML = ({ content }) => {
   return !content ? null : (
-    /*     <Static id={`article-html-block-${id}`}>
-      <StyledDiv
-        className="block-margin-bottom"
-        dangerouslySetInnerHTML={{ __html: content }}
-        primaryColor={primaryColor}
-      />
-    </Static> */
     <DataTable columns={extractTableData(content).headers} data={extractTableData(content).rows} />
   );
 };

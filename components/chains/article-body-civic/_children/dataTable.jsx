@@ -1,14 +1,22 @@
 import React, { useMemo } from "react";
 import { useTable, useSortBy, useGlobalFilter, usePagination } from "react-table";
 
-function GlobalFilter({ preGlobalFilteredRows, globalFilter, setGlobalFilter, state, pageOptions, setPageSize }) {
+function GlobalFilter({
+  preGlobalFilteredRows,
+  globalFilter,
+  setGlobalFilter,
+  state,
+  pageOptions,
+  setPageSize,
+}) {
   const count = preGlobalFilteredRows.length;
 
   return (
     <div className="dataTableHeader dataTableHelpers">
       <div className="dataTablePagination">
         <span>Show </span>
-        <select className="dataTableSelect pageSize"
+        <select
+          className="dataTableSelect pageSize"
           value={state.pageSize}
           onChange={(e) => {
             setPageSize(Number(e.target.value));
@@ -24,10 +32,11 @@ function GlobalFilter({ preGlobalFilteredRows, globalFilter, setGlobalFilter, st
       </div>
       <div className="dataTableInfo right">
         Search:
-        <input className="dataTableInput globalFilter"
+        <input
+          className="dataTableInput globalFilter"
           value={globalFilter || ""}
           onChange={(e) => {
-            setGlobalFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
+            setGlobalFilter(e.target.value || undefined);
           }}
           placeholder={`...`}
         />
@@ -67,7 +76,6 @@ function DataTable({ columns, data }) {
 
   return (
     <>
-
       <GlobalFilter
         preGlobalFilteredRows={preGlobalFilteredRows}
         globalFilter={state.globalFilter}
@@ -84,7 +92,11 @@ function DataTable({ columns, data }) {
                 {headerGroup.headers.map((column) => (
                   <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                     {column.render("Header")}
-                    <span className={column.isSorted ? (column.isSortedDesc ? "sort desc" : "sort asc") : "sort"}></span>
+                    <span
+                      className={
+                        column.isSorted ? (column.isSortedDesc ? "sort desc" : "sort asc") : "sort"
+                      }
+                    ></span>
                   </th>
                 ))}
               </tr>
@@ -106,8 +118,8 @@ function DataTable({ columns, data }) {
       </div>
       <div className="dataTableFooter dataTableHelpers">
         <div className="dataTableInfo">
-          Showing {state.pageIndex * state.pageSize + 1} to {state.pageIndex * state.pageSize + state.pageSize} of{" "}
-          {data.length} entries
+          Showing {state.pageIndex * state.pageSize + 1} to{" "}
+          {state.pageIndex * state.pageSize + state.pageSize} of {data.length} entries
         </div>
         <div className="dataTablePagination right">
           <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
@@ -124,7 +136,6 @@ function DataTable({ columns, data }) {
           </button>{" "}
         </div>
       </div>
-
     </>
   );
 }
