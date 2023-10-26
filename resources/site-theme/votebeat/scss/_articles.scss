@@ -60,6 +60,10 @@ h2.sub-headline {
     letter-spacing: normal;
   }
 
+  figure + h2 {
+    margin-top: 20px;
+  }
+
   h2 {
     font-size: var(--heading-2);
   }
@@ -701,5 +705,22 @@ main article {
 
   .connect-label {
     display: none;
+  }
+}
+
+.bylineNotice,
+.byline {
+  display: inline-block;
+  .author {
+    display: inline !important;
+    .Page-byline,
+    .Page-authors,
+    .and,
+    a {
+      display: inline !important;
+    }
+  }
+  .coma {
+    margin: 0 4px 0 -4px;
   }
 }

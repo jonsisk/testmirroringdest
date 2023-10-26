@@ -334,18 +334,19 @@
 
   p {
     font-size: 1.75rem;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     letter-spacing: 0;
     font-family: var(--font-2);
 
     &.small {
-      margin-top: 24px;
+      margin-top: 16px;
       font-style: italic;
       color: var(--color-text-gray);
       text-align: left;
-      font-size: 1.25rem;
+      font-size: 1.4rem;
+      line-height: normal;
       * {
-        font-size: 1.25rem;
+        font-size: 1.4rem;
       }
     }
   }
@@ -695,4 +696,18 @@
 }
 footer .newsletter-sticky {
   margin-bottom: 0;
+}
+
+.newsletter-sticky,
+.newsletter-breaker-wrapper,
+.newsletter-interests,
+.newsletter-composer {
+  .alert {
+    font-family: var(--font-2);
+    font-size: 1.6rem;
+    width: 100%;
+    font-weight: 600;
+    color: var(--color-link-text-hover) !important;
+    text-align: left !important;
+  }
 }

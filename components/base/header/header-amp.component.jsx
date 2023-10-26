@@ -101,7 +101,7 @@ const HeaderAMP = ({
                         {topicNavigation &&
                           topicNavigation.children.map((item) => (
                             <li key={item._id} className="NavigationItem-items-item">
-                              <a className="NavigationLink" href={item._id}>
+                              <a className="NavigationLink" href={`${item._id}/`}>
                                 {item.name}
                               </a>
                             </li>
