@@ -114,12 +114,20 @@
   }
 
   &.ListG {
+    grid-template-columns: 0.65fr 0.35fr;
+    .PageListP-items-column:first-of-type {
+      margin-right: 10px;
+    }
     .PageListP-items-column:last-of-type {
       grid-template-columns: 2fr;
     }
 
     .PagePromo-author .byline {
       padding-bottom: 0;
+    }
+
+    .PagePromo-content {
+      margin-top: 10px;
     }
   }
 
@@ -461,6 +469,12 @@
       }
     }
 
+    &.ListG {
+      .PageListP-items-column:first-of-type {
+        margin-right: 0px;
+      }
+    }
+
     &.ListU {
       .PageListP-items-column {
         &:nth-child(3) {
@@ -514,6 +528,12 @@
 
       .items-row-below {
         flex-direction: column;
+      }
+    }
+
+    &.ListG {
+      .PageListP-items-column:first-of-type {
+        margin-right: 0px;
       }
     }
 
