@@ -401,6 +401,10 @@
       &:nth-child(2) {
         grid-area: 1 / 2 / 2 / 3;
 
+        .PagePromo-media {
+          width: 47%;
+        }
+
         .PageListH-items-item {
           padding-bottom: 0;
         }

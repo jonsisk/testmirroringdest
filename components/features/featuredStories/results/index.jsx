@@ -28,6 +28,7 @@ const Results = ({
   imageProperties,
   imagePropertiesFeatured,
   imagePropertiesHero,
+  imagePropertiesSquare,
   isServerSideLazy = false,
   phrases,
   showByline = false,
@@ -417,8 +418,8 @@ const Results = ({
                 ref={elementRefs[1]}
                 arcSite={arcSite}
                 element={secondElement}
-                imageProperties={imagePropertiesFeatured}
-                imagePropertiesFeatured={imagePropertiesFeatured}
+                imageProperties={imagePropertiesSquare}
+                imagePropertiesFeatured={imagePropertiesSquare}
                 placeholderResizedImageOptions={placeholderResizedImageOptions}
                 showAsList={false}
                 showByline={showByline}

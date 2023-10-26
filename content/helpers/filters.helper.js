@@ -51,6 +51,7 @@ export const LIST_FILTER = (arcSite) => `{
             1440x810
             768x432
             600x338
+            400x300
             400x225
             377x212
             274x154
@@ -66,6 +67,7 @@ export const LIST_FILTER = (arcSite) => `{
                 1440x810
                 768x432
                 600x338
+                400x300
                 400x225
                 377x212
                 274x154

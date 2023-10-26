@@ -47,6 +47,18 @@ const FeaturedStoriesCivic = ({ customFields }) => {
     resizerURL,
   };
 
+  const imagePropertiesSquare = {
+    smallWidth: 400,
+    smallHeight: 300,
+    mediumWidth: 400,
+    mediumHeight: 300,
+    largeWidth: 400,
+    largeHeight: 300,
+    primaryLogoAlt,
+    breakpoints,
+    resizerURL,
+  };
+
   const targetFallbackImage = !fallbackImage.includes("http")
     ? deployment(`${contextPath}/${fallbackImage}`)
     : fallbackImage;
@@ -72,6 +84,7 @@ const FeaturedStoriesCivic = ({ customFields }) => {
         imageProperties={imageProperties}
         imagePropertiesFeatured={imagePropertiesFeatured}
         imagePropertiesHero={imagePropertiesHero}
+        imagePropertiesSquare={imagePropertiesSquare}
         isServerSideLazy={false}
         phrases={phrases}
         showByline={promoElements.showByline}
