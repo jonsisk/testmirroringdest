@@ -1,6 +1,6 @@
 import { Image } from "@wpmedia/engine-theme-sdk";
 import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
-import { Heading, SecondaryFont } from "@wpmedia/shared-styles";
+import { Heading, SecondaryFont, Overline } from "@wpmedia/shared-styles";
 import getProperties from "fusion:properties";
 import React from "react";
 
@@ -24,6 +24,8 @@ export const StoriesCard = ({
     resizerURL,
   };
   const imageURL = extractImageFromStory(slide);
+  const { websites } = slide;
+  const url = websites[arcSite].website_url;
   return (
     <div className="slide article-slide">
       {showImage && (
@@ -37,22 +39,14 @@ export const StoriesCard = ({
           fallbackImage={targetFallbackImage}
         />
       )}
+      <Overline story={slide} className="overline" />
       <div
         className="article-slide-info"
         style={{ borderBottom: "1px solid #ccc", paddingBottom: "1rem" }}
       >
-        <a href={slide.canonical_url} target="_blank" rel="noreferrer">
-          <Heading className="headline-text" style={{ margin: 0 }}>
-            {slide.headlines.basic}
-          </Heading>
+        <a href={url}>
+          <h2>{slide.headlines.basic}</h2>
         </a>
-        <div className="results-list--description-author-container">
-          <a href={slide.canonical_url} title={slide.headlines.basic}>
-            <SecondaryFont as="p" className="description-text">
-              {slide.subheadlines?.basic}
-            </SecondaryFont>
-          </a>
-        </div>
       </div>
     </div>
   );
