@@ -29,6 +29,16 @@ export const getSiteProperties = (context) => {
       tagline: section.bureau.tagline,
       hideTopics: section.bureau.hide_topics_in_header === "true",
       topicsHierachy: section.bureau.topics_hierarchy,
+      newsletter: {
+        title: section.bureau.newsletter_title,
+        description: section.bureau.newsletter_description,
+        newsletter: section.bureau.newsletter,
+      },
+      rightRailNewsletter: {
+        title: section.bureau.rightrail_newsletter_title,
+        description: section.bureau.rightrail_newsletter_description,
+        newsletter: section.bureau.rightrail_newsletter,
+      },
     };
   }
   return {};
