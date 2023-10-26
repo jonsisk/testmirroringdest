@@ -368,8 +368,12 @@
           }
           .PagePromo-title {
             > a {
-              font-size: 1.8rem;
+              font-size: 1.7rem;
+              line-height: normal;
             }
+          }
+          .PagePromo-byline {
+            margin-bottom: 17px;
           }
         }
 
@@ -453,7 +457,7 @@
       .PageListP-items-column {
         &:nth-child(3) {
           .PageListH-items-item {
-            padding-top: 12px;
+            padding-top: 17px;
 
             &:first-child {
               padding-top: 0;
