@@ -18,8 +18,10 @@ const StickyNewsletterFeature = ({ customFields }) => {
   const context = useFusionContext();
   const { arcSite, outputType } = context;
   const { newsletterSignupEndpoint, websiteName } = getProperties(arcSite);
-  const { websiteName: globalContentWebsite } = getSiteProperties(context);
-  const {
+  const { websiteName: globalContentWebsite, newsletter: globalNewsletter } =
+    getSiteProperties(context);
+  let {
+    fromContext,
     title,
     description,
     errorMsg,
@@ -31,6 +33,12 @@ const StickyNewsletterFeature = ({ customFields }) => {
     renderTablet,
     renderDesktop,
   } = customFields;
+
+  if (globalNewsletter && fromContext) {
+    title = globalNewsletter.title;
+    description = globalNewsletter.description;
+    newsletter = globalNewsletter.newsletter;
+  }
 
   const { shouldRender } = useRenderForBreakpoint({
     renderMobile,
@@ -120,6 +128,13 @@ StickyNewsletterFeature.label = "Sticky Newsletter - Civic";
 
 StickyNewsletterFeature.propTypes = {
   customFields: PropTypes.shape({
+    fromContext: PropTypes.bool.tag({
+      label: "Take newsletter from active bureau",
+      defaultValue: false,
+      description:
+        "If set to true, it will ignore title, description and newsletter fields. Instead it will take the infomation set on the bureau section.",
+      group: "Configure Content",
+    }),
     title: PropTypes.string.tag({
       label: "Title",
       group: "Configure Content",
