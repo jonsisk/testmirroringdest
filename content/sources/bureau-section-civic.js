@@ -5,6 +5,10 @@ import { addAdPath, processArticleData } from "../helpers/tranformers.helper";
 
 const fetch = async ({ hierarchy, sectionId, bureau, "arc-site": arcSite }) => {
   // get the hierarchy
+  //strip last "/" on sectionId
+  if (sectionId && sectionId.endsWith("/")) {
+    sectionId = sectionId.slice(0, -1);
+  }
   const { data: articleData } = await axios({
     method: "GET",
     url: `${CONTENT_BASE}/site/v3/navigation/${arcSite}?${
