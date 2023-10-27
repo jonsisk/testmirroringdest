@@ -3,7 +3,7 @@
     margin-top: 10px;
   }
 
-  &.ListPA,
+  &.ListAP,
   &.ListA {
     .PageListP-items-column {
       grid-area: 1 / 1 / 2 / 2;
@@ -45,7 +45,7 @@
     }
   }
 
-  &.ListPA {
+  &.ListAP {
     .PageListP-items-column:nth-child(2) {
       .PageListH-items-item:nth-child(1) {
         padding-top: 0;
@@ -470,7 +470,7 @@
   }
 
   @include respond-between(sm, slg) {
-    &.ListPA {
+    &.ListAP {
       .PageListP-items-column:nth-child(1) {
         margin-bottom: 10px;
       }
@@ -496,7 +496,7 @@
   }
 
   @media (min-width: 769px) {
-    &.ListPA,
+    &.ListAP,
     &.ListA {
       .items-row-below {
         .PageListH-items-item {
@@ -564,7 +564,7 @@
   }
 
   @media (max-width: 768px) {
-    &.ListPA,
+    &.ListAP,
     &.ListA {
       .PageListP-items-column {
         &:nth-child(1) {
@@ -577,7 +577,7 @@
       }
     }
 
-    &.ListPA {
+    &.ListAP {
       .PageListP-items-column:nth-child(2) {
         .PageListH-items-item:nth-child(1) {
           padding-top: 0;

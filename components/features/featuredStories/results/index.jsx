@@ -10,7 +10,7 @@ import { useArticleStore } from "../../stores/articles.store";
 const sizeMap = {
   ListG: 3,
   ListP: 5,
-  ListPA: 9,
+  ListAP: 9,
   ListA: 9,
   ListU: 7,
   ListZ: 6,
@@ -298,7 +298,7 @@ const Results = ({
         return null;
       }
 
-    case "ListPA":
+    case "ListAP":
       if (viewableElements?.length > 0) {
         const [firstElement, ...restElements] = viewableElements;
         //slice the viewableElements in 3 groups, the first element, the next 4 elements and the last 4 elements
