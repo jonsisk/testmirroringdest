@@ -1,11 +1,19 @@
 import PropTypes from "@arc-fusion/prop-types";
 import { useFusionContext } from "fusion:context";
 import React, { useRef, useEffect, useState } from "react";
+import { getSiteProperties } from "../../helpers/site.helper";
 import { useGetJobs } from "../../hooks/use-getjobs";
 
 const BreakerJobs = ({ customFields }) => {
-  const { contextPath, deployment } = useFusionContext();
-  const { title, buttonLabel, buttonLink, htmlTitle, bereau } = customFields;
+  const context = useFusionContext();
+  const { contextPath, deployment } = context;
+  let { fromContext, title, buttonLabel, buttonLink, htmlTitle, bereau } = customFields;
+  const { name: sectionName } = getSiteProperties(context);
+
+  if (sectionName && fromContext) {
+    bereau = sectionName.toLowerCase();
+  }
+
   const jobs = useGetJobs({
     bureau: bereau,
   });
@@ -86,6 +94,13 @@ BreakerJobs.icon = "arc-list";
 
 BreakerJobs.propTypes = {
   customFields: PropTypes.shape({
+    fromContext: PropTypes.bool.tag({
+      label: "Take data from active bureau",
+      defaultValue: false,
+      description:
+        "If set to true, it will ignore bureau field and instead it will take the active section.",
+      group: "Configure Content",
+    }),
     title: PropTypes.string.tag({
       label: "Title",
       group: "Configure Content",

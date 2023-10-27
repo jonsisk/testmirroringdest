@@ -2,11 +2,22 @@ import { useFusionContext } from "fusion:context";
 import PropTypes from "prop-types";
 import React, { useRef, useEffect, useState } from "react";
 import { getUserDate } from "../../helpers/date.helper";
+import { replaceSiteVariables, getSiteProperties } from "../../helpers/site.helper";
 import { useGetEvents } from "../../hooks/use-getevents";
 
 const Events = ({ customFields }) => {
-  const { outputType, contextPath, deployment } = useFusionContext();
-  const { title, subtitle, buttonLink, buttonLabel, htmlTitle, count, bereau } = customFields;
+  const context = useFusionContext();
+  const { outputType, contextPath, deployment } = context;
+  let { fromContext, title, subtitle, buttonLink, buttonLabel, htmlTitle, count, bereau } =
+    customFields;
+  const { name: sectionName } = getSiteProperties(context);
+
+  if (sectionName && fromContext) {
+    bereau = sectionName.toLowerCase();
+    subtitle = replaceSiteVariables(subtitle, sectionName);
+  } else {
+    subtitle = replaceSiteVariables(subtitle, "");
+  }
 
   const events = useGetEvents({
     bureau: bereau,
@@ -103,6 +114,13 @@ Events.static = true;
 
 Events.propTypes = {
   customFields: PropTypes.shape({
+    fromContext: PropTypes.bool.tag({
+      label: "Take data from active bureau",
+      defaultValue: false,
+      description:
+        "If set to true, it will ignore bureau field and instead it will take the active section.",
+      group: "Configure Content",
+    }),
     title: PropTypes.string.tag({
       label: "Title",
       group: "Configure Content",
