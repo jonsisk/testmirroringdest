@@ -14,34 +14,32 @@ const Byline = ({ element, showTime = true, showDate = true, websiteDomain, show
         {credits?.map((author) => {
           return (
             <div key={author.slug} className="Page-byline">
-              <div className="Page-authors">
-                {credits.length > 3
-                  ? credits[3].name === author.name
-                    ? " and " + (credits.length - 3) + " more "
-                    : credits[0].name !== author.name &&
-                      credits[credits.length - 1].name !== author.name
-                    ? ", "
-                    : credits[credits.length - 1].name === author.name && credits.length > 1
-                    ? " and "
-                    : ""
+              {credits.length > 3
+                ? credits[3].name === author.name
+                  ? " andA " + (credits.length - 3) + " more "
                   : credits[0].name !== author.name &&
                     credits[credits.length - 1].name !== author.name
                   ? ", "
                   : credits[credits.length - 1].name === author.name && credits.length > 1
-                  ? " and "
-                  : ""}
-                {credits[0].name === author.name ||
-                credits[1].name === author.name ||
-                credits[2].name === author.name ? (
-                  author.slug ? (
-                    <a href={`${websiteDomain}/authors/${author.slug}`}>{author.name}</a>
-                  ) : (
-                    author.name
-                  )
+                  ? " andB "
+                  : ""
+                : credits[0].name !== author.name &&
+                  credits[credits.length - 1].name !== author.name
+                ? ", "
+                : credits[credits.length - 1].name === author.name && credits.length > 1
+                ? " andC "
+                : ""}
+              {credits[0].name === author.name ||
+              credits[1].name === author.name ||
+              credits[2].name === author.name ? (
+                author.slug ? (
+                  <a href={`${websiteDomain}/authors/${author.slug}`}>{author.name}</a>
                 ) : (
-                  ""
-                )}
-              </div>
+                  author.name
+                )
+              ) : (
+                ""
+              )}
             </div>
           );
         })}
