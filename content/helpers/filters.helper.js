@@ -49,8 +49,12 @@ export const LIST_FILTER = (arcSite) => `{
           url
           resized_params {
             1440x810
+            768x512
             768x432
+            600x450
+            600x338            
             400x225
+            377x212
             274x154
             158x89
           }
@@ -62,8 +66,12 @@ export const LIST_FILTER = (arcSite) => `{
               url
               resized_params {
                 1440x810
+                768x512
                 768x432
+                600x450
+                600x338                
                 400x225
+                377x212
                 274x154
                 158x89
               }

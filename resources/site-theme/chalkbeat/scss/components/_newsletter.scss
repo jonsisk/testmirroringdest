@@ -506,7 +506,14 @@
       height: auto;
       padding: 6px;
       font-family: var(--font-3);
-      width: 100%;
+      width: 80%;
+
+      @include respond-down(xs) {
+        width: 100%;
+      }
+      @include respond-between(xs, sm) {
+        width: 75%;
+      }
     }
   }
 
@@ -655,4 +662,33 @@
 
 .thankYouMsgNews {
   font-size: 1.75rem;
+}
+
+.newsletter-sticky,
+.newsletter-breaker-wrapper,
+.newsletter-interests,
+.newsletter-composer {
+  .alert {
+    font-family: var(--font-2);
+    font-size: 1.6rem;
+    width: 100%;
+    font-weight: 600;
+    color: var(--color-link-text-hover) !important;
+    text-align: left !important;
+  }
+}
+
+footer .newsletter-sticky {
+  margin-bottom: 0;
+}
+
+footer {
+  .newsletter-sticky,
+  .newsletter-breaker-wrapper,
+  .newsletter-interests,
+  .newsletter-composer {
+    .alert {
+      color: white !important;
+    }
+  }
 }

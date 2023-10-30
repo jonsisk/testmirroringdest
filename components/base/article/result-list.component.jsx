@@ -48,7 +48,7 @@ const ResultItem = React.memo(
         )
           return null;
         return (
-          <a href={primarySection.path} title={primarySection.name} className="eyebrow">
+          <a href={`${primarySection.path}/`} title={primarySection.name} className="eyebrow">
             {primarySection.name}
           </a>
         );

@@ -60,6 +60,10 @@ h2.sub-headline {
     letter-spacing: normal;
   }
 
+  figure + h2 {
+    margin-top: 20px;
+  }
+
   h2 {
     font-size: var(--heading-2);
   }
@@ -179,6 +183,11 @@ aside.sidebar {
     width: 100%;
     margin: 20px 0;
   }
+  @include respond-up(lg) {
+    flex-direction: row !important;
+    max-width: fit-content !important;
+    width: 100% !important;
+  }
   p {
     font-size: 1.6rem;
     --font: var(--font-rte-body);
@@ -201,11 +210,15 @@ aside.sidebar {
   &.float-right {
     float: right;
     margin-left: 10px;
-    width: 45%;
+    width: 45% !important;
     margin-right: 5%;
     @include respond-down(sm) {
       width: 100%;
       margin: 20px 0;
+    }
+    @include respond-up(lg) {
+      width: 45% !important;
+      flex-direction: column !important;
     }
     figure {
       margin: 20px 0px;
@@ -214,11 +227,15 @@ aside.sidebar {
   &.float-left {
     float: left;
     margin-right: 10px;
-    width: 45%;
+    width: 45% !important;
     margin-left: 5%;
     @include respond-down(sm) {
       width: 100%;
       margin: 20px 0;
+    }
+    @include respond-up(lg) {
+      width: 45% !important;
+      flex-direction: column !important;
     }
     figure {
       margin: 20px 0px;
@@ -699,5 +716,22 @@ main article {
 
   .connect-label {
     display: none;
+  }
+}
+
+.bylineNotice,
+.byline {
+  display: inline-block;
+  .author {
+    display: inline !important;
+    .Page-byline,
+    .Page-authors,
+    .and,
+    a {
+      display: inline !important;
+    }
+  }
+  .coma {
+    margin: 0 4px 0 -4px;
   }
 }

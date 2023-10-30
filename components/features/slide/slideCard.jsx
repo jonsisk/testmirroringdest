@@ -41,11 +41,11 @@ export const SlideCard = ({
       </a>
       <div className="article-slide-info">
         <Overline story={slide} className="overline" />
-        <a href={slide.canonical_url} target="_blank" rel="noreferrer">
+        <a href={url} target="_blank" rel="noreferrer">
           <Heading className="headline-text">{slide.headlines.basic}</Heading>
         </a>
         <div className="results-list--description-author-container">
-          <a href={slide.canonical_url} title={slide.headlines.basic}>
+          <a href={url} title={slide.headlines.basic}>
             <SecondaryFont as="p" className="description-text">
               {slide.subheadlines?.basic}
             </SecondaryFont>

@@ -1,7 +1,7 @@
 import { Image } from "@wpmedia/engine-theme-sdk";
 import React from "react";
 
-const SliderSlickItem = ({ slide, slideIndex, resizerURL, className }) => {
+const SliderSlickItem = ({ slide, slideIndex, resizerURL, className, showText }) => {
   return (
     <div className={className}>
       <Image
@@ -20,6 +20,11 @@ const SliderSlickItem = ({ slide, slideIndex, resizerURL, className }) => {
         resizerURL={resizerURL}
         loading={slideIndex === 0 ? "eager" : "lazy"}
       />
+      {showText && (
+        <div className="caption">
+          <p>{slide.caption}</p>
+        </div>
+      )}
     </div>
   );
 };

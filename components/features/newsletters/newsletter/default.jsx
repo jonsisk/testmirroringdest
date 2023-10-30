@@ -16,8 +16,10 @@ const NewsletterFeature = ({ customFields }) => {
   const context = useFusionContext();
   const { arcSite, contextPath, deployment, outputType } = context;
   const { newsletterSignupEndpoint, websiteName } = getProperties(arcSite);
-  const { websiteName: globalContentWebsite } = getSiteProperties(context);
-  const {
+  const { websiteName: globalContentWebsite, rightRailNewsletter: globalNewsletter } =
+    getSiteProperties(context);
+  let {
+    fromContext,
     title,
     style,
     description,
@@ -31,6 +33,12 @@ const NewsletterFeature = ({ customFields }) => {
     renderTablet,
     renderDesktop,
   } = customFields;
+
+  if (globalNewsletter && fromContext) {
+    title = globalNewsletter.title;
+    description = globalNewsletter.description;
+    newsletter = globalNewsletter.newsletter;
+  }
 
   const { shouldRender } = useRenderForBreakpoint({
     renderMobile,
@@ -83,6 +91,13 @@ NewsletterFeature.label = "Newsletter Signup - Civic";
 
 NewsletterFeature.propTypes = {
   customFields: PropTypes.shape({
+    fromContext: PropTypes.bool.tag({
+      label: "Take newsletter from active bureau",
+      defaultValue: false,
+      description:
+        "If set to true, it will ignore title, description and newsletter fields. Instead it will take the infomation set on the bureau section.",
+      group: "Configure Content",
+    }),
     style: PropTypes.oneOf(["vertical", "horizontal"]).tag({
       defaultValue: "horizontal",
       label: "Style (Vertical/Horizontal)",

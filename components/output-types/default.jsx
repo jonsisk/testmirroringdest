@@ -104,7 +104,6 @@ const CivicOutputType = ({
     gtmID,
     gaID,
     dangerouslyInjectJS = [],
-    fontUrl,
     resizerURL,
     facebookAdmins,
     nativoIntegration,
@@ -116,6 +115,10 @@ const CivicOutputType = ({
     facebookAppId,
     locale = "en",
   } = getProperties(arcSite);
+
+  const fontUrl = [
+    "https://fonts.googleapis.com/css?family=Barlow%20Condensed:300,300i,400,400i,600,600i,700,700i|Barlow%20Condensed:300,300i,400,400i,600,600i,700,700i|IBM%20Plex%20Serif:300,300i,400,400i,600,600i,700,700i&display=swap",
+  ];
 
   const chartbeatInline = `
     (function() {

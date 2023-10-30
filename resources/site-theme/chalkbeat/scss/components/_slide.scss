@@ -10,7 +10,7 @@
     margin: 0 0 20px -20px;
   }
   .slick-list {
-    padding-bottom: 24px;
+    padding-bottom: 2px;
   }
   .container-img {
     width: 700px;
@@ -29,10 +29,10 @@
     height: 40%;
   }
   .slick-next {
-    right: -25px !important;
+    right: -35px !important;
   }
   .slick-prev {
-    left: -10px !important;
+    left: -20px !important;
   }
 
   .slick-prev,
@@ -79,7 +79,8 @@
     flex-direction: column;
     border: none;
     align-items: center;
-    height: 420px;
+    height: auto;
+    max-height: 480px;
     padding: 20px 0 20px 12px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -283,5 +284,12 @@
       height: 53px;
       line-height: 53px;
     }
+  }
+}
+@include respond-down(xs) {
+  .SliderWrapper {
+    max-width: 100vw;
+    overflow: hidden;
+    margin: 0 -20px 0 0;
   }
 }

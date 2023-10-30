@@ -20,7 +20,7 @@ const OverlineFeature = () => {
 
   return (
     <div className="breadcrumbs">
-      {primarySection && <a href={primarySection.path}>{primarySection.name}</a>}
+      {primarySection && <a href={`${primarySection.path}/`}>{primarySection.name}</a>}
       {sections
         ?.filter(
           (sec) =>
@@ -31,7 +31,7 @@ const OverlineFeature = () => {
         .slice(0, primarySection ? 2 : 3)
         .map((section) => {
           return (
-            <a key={section._id} href={section.path}>
+            <a key={`${section._id}/`} href={section.path}>
               {section.name}
             </a>
           );

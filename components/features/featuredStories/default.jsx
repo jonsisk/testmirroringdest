@@ -14,23 +14,23 @@ const FeaturedStoriesCivic = ({ customFields }) => {
   } = customFields;
   const { fallbackImage, locale, primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
   const imageProperties = {
-    smallWidth: 158,
-    smallHeight: 89,
-    mediumWidth: 274,
-    mediumHeight: 154,
-    largeWidth: 274,
-    largeHeight: 154,
+    smallWidth: 274,
+    smallHeight: 154,
+    mediumWidth: 377,
+    mediumHeight: 212,
+    largeWidth: 600,
+    largeHeight: 338,
     primaryLogoAlt,
     breakpoints,
     resizerURL,
   };
   const imagePropertiesFeatured = {
     smallWidth: 768,
-    smallHeight: 432,
+    smallHeight: 512,
     mediumWidth: 768,
-    mediumHeight: 432,
+    mediumHeight: 512,
     largeWidth: 768,
-    largeHeight: 432,
+    largeHeight: 512,
     primaryLogoAlt,
     breakpoints,
     resizerURL,
@@ -42,6 +42,18 @@ const FeaturedStoriesCivic = ({ customFields }) => {
     mediumHeight: 432,
     largeWidth: 1440,
     largeHeight: 810,
+    primaryLogoAlt,
+    breakpoints,
+    resizerURL,
+  };
+
+  const imagePropertiesSquare = {
+    smallWidth: 600,
+    smallHeight: 450,
+    mediumWidth: 600,
+    mediumHeight: 450,
+    largeWidth: 600,
+    largeHeight: 450,
     primaryLogoAlt,
     breakpoints,
     resizerURL,
@@ -72,6 +84,7 @@ const FeaturedStoriesCivic = ({ customFields }) => {
         imageProperties={imageProperties}
         imagePropertiesFeatured={imagePropertiesFeatured}
         imagePropertiesHero={imagePropertiesHero}
+        imagePropertiesSquare={imagePropertiesSquare}
         isServerSideLazy={false}
         phrases={phrases}
         showByline={promoElements.showByline}
@@ -96,6 +109,7 @@ FeaturedStoriesCivic.propTypes = {
     listType: PropTypes.oneOf([
       "ListG",
       "ListP",
+      "ListAP",
       "ListA",
       "ListU",
       "ListZ",

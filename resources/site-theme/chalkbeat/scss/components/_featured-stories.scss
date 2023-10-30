@@ -1,10 +1,22 @@
 .results-list-container {
+  .PagePromo-category {
+    margin-top: 10px;
+  }
+
+  &.ListAP,
   &.ListA {
     .PageListP-items-column {
       grid-area: 1 / 1 / 2 / 2;
 
       &:nth-child(2) {
         grid-area: 1 / 2 / 2 / 3;
+
+        .PagePromo-title {
+          font-size: 2rem;
+        }
+        .PagePromo-category:first-of-type {
+          margin-top: 0;
+        }
       }
 
       &:last-of-type {
@@ -30,6 +42,24 @@
     .items-row-below {
       display: flex;
       flex-wrap: wrap;
+    }
+  }
+
+  &.ListAP {
+    .PageListP-items-column:nth-child(2) {
+      .PageListH-items-item:nth-child(1) {
+        padding-top: 0;
+        border: none;
+        .PagePromo-standard {
+          flex-direction: column;
+          .PagePromo-media {
+            display: block;
+            width: 100%;
+            max-width: fit-content;
+            margin: 0 15px 10px 0;
+          }
+        }
+      }
     }
   }
 
@@ -110,6 +140,10 @@
   }
 
   &.ListG {
+    grid-template-columns: 0.65fr 0.35fr;
+    .PageListP-items-column:first-of-type {
+      margin-right: 10px;
+    }
     .PageListP-items-column:last-of-type {
       grid-template-columns: 2fr;
     }
@@ -120,14 +154,6 @@
   }
 
   &.ListP {
-    .PageListP-items-column:first-of-type {
-      .PageListH-items-item > .PagePromo-standard {
-        .PagePromo-content {
-          margin-top: 16px;
-        }
-      }
-    }
-
     .PageListP-items-column:last-of-type {
       .PagePromo-title {
         line-height: 1 !important;
@@ -147,6 +173,9 @@
       margin-bottom: 16px;
       text-align: center;
       .PageListQ-items-item {
+        .PagePromo-media {
+          margin-top: 10px;
+        }
         .PagePromo-content {
           .PagePromo-category {
             font-family: var(--font-1);
@@ -239,6 +268,7 @@
             > a {
               color: var(--color-link-text-hover) !important;
             }
+            margin-top: 0;
           }
           .PagePromo-title {
             font-family: var(--font-1);
@@ -368,8 +398,12 @@
           }
           .PagePromo-title {
             > a {
-              font-size: 1.8rem;
+              font-size: 1.7rem;
+              line-height: normal;
             }
+          }
+          .PagePromo-byline {
+            margin-bottom: 17px;
           }
         }
 
@@ -392,6 +426,10 @@
 
       &:nth-child(2) {
         grid-area: 1 / 2 / 2 / 3;
+
+        .PagePromo-media {
+          width: 47%;
+        }
 
         .PageListH-items-item {
           padding-bottom: 0;
@@ -431,7 +469,34 @@
     }
   }
 
+  @include respond-between(sm, slg) {
+    &.ListAP {
+      .PageListP-items-column:nth-child(1) {
+        margin-bottom: 10px;
+      }
+      .PageListP-items-column:nth-child(2) {
+        .PageListH-items-item:nth-child(1) {
+          padding-top: 0;
+          border-top: 1px solid var(--color-list-border);
+          .PagePromo-standard {
+            flex-direction: row;
+            .PagePromo-content {
+              margin-top: 10px;
+            }
+            .PagePromo-media {
+              display: block;
+              width: 33%;
+              max-width: fit-content;
+              margin: 10px 15px 10px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
   @media (min-width: 769px) {
+    &.ListAP,
     &.ListA {
       .items-row-below {
         .PageListH-items-item {
@@ -449,11 +514,17 @@
       }
     }
 
+    &.ListG {
+      .PageListP-items-column:first-of-type {
+        margin-right: 0px;
+      }
+    }
+
     &.ListU {
       .PageListP-items-column {
         &:nth-child(3) {
           .PageListH-items-item {
-            padding-top: 12px;
+            padding-top: 17px;
 
             &:first-child {
               padding-top: 0;
@@ -493,6 +564,7 @@
   }
 
   @media (max-width: 768px) {
+    &.ListAP,
     &.ListA {
       .PageListP-items-column {
         &:nth-child(1) {
@@ -502,6 +574,30 @@
 
       .items-row-below {
         flex-direction: column;
+      }
+    }
+
+    &.ListAP {
+      .PageListP-items-column:nth-child(2) {
+        .PageListH-items-item:nth-child(1) {
+          padding-top: 0;
+          border-top: 1px solid var(--color-list-border);
+          .PagePromo-standard {
+            flex-direction: column;
+            .PagePromo-media {
+              display: block;
+              width: 100%;
+              max-width: fit-content;
+              margin: 10px 15px 10px 0;
+            }
+          }
+        }
+      }
+    }
+
+    &.ListG {
+      .PageListP-items-column:first-of-type {
+        margin-right: 0px;
       }
     }
 

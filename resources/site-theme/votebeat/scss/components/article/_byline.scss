@@ -23,12 +23,14 @@
     font-family: var(--font-1) !important;
     font-size: var(--byline-1);
     line-height: 1.33;
-    .Page-byline {
+    span {
       margin-right: 5px;
-  }
+      &.and {
+        margin-left: 5px;
+      }
+    }
     a {
       text-decoration: none;
-
     }
   }
 }

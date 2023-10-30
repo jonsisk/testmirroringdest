@@ -286,7 +286,7 @@ function parseArticleItem(item, index, arcSite, phrases, id, customFields) {
     case "custom_embed":
       switch (item.subtype) {
         case "sidebar":
-          return <SidebarComposer key={key} embed={item.embed} />;
+          return <SidebarComposer key={key} alignment={item.alignment} embed={item.embed} />;
         case "newsletter":
           return <NewsletterComposer key={key} embed={item.embed} />;
         case "pymembed":

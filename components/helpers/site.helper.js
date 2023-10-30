@@ -14,6 +14,7 @@ export const getSiteProperties = (context) => {
   if (isSiteSection(globalContent)) {
     const section = globalContent.site_section;
     return {
+      name: section.name,
       primaryLogo: section.bureau.primary_logo.startsWith("/")
         ? deployment(`${contextPath}/resources/images${section.bureau.primary_logo}`)
         : section.bureau.primary_logo,
@@ -29,6 +30,16 @@ export const getSiteProperties = (context) => {
       tagline: section.bureau.tagline,
       hideTopics: section.bureau.hide_topics_in_header === "true",
       topicsHierachy: section.bureau.topics_hierarchy,
+      newsletter: {
+        title: section.bureau.newsletter_title,
+        description: section.bureau.newsletter_description,
+        newsletter: section.bureau.newsletter,
+      },
+      rightRailNewsletter: {
+        title: section.bureau.rightrail_newsletter_title,
+        description: section.bureau.rightrail_newsletter_description,
+        newsletter: section.bureau.rightrail_newsletter,
+      },
     };
   }
   return {};
