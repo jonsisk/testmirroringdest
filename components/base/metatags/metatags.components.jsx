@@ -21,7 +21,10 @@ const CivicMetaTags = ({ content, parselyTags, arcSite, websiteUrl, websiteName,
               content={`${websiteUrl}/authors/${content?.credits?.by?.[0]?.slug}`}
             />
           )}
-          <meta name="article:published_time" content={getDateForMetadata(content?.display_date)} />
+          <meta
+            name="article:published_time"
+            content={getDateForMetadata(content?.first_publish_date)}
+          />
         </>
       );
 
