@@ -59,10 +59,10 @@
                 margin-top: 12px;
 
                 @include respond-down(xxs) {
-                  height: auto;
+                  max-height: 44px;
                   width: auto;
                   margin-right: 12px;
-                  margin-top: 12px;
+                  margin-top: 0;
                 }
 
                 @include respond-up(md) {
@@ -284,7 +284,7 @@
                               display: flex;
                               padding: 12px 24px 12px 20px;
                               justify-content: left;
-                              border-bottom: 1px solid var(--color-header-border);
+                              border-bottom: 1px solid #ffffff;
 
                               @include respond-up(xs) {
                                 padding: 12px 24px 12px 0;
@@ -360,7 +360,9 @@
             align-items: center;
             gap: 16px;
             margin: 0px 0 -6px 0;
-
+            @include respond-down(xxs) {
+              align-items: flex-start;
+            }
             @include respond-up(md) {
               flex: 0 0 auto;
               order: 3;
