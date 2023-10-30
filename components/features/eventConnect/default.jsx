@@ -59,7 +59,8 @@ const Events = ({ customFields }) => {
           <h4 className="Breaker-content-body-title">{htmlTitle}</h4>
 
           <ol className="Breaker-content-body-list">
-            {events.data.length > 0 &&
+            {events.data &&
+              events.data.length > 0 &&
               events.data.map((event) => (
                 <li key={event.title} className="Breaker-content-body-list-item">
                   <div className="PagePromoSimpleEvent">
