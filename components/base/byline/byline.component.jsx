@@ -13,7 +13,7 @@ const Byline = ({
 }) => {
   const credits = element?.credits?.by;
 
-  const { display_date: displayDate, publish_date: publishDate } = element;
+  const { first_publish_date: firstPublishDate, display_date: displayDate } = element;
 
   //Render all authors for a story
   const renderAuthors = (authorsList) => {
@@ -71,16 +71,16 @@ const Byline = ({
             </>
           ))}
       </span>
-      {showDate && displayDate && <span className="separator">&nbsp;|&nbsp;</span>}
-      {showDate && displayDate && (
-        <span className="date">{getUserDate(displayDate, showTime)}</span>
+      {showDate && firstPublishDate && <span className="separator">&nbsp;|&nbsp;</span>}
+      {showDate && firstPublishDate && (
+        <span className="date">{getUserDate(firstPublishDate, showTime)}</span>
       )}
 
       {/* print only if publishDate is after displayDate */}
-      {showDate && isDateAfter(publishDate, displayDate) && showTime && (
+      {showDate && isDateAfter(displayDate, firstPublishDate) && showTime && (
         <>
           <span className="separator">&nbsp;&nbsp;</span>
-          <span className="date">Updated: {getUserDate(publishDate, showTime)}</span>
+          <span className="date">Updated: {getUserDate(displayDate, showTime)}</span>
         </>
       )}
     </div>

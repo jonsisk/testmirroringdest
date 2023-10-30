@@ -6,6 +6,7 @@ export const LIST_FILTER = (arcSite) => `{
       type
       display_date
       publish_date
+      first_publish_date
       credits {
         by {
           _id
