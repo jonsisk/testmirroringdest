@@ -14,6 +14,7 @@ const NoticeListCivic = ({ customFields }) => {
     lazyLoad,
     columns,
     title,
+    subtitle,
     readMoreUrl,
     listContentConfig: { contentService, contentConfigValues },
   } = customFields;
@@ -71,6 +72,7 @@ const NoticeListCivic = ({ customFields }) => {
           isServerSideLazy={isServerSideLazy}
           phrases={phrases}
           title={title}
+          subtitle={subtitle}
           showAsList={true}
           showByline={promoElements.showByline}
           showDate={promoElements.showDate}
@@ -104,10 +106,9 @@ NoticeListCivic.propTypes = {
       label: "title",
       group: "Configure Content",
     }),
-    showItemOverline: PropTypes.bool.tag({
-      label: "Show overline",
-      defaultValue: false,
-      group: "Show promo elements",
+    subtitle: PropTypes.string.tag({
+      label: "subtitle",
+      group: "Configure Content",
     }),
     columns: PropTypes.oneOf(["2", "3", "4"]).tag({
       label: "Columns",
