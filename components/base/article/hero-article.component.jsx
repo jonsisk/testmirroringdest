@@ -42,7 +42,8 @@ const HeroItem = React.memo(
         if (
           !primarySection ||
           primarySection?.additional_properties?.original?.bureau?.is_bureau_section == "true" ||
-          primarySection?.additional_properties?.original?.site?.is_internal === "true"
+          primarySection?.additional_properties?.original?.site?.is_internal === "true" ||
+          primarySection?.name?.startsWith("#StoryType")
         )
           return null;
         return (
