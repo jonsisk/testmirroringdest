@@ -89,12 +89,6 @@ const ResultItem = React.memo(
               </div>
               <Overline story={element} className="overline" />
               <div className="PagePromo-content">
-                {showItemOverline ? (
-                  <div className="PagePromo-category">
-                    {showItemOverline && getMainSection(element)}
-                  </div>
-                ) : null}
-
                 <div className="PagePromo-title">
                   {showHeadline ? (
                     <a href={url} title={headlineText}>
