@@ -1,8 +1,15 @@
 import React from "react";
+import Static from "fusion:static";
 import DataTable from "./dataTable";
 import { extractTableData } from "../../../../content/helpers/tableParser.helper";
+import styled from "styled-components";
 
-const HTML = ({ content, id }) => {
+const StyledDiv = styled.div`
+  a {
+    color: ${(props) => props.primaryColor};
+  }
+`;
+const HTML = ({ content, id, primaryColor }) => {
   // busca si el contenido tiene una tabla
   const isTableContent =
     content.includes("<table>") && content.includes("<thead>") && content.includes("<tbody>");
@@ -11,13 +18,17 @@ const HTML = ({ content, id }) => {
   const tableData = isTableContent ? extractTableData(content) : null;
 
   return (
-    <div id={`article-html-block-${id}`}>
+    <Static id={`article-html-block-${id}`}>
       {isTableContent ? (
         <DataTable columns={tableData.headers} data={tableData.rows} />
       ) : (
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+        <StyledDiv
+          className="block-margin-bottom"
+          dangerouslySetInnerHTML={{ __html: content }}
+          primaryColor={primaryColor}
+        />
       )}
-    </div>
+    </Static>
   );
 };
 
