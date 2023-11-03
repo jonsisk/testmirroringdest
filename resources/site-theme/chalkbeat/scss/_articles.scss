@@ -135,6 +135,20 @@ h2.sub-headline {
   .html.float-left {
     float: left;
   }
+
+  .Page-articleBody-TagData {
+    float: left;
+    max-width: 50%;
+    border-left: 3px solid var(--color-primary);
+    padding-left: 16px;
+    margin: 0 16px 16px 0;
+
+    .Page-articleBody-TagData-description {
+      font-style: italic;
+      font-size: 1em;
+      margin: 0;
+    }
+  }
 }
 
 .lead-art-wrapper figcaption {
