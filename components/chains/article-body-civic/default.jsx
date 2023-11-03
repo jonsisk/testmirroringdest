@@ -327,6 +327,8 @@ const ArticleBodyCivic = styled.article`
 export const ArticleBodyChainCivicPresentation = ({ children, customFields = {}, context }) => {
   const { globalContent: items = {}, arcSite, id } = context;
 
+  const primary_section = items?.taxonomy?.primary_section;
+
   const { content_elements: contentElements = [], copyright, location } = items;
   const { elementPlacement: adPlacementConfigObj = {} } = customFields;
   const { locale = "en" } = getProperties(arcSite);
@@ -341,6 +343,27 @@ export const ArticleBodyChainCivicPresentation = ({ children, customFields = {},
 
   let paragraphCounter = 0;
   const articleBody = [
+    ...(primary_section?.additional_properties?.original?.sidebar?.sidebar_logo
+      ? [
+          <div class="Page-articleBody-TagData">
+            <div class="Page-articleBody-TagData-title">
+              <a class="Link" href={`${primary_section?._id}/`}>
+                <img
+                  src={primary_section?.additional_properties?.original?.sidebar?.sidebar_logo}
+                  width="300"
+                  height="68"
+                />
+              </a>
+            </div>
+            <div
+              class="Page-articleBody-TagData-description"
+              dangerouslySetInnerHTML={{
+                __html: primary_section?.additional_properties?.original?.sidebar?.sidebar_text,
+              }}
+            ></div>
+          </div>,
+        ]
+      : []),
     ...contentElements.map((contentElement, index) => {
       if (contentElement.type === "text") {
         // Start at 1 since the ad configs use one-based array indexes

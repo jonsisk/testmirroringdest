@@ -16,7 +16,7 @@ const StoriesMissed = ({ customFields }) => {
     listContentConfig: { contentService, contentConfigValues },
   } = customFields;
   const isServerSideLazy = lazyLoad && isServerSide() && !isAdmin;
-  const { arcSite, isAdmin, deployment, contextPath } = useFusionContext();
+  const { arcSite, isAdmin, deployment, contextPath, globalContent } = useFusionContext();
   const { fallbackImage } = getProperties(arcSite);
   const requestedResultList = useContent({
     source: isServerSideLazy ? null : contentService,
@@ -63,6 +63,7 @@ const StoriesMissed = ({ customFields }) => {
                   arcSite={arcSite}
                   targetFallbackImage={targetFallbackImage}
                   placeholderResizedImageOptions={placeholderResizedImageOptions}
+                  globalContent={globalContent}
                 />
               ))}
           </div>
