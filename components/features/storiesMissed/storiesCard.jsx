@@ -25,7 +25,7 @@ export const StoriesCard = ({
   };
   const imageURL = extractImageFromStory(slide);
   const { websites } = slide;
-  const url = websites[arcSite].website_url;
+  const url = websites && websites[arcSite] ? websites[arcSite].website_url : "#";
   return (
     <div className="slide article-slide">
       {showImage && (
