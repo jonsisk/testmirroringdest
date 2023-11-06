@@ -11,6 +11,7 @@ const FeaturedStoriesCivic = ({ customFields }) => {
   const {
     listContentConfig: { contentService, contentConfigValues },
     listType,
+    title,
   } = customFields;
   const { fallbackImage, locale, primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
   const imageProperties = {
@@ -75,6 +76,16 @@ const FeaturedStoriesCivic = ({ customFields }) => {
 
   return (
     <div className="Front-Page">
+      {title != null && (
+        <div className="PageList-header articles-slider">
+          <svg className="PageList-header-squiggly">
+            <use xlinkHref="#squiggly"></use>
+          </svg>
+          <div className="PageList-header-title-wrap">
+            <div className="PageList-header-title">{title}</div>
+          </div>
+        </div>
+      )}
       <Results
         arcSite={arcSite}
         configuredOffset={configuredOffset}
@@ -106,6 +117,10 @@ FeaturedStoriesCivic.label = "Featured Stories – Civic";
 
 FeaturedStoriesCivic.propTypes = {
   customFields: PropTypes.shape({
+    title: PropTypes.string.tag({
+      label: "Title",
+      group: "Configure Content",
+    }),
     listType: PropTypes.oneOf([
       "ListG",
       "ListP",
