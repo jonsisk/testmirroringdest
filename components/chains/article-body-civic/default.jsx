@@ -325,7 +325,7 @@ const ArticleBodyCivic = styled.article`
 `;
 
 export const ArticleBodyChainCivicPresentation = ({ children, customFields = {}, context }) => {
-  const { globalContent: items = {}, arcSite, id } = context;
+  const { globalContent: items = {}, arcSite, id, deployment, contextPath } = context;
 
   const primary_section = items?.taxonomy?.primary_section;
 
@@ -349,7 +349,15 @@ export const ArticleBodyChainCivicPresentation = ({ children, customFields = {},
             <div class="Page-articleBody-TagData-title">
               <a class="Link" href={`${primary_section?._id}/`}>
                 <img
-                  src={primary_section?.additional_properties?.original?.sidebar?.sidebar_logo}
+                  src={
+                    primary_section?.additional_properties?.original?.sidebar?.sidebar_logo?.startsWith(
+                      "/"
+                    )
+                      ? deployment(
+                          `${contextPath}/resources/images${primary_section?.additional_properties?.original?.sidebar?.sidebar_logo}`
+                        )
+                      : primary_section?.additional_properties?.original?.sidebar?.sidebar_logo
+                  }
                   width="300"
                   height="68"
                 />
