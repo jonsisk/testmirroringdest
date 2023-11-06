@@ -6,9 +6,11 @@
   &.left {
     float: left;
     width: 50%;
+    margin-right: 10px;
   }
   &.right {
     float: right;
     width: 50%;
+    margin-left: 10px;
   }
 }

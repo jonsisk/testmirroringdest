@@ -44,7 +44,8 @@ const ResultItem = React.memo(
         if (
           !primarySection ||
           primarySection?.additional_properties?.original?.bureau?.is_bureau_section === "true" ||
-          primarySection?.additional_properties?.original?.site?.is_internal === "true"
+          primarySection?.additional_properties?.original?.site?.is_internal === "true" ||
+          primarySection?.name?.startsWith("#StoryType")
         )
           return null;
         return (
@@ -89,12 +90,6 @@ const ResultItem = React.memo(
               </div>
               <Overline story={element} className="overline" />
               <div className="PagePromo-content">
-                {showItemOverline ? (
-                  <div className="PagePromo-category">
-                    {showItemOverline && getMainSection(element)}
-                  </div>
-                ) : null}
-
                 <div className="PagePromo-title">
                   {showHeadline ? (
                     <a href={url} title={headlineText}>

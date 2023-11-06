@@ -1,3 +1,4 @@
+import { isDateAfter } from "./date.helper";
 /**
  * Get JSON+LD schema for article
  * @param {*} globalContent - the arcile
@@ -10,8 +11,8 @@ export const getSchema = (globalContent, logo, baseUrl, websiteName) => {
   const {
     type,
     headlines,
+    first_publish_date,
     display_date,
-    publish_date,
     last_updated_date,
     description,
     credits,
@@ -22,7 +23,7 @@ export const getSchema = (globalContent, logo, baseUrl, websiteName) => {
   if (type !== "story") return null;
 
   const image = promo_items?.basic || promo_items?.lead_image;
-  const date = display_date ? display_date : publish_date;
+  const date = isDateAfter(display_date, first_publish_date) ? display_date : first_publish_date;
 
   return `{
         "@context": "https://schema.org",

@@ -12,7 +12,8 @@ const OverlineFeature = () => {
 
   if (
     primarySection?.additional_properties?.original?.bureau?.is_bureau_section === "true" ||
-    primarySection?.additional_properties?.original?.site?.is_internal === "true"
+    primarySection?.additional_properties?.original?.site?.is_internal === "true" ||
+    primarySection?.name?.startsWith("#StoryType")
   ) {
     // we won't show primary section if it's a bureu section or internal section
     primarySection = null;
@@ -24,6 +25,7 @@ const OverlineFeature = () => {
       {sections
         ?.filter(
           (sec) =>
+            !sec?.name?.startsWith("#StoryType") &&
             sec._id != primarySection?._id &&
             sec.additional_properties?.original?.bureau?.is_bureau_section !== "true" &&
             sec.additional_properties?.original?.site?.is_internal !== "true"

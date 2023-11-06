@@ -19,6 +19,7 @@ const NoticeCard = ({
   imagePropertiesFeatured,
   isServerSideLazy = false,
   title,
+  subtitle,
   showAsList = true,
   showByline = false,
   showDate = false,
@@ -148,6 +149,9 @@ const NoticeCard = ({
         </svg>
         <div className="PageList-header-title-wrap">
           <div className="PageList-header-title">{title}</div>
+        </div>
+        <div className="PageList-header-description">
+          <p>{subtitle}</p>
         </div>
       </div>
       <div className={`noticesContainer columns-${columns}`}>

@@ -116,7 +116,7 @@ h5 {
   }
 }
 @include respond-down(lg) {
-  aside {
+  .twoColumn > aside {
     display: none !important;
   }
 }

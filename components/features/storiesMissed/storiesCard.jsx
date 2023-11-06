@@ -1,8 +1,8 @@
 import { Image } from "@wpmedia/engine-theme-sdk";
 import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
-import { Heading, SecondaryFont, Overline } from "@wpmedia/shared-styles";
 import getProperties from "fusion:properties";
 import React from "react";
+import { getPrimarySection } from "../../helpers/article.helper";
 
 export const StoriesCard = ({
   slide,
@@ -10,6 +10,7 @@ export const StoriesCard = ({
   targetFallbackImage,
   placeholderResizedImageOptions,
   showImage,
+  globalContent,
 }) => {
   const { primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
   const imageProperties = {
@@ -25,7 +26,24 @@ export const StoriesCard = ({
   };
   const imageURL = extractImageFromStory(slide);
   const { websites } = slide;
-  const url = websites[arcSite].website_url;
+  const url = websites && websites[arcSite] ? websites[arcSite].website_url : "#";
+
+  const getMainSection = (element) => {
+    const primarySection = getPrimarySection(element, globalContent);
+    if (
+      !primarySection ||
+      primarySection?.additional_properties?.original?.bureau?.is_bureau_section === "true" ||
+      primarySection?.additional_properties?.original?.site?.is_internal === "true" ||
+      primarySection?.name?.startsWith("#StoryType")
+    )
+      return null;
+    return (
+      <a href={`${primarySection.path}/`} title={primarySection.name} className="overline">
+        {primarySection.name}
+      </a>
+    );
+  };
+
   return (
     <div className="slide article-slide">
       {showImage && (
@@ -39,7 +57,7 @@ export const StoriesCard = ({
           fallbackImage={targetFallbackImage}
         />
       )}
-      <Overline story={slide} className="overline" />
+      {getMainSection(slide)}
       <div
         className="article-slide-info"
         style={{ borderBottom: "1px solid #ccc", paddingBottom: "1rem" }}
