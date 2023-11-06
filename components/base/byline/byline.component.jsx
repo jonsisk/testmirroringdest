@@ -46,7 +46,7 @@ const Byline = ({
         {credits.length === 2 && (
           <>
             <Author author={credits[0]} websiteDomain={websiteDomain} />
-            <span className="and">and&nbsp;</span>
+            <span className="and">and</span>
             <Author author={credits[1]} websiteDomain={websiteDomain} />
           </>
         )}
