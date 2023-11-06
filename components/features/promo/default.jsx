@@ -12,30 +12,38 @@ const Promo = ({ customFields }) => {
     <div className="GenericPagePromoModule" style={{ backgroundColor: bgColor }}>
       <div className="GenericPagePromoModule-content-wrapper">
         <div className="GenericPagePromoModule-content">
-          <div className="GenericPagePromoModule-icon">
-            <img
-              className="Image"
-              alt={imageName}
-              width="52"
-              height="68"
-              src={deployment(`${contextPath}/resources/images/${imageName}.png`)}
-            />
-          </div>
+          {imageName != null ? (
+            <div className="GenericPagePromoModule-icon">
+              <img
+                className="Image"
+                alt={imageName}
+                width="52"
+                height="68"
+                src={deployment(`${contextPath}/resources/images/${imageName}.png`)}
+              />
+            </div>
+          ) : (
+            <div />
+          )}
 
           <div className="GenericPagePromoModule-title">{title}</div>
 
           <div className="GenericPagePromoModule-description">{description}</div>
 
-          <div>
-            <a
-              className="GenericPagePromoModule-CTALink"
-              href={ctaURL}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {ctaCopy}
-            </a>
-          </div>
+          {ctaCopy != null ? (
+            <div>
+              <a
+                className="GenericPagePromoModule-CTALink"
+                href={ctaURL}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {ctaCopy}
+              </a>
+            </div>
+          ) : (
+            <div />
+          )}
         </div>
       </div>
     </div>
@@ -68,7 +76,7 @@ Promo.propTypes = {
       label: "Background Color in hex (e.g: #fce487)",
       group: "Configure Content",
     }),
-    imageName: PropTypes.oneOf(["flag", "heart"]).tag({
+    imageName: PropTypes.oneOf(["flag", "heart", "facebook"]).tag({
       label: "Image",
       group: "Configure Content",
     }),
