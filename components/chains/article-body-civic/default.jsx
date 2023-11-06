@@ -345,7 +345,10 @@ export const ArticleBodyChainCivicPresentation = ({ children, customFields = {},
   const articleBody = [
     ...(primary_section?.additional_properties?.original?.sidebar?.sidebar_logo
       ? [
-          <div class="Page-articleBody-TagData">
+          <div
+            key={primary_section?.additional_properties?.original?.sidebar?.sidebar_logo}
+            class="Page-articleBody-TagData"
+          >
             <div class="Page-articleBody-TagData-title">
               <a class="Link" href={`${primary_section?._id}/`}>
                 <img
