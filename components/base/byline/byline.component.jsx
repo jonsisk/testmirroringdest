@@ -55,7 +55,7 @@ const Byline = ({
             <Author author={credits[0]} websiteDomain={websiteDomain} />{" "}
             <span className="coma">,</span>
             <Author author={credits[1]} websiteDomain={websiteDomain} />
-            <span className="and">and&nbsp;</span>
+            <span className="and">and</span>
             <Author author={credits[2]} websiteDomain={websiteDomain} />
           </>
         )}
