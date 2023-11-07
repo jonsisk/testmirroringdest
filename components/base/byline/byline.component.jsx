@@ -42,15 +42,15 @@ const Byline = ({
     <div className={showBorder === false ? "bylineNotice" : "byline"}>
       <span className="author">
         By&nbsp;
-        {credits.length === 1 && <Author author={credits[0]} websiteDomain={websiteDomain} />}
-        {credits.length === 2 && (
+        {credits?.length === 1 && <Author author={credits[0]} websiteDomain={websiteDomain} />}
+        {credits?.length === 2 && (
           <>
             <Author author={credits[0]} websiteDomain={websiteDomain} />
             <span className="and">and</span>
             <Author author={credits[1]} websiteDomain={websiteDomain} />
           </>
         )}
-        {credits.length === 3 && (
+        {credits?.length === 3 && (
           <>
             <Author author={credits[0]} websiteDomain={websiteDomain} />{" "}
             <span className="coma">,</span>
@@ -59,7 +59,7 @@ const Byline = ({
             <Author author={credits[2]} websiteDomain={websiteDomain} />
           </>
         )}
-        {credits.length >= 4 &&
+        {credits?.length >= 4 &&
           (type === "story" ? (
             renderAuthors(credits)
           ) : (
@@ -67,7 +67,7 @@ const Byline = ({
               <Author author={credits[0]} websiteDomain={websiteDomain} />{" "}
               <span className="coma">,</span>
               <Author author={credits[1]} websiteDomain={websiteDomain} />
-              <span className="and">{` and ${credits.length - 2} more`}</span>
+              <span className="and">{` and ${credits?.length - 2} more`}</span>
             </>
           ))}
       </span>

@@ -48,7 +48,7 @@ const NewsletterInterestFeature = ({ customFields }) => {
   };
 
   const validateSelection = () => {
-    return selectedValues.length > 0;
+    return selectedValues?.length > 0;
   };
 
   if (!shouldRender || outputType === "amp") {

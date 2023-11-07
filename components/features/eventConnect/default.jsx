@@ -71,8 +71,8 @@ const Events = ({ customFields }) => {
 
           <ol className="Breaker-content-body-list">
             {events.data &&
-              events.data.length > 0 &&
-              events.data.map((event) => (
+              events?.data?.length > 0 &&
+              events?.data?.map((event) => (
                 <li key={event.title} className="Breaker-content-body-list-item">
                   <div className="PagePromoSimpleEvent">
                     <div className="PagePromoSimpleEvent-content">

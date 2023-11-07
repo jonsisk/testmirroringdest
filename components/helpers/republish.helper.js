@@ -45,7 +45,7 @@ export const getRepublishableArticle = (
       switch (type) {
         case "text":
           var strippedContent = stripBrTags(content);
-          return strippedContent.length > 0
+          return strippedContent?.length > 0
             ? outputType === "html"
               ? `<p>${strippedContent}</p>`
               : stripTags(strippedContent)
