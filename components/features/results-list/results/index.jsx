@@ -18,6 +18,8 @@ const Results = ({
   imagePropertiesFeatured,
   isServerSideLazy = false,
   phrases,
+  optionButton,
+  textButton,
   showAsList = true,
   showByline = false,
   showDate = false,
@@ -163,13 +165,13 @@ const Results = ({
         />
       ))}
       {isThereMore && showPagination && showAsList && (
-        <div className="see-more">
+        <div className={`see-more see-more-${optionButton}`}>
           <Button
             ariaLabel={"More Stories"}
             buttonStyle={BUTTON_STYLES.PRIMARY}
             buttonTypes={BUTTON_TYPES.LABEL_ONLY}
             onClick={onReadMoreClick}
-            text={"More Stories"}
+            text={textButton || "More Stories"}
           />
         </div>
       )}

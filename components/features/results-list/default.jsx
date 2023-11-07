@@ -16,6 +16,8 @@ const ResultsListCivic = ({ customFields }) => {
     listContentConfig: { contentService, contentConfigValues },
     title,
     showTitle,
+    optionButton,
+    textButton,
   } = customFields;
   const { fallbackImage, locale, primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
   const imageProperties = {
@@ -81,6 +83,7 @@ const ResultsListCivic = ({ customFields }) => {
           isServerSideLazy={isServerSideLazy}
           phrases={phrases}
           showAsList={true}
+          textButton={textButton}
           showByline={promoElements.showByline}
           showDate={promoElements.showDate}
           showDescription={promoElements.showDescription}
@@ -88,6 +91,7 @@ const ResultsListCivic = ({ customFields }) => {
           showImage={promoElements.showImage}
           showItemOverline={promoElements.showItemOverline}
           targetFallbackImage={targetFallbackImage}
+          optionButton={optionButton}
           showPagination={promoElements.showPagination}
           showFeatured={promoElements.showFeatured}
           filteredArticles={articles}
@@ -104,10 +108,20 @@ ResultsListCivic.icon = "arc-list";
 
 ResultsListCivic.propTypes = {
   customFields: PropTypes.shape({
+    textButton: PropTypes.string.tag({
+      label: "Text Button",
+      group: "Configure Content",
+    }),
+    optionButton: PropTypes.oneOf(["small", "large"]).tag({
+      label: "optionButton",
+      group: "Configure Content",
+      defaultValue: "small",
+    }),
     title: PropTypes.string.tag({
       label: "Title",
       group: "Configure Content",
     }),
+
     listContentConfig: PropTypes.contentConfig("ans-feed").tag({
       label: "Display Content Info",
       group: "Configure Content",
@@ -132,6 +146,7 @@ ResultsListCivic.propTypes = {
       defaultValue: false,
       group: "Show promo elements",
     }),
+
     showDescription: PropTypes.bool.tag({
       label: "Show description",
       defaultValue: true,
