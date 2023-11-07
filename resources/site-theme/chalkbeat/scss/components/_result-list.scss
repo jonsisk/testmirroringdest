@@ -214,6 +214,7 @@
       text-transform: uppercase;
     }
 }
+}
 .Front-Page {
   .results-list-container {
     @include respond-up(lg) {
@@ -315,4 +316,4 @@
     }
   }
 }
-}
+
