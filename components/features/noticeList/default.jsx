@@ -103,7 +103,7 @@ NoticeListCivic.propTypes = {
       label: "Display Content Info",
     }),
     title: PropTypes.string.tag({
-      label: "title",
+      label: "Title",
       group: "Configure Content",
     }),
     subtitle: PropTypes.string.tag({
@@ -130,6 +130,7 @@ NoticeListCivic.propTypes = {
       defaultValue: true,
       group: "Show promo elements",
     }),
+
     showDescription: PropTypes.bool.tag({
       label: "Show description",
       defaultValue: true,

@@ -144,12 +144,16 @@ const NoticeCard = ({
   return viewableElements?.length > 0 && !isServerSideLazy ? (
     <div className="noticesListContainer">
       <div className="PageList-header articles-slider">
-        <svg className="PageList-header-squiggly">
-          <use xlinkHref="#squiggly"></use>
-        </svg>
-        <div className="PageList-header-title-wrap">
-          <div className="PageList-header-title">{title}</div>
-        </div>
+        {title && (
+          <div>
+            <svg className="PageList-header-squiggly">
+              <use xlinkHref="#squiggly"></use>
+            </svg>
+            <div className="PageList-header-title-wrap">
+              <div className="PageList-header-title">{title}</div>
+            </div>
+          </div>
+        )}
         <div className="PageList-header-description">
           <p>{subtitle}</p>
         </div>
