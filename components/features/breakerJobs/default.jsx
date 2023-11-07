@@ -66,8 +66,8 @@ const BreakerJobs = ({ customFields }) => {
           <h4 className="Breaker-content-body-title">{htmlTitle}</h4>
 
           <ol className="Breaker-content-body-list">
-            {jobs.data.length > 0 &&
-              jobs.data.map((job) => (
+            {jobs?.data?.length > 0 &&
+              jobs?.data?.map((job) => (
                 <li key={job.title} className="Breaker-content-body-list-item">
                   <a
                     className="Link"

@@ -129,7 +129,7 @@ const NoticeCard = ({
 
   const fullListLength = resultList?.count
     ? resultList?.count - configuredOffset
-    : resultList?.content_elements.length;
+    : resultList?.content_elements?.length;
 
   const isThereMore = requestedResultList?.next || viewableElements?.length < fullListLength;
 

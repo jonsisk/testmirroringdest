@@ -89,7 +89,7 @@ const getImageDimensionsForAspectRatios = (onlyImageWidths = []) => {
   // consider adding window.devicePixelRatio for * scale
   const siteProperties = getProperties();
   const { aspectRatios, imageWidths } = siteProperties;
-  const imageDimensionsToGenerate = onlyImageWidths.length ? onlyImageWidths : imageWidths;
+  const imageDimensionsToGenerate = onlyImageWidths?.length ? onlyImageWidths : imageWidths;
   return aspectRatios.reduce((availableDimensions, aspectRatio) => {
     const aspectRatioDimensions = aspectRatio.split(":");
     // get width by splitting the 400x400 string
@@ -267,7 +267,12 @@ const getResizedImageParams = (data, options) => {
     }
 
     // checking if by is array with a length
-    if (sourceData && sourceData.credits && sourceData.credits.by && sourceData.credits.by.length) {
+    if (
+      sourceData &&
+      sourceData.credits &&
+      sourceData.credits.by &&
+      sourceData.credits.by?.length
+    ) {
       sourceData.credits.by = resizeAuthorCredits(
         sourceData.credits.by,
         resizerURL,
