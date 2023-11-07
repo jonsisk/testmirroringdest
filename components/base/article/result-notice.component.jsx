@@ -62,7 +62,10 @@ const ResultItem = React.memo(
               <div className="PagePromo-media">
                 {showImage ? (
                   <a href={url} title={headlineText} aria-hidden="true" tabIndex="-1">
-                    {subtype === "standart" || subtype === undefined || !showFeatured ? (
+                    {subtype === "standard" ||
+                    subtype === undefined ||
+                    subtype === "" ||
+                    !showFeatured ? (
                       <Image
                         {...imageProperties}
                         url={imageURL !== null ? imageURL : targetFallbackImage}

@@ -59,12 +59,14 @@ const ResultItem = React.memo(
         <>
           <div
             className={`PageListH-items-item ${
-              subtype === "standard" || subtype === undefined || !showFeatured ? "" : "featured"
+              subtype === "standard" || subtype === undefined || subtype === "" || !showFeatured
+                ? ""
+                : "featured"
             }`}
           >
             <div
               className={`PagePromo-${
-                subtype === "standard" || subtype === undefined || !showFeatured
+                subtype === "standard" || subtype === undefined || subtype === "" || !showFeatured
                   ? "standard"
                   : subtype
               }`}

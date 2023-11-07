@@ -28,6 +28,7 @@ const StickyNewsletterFeature = ({ customFields }) => {
     thankYouMsg,
     buttonLabel,
     disclaimer,
+    language,
     newsletter,
     renderMobile,
     renderTablet,
@@ -97,6 +98,7 @@ const StickyNewsletterFeature = ({ customFields }) => {
             disclaimer={disclaimer}
             buttonLabel={buttonLabel}
             layout="sticky"
+            locale={language}
           />
         </div>
         {!closed && (
@@ -162,6 +164,11 @@ StickyNewsletterFeature.propTypes = {
       label: "Disclaimer (HTML)",
       group: "Configure Content",
       description: "Shown below the form. Accepts HTML.",
+    }),
+    language: PropTypes.oneOf(["en", "es"]).tag({
+      defaultValue: "en",
+      label: "Language",
+      group: "Configure Content",
     }),
     newsletter: PropTypes.oneOf(
       [].concat(...Object.values(newsletterInterests).map((list) => list.map((item) => item.slug)))

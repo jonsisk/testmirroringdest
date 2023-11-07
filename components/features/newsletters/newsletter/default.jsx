@@ -29,6 +29,7 @@ const NewsletterFeature = ({ customFields }) => {
     buttonLabel,
     disclaimer,
     newsletter,
+    language,
     renderMobile,
     renderTablet,
     renderDesktop,
@@ -81,6 +82,7 @@ const NewsletterFeature = ({ customFields }) => {
           errorMsg={errorMsg}
           buttonLabel={buttonLabel}
           disclaimer={disclaimer}
+          locale={language}
         />
       </div>
     </div>
@@ -136,6 +138,11 @@ NewsletterFeature.propTypes = {
       label: "Disclaimer (HTML)",
       group: "Configure Content",
       description: "Shown below the form. Accepts HTML.",
+    }),
+    language: PropTypes.oneOf(["en", "es"]).tag({
+      defaultValue: "en",
+      label: "Language",
+      group: "Configure Content",
     }),
     newsletter: PropTypes.oneOf(
       [].concat(...Object.values(newsletterInterests).map((list) => list.map((item) => item.slug)))

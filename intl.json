@@ -1,0 +1,22 @@
+{
+  "newsletter-signup.required-fields": {
+    "en": "Please fill out all required fields.",
+    "es": "Por favor, rellene todos los campos requeridos."
+  },
+  "newsletter-signup.sending-button-text": {
+    "en": "Sending...",
+    "es": "Enviando..."
+  },
+  "newsletter-signup.captcha-error": {
+    "en": "Captcha failed, please reload and try again",
+    "es": "Captcha fallido, por favor recargue e inténtelo de nuevo."
+  },
+  "newsletter-signup.already-subscribed": {
+    "en": "You're already subscribed to this newsletter.",
+    "es": "Ya estás suscrito a este boletín."
+  },
+  "newsletter-signup.subscription-error": {
+    "en": "There was an error. If this problem persists, please email us at community@%{website}.org.",
+    "es": "Hubo un error. Si este problema persiste, por favor envíenos un correo electrónico a community@%{website}.org."
+  }
+}

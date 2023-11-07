@@ -1,3 +1,4 @@
+import getTranslatedPhrases from "fusion:intl";
 import PropTypes from "prop-types";
 import React, { useState, useCallback, useEffect } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
@@ -16,7 +17,9 @@ const NewsletterSignup = ({
   validation,
   disclaimer,
   layout = "standard",
+  locale = "en",
 }) => {
+  const phrases = getTranslatedPhrases(locale);
   const [email, setEmail] = useState("");
   const [recaptchaValue, setRecaptchaValue] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -46,12 +49,12 @@ const NewsletterSignup = ({
     event.preventDefault();
 
     if (recaptchaValue === "") {
-      setErrorMessage("Captcha failed, please reload and try again");
+      setErrorMessage(phrases.t("newsletter-signup.captcha-error"));
       return;
     }
 
     if (typeof validation === "function" && !validation()) {
-      setErrorMessage("Please fill out all required fields.");
+      setErrorMessage(phrases.t("newsletter-signup.required-fields"));
       return;
     }
 
@@ -80,9 +83,8 @@ const NewsletterSignup = ({
       const alreadyMember = responseText?.includes("already a list member");
       setErrorMessage(
         alreadyMember
-          ? "You're already subscribed to this newsletter."
-          : errorMsg ||
-              `There was an error. If this problem persists, please email us at community@${website}.org.`
+          ? phrases.t("newsletter-signup.already-subscribed")
+          : errorMsg || phrases.t("newsletter-signup.subscription-error", { website: website })
       );
       handleReCaptchaVerify();
     }
@@ -116,7 +118,9 @@ const NewsletterSignup = ({
               <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
               <div className="buttonContainer">
                 <button type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : buttonLabel || "Sign Me Up"}
+                  {isSubmitting
+                    ? phrases.t("newsletter-signup.sending-button-text")
+                    : buttonLabel || "Sign Me Up"}
                 </button>
               </div>
             </>
@@ -125,7 +129,9 @@ const NewsletterSignup = ({
             <>
               <div className="buttonContainer">
                 <button type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : buttonLabel || "Sign Me Up"}
+                  {isSubmitting
+                    ? phrases.t("newsletter-signup.sending-button-text")
+                    : buttonLabel || "Sign Me Up"}
                 </button>
               </div>
               <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
@@ -140,7 +146,9 @@ const NewsletterSignup = ({
             <>
               <div className="buttonContainer">
                 <button type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : buttonLabel || "Sign Me Up"}
+                  {isSubmitting
+                    ? phrases.t("newsletter-signup.sending-button-text")
+                    : buttonLabel || "Sign Me Up"}
                 </button>
               </div>
             </>
