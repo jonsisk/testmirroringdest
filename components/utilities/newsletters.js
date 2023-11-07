@@ -63,7 +63,7 @@ export const newsletterInterests = {
       id: "a45e8f67d6",
       title: "En Español",
       description: "Las noticias escolares más importantes de Colorado en español.",
-      frequency: "Delivered to your inbox every other week.",
+      frequency: "Se distribuye dos veces al mes.",
     },
     {
       slug: "chalkbeat-detroit",
@@ -133,25 +133,188 @@ export const newsletterInterests = {
 };
 
 export const newsletterCopy = {
-  default: {
-    title: "Go beyond Election Day.",
-    description:
-      "Meet the people and policies that protect election integrity year round in %SITE_NAME%'s newsletter.",
-    thankYouMessage:
-      "Thank you for subscribing to Votebeat! Check your inbox for a confirmation email.",
-  },
   votebeat: {
-    title: "Go beyond Election Day.",
-    description:
-      "Meet the people and policies that protect election integrity year round in %SITE_NAME%'s newsletter.",
-    thankYouMessage:
-      "Thank you for subscribing to Votebeat! Check your inbox for a confirmation email.",
+    default: {
+      title: "Go beyond Election Day.",
+      description:
+        "Meet the people and policies that protect election integrity year round in %SITE_NAME%'s newsletter.",
+      thankYouMessage:
+        "Thank you for subscribing to Votebeat! Check your inbox for a confirmation email.",
+      buttonText: "Sign Me Up",
+      errorMessage:
+        "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@votebeat.org.",
+      disclaimer:
+        '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+    },
   },
   chalkbeat: {
-    title: "We show up.",
-    description:
-      "You can't always get to the school board meeting. %SITE_NAME% reporters will be there to report the news you need. Follow along with our daily newsletter.",
-    thankYouMessage:
-      "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
+    default: {
+      title: "Keep learning.",
+      description:
+        "You can't always get to the school board meeting. %SITE_NAME% reporters will be there to report the news you need. Follow along with our daily newsletter.",
+      thankYouMessage:
+        "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
+      buttonText: "Sign Me Up",
+      errorMessage:
+        "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@votebeat.org.",
+      disclaimer:
+        '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+    },
+    "chalkbeat-national": {
+      title: "Keep learning.",
+      description:
+        "Discover the big trends in education in Chalkbeat’s national newsletter, delivered every Wednesday.",
+      thankYouMessage:
+        "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
+      buttonText: "Sign Me Up",
+      errorMessage:
+        "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
+      disclaimer:
+        '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+    },
+    "chalkbeat-chicago": {
+      title: "Keep learning.",
+      description:
+        "Get the latest news on Chicago's public schools in our free newsletter, delivered every weekday morning. ",
+      thankYouMessage:
+        "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
+      buttonText: "Sign Me Up",
+      errorMessage:
+        "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
+      disclaimer:
+        '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+    },
+    "chalkbeat-colorado": {
+      title: "Keep learning.",
+      description:
+        "Get the latest news on schools in Denver and nearby districts in our free newsletter, delivered every weekday morning.",
+      thankYouMessage:
+        "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
+      buttonText: "Sign Me Up",
+      errorMessage:
+        "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
+      disclaimer:
+        '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+    },
+    "chalkbeat-detroit": {
+      title: "Keep learning.",
+      description:
+        "Get the latest news on Detroit's traditional public and charter schools in our free newsletter, delivered every weekday morning.",
+      thankYouMessage:
+        "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
+      buttonText: "Sign Me Up",
+      errorMessage:
+        "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
+      disclaimer:
+        '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+    },
+    "chalkbeat-indiana": {
+      title: "Keep learning.",
+      description:
+        "Get the latest news on IPS and Marion County's township district schools in our free newsletter, delivered every weekday morning.",
+      thankYouMessage:
+        "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
+      buttonText: "Sign Me Up",
+      errorMessage:
+        "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
+      disclaimer:
+        '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+    },
+    "chalkbeat-newark": {
+      title: "Keep learning.",
+      description:
+        "Get the latest news on Newark's public schools in our free newsletter, delivered every Wednesday and Friday.",
+      thankYouMessage:
+        "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
+      buttonText: "Sign Me Up",
+      errorMessage:
+        "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
+      disclaimer:
+        '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+    },
+    "chalkbeat-newyork": {
+      title: "Keep learning.",
+      description:
+        "Get the latest news on New York City's public schools in our free newsletter, delivered every weekday morning.",
+      thankYouMessage:
+        "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
+      buttonText: "Sign Me Up",
+      errorMessage:
+        "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
+      disclaimer:
+        '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+    },
+    "chalkbeat-philadelphia": {
+      title: "Keep learning.",
+      description:
+        "Get the latest news on Philadelphia's public schools in our free newsletter, delivered every Wednesday and Friday.",
+      thankYouMessage:
+        "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
+      buttonText: "Sign Me Up",
+      errorMessage:
+        "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
+      disclaimer:
+        '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+    },
+    "chalkbeat-tennessee": {
+      title: "Keep learning.",
+      description:
+        "Get the latest news on Memphis-Shelby County Schools in our free newsletter, delivered every weekday morning.",
+      thankYouMessage:
+        "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
+      buttonText: "Sign Me Up",
+      errorMessage:
+        "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
+      disclaimer:
+        '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+    },
+    "chalkbeat-beyondhighschool": {
+      title: "Go Beyond High School.",
+      description:
+        "Sign up for our free monthly newsletter to read the latest news on college and career paths for high school graduates in Colorado.",
+      thankYouMessage:
+        "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
+      buttonText: "Sign Me Up",
+      errorMessage:
+        "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
+      disclaimer:
+        '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+    },
+    "chalkbeat-enespanol": {
+      title: "Suscríbete a nuestro boletín gratis en español.",
+      description:
+        "Inscríbete a nuestro boletín gratis por email para leer las noticias importantes de tus escuelas. Se distribuye dos veces al mes.",
+      thankYouMessage:
+        "Gracias por suscribirte a nuestro boletín. Para confirmar tu decisión, ahora deberás confirmar tu dirección de correo electrónico haciendo clic en el enlace de confirmación que te enviemos a tu email.",
+      buttonText: "Suscríbete",
+      errorMessage:
+        "Hubo un error. Por favor, envíanos un correo electrónico: community@chalkbeat.org",
+      disclaimer:
+        '<i>Al suscribirte, estás de acuerdo con nuestro </i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Aviso de Privacidad.</i></a><i> Si eres un usuario en Europa, también estás de acuerdo con la política de transferencia de datos.</i>',
+    },
+    "chalkbeat-howiteach": {
+      title: "Get inspired.",
+      description:
+        "Sign up for Chalkbeat's free monthly newsletter How I Teach to get news and inspiration for — and from — educators across the U.S.",
+      thankYouMessage:
+        "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
+      buttonText: "Sign Me Up",
+      errorMessage:
+        "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
+      disclaimer:
+        '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+    },
+    "chalkbeat-thestartingline": {
+      title: "Sign up for The Starting Line.",
+      description:
+        "Follow the latest news on early childhood education across the U.S. in our free monthly newsletter, The Starting Line.",
+      thankYouMessage:
+        "Thank you for subscribing to Chalkbeat! Check your inbox for a confirmation email.",
+      buttonText: "Sign Me Up",
+      errorMessage:
+        "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
+      disclaimer:
+        '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+    },
   },
 };

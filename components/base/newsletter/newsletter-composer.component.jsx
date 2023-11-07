@@ -16,8 +16,8 @@ const NewsletterComposer = ({ embed }) => {
   const { arcSite, outputType } = context;
   const { websiteName, newsletterSignupEndpoint } = getProperties(arcSite);
   const { websiteName: globalContentWebsite } = getSiteProperties(context);
-  const { title, description, thankYouMessage } =
-    newsletterCopy[arcSite] || newsletterCopy["default"];
+  const { title, description, thankYouMessage, buttonText, errorMessage, disclaimer } =
+    newsletterCopy[arcSite][embed.config?.newsletter] || newsletterCopy[arcSite]["default"];
 
   if (outputType === "amp") return null;
 
@@ -44,19 +44,10 @@ const NewsletterComposer = ({ embed }) => {
             interestIds={composerNewsletter}
             thankYouMsg={thankYouMessage}
             layout="powerup"
+            buttonLabel={buttonText}
+            errorMsg={errorMessage}
           />
-
-          <p className="small">
-            <i>By signing up, you agree to our</i>
-            <a href="/pages/privacy-policy" target="_blank" rel="noreferrer">
-              <i> Privacy Notice</i>
-            </a>
-            <i> and European users agree to the data transfer policy. You may also receive</i>
-            <a href="/dedicated-emails" target="_blank" rel="noreferrer">
-              <i> occasional messages from sponsors</i>
-            </a>
-            <i>.</i>
-          </p>
+          <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
         </div>
       </div>
     </div>
