@@ -86,12 +86,14 @@ h2.sub-headline {
     line-height: 1.6;
   }
 
+  ol > [class^="list__StyledListItem"],
   ul > [class^="list__StyledListItem"] {
     list-style: disc;
     padding: 8px;
     margin: 0 0 0 20px;
   }
 
+  ol li,
   ul li {
     --font: var(--font-rte-body);
     font-family: var(--font, var(--font-1));
@@ -228,6 +230,11 @@ figure.lead-art-wrapper {
 aside.sidebar {
   background-color: var(--color-sidebar-bg-color);
   padding: 24px;
+  figure figcaption {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: var(--color-primary-text);
+  }
   @include respond-down(sm) {
     width: 100%;
     margin: 20px 0;
@@ -279,7 +286,7 @@ aside.sidebar {
     float: left;
     margin-right: 10px;
     width: 45%;
-    margin-left: 5%;
+
     @include respond-down(sm) {
       width: 100%;
       margin: 20px 0;
