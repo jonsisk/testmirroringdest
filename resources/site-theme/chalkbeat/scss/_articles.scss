@@ -229,6 +229,11 @@ figure.lead-art-wrapper {
 aside.sidebar {
   background-color: var(--color-sidebar-bg-color);
   padding: 24px;
+  figure figcaption {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: var(--color-primary-text);
+  }
   @include respond-down(sm) {
     width: 100%;
     margin: 20px 0;
@@ -278,7 +283,7 @@ aside.sidebar {
     float: left;
     margin-right: 10px;
     width: 45% !important;
-    margin-left: 5%;
+
     @include respond-down(sm) {
       width: 100%;
       margin: 20px 0;
