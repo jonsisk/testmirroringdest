@@ -109,13 +109,13 @@ ResultsListCivic.icon = "arc-list";
 ResultsListCivic.propTypes = {
   customFields: PropTypes.shape({
     textButton: PropTypes.string.tag({
-      label: "Text Button",
+      label: "Button text",
       group: "Configure Content",
     }),
     optionButton: PropTypes.oneOf(["small", "large"]).tag({
-      label: "optionButton",
+      label: "Button style",
       group: "Configure Content",
-      defaultValue: "small",
+      defaultValue: "large",
     }),
     title: PropTypes.string.tag({
       label: "Title",
