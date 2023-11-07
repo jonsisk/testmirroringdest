@@ -145,6 +145,7 @@ export const newsletterCopy = {
         "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@votebeat.org.",
       disclaimer:
         '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+      locale: "en",
     },
   },
   chalkbeat: {
@@ -159,6 +160,7 @@ export const newsletterCopy = {
         "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@votebeat.org.",
       disclaimer:
         '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+      locale: "en",
     },
     "chalkbeat-national": {
       title: "Keep learning.",
@@ -171,6 +173,7 @@ export const newsletterCopy = {
         "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
       disclaimer:
         '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+      locale: "en",
     },
     "chalkbeat-chicago": {
       title: "Keep learning.",
@@ -183,6 +186,7 @@ export const newsletterCopy = {
         "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
       disclaimer:
         '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+      locale: "en",
     },
     "chalkbeat-colorado": {
       title: "Keep learning.",
@@ -195,6 +199,7 @@ export const newsletterCopy = {
         "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
       disclaimer:
         '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+      locale: "en",
     },
     "chalkbeat-detroit": {
       title: "Keep learning.",
@@ -207,6 +212,7 @@ export const newsletterCopy = {
         "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
       disclaimer:
         '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+      locale: "en",
     },
     "chalkbeat-indiana": {
       title: "Keep learning.",
@@ -219,6 +225,7 @@ export const newsletterCopy = {
         "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
       disclaimer:
         '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+      locale: "en",
     },
     "chalkbeat-newark": {
       title: "Keep learning.",
@@ -231,6 +238,7 @@ export const newsletterCopy = {
         "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
       disclaimer:
         '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+      locale: "en",
     },
     "chalkbeat-newyork": {
       title: "Keep learning.",
@@ -243,6 +251,7 @@ export const newsletterCopy = {
         "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
       disclaimer:
         '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+      locale: "en",
     },
     "chalkbeat-philadelphia": {
       title: "Keep learning.",
@@ -255,6 +264,7 @@ export const newsletterCopy = {
         "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
       disclaimer:
         '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+      locale: "en",
     },
     "chalkbeat-tennessee": {
       title: "Keep learning.",
@@ -267,6 +277,7 @@ export const newsletterCopy = {
         "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
       disclaimer:
         '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+      locale: "en",
     },
     "chalkbeat-beyondhighschool": {
       title: "Go Beyond High School.",
@@ -279,6 +290,7 @@ export const newsletterCopy = {
         "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
       disclaimer:
         '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+      locale: "en",
     },
     "chalkbeat-enespanol": {
       title: "Suscríbete a nuestro boletín gratis en español.",
@@ -291,6 +303,7 @@ export const newsletterCopy = {
         "Hubo un error. Por favor, envíanos un correo electrónico: community@chalkbeat.org",
       disclaimer:
         '<i>Al suscribirte, estás de acuerdo con nuestro </i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Aviso de Privacidad.</i></a><i> Si eres un usuario en Europa, también estás de acuerdo con la política de transferencia de datos.</i>',
+      locale: "es",
     },
     "chalkbeat-howiteach": {
       title: "Get inspired.",
@@ -303,6 +316,7 @@ export const newsletterCopy = {
         "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
       disclaimer:
         '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+      locale: "en",
     },
     "chalkbeat-thestartingline": {
       title: "Sign up for The Starting Line.",
@@ -315,6 +329,7 @@ export const newsletterCopy = {
         "There was an error. Please refresh the page and try again. If this problem persists, please email us at community@chalkbeat.org.",
       disclaimer:
         '<i>By signing up, you agree to our</i><a href="/pages/privacy-policy/" target="_blank" rel="noreferrer"><i> Privacy Notice</i></a><i> and European users agree to the data transfer policy. You may also receive</i> <a href="/dedicated-emails/" target="_blank" rel="noreferrer"><i> occasional messages from sponsors</i></a><i>.</i>',
+      locale: "en",
     },
   },
 };

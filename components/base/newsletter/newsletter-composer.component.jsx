@@ -16,7 +16,7 @@ const NewsletterComposer = ({ embed }) => {
   const { arcSite, outputType } = context;
   const { websiteName, newsletterSignupEndpoint } = getProperties(arcSite);
   const { websiteName: globalContentWebsite } = getSiteProperties(context);
-  const { title, description, thankYouMessage, buttonText, errorMessage, disclaimer } =
+  const { title, description, thankYouMessage, buttonText, errorMessage, disclaimer, locale } =
     newsletterCopy[arcSite][embed.config?.newsletter] || newsletterCopy[arcSite]["default"];
 
   if (outputType === "amp") return null;
@@ -46,6 +46,7 @@ const NewsletterComposer = ({ embed }) => {
             layout="powerup"
             buttonLabel={buttonText}
             errorMsg={errorMessage}
+            locale={locale}
           />
           <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
         </div>
