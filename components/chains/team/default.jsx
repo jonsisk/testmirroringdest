@@ -2,7 +2,7 @@ import PropTypes from "@arc-fusion/prop-types";
 import React from "react";
 
 const MeetTheTeamChain = (props) => {
-  const { title } = props.customFields;
+  const { title, subtitle } = props.customFields;
   const authors = props.children;
   return (
     <div className="AuthorListA">
@@ -12,6 +12,9 @@ const MeetTheTeamChain = (props) => {
         </svg>
         <div className="PageList-header-title-wrap">
           <div className="PageList-header-title">{title}</div>
+        </div>
+        <div className="PageList-header-subtitle-wrap">
+          <div className="PageList-header-subtitle">{subtitle}</div>
         </div>
       </div>
       <ul className="AuthorListA-items">{authors}</ul>
@@ -25,6 +28,10 @@ MeetTheTeamChain.propTypes = {
       label: "title",
       defaultValue: "Meet the team",
       description: "Title of the component",
+    }),
+    subtitle: PropTypes.string.tag({
+      label: "subtitle",
+      description: "Subtitle of the component",
     }),
   }),
 };
