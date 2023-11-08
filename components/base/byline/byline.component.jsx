@@ -13,7 +13,11 @@ const Byline = ({
 }) => {
   const credits = element?.credits?.by;
 
-  const { first_publish_date: firstPublishDate, display_date: displayDate } = element;
+  const {
+    first_publish_date: firstPublishDate,
+    display_date: displayDate,
+    editor_note: editorNote,
+  } = element;
 
   //Render all authors for a story
   const renderAuthors = (authorsList) => {
@@ -83,6 +87,7 @@ const Byline = ({
           <span className="date">Updated: {getUserDate(displayDate, showTime)}</span>
         </>
       )}
+      {editorNote && <div>{editorNote}</div>}
     </div>
   );
 };
