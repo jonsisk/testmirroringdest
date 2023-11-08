@@ -84,6 +84,14 @@
     }
   }
 
+  .main {
+    h1.headline,
+    h2.sub-headline,
+    .byline {
+      text-align: center;
+    }
+  }
+
   @include respond-down(sm) {
     .overlay-header {
       .overlay-image {
