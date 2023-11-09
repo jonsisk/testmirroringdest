@@ -1,0 +1,188 @@
+aside {
+  .GenericPagePromoModule {
+    width: 100%;
+    display: block;
+    text-align: left;
+    background-color: var(--color-quote-background);
+    border-radius: 8px;
+    position: relative;
+    margin-top: 60px;
+    padding: 0;
+
+    &.align-left {
+      text-align: left;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    &.align-right {
+      text-align: right;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    &.align-center {
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 
+    Promo.label = "Info Block - Civic";
+    Promo.description = "Right rail info block";
+  */
+
+    .GenericPagePromoModule-content-wrapper {
+      width: 100%;
+      .GenericPagePromoModule-content {
+        padding: 20px 20px 30px;
+        .GenericPagePromoModule-icon {
+          img {
+          }
+        }
+        .GenericPagePromoModule-title {
+          color: var(--color-pull-quote);
+          position: relative;
+          padding-top: 16px;
+          margin-bottom: 20px;
+          font-style: italic;
+          font-family: var(--font-2);
+          font-size: var(--quote-1);
+          line-height: 1.2;
+          letter-spacing: 0;
+          font-weight: 600;
+
+          &:before {
+            background-color: var(--color-pull-quote-border);
+            content: "";
+            height: 3px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 65px;
+          }
+        }
+        .GenericPagePromoModule-description {
+          color: var(--color-primary-text);
+          display: flex;
+          align-items: center;
+          margin: 20px auto 0;
+          max-width: 800px;
+          font-family: var(--font-3);
+          font-size: var(--byline-1);
+          line-height: 1.33;
+        }
+      }
+    }
+
+    /* 
+    Promo.label = "Promo Banner - Civic";
+    Promo.description = "Right rail promo banner";
+  */
+
+    .GenericPagePromoModule-content-wrapper {
+      .GenericPagePromoModule-content {
+        .GenericPagePromoModule-icon {
+          img {
+          }
+        }
+        .GenericPagePromoModule-link {
+          a.GenericPagePromoModule-CTALink {
+          }
+        }
+      }
+    }
+  }
+}
+main {
+  .GenericPagePromoModule {
+    width: 100%;
+    display: block;
+    text-align: left;
+    background-color: var(--color-quote-background);
+    border-radius: 8px;
+    position: relative;
+    margin-top: 60px;
+    padding: 0;
+
+    &.align-left {
+      text-align: left;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    &.align-right {
+      text-align: right;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    &.align-center {
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 
+        Promo.label = "Info Block - Civic";
+        Promo.description = "Right rail info block";
+      */
+
+    .GenericPagePromoModule-content-wrapper {
+      width: 100%;
+      .GenericPagePromoModule-content {
+        padding: 20px 20px 30px;
+        .GenericPagePromoModule-icon {
+          img {
+          }
+        }
+        .GenericPagePromoModule-title {
+          color: var(--color-pull-quote);
+          position: relative;
+          padding-top: 16px;
+          margin-bottom: 20px;
+          font-style: italic;
+          font-family: var(--font-2);
+          font-size: var(--quote-1);
+          line-height: 1.2;
+          letter-spacing: 0;
+          font-weight: 600;
+
+          &:before {
+            background-color: var(--color-pull-quote-border);
+            content: "";
+            height: 3px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 65px;
+          }
+        }
+        .GenericPagePromoModule-description {
+          color: var(--color-primary-text);
+          display: flex;
+          align-items: center;
+          margin: 20px auto 0;
+          max-width: 800px;
+          font-family: var(--font-3);
+          font-size: var(--byline-1);
+          line-height: 1.33;
+        }
+      }
+    }
+
+    /* 
+        Promo.label = "Promo Banner - Civic";
+        Promo.description = "Right rail promo banner";
+      */
+
+    .GenericPagePromoModule-content-wrapper {
+      .GenericPagePromoModule-content {
+        .GenericPagePromoModule-icon {
+          img {
+          }
+        }
+        .GenericPagePromoModule-link {
+          a.GenericPagePromoModule-CTALink {
+          }
+        }
+      }
+    }
+  }
+}

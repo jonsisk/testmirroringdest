@@ -31,7 +31,7 @@ const Promo = ({ customFields }) => {
           <div className="GenericPagePromoModule-description">{description}</div>
 
           {ctaCopy != null ? (
-            <div>
+            <div className="GenericPagePromoModule-link">
               <a
                 className="GenericPagePromoModule-CTALink"
                 href={ctaURL}
