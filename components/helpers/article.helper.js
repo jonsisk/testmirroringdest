@@ -38,7 +38,11 @@ export const getPrimarySection = (element, globalContent) => {
   // article is assigned to a bureau and we're not inside the actual bureau context
   if (bureau && !globalContent?.site_section) {
     return {
-      name: `FROM ${bureau?.additional_properties?.original?.site?.site_title}`,
+      name: `FROM ${
+        bureau?.additional_properties?.original?.site?.site_title
+          ? bureau?.additional_properties?.original?.site?.site_title
+          : `${bureau._website} ${bureau.name}`
+      }`,
       path: bureau?.path,
     };
   }
