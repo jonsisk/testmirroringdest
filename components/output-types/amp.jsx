@@ -26,6 +26,20 @@ const AmpOutputType = (props) => {
     },
   };
 
+  const chalkbeatGA4 = {
+    vars: {
+      GA4_MEASUREMENT_ID: "G-DVS6K4LTXR",
+      GA4_ENDPOINT_HOSTNAME: "www.google-analytics.com",
+      GOOGLE_CONSENT_ENABLED: false,
+      WEBVITALS_TRACKING: false,
+      PERFORMANCE_TIMING_TRACKING: false,
+      DEFAULT_PAGEVIEW_ENABLED: true,
+      SEND_DOUBLECLICK_BEACON: false,
+      DISABLE_REGIONAL_DATA_COLLECTION: false,
+      ENHANCED_MEASUREMENT_SCROLL: false,
+    },
+  };
+
   return (
     <Html>
       <head>
@@ -146,6 +160,7 @@ const AmpOutputType = (props) => {
           config={`https://www.googletagmanager.com/amp.json?id=${gtmIDAMP}`}
           data-credentials="include"
         ></amp-analytics>
+
         {arcSite === "votebeat" && (
           <amp-analytics
             type="googleanalytics"
@@ -155,6 +170,19 @@ const AmpOutputType = (props) => {
             <script
               type="application/json"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(votebeatGA4) }}
+            ></script>
+          </amp-analytics>
+        )}
+
+        {arcSite === "chalkbeat" && (
+          <amp-analytics
+            type="googleanalytics"
+            config="https://amp.analytics-debugger.com/ga4.json"
+            data-credentials="include"
+          >
+            <script
+              type="application/json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(chalkbeatGA4) }}
             ></script>
           </amp-analytics>
         )}
