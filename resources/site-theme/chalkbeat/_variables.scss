@@ -119,7 +119,6 @@
   --category-1: 1.5rem;
   --eyebrowFontSize: 26px;
 
-  --quote-1: 2.6rem;
   --headerHeight: 145px;
   --listItemPadding: 12px;
   --category-1-kerning: 1.35px;
@@ -147,7 +146,6 @@
   --label-4: 1.4rem;
   --label-5: 1.2rem;
   --label-6: 1rem;
-  --quote-1: 2rem;
   --subhead-1: 1.6rem;
   --subhead-1-large: 1.8rem;
   --subhead-2: 1.6rem;
@@ -195,7 +193,7 @@
     --quote-1: 2.4rem;
     --subhead-1: 1.8rem;
     --byline-1-large: 1.3rem;
-    --byline-1: 1.6rem;
+    --byline-1: 1.5rem;
     --heading-1: 4.394rem;
     --heading-2: 3rem;
     --heading-3: 2.812rem;
@@ -223,7 +221,7 @@
 
 @include respond-up(xl) {
   :root {
-    --quote-1: 2.6rem;
+    --quote-1: 2.2rem;
     --subhead-1: 1.8rem;
     --subhead-1-large: 2.2rem;
     --title-1: 4.4rem;
