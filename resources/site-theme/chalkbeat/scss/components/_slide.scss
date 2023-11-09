@@ -1,6 +1,6 @@
 .slider {
   height: 50%;
-  width: 700px;
+  width: 100%;
   border: none;
   @include respond-down(xs) {
     width: 80vw;
