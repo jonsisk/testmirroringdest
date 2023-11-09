@@ -42,8 +42,20 @@
           min-width: 100%;
           @include respond-down(xs) {
 
-              display: flex;
+            display: grid;
+            grid-template-areas:
+                "img title"
+                "img ds";
               width: 100%;
+              .PagePromo-media {
+                grid-area: img;
+              }
+              a {
+                grid-area: title;
+              }
+              .PagePromo-content {
+                grid-area: ds;
+              }
             }
         }
         
