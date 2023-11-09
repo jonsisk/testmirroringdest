@@ -84,6 +84,7 @@ export const LIST_FILTER = (arcSite) => `{
       taxonomy {
         primary_section {
           _id
+          _website
           name
           path
           additional_properties {
@@ -102,6 +103,7 @@ export const LIST_FILTER = (arcSite) => `{
         }
         sections {
           _id
+          _website
           name
           path
           additional_properties {
