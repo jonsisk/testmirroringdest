@@ -2,6 +2,7 @@ import { useContent } from "fusion:content";
 import React, { createRef, useCallback, useEffect, useReducer, useState } from "react";
 import { LIST_FILTER } from "../../../../content/helpers/filters.helper";
 import HeroItem from "../../../base/article/hero-article.component";
+import HeroItemInvert from "../../../base/article/hero-article.component-invert";
 import ResultItem from "../../../base/article/result-list.component";
 import { getActualSiteName } from "../../../helpers/article.helper";
 import { reduceResultList } from "../../../helpers/list.helpers";
@@ -16,6 +17,7 @@ const sizeMap = {
   ListZ: 6,
   ListAH: 5,
   ListQ: 5,
+  ListQA: 1,
   ListS: 1,
   ListT: 5,
 };
@@ -671,6 +673,64 @@ const Results = ({
           <div className={`results-list-container ${listType}`}>
             <div className="PageListH-items-column">
               <HeroItem
+                key={`result-card-${firstElement._id}`}
+                ref={elementRefs[0]}
+                arcSite={arcSite}
+                element={firstElement}
+                imageProperties={imagePropertiesFeatured}
+                imagePropertiesFeatured={imagePropertiesHero}
+                placeholderResizedImageOptions={placeholderResizedImageOptions}
+                showByline={showByline}
+                showDate={showDate}
+                showDescription={true}
+                showHeadline={showHeadline}
+                showImage={showImage}
+                showItemOverline={showItemOverline}
+                targetFallbackImage={targetFallbackImage}
+                showFeatured={showFeatured}
+                websiteName={getWebsiteName(firstElement)}
+                globalContent={globalContent}
+              />
+            </div>
+            <div className="items-row-below">
+              {secondGroup &&
+                secondGroup.map((element, index) => (
+                  <ResultItem
+                    key={`result-card-${element._id}`}
+                    ref={elementRefs[index]}
+                    arcSite={arcSite}
+                    element={element}
+                    imageProperties={imageProperties}
+                    imagePropertiesFeatured={imagePropertiesFeatured}
+                    placeholderResizedImageOptions={placeholderResizedImageOptions}
+                    showAsList={false}
+                    showByline={showByline}
+                    showDate={showDate}
+                    showDescription={false}
+                    showHeadline={showHeadline}
+                    showImage={showImage}
+                    showItemOverline={showItemOverline}
+                    targetFallbackImage={targetFallbackImage}
+                    showFeatured={showFeatured}
+                    websiteName={getWebsiteName(element)}
+                    globalContent={globalContent}
+                  />
+                ))}
+            </div>
+          </div>
+        ) : null;
+      } else {
+        return null;
+      }
+
+    case "ListQA":
+      if (viewableElements?.length > 0) {
+        const [firstElement, ...restElements] = viewableElements;
+        const secondGroup = restElements.slice(0, 4);
+        return viewableElements?.length > 0 && !isServerSideLazy ? (
+          <div className={`results-list-container ${listType}`}>
+            <div className="PageListH-items-column">
+              <HeroItemInvert
                 key={`result-card-${firstElement._id}`}
                 ref={elementRefs[0]}
                 arcSite={arcSite}

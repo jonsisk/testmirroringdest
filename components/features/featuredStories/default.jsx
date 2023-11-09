@@ -130,6 +130,7 @@ FeaturedStoriesCivic.propTypes = {
       "ListZ",
       "ListAH",
       "ListQ",
+      "ListQA",
       "ListS",
       "ListT",
     ]).tag({
