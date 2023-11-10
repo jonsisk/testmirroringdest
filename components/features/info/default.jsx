@@ -9,7 +9,7 @@ const Promo = ({ customFields }) => {
   if (outputType === "amp") return null;
 
   return (
-    <div className="GenericPagePromoModule" style={{ backgroundColor: bgColor }}>
+    <div className="GenericPageInfoModule" style={{ backgroundColor: bgColor }}>
       <div className="GenericPagePromoModule-content-wrapper">
         <div className="GenericPagePromoModule-content">
           <div className="GenericPagePromoModule-title">{title}</div>
