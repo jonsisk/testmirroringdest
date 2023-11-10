@@ -120,3 +120,8 @@ h5 {
     display: none !important;
   }
 }
+
+[id^="google_ads_iframe"]:not(:empty)::before {
+  font-size: 16px;
+  padding: 6px 0 8px 0;
+}
