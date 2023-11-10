@@ -103,3 +103,18 @@
     }
   }
 }
+@include respond-up(md) {
+  .twoColumn main {
+    .AuthorListA {
+      ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        li {
+          flex: 0 0 50%;
+        }
+      }
+    }
+  }
+}

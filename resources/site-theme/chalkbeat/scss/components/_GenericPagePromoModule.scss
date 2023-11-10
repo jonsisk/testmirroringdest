@@ -1,5 +1,5 @@
 aside {
-  .GenericPagePromoModule {
+  .GenericPageInfoModule {
     width: 100%;
     display: block;
     text-align: left;
@@ -72,28 +72,10 @@ aside {
         }
       }
     }
-
-    /* 
-    Promo.label = "Promo Banner - Civic";
-    Promo.description = "Right rail promo banner";
-  */
-
-    .GenericPagePromoModule-content-wrapper {
-      .GenericPagePromoModule-content {
-        .GenericPagePromoModule-icon {
-          img {
-          }
-        }
-        .GenericPagePromoModule-link {
-          a.GenericPagePromoModule-CTALink {
-          }
-        }
-      }
-    }
   }
 }
 main {
-  .GenericPagePromoModule {
+  .GenericPageInfoModule {
     width: 100%;
     display: block;
     text-align: left;
