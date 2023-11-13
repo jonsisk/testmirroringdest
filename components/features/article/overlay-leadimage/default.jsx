@@ -11,7 +11,7 @@ import { isSiteSection, getSiteProperties } from "../../../helpers/site.helper";
 const OverlayLeadImage = ({ customFields }) => {
   const context = useFusionContext();
   const { globalContent, arcSite } = context;
-  const lead_art = globalContent.promo_items.lead_art || globalContent.promo_items.basic;
+  const lead_art = globalContent.promo_items?.lead_art || globalContent.promo_items?.basic;
   const { primaryLogo, lightBackgroundLogoAlt } = isSiteSection(globalContent)
     ? getSiteProperties(context)
     : getProperties(arcSite);
