@@ -151,6 +151,14 @@
       }
 
       .HtmlModule {
+        .row {
+          display: flex !important;
+        }
+
+        .col-md-6 {
+          flex: 0 0 48%;
+        }
+
         .sp-logo-block {
           display: flex;
           align-items: center;
