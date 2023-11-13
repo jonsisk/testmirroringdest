@@ -149,6 +149,54 @@
         font-weight: 700;
         margin-bottom: 1rem;
       }
+
+      .Quote {
+        color: #178287;
+        --font: var(--font-pull-quote);
+        font-family: var(--font, var(--font-2));
+        font-size: var(--quote-1);
+        line-height: 1.2;
+        letter-spacing: 0;
+        font-weight: 600;
+      }
+
+      blockquote {
+        font-family: var(--font-3);
+        font-size: 1.6rem;
+        background-color: transparent;
+        border-left: 3px solid var(--color-primary);
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: normal;
+        line-height: normal;
+        margin: 20px 0;
+        overflow: hidden;
+        padding: 10px 20px;
+        text-transform: none;
+      }
+
+      .HtmlModule {
+        .row {
+          display: flex !important;
+        }
+
+        .col-md-6 {
+          flex: 0 0 48%;
+        }
+
+        .sp-logo-block {
+          display: flex;
+          align-items: center;
+          margin: 10px auto;
+
+          .col-sm-4 {
+            width: 30%;
+            float: left;
+            padding: 0 15px;
+            margin-bottom: 20px;
+          }
+        }
+      }
     }
     .TableHtmlModule {
       max-width: 730px;
