@@ -149,6 +149,21 @@
         font-weight: 700;
         margin-bottom: 1rem;
       }
+
+      .HtmlModule {
+        .sp-logo-block {
+          display: flex;
+          align-items: center;
+          margin: 10px auto;
+
+          .col-sm-4 {
+            width: 30%;
+            float: left;
+            padding: 0 15px;
+            margin-bottom: 20px;
+          }
+        }
+      }
     }
     .TableHtmlModule {
       max-width: 730px;
