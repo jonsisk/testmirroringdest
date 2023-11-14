@@ -5,6 +5,7 @@ import getTranslatedPhrases from "fusion:intl";
 import getProperties from "fusion:properties";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { isSponsoredArticle } from "../../helpers/article.helper";
 import AdUnit from "./_children/AdUnit";
 import ArcAdminAd from "./_children/ArcAdminAd";
 import { getAdObject } from "./ad-helper";
@@ -36,7 +37,8 @@ const StyledAdUnit = styled.div`
 
 const ArcAdCivic = (props) => {
   const fusionContext = useFusionContext();
-  const { arcSite } = useFusionContext();
+  const { arcSite, globalContent } = useFusionContext();
+  const isSponsored = isSponsoredArticle(globalContent);
   const { locale = "en" } = getProperties(arcSite);
   const phrases = getTranslatedPhrases(locale);
   const [instanceId] = useState(() => generateInstanceId(fusionContext.id || "0000"));
@@ -53,6 +55,12 @@ const ArcAdCivic = (props) => {
       ...propsWithContext,
     })
   );
+
+  // don't display ad if article in context is sponsored
+  // this is only for the ads outside the article-body
+  if (isSponsored) {
+    return null;
+  }
 
   // istanbul ignore next
   const isAMP = () => !!(propsWithContext.outputType && propsWithContext.outputType === "amp");

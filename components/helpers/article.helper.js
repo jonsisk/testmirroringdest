@@ -74,3 +74,15 @@ export const getBureauFromArticle = (element) => {
   }
   return bureauSection;
 };
+
+/**
+ * Check if the article is sponsored by checking the sections or the owner.sponsored flag.
+ * @param {*} element - the article
+ * @returns true if the article is sponsored
+ */
+export const isSponsoredArticle = (element) => {
+  const sponsoredSection = element?.taxonomy?.sections?.find((section) => {
+    return section._id === "/sponsored-content";
+  });
+  return sponsoredSection ? true : element?.owner?.sponsored === true;
+};
