@@ -82,7 +82,6 @@ const NewsletterInterestFeature = ({ customFields }) => {
         ))}
       </div>
       <div className="interests-form">
-        <div className="interest-description">{signupCopy}</div>
         <NewsletterSignup
           newsletterSignupEndpoint={newsletterSignupEndpoint}
           website={arcSite}
@@ -93,6 +92,7 @@ const NewsletterInterestFeature = ({ customFields }) => {
           validation={validateSelection}
           disclaimer={disclaimer}
           layout="horizontal"
+          signupCopy={signupCopy}
         />
       </div>
     </div>

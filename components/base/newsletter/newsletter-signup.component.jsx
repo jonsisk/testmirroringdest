@@ -18,6 +18,7 @@ const NewsletterSignup = ({
   disclaimer,
   layout = "standard",
   locale = "en",
+  signupCopy,
 }) => {
   const phrases = getTranslatedPhrases(locale);
   const [email, setEmail] = useState("");
@@ -93,68 +94,73 @@ const NewsletterSignup = ({
   return (
     <div>
       {!formSubmitted ? (
-        <form onSubmit={handleSubmit}>
-          <label className="emailInput-label">
-            <span>
-              Email{" "}
-              <span className="input-required">{layout === "horizontal" ? "*" : "(required)"}</span>
-            </span>
-            {layout === "horizontal" && (
-              <span className="TextInput-Newsletter-wrap">
-                <input type="email" name="email" onChange={handleInputChange} required />
-                <button type="submit" className="buttonContainer" disabled={isSubmitting}>
-                  {buttonLabel || "Sign Me Up"}
-                </button>
+        <>
+          {signupCopy && <div className="interest-description">{signupCopy}</div>}
+          <form onSubmit={handleSubmit}>
+            <label className="emailInput-label">
+              <span>
+                Email{" "}
+                <span className="input-required">
+                  {layout === "horizontal" ? "*" : "(required)"}
+                </span>
               </span>
+              {layout === "horizontal" && (
+                <span className="TextInput-Newsletter-wrap">
+                  <input type="email" name="email" onChange={handleInputChange} required />
+                  <button type="submit" className="buttonContainer" disabled={isSubmitting}>
+                    {buttonLabel || "Sign Me Up"}
+                  </button>
+                </span>
+              )}
+            </label>
+            {layout !== "horizontal" && (
+              <input type="email" name="email" onChange={handleInputChange} required />
             )}
-          </label>
-          {layout !== "horizontal" && (
-            <input type="email" name="email" onChange={handleInputChange} required />
-          )}
-          <input type="hidden" name="recaptcha" value={recaptchaValue} />
+            <input type="hidden" name="recaptcha" value={recaptchaValue} />
 
-          {layout == "vertical" && (
-            <>
-              <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
-              <div className="buttonContainer">
-                <button type="submit" disabled={isSubmitting}>
-                  {isSubmitting
-                    ? phrases.t("newsletter-signup.sending-button-text")
-                    : buttonLabel || "Sign Me Up"}
-                </button>
-              </div>
-            </>
-          )}
-          {layout == "sticky" && (
-            <>
-              <div className="buttonContainer">
-                <button type="submit" disabled={isSubmitting}>
-                  {isSubmitting
-                    ? phrases.t("newsletter-signup.sending-button-text")
-                    : buttonLabel || "Sign Me Up"}
-                </button>
-              </div>
-              <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
-            </>
-          )}
-          {layout == "horizontal" && (
-            <>
-              <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
-            </>
-          )}
-          {layout == "powerup" && (
-            <>
-              <div className="buttonContainer">
-                <button type="submit" disabled={isSubmitting}>
-                  {isSubmitting
-                    ? phrases.t("newsletter-signup.sending-button-text")
-                    : buttonLabel || "Sign Me Up"}
-                </button>
-              </div>
-            </>
-          )}
-          {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-        </form>
+            {layout == "vertical" && (
+              <>
+                <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
+                <div className="buttonContainer">
+                  <button type="submit" disabled={isSubmitting}>
+                    {isSubmitting
+                      ? phrases.t("newsletter-signup.sending-button-text")
+                      : buttonLabel || "Sign Me Up"}
+                  </button>
+                </div>
+              </>
+            )}
+            {layout == "sticky" && (
+              <>
+                <div className="buttonContainer">
+                  <button type="submit" disabled={isSubmitting}>
+                    {isSubmitting
+                      ? phrases.t("newsletter-signup.sending-button-text")
+                      : buttonLabel || "Sign Me Up"}
+                  </button>
+                </div>
+                <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
+              </>
+            )}
+            {layout == "horizontal" && (
+              <>
+                <p className="small" dangerouslySetInnerHTML={{ __html: disclaimer }}></p>
+              </>
+            )}
+            {layout == "powerup" && (
+              <>
+                <div className="buttonContainer">
+                  <button type="submit" disabled={isSubmitting}>
+                    {isSubmitting
+                      ? phrases.t("newsletter-signup.sending-button-text")
+                      : buttonLabel || "Sign Me Up"}
+                  </button>
+                </div>
+              </>
+            )}
+            {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
+          </form>
+        </>
       ) : (
         <p className="thankYouMsgNews">{thankYouMsg}</p>
       )}
