@@ -27,7 +27,7 @@ export const SlideCard = ({
   const url = websites[arcSite].website_url;
   return (
     <div className="slide article-slide">
-      <a href={url} target="_blank" rel="noreferrer">
+      <a href={url}>
         <Image
           {...imageProperties}
           href={url}
@@ -41,7 +41,7 @@ export const SlideCard = ({
       </a>
       <div className="article-slide-info">
         <Overline story={slide} className="overline" />
-        <a href={url} target="_blank" rel="noreferrer">
+        <a href={url}>
           <Heading className="headline-text">{slide.headlines.basic}</Heading>
         </a>
         <div className="results-list--description-author-container">
