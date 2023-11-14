@@ -25,6 +25,7 @@ import NewsletterComposer from "../../base/newsletter/newsletter-composer.compon
 import SidebarComposer from "../../base/sidebar/sidebar-composer.component";
 import PymEmbedComposer from "../../base/pymembed/pymembed.composer";
 import NewGallery from "../../base/newgallery/default";
+import { isSponsoredArticle } from "../../helpers/article.helper";
 
 const StyledText = styled.p`
   a {
@@ -334,10 +335,14 @@ export const ArticleBodyChainCivicPresentation = ({ children, customFields = {},
   const { locale = "en" } = getProperties(arcSite);
   const phrases = getTranslatedPhrases(locale);
 
-  const adPlacements = Object.keys(adPlacementConfigObj).map((key) => ({
-    feature: +key,
-    paragraph: +adPlacementConfigObj[key],
-  }));
+  const isSponsored = isSponsoredArticle(items);
+
+  const adPlacements = isSponsored
+    ? []
+    : Object.keys(adPlacementConfigObj).map((key) => ({
+        feature: +key,
+        paragraph: +adPlacementConfigObj[key],
+      }));
 
   const paragraphTotal = contentElements.filter((element) => element.type === "text").length;
 
