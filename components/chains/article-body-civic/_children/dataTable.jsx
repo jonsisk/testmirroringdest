@@ -126,7 +126,7 @@ function DataTable({ columns, data }) {
             {"<<"}
           </button>{" "}
           <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-            {"Previous"}
+            {"Previousss"}
           </button>{" "}
           <button onClick={() => nextPage()} disabled={!canNextPage}>
             {"Next"}
