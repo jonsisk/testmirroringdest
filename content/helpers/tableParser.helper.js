@@ -19,7 +19,5 @@ export function extractTableData(htmlString) {
     });
 
     return { headers, rows };
-  } else {
-    return { headers: [], rows: [] };
   }
 }
