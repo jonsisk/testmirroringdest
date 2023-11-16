@@ -72,6 +72,14 @@
       "fieldTarget": "site"
     },
     {
+      "fieldId": "advertisementLink",
+      "fieldType": "text",
+      "fieldTitle": "Relative url for Advertisment link",
+      "fieldCategory": "custom",
+      "fieldSubcategory": "integrations",
+      "fieldTarget": "site"
+    },
+    {
       "fieldId": "gtmIDAMP",
       "fieldType": "text",
       "fieldTitle": "Google Tag Manager for AMP pages",
