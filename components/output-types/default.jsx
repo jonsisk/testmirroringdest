@@ -7,6 +7,7 @@ import IconsMap from "../features/iconsMap/default";
 import { getSchema } from "../helpers/schema.helper";
 // this is blank import but used to inject scss
 import "./default.scss";
+import { getSiteProperties, isSiteSection } from "../helpers/site.helper.js";
 
 const querylyCode = (querylyId, querylyOrg, pageType) => {
   if (!querylyId) {
@@ -93,7 +94,8 @@ const CivicOutputType = ({
   MetaTags,
   metaValue,
 }) => {
-  const { globalContent, arcSite, requestUri } = useFusionContext();
+  const context = useFusionContext();
+  const { globalContent, arcSite, requestUri } = context;
   const {
     api,
     websiteName,
@@ -165,7 +167,14 @@ const CivicOutputType = ({
     ]),
   ].join(";");
 
-  const theme = arcSite?.split("-")[0];
+  let bureau;
+  const isSection = isSiteSection(globalContent);
+  if (isSection) {
+    const sectionData = getSiteProperties(context);
+    bureau = `${arcSite}-${sectionData?._id?.replace(/\//g, "")}`;
+  } else {
+    bureau = arcSite?.split("-")[0];
+  }
 
   // custom metaValue to override specific keys and still use the default <Meta> component
   const customMetaValue = (key) => {
@@ -227,23 +236,23 @@ const CivicOutputType = ({
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href={deployment(`${contextPath}/resources/images/${theme}/apple-touch-icon.png`)}
+          href={deployment(`${contextPath}/resources/images/${arcSite}/apple-touch-icon.png`)}
         />
         <link
           rel="icon"
           type="image/png"
-          href={deployment(`${contextPath}/resources/images/${theme}/favicon-32x32.png`)}
+          href={deployment(`${contextPath}/resources/images/${arcSite}/favicon-32x32.png`)}
         />
         <link
           rel="icon"
           type="image/png"
-          href={deployment(`${contextPath}/resources/images/${theme}/favicon-16x16.png`)}
+          href={deployment(`${contextPath}/resources/images/${arcSite}/favicon-16x16.png`)}
         />
         <meta name="fb:app_id" content={facebookAppId} />
         <CssLinks />
         <link
           rel="stylesheet"
-          href={deployment(`${contextPath}/resources/site-theme/_css/${theme}.min.css`)}
+          href={deployment(`${contextPath}/resources/site-theme/_css/${bureau}.min.css`)}
         />
         <Libs />
         <script

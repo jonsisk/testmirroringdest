@@ -1,2 +1,8 @@
 @import "../chalkbeat/index";
 // incorporate here only styles restricted for Indiana only
+
+.Navigation-items-item.item-topics {
+  .NavigationItem-items ul {
+    grid-template-columns: 1fr !important;
+  }
+}

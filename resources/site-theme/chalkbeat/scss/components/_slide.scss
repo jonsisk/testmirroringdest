@@ -13,7 +13,9 @@
     padding-bottom: 2px;
   }
   .container-img {
-    width: 700px;
+    @include respond-up(xs) {
+      width: 700px;
+    }
     height: auto;
   }
   .content-slider {
@@ -232,6 +234,20 @@
     }
   }
 }
+@include respond-down(xs) {
+  .gallery.content-slider {
+    margin: 20px 0;
+    max-width: 80vw;
+    overflow: hidden !important;
+    .slick-track {
+      gap: 0;
+      .slick-slide {
+        width: 80vw !important;
+        padding: 0;
+      }
+    }
+  }
+}
 .articles-slider .PageList-header-description {
   font-family: var(--font-1);
   font-size: 1.8rem;
@@ -295,9 +311,8 @@
   }
 }
 @include respond-up(lg) {
-
-  .page-twoColumn{
-    .twoColumn{
+  .page-twoColumn {
+    .twoColumn {
       .SliderWrapper {
         width: 728px;
       }

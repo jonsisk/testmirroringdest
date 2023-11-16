@@ -14,6 +14,7 @@ export const getSiteProperties = (context) => {
   if (isSiteSection(globalContent)) {
     const section = globalContent.site_section;
     return {
+      _id: section._id,
       name: section.name,
       primaryLogo: section.bureau.primary_logo.startsWith("/")
         ? deployment(`${contextPath}/resources/images${section.bureau.primary_logo}`)
