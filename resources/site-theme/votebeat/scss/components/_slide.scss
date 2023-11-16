@@ -13,7 +13,9 @@
     padding-bottom: 2px;
   }
   .container-img {
-    width: 700px;
+    @include respond-up(xs) {
+      width: 700px;
+    }
     height: auto;
   }
   .content-slider {
