@@ -99,7 +99,7 @@
   left: 0;
   width: 100%;
   z-index: -1;
-  padding: 36px 0;
+  padding: 10px 0;
   box-sizing: content-box;
 }
 .main,
@@ -109,8 +109,8 @@
   .Breaker-wrapper {
     background-color: var(--color-cuatrenary-bg);
     width: 100%;
-    padding-top: 36px;
-    padding-bottom: 36px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     line-height: 1.6;
     grid-template-columns: 1fr 1fr;
     display: grid;
@@ -172,12 +172,10 @@
 }
 aside {
   .Breaker-wrapper {
-    padding-top: 36px;
-    padding-bottom: 36px;
     background-color: var(--color-cuatrenary-bg);
     width: 100%;
-    padding-top: 36px;
-    padding-bottom: 36px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     line-height: 1.6;
     grid-template-columns: 1fr;
     display: grid;
@@ -203,14 +201,14 @@ aside {
   margin: 0 auto 20px auto;
   .breaker-full {
     height: 280px;
-    padding: 36px 0;
+    padding: 10px 0;
     @include respond-down(sm) {
       display: none;
     }
   }
 }
 .Breaker-wrapper.Events {
-  margin: 0 auto 20px auto;
+  margin: 0 auto 79px auto;
   .breaker-full {
     height: 375px;
     @include respond-down(lg) {
