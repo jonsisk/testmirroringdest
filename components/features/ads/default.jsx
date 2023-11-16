@@ -81,6 +81,18 @@ const ArcAdCivic = (props) => {
       adLabel={siteProperties?.advertisementLabel || phrases.t("ads-block.ad-label")}
       displayAdLabel={!isAdmin && displayAdLabel && !isAMP()}
     >
+      {!isAdmin && displayAdLabel && !isAMP() && (
+        <div className="advertisement-link-wrapper">
+          <a
+            href={siteProperties?.advertisementLink}
+            target="_blank"
+            className="advertisement-link"
+            rel="noopener noreferrer"
+          >
+            {siteProperties?.advertisementLabel || phrases.t("ads-block.ad-label")}
+          </a>
+        </div>
+      )}
       <div className="arcad-container" style={sizing}>
         {!isAdmin && !isAMP() && (
           <LazyLoad
