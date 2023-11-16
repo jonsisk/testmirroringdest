@@ -61,6 +61,44 @@ export const getPrimarySection = (element, globalContent) => {
   };
 };
 
+/**
+ * Gets the primary section and check if it's suitabe to be displayed.
+ * Otherwise it tries to gather another section to display that is not a bureau or internal section.
+ * @param {*} element
+ * @returns
+ */
+export const getMainSection = (element, globalContent) => {
+  const primarySection = getPrimarySection(element, globalContent);
+
+  if (
+    !primarySection ||
+    primarySection?.additional_properties?.original?.bureau?.is_bureau_section === "true" ||
+    primarySection?.additional_properties?.original?.site?.is_internal === "true" ||
+    primarySection?.name?.startsWith("#StoryType")
+  ) {
+    //let's try to find another section suitable to be displayed, otherwise return empty
+    const otherSection = element?.taxonomy?.sections?.find((section) => {
+      return (
+        section?.additional_properties?.original?.bureau?.is_bureau_section !== "true" &&
+        section?.additional_properties?.original?.site?.is_internal !== "true" &&
+        !section?.name?.startsWith("#StoryType")
+      );
+    });
+    if (otherSection) {
+      return {
+        name: otherSection.name,
+        path: otherSection.path,
+      };
+    }
+    return null;
+  }
+
+  return {
+    name: primarySection.name,
+    path: primarySection.path,
+  };
+};
+
 export const getBureauFromArticle = (element) => {
   //find the first secion in element?.taxonomy?.sections that has is_bureau_section === "true"
   const bureauSection = element?.taxonomy?.sections?.find((section) => {

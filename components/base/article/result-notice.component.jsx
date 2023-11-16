@@ -2,7 +2,6 @@ import { Image } from "@wpmedia/engine-theme-sdk";
 import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
 import { Overline } from "@wpmedia/shared-styles";
 import React from "react";
-import { getPrimarySection } from "../../helpers/article.helper";
 import { getWebsiteDomain } from "../../helpers/site.helper";
 import Byline from "../byline/byline.component";
 
@@ -38,22 +37,6 @@ const ResultItem = React.memo(
 
       const imageURL = extractImageFromStory(element);
       const url = websites[arcSite].website_url;
-
-      const getMainSection = (element) => {
-        const primarySection = getPrimarySection(element, globalContent);
-        if (
-          !primarySection ||
-          primarySection?.additional_properties?.original?.bureau?.is_bureau_section === "true" ||
-          primarySection?.additional_properties?.original?.site?.is_internal === "true" ||
-          primarySection?.name?.startsWith("#StoryType")
-        )
-          return null;
-        return (
-          <a href={`${primarySection.path}/`} title={primarySection.name} className="eyebrow">
-            {primarySection.name}
-          </a>
-        );
-      };
 
       return (
         <div className="notice-list-container">
