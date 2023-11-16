@@ -30,5 +30,12 @@ export const processArticleData = (article) => {
     article.promo_items.lead_art.credits.by = [];
   }
 
+  article?.content_elements?.map((el) => {
+    if (el.type === "image" && el.credits && el.credits.by) {
+      el.credits.by = [];
+    }
+    return el;
+  });
+
   return article;
 };
