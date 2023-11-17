@@ -9,8 +9,6 @@ function GlobalFilter({
   pageOptions,
   setPageSize,
 }) {
-  const count = preGlobalFilteredRows.length;
-
   return (
     <div className="dataTableHeader dataTableHelpers">
       <div className="dataTablePagination">
@@ -45,7 +43,9 @@ function GlobalFilter({
   );
 }
 
-function DataTable({ columns, data }) {
+function DataTable({ columns = [], data = [] }) {
+  console.log("columns", columns);
+  console.log("data", data);
   const {
     getTableProps,
     getTableBodyProps,
@@ -73,7 +73,8 @@ function DataTable({ columns, data }) {
     useSortBy,
     usePagination
   );
-
+  console.log(headerGroups, "headerGroups");
+  console.log(page, "page");
   return (
     <>
       <GlobalFilter
@@ -126,7 +127,7 @@ function DataTable({ columns, data }) {
             {"<<"}
           </button>{" "}
           <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-            {"Previousss"}
+            {"Previous"}
           </button>{" "}
           <button onClick={() => nextPage()} disabled={!canNextPage}>
             {"Next"}
@@ -136,6 +137,24 @@ function DataTable({ columns, data }) {
           </button>{" "}
         </div>
       </div>
+      <table>
+        <thead>
+          <tr>
+            {columns.map((column) => (
+              <th>{column?.Header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((row) => (
+            <tr>
+              {columns.map((column) => (
+                <td>{row[column?.accessor]}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 }
