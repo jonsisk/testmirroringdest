@@ -411,7 +411,18 @@
     }
   }
 }
-
+aside .newsletter-breaker-wrapper {
+  &.vertical {
+    form {
+      margin-left: 15px;
+      margin-right: 15px;
+      .alert {
+        text-align: center !important;
+        padding: 12px 0 0 0;
+      }
+    }
+  }
+}
 .newsletter-interests {
   padding-top: 50px;
   padding-bottom: 40px;
