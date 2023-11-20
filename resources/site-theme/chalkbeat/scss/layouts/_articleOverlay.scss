@@ -140,4 +140,31 @@
       }
     }
   }
+
+  .overlay-header .overlay-image figure.overlay-image {
+    z-index: -1;
+    position: relative;
+    picture::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 80px;
+      background-color: rgb(0 0 0 / 40%);
+      display: block;
+      height: 100%;
+      @include respond-down(xs) {
+        z-index: 1;
+      }
+    }
+    figcaption {
+      background-color: white;
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  }
 }
