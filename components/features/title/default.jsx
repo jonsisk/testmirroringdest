@@ -18,7 +18,7 @@ const Promo = ({ customFields }) => {
                 className="Image"
                 alt={imageName}
                 src={deployment(
-                  `${contextPath}/resources/images/chalkbeat/subscribe/${imageName}.png`
+                  `${contextPath}/resources/images/chalkbeat/sections/${imageName}.png`
                 )}
               />
             </div>
@@ -54,6 +54,7 @@ Promo.propTypes = {
       label: "Image",
       default: "student-voice",
       group: "Configure Content",
+      description: "Examples: student-voice, meeting",
     }),
   }),
 };
