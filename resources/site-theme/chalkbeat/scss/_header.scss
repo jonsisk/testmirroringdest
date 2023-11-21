@@ -480,6 +480,14 @@
         a:hover {
           color: var(--color-header-link-text-hover);
         }
+        li.Navigation-items-item {
+          border-bottom: 1px solid white;
+          width: 100%;
+          padding-left: 10px;
+          a {
+            font-weight: 400;
+          }
+        }
       }
 
       .NavigationItem-items .NavigationItem-items {

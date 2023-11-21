@@ -18,7 +18,7 @@ const Promo = ({ customFields }) => {
                 className="Image"
                 alt={imageName}
                 src={deployment(
-                  `${contextPath}/resources/images/chalkbeat/subscribe/${imageName}.png`
+                  `${contextPath}/resources/images/chalkbeat/sections/${imageName}.png`
                 )}
               />
             </div>
@@ -50,9 +50,8 @@ Promo.propTypes = {
       group: "Configure Content",
     }),
 
-    imageName: PropTypes.oneOf(["student-voice"]).tag({
+    imageName: PropTypes.oneOf(["student-voice", "meeting"]).tag({
       label: "Image",
-      default: "student-voice",
       group: "Configure Content",
     }),
   }),

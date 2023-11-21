@@ -180,37 +180,51 @@ const HeaderSignup = ({
                         style={{ display: showMorePanel ? "block" : "none" }}
                       >
                         <ul>
-                          <li className="NavigationItem-items-item" data-show="false">
-                            <div className="NavigationItem  has-menu">
-                              <div className="NavigationItem-text" onClick={handleClickSubTopics}>
-                                <span>{topicsTitle}</span>
+                          {topicsTitle ? (
+                            <li className="NavigationItem-items-item" data-show="false">
+                              <div className="NavigationItem  has-menu">
+                                <div className="NavigationItem-text" onClick={handleClickSubTopics}>
+                                  <span>{topicsTitle}</span>
 
-                                <div className="NavigationItem-more">
-                                  <button aria-label="More">
-                                    <svg className="chevron">
-                                      <use xlinkHref="#chevron-down"></use>
-                                    </svg>
-                                  </button>
+                                  <div className="NavigationItem-more">
+                                    <button aria-label="More">
+                                      <svg className="chevron">
+                                        <use xlinkHref="#chevron-down"></use>
+                                      </svg>
+                                    </button>
+                                  </div>
+                                </div>
+
+                                <div
+                                  className="NavigationItem-items"
+                                  style={{ display: showSubTopicPanel ? "block" : "none" }}
+                                >
+                                  <ul>
+                                    {topicNavigation &&
+                                      topicNavigation.children.map((item) => (
+                                        <li key={item._id} className="NavigationItem-items-item">
+                                          <a className="NavigationLink" href={`${item._id}/`}>
+                                            {item.name}
+                                          </a>
+                                        </li>
+                                      ))}
+                                  </ul>
                                 </div>
                               </div>
-
-                              <div
-                                className="NavigationItem-items"
-                                style={{ display: showSubTopicPanel ? "block" : "none" }}
-                              >
-                                <ul>
-                                  {topicNavigation &&
-                                    topicNavigation.children.map((item) => (
-                                      <li key={item._id} className="NavigationItem-items-item">
-                                        <a className="NavigationLink" href={`${item._id}/`}>
-                                          {item.name}
-                                        </a>
-                                      </li>
-                                    ))}
-                                </ul>
-                              </div>
-                            </div>
-                          </li>
+                            </li>
+                          ) : (
+                            <li />
+                          )}
+                          {linksNavigation &&
+                            linksNavigation.children.map((item) => (
+                              <li key={item._id} className="Navigation-items-item item">
+                                <div className="NavigationItem">
+                                  <div className="NavigationItem-text">
+                                    <a href={item.url}>{item.display_name}</a>
+                                  </div>
+                                </div>
+                              </li>
+                            ))}
                         </ul>
                       </div>
                     </div>
