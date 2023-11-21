@@ -50,11 +50,9 @@ Promo.propTypes = {
       group: "Configure Content",
     }),
 
-    imageName: PropTypes.oneOf(["student-voice"]).tag({
+    imageName: PropTypes.oneOf(["student-voice", "meeting"]).tag({
       label: "Image",
-      default: "student-voice",
       group: "Configure Content",
-      description: "Examples: student-voice, meeting",
     }),
   }),
 };
