@@ -3,6 +3,11 @@ import Static from "fusion:static";
 import DataTable from "./dataTable";
 import { extractTableData } from "../../../../content/helpers/tableParser.helper";
 import styled from "styled-components";
+import ReactHtmlParser, {
+  processNodes,
+  convertNodeToElement,
+  htmlparser2,
+} from "react-html-parser";
 
 const StyledDiv = styled.div`
   a {
@@ -12,26 +17,22 @@ const StyledDiv = styled.div`
 
 const HTML = ({ content, id, primaryColor }) => {
   // busca si el contenido tiene una tabla
-  const isTableContent =
+  /*   const isTableContent =
     content.includes("<table>") && content.includes("<thead>") && content.includes("<tbody>");
-  console.log(content, "content12");
+  console.log(content, "content12"); */
   // Extraer los datos si el contenido es una tabla
 
-  const tableData = extractTableData(content);
-  console.log(tableData, "tableData");
+  /*   const tableData = extractTableData(content); */
+  /*   console.log(tableData, "tableData"); */
 
   return (
     <Static id={`article-html-block-${id}`}>
-      <div id="tableContainer"></div>
-      {isTableContent ? (
-        <DataTable columns={tableData.headers} data={tableData.rows} />
-      ) : (
-        <StyledDiv
-          className="block-margin-bottom"
-          dangerouslySetInnerHTML={{ __html: content }}
-          primaryColor={primaryColor}
-        />
-      )}
+      <StyledDiv
+        className="block-margin-bottom"
+        dangerouslySetInnerHTML={{ __html: content }}
+        primaryColor={primaryColor}
+      />{" "}
+      *{/*   <div> {ReactHtmlParser(content)}</div> */}
     </Static>
   );
 };

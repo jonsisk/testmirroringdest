@@ -94,8 +94,6 @@ export function extractTableData(htmlString) {
   const tempDiv = document.createElement("div");
   tempDiv.innerHTML = htmlString;
   // eslint-disable-next-line no-restricted-globals
-  const container = document.getElementById("tableContainer");
-  container.appendChild(tempDiv.querySelector("table"));
 
   // Extraer los encabezados de la tabla
   const headers = Array.from(tempDiv.querySelectorAll("figure table thead tr th")).map((th) => ({
