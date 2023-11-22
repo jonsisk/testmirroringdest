@@ -440,6 +440,7 @@ export const ArticleBodyChainCivicPresentation = ({ children, customFields = {},
 
 const ArticleBodyChainCivic = ({ children, customFields = {} }) => {
   const context = useFusionContext();
+  console.log(context, "context");
   const { isAdmin } = context;
   if (customFields?.lazyLoad && isServerSide() && !isAdmin) {
     // On Server
