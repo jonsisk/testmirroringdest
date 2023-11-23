@@ -17,22 +17,25 @@ const StyledDiv = styled.div`
 
 const HTML = ({ content, id, primaryColor }) => {
   // busca si el contenido tiene una tabla
-  /*   const isTableContent =
+  const isTableContent =
     content.includes("<table>") && content.includes("<thead>") && content.includes("<tbody>");
-  console.log(content, "content12"); */
+  console.log(content, "content12");
   // Extraer los datos si el contenido es una tabla
 
-  /*   const tableData = extractTableData(content); */
-  /*   console.log(tableData, "tableData"); */
+  const tableData = extractTableData(content);
+  console.log(tableData, "tableData");
 
   return (
     <Static id={`article-html-block-${id}`}>
-      <StyledDiv
-        className="block-margin-bottom"
-        dangerouslySetInnerHTML={{ __html: content }}
-        primaryColor={primaryColor}
-      />{" "}
-      *{/*   <div> {ReactHtmlParser(content)}</div> */}
+      {tableData.headers.length > 0 ? ( // Usa 'tableData' del estado para renderizar
+        <DataTable columns={tableData.headers} data={tableData.rows} />
+      ) : (
+        <StyledDiv
+          className="block-margin-bottom"
+          dangerouslySetInnerHTML={{ __html: content }}
+          primaryColor={primaryColor}
+        />
+      )}
     </Static>
   );
 };

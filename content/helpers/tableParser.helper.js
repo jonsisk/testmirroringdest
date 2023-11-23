@@ -1,3 +1,32 @@
+/* const jsdom = require("jsdom");
+
+eval('require("fs")');
+export function extractTableData(htmlString) {
+  // Verifica si estamos en un entorno de navegador
+  // eslint-disable-next-line no-restricted-globals
+  // Solo importa y usa jsdom en el lado del servidor
+
+  // Este código se ejecutará solo en Node.js (servidor)
+  console.log("Ejecutando en el servidor, procesando HTML con jsdom");
+  const { JSDOM } = require("jsdom");
+  const { document } = new JSDOM(htmlString).window;
+
+  const headers = Array.from(document.querySelectorAll("figure table thead tr th")).map((th) => ({
+    Header: th.textContent.trim(),
+    accessor: th.textContent.trim().toLowerCase(),
+  }));
+
+  const rows = Array.from(document.querySelectorAll("figure table tbody tr")).map((tr) => {
+    const cells = tr.querySelectorAll("td");
+    const rowData = {};
+    cells.forEach((cell, index) => {
+      rowData[headers[index].accessor] = cell.textContent.trim();
+    });
+    return rowData;
+  });
+  return { headers, rows };
+}
+ */
 /* export function extractTableData(htmlString) {
   console.log("extractTableData called"); // Depuración
   // eslint-disable-next-line no-restricted-globals
@@ -27,7 +56,7 @@
   }
 }
  */
-/* export function extractTableData(htmlString) {
+export function extractTableData(htmlString) {
   console.log("HTML String:", htmlString);
   // eslint-disable-next-line no-restricted-globals
   if (typeof window !== "undefined") {
@@ -59,7 +88,7 @@
     // Este es el caso para el servidor donde window no está definido
     return { headers: [], rows: [] };
   }
-} */
+}
 
 /* export function extractTableData(htmlString) {
   // Crear un elemento DIV temporal para alojar el HTML
@@ -84,11 +113,10 @@
       });
       return rowData;
     });
-
-    return { headers: [], rows: [] };
+    return { headers, rows };
   }
 } */
-export function extractTableData(htmlString) {
+/* export function extractTableData(htmlString) {
   // Crear un elemento DIV temporal para alojar el HTML
   // eslint-disable-next-line no-restricted-globals
   const tempDiv = document.createElement("div");
@@ -112,4 +140,4 @@ export function extractTableData(htmlString) {
   });
 
   return { headers, rows };
-}
+} */

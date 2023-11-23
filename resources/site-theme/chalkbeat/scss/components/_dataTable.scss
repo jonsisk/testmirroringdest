@@ -151,3 +151,45 @@
 .dataTableFooter {
   border-bottom: 1px solid #dfdfdf;
 }
+
+.table {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      tr {
+        background-color: #178287;
+        color: white;
+      }
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #ddd;
+    }
+  }
+
+  figcaption {
+    margin-top: 10px;
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .caption {
+      font-size: 14px;
+      color: #666;
+    }
+  }
+}
