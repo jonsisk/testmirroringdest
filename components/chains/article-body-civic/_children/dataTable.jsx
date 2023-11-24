@@ -44,8 +44,6 @@ function GlobalFilter({
 }
 
 function DataTable({ columns = [], data = [] }) {
-  console.log("columns", columns);
-  console.log("data", data);
   const {
     getTableProps,
     getTableBodyProps,
@@ -73,8 +71,7 @@ function DataTable({ columns = [], data = [] }) {
     useSortBy,
     usePagination
   );
-  console.log(headerGroups, "headerGroups");
-  console.log(page, "page");
+
   return (
     <>
       <GlobalFilter

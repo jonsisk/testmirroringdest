@@ -14,7 +14,6 @@ const HTML = ({ content, id, primaryColor }) => {
   // busca si el contenido tiene una tabla
   const isTableContent =
     content.includes("<table>") && content.includes("<thead>") && content.includes("<tbody>");
-  console.log(content, "content12");
 
   // Extraer los datos si el contenido es una tabla
   const tableData = isTableContent ? extractTableData(content) : { headers: [], rows: [] };
