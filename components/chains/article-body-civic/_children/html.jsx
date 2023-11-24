@@ -1,7 +1,11 @@
 import React from "react";
 import Static from "fusion:static";
 import DataTable from "./dataTable";
-import { extractTableData } from "../../../../content/helpers/tableParser.helper";
+import {
+  extractTableData,
+  extractTitleAndCaption,
+  i,
+} from "../../../../content/helpers/tableParser.helper";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
@@ -17,11 +21,17 @@ const HTML = ({ content, id, primaryColor }) => {
 
   // Extraer los datos si el contenido es una tabla
   const tableData = isTableContent ? extractTableData(content) : { headers: [], rows: [] };
-
+  // extreaer el titulo y el caption
+  const { title, caption } = extractTitleAndCaption(content);
   return (
     <StyledDiv id={`article-html-block-${id}`} primaryColor={primaryColor}>
       {isTableContent ? (
-        <DataTable columns={tableData.headers} data={tableData.rows} />
+        <DataTable
+          columns={tableData.headers}
+          data={tableData.rows}
+          title={title}
+          caption={caption}
+        />
       ) : (
         <div className="block-margin-bottom" dangerouslySetInnerHTML={{ __html: content }} />
       )}

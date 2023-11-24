@@ -2,7 +2,6 @@ export const extractTableData = (html) => {
   // eslint-disable-next-line no-restricted-globals
   const tempDiv = document.createElement("div");
   tempDiv.innerHTML = html;
-
   const headers = Array.from(tempDiv.querySelectorAll("thead th")).map((th) => ({
     Header: th.innerText,
     accessor: th.innerText.toLowerCase().replace(/ /g, "_"), // Transforma el texto del encabezado en un identificador único
@@ -17,4 +16,15 @@ export const extractTableData = (html) => {
   });
 
   return { headers, rows };
+};
+
+export const extractTitleAndCaption = (html) => {
+  // eslint-disable-next-line no-restricted-globals
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = html;
+
+  const title = tempDiv.querySelector(".title")?.innerText || "";
+  const caption = tempDiv.querySelector(".caption")?.innerText || "";
+
+  return { title, caption };
 };

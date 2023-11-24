@@ -43,7 +43,7 @@ function GlobalFilter({
   );
 }
 
-function DataTable({ columns = [], data = [] }) {
+function DataTable({ columns = [], data = [], title = "", caption = "" }) {
   const {
     getTableProps,
     getTableBodyProps,
@@ -74,6 +74,8 @@ function DataTable({ columns = [], data = [] }) {
 
   return (
     <>
+      {title && <h2>{title}</h2>}
+
       <GlobalFilter
         preGlobalFilteredRows={preGlobalFilteredRows}
         globalFilter={state.globalFilter}
@@ -134,6 +136,7 @@ function DataTable({ columns = [], data = [] }) {
           </button>{" "}
         </div>
       </div>
+      {caption && <p>{caption}</p>}
     </>
   );
 }
