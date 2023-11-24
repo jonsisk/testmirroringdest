@@ -77,15 +77,15 @@ function DataTable({ columns = [], data = [] }) {
   console.log(page, "page");
   return (
     <>
-      {/*       <GlobalFilter
+      <GlobalFilter
         preGlobalFilteredRows={preGlobalFilteredRows}
         globalFilter={state.globalFilter}
         setGlobalFilter={setGlobalFilter}
         state={state}
         pageOptions={pageOptions}
         setPageSize={setPageSize}
-      /> */}
-      {/*       <div className="dataTableWrapper">
+      />
+      <div className="dataTableWrapper">
         <table className="table dataTable" {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
@@ -136,25 +136,7 @@ function DataTable({ columns = [], data = [] }) {
             {">>"}
           </button>{" "}
         </div>
-      </div> */}
-      {/*       <table>
-        <thead>
-          <tr>
-            {columns.map((column) => (
-              <th>{column?.Header}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((row) => (
-            <tr>
-              {columns.map((column) => (
-                <td>{row[column?.accessor]}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table> */}
+      </div>
     </>
   );
 }
