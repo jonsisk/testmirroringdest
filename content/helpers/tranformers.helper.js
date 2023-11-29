@@ -18,6 +18,7 @@ export const processArticleData = (article) => {
   if (
     article?.promo_items?.basic?.type === "image" &&
     article.promo_items.basic?.credits &&
+    article.promo_items.basic?.credits?.affiliation &&
     article.promo_items.basic?.credits?.by
   ) {
     article.promo_items.basic.credits.by = [];
@@ -25,13 +26,14 @@ export const processArticleData = (article) => {
   if (
     article?.promo_items?.lead_art?.type === "image" &&
     article.promo_items.lead_art?.credits &&
+    article.promo_items.lead_art?.credits?.affiliation &&
     article.promo_items.lead_art?.credits?.by
   ) {
     article.promo_items.lead_art.credits.by = [];
   }
 
   article?.content_elements?.map((el) => {
-    if (el.type === "image" && el.credits && el.credits.by) {
+    if (el.type === "image" && el.credits && el.credits.by && el.credits.affiliation) {
       el.credits.by = [];
     }
     return el;
