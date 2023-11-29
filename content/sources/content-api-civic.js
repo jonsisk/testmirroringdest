@@ -31,6 +31,14 @@ const fetch = async ({ _id, section, website_url, "arc-site": arcSite }) => {
     }
   }
 
+  // check if it's redirect
+  if (articleData?.type === "redirect") {
+    const redirectUrl = articleData.redirect_url;
+    if (redirectUrl) {
+      throw new RedirectError(redirectUrl, "Redirect", 301);
+    }
+  }
+
   if (!section) {
     addAdPath(articleData, arcSite);
     return processArticleData(articleData);
