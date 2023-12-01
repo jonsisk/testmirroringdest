@@ -7,14 +7,11 @@ import getProperties from "fusion:properties";
 import getTranslatedPhrases from "fusion:intl";
 import {
   Gallery,
-  ImageMetadata,
   Image,
   // presentational component does not do data fetching
-  VideoPlayer as VideoPlayerPresentational,
   LazyLoad,
   isServerSide,
-  videoPlayerCustomFields,
-} from "@wpmedia/engine-theme-sdk";
+} from "@wpmedia/arc-themes-components";
 import Header from "./_children/heading";
 import HTML from "./_children/html";
 import List from "./_children/list";
@@ -140,12 +137,12 @@ function parseArticleItem(item, index, arcSite, phrases, id, customFields) {
           <figure className={figureImageClassName}>
             {children}
             <figcaption>
-              <ImageMetadata
+              {/* <ImageMetadata
                 subtitle={!hideImageTitle ? subtitle : null}
                 caption={!hideImageCaption ? caption : null}
                 credits={!hideImageCredits ? credits : null}
                 vanityCredits={!hideImageCredits ? vanityCredits : null}
-              />
+              /> */}
             </figcaption>
           </figure>
         );
@@ -261,7 +258,7 @@ function parseArticleItem(item, index, arcSite, phrases, id, customFields) {
     case "video":
       return (
         <section key={key} className="block-margin-bottom">
-          <VideoPlayerPresentational
+          {/* <VideoPlayerPresentational
             id={id}
             embedMarkup={item.embed_html}
             shrinkToFit={customFields?.shrinkToFit}
@@ -272,7 +269,7 @@ function parseArticleItem(item, index, arcSite, phrases, id, customFields) {
             subtitle={item?.headlines?.basic}
             caption={item?.description?.basic}
             credits={item.credits}
-          />
+          /> */}
         </section>
       );
     case "gallery":
@@ -468,7 +465,6 @@ ArticleBodyChainCivic.propTypes = {
       description:
         "Turning on lazy-loading will prevent this block from being loaded on the page until it is nearly in-view for the user.",
     }),
-    ...videoPlayerCustomFields(),
     hideImageTitle: PropTypes.bool.tag({
       description: "This display option applies to all Images in the Article Body.",
       label: "Hide Title",

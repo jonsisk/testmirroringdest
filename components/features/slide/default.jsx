@@ -1,5 +1,5 @@
 import PropTypes from "@arc-fusion/prop-types";
-import { isServerSide, LazyLoad } from "@wpmedia/engine-theme-sdk";
+import { isServerSide, LazyLoad } from "@wpmedia/arc-themes-components";
 import { Button, BUTTON_STYLES, BUTTON_TYPES, HeadingSection } from "@wpmedia/shared-styles";
 import { useContent } from "fusion:content";
 import { useFusionContext } from "fusion:context";

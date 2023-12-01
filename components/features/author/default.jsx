@@ -1,5 +1,5 @@
 import PropTypes from "@arc-fusion/prop-types";
-import { Image } from "@wpmedia/engine-theme-sdk";
+import { Image } from "@wpmedia/arc-themes-components";
 import { useContent } from "fusion:content";
 import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";

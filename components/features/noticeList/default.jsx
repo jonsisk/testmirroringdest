@@ -1,5 +1,5 @@
 import PropTypes from "@arc-fusion/prop-types";
-import { isServerSide, LazyLoad } from "@wpmedia/engine-theme-sdk";
+import { isServerSide, LazyLoad } from "@wpmedia/arc-themes-components";
 import { useFusionContext } from "fusion:context";
 import getTranslatedPhrases from "fusion:intl";
 import getProperties from "fusion:properties";

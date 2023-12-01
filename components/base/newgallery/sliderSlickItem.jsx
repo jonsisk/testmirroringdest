@@ -1,4 +1,4 @@
-import { Image } from "@wpmedia/engine-theme-sdk";
+import { Image } from "@wpmedia/arc-themes-components";
 import React from "react";
 
 const SliderSlickItem = ({ slide, slideIndex, resizerURL, className, showText }) => {

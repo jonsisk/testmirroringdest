@@ -1,4 +1,4 @@
-import { Image } from "@wpmedia/engine-theme-sdk";
+import { Image } from "@wpmedia/arc-themes-components";
 import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
 import getProperties from "fusion:properties";
 import React from "react";

@@ -1,6 +1,5 @@
-import { Image } from "@wpmedia/engine-theme-sdk";
+import { Image, Overline } from "@wpmedia/arc-themes-components";
 import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
-import { Overline } from "@wpmedia/shared-styles";
 import React from "react";
 import { getWebsiteDomain } from "../../helpers/site.helper";
 import Byline from "../byline/byline.component";

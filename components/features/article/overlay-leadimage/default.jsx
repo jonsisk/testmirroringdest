@@ -1,5 +1,5 @@
 import PropTypes from "@arc-fusion/prop-types";
-import { Image, ImageMetadata } from "@wpmedia/engine-theme-sdk";
+import { Image } from "@wpmedia/arc-themes-components";
 import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
 import React from "react";
@@ -64,12 +64,12 @@ const OverlayLeadImage = ({ customFields }) => {
           resizerURL={getProperties(arcSite)?.resizerURL}
         />
         <figcaption>
-          <ImageMetadata
+          {/* <ImageMetadata
             subtitle={!hideImageTitle ? subtitle : null}
             caption={!hideImageCaption ? caption : null}
             credits={!hideImageCredits ? credits : null}
             vanityCredits={!hideImageCredits ? vanityCredits : null}
-          />
+          /> */}
         </figcaption>
       </figure>
     </>

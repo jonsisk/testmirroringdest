@@ -1,4 +1,4 @@
-import { MetaData } from "@wpmedia/engine-theme-sdk";
+import { MetaData } from "@wpmedia/arc-themes-components";
 import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
 import React from "react";
