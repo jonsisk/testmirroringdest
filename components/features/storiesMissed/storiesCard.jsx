@@ -1,5 +1,5 @@
 import { Image } from "@wpmedia/arc-themes-components";
-import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
+//import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
 import getProperties from "fusion:properties";
 import React from "react";
 import { getMainSection } from "../../helpers/article.helper";
@@ -46,9 +46,7 @@ export const StoriesCard = ({
           {...imageProperties}
           url={imageURL !== null ? imageURL : targetFallbackImage}
           alt="slide-imagse"
-          resizedImageOptions={
-            imageURL !== null ? extractResizedParams(slide) : placeholderResizedImageOptions
-          }
+          resizedImageOptions={placeholderResizedImageOptions}
           fallbackImage={targetFallbackImage}
         />
       )}

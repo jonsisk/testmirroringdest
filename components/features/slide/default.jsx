@@ -1,6 +1,7 @@
 import PropTypes from "@arc-fusion/prop-types";
 import { isServerSide, LazyLoad } from "@wpmedia/arc-themes-components";
-import { Button, BUTTON_STYLES, BUTTON_TYPES, HeadingSection } from "@wpmedia/shared-styles";
+//import { Button, BUTTON_STYLES, BUTTON_TYPES, HeadingSection } from "@wpmedia/shared-styles";
+import { Button, HeadingSection } from "@wpmedia/arc-themes-components";
 import { useContent } from "fusion:content";
 import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";
@@ -8,7 +9,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "@wpmedia/shared-styles/scss/_results-list.scss";
+//import "@wpmedia/shared-styles/scss/_results-list.scss";
 import { LIST_FILTER } from "../../../content/helpers/filters.helper";
 import { useArticleStore } from "../stores/articles.store";
 import { SlideCard } from "./slideCard";
@@ -131,8 +132,8 @@ const Carrousel = ({ customFields }) => {
             <div className="see-more">
               <Button
                 ariaLabel={buttonLabel}
-                buttonStyle={BUTTON_STYLES.PRIMARY}
-                buttonTypes={BUTTON_TYPES.LABEL_ONLY}
+                //buttonStyle={BUTTON_STYLES.PRIMARY}
+                //buttonTypes={BUTTON_TYPES.LABEL_ONLY}
                 text={buttonLabel}
                 onClick={() => window.open(`${buttonUrl}`)}
               />

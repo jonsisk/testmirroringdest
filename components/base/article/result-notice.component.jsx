@@ -1,5 +1,18 @@
-import { Image, Overline } from "@wpmedia/arc-themes-components";
-import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
+import {
+  Image,
+  MediaItem,
+  Conditional,
+  Link,
+  imageANSToImageSrc,
+  formatURL,
+  getImageFromANS,
+  Overline,
+} from "@wpmedia/arc-themes-components";
+//import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
+import { useEditableContent } from "fusion:content";
+import { useComponentContext } from "fusion:context";
+import { RESIZER_TOKEN_VERSION } from "fusion:environment";
+import getProperties from "fusion:properties";
 import React from "react";
 import { getWebsiteDomain } from "../../helpers/site.helper";
 import Byline from "../byline/byline.component";
@@ -34,8 +47,21 @@ const ResultItem = React.memo(
       const headlineText = feedHeadline || basicHeadline;
       const subheadlines = feedSubheadlines || basicSubheadlines;
 
-      const imageURL = extractImageFromStory(element);
+      //const imageURL = extractImageFromStory(element);
+      const imageURL = imageANSToImageSrc(getImageFromANS(element)) || null;
       const url = websites[arcSite].website_url;
+
+      const { searchableField } = useEditableContent();
+      const { registerSuccessEvent } = useComponentContext();
+      const auth = getImageFromANS(element)?.auth || {};
+      const {
+        dateLocalization: { language, timeZone, dateTimeFormat } = {
+          language: "en",
+          timeZone: "GMT",
+          dateTimeFormat: "LLLL d, yyyy 'at' K:m bbbb z",
+        },
+        resizerURL,
+      } = getProperties(arcSite);
 
       return (
         <div className="notice-list-container">
@@ -43,34 +69,38 @@ const ResultItem = React.memo(
             <div className="PagePromo">
               <div className="PagePromo-media">
                 {showImage ? (
-                  <a href={url} title={headlineText} aria-hidden="true" tabIndex="-1">
-                    {subtype === "standard" ||
-                    subtype === undefined ||
-                    subtype === "" ||
-                    !showFeatured ? (
+                  <MediaItem
+                    {...searchableField("imageOverrideURL")}
+                    suppressContentEditableWarning
+                  >
+                    <Conditional
+                      component={Link}
+                      condition={url}
+                      href={formatURL(url)}
+                      onClick={registerSuccessEvent}
+                      assistiveHidden
+                    >
                       <Image
-                        {...imageProperties}
-                        url={imageURL !== null ? imageURL : targetFallbackImage}
-                        alt={imageURL !== null ? headlineText : imageProperties.primaryLogoAlt}
-                        resizedImageOptions={
-                          imageURL !== null
-                            ? extractResizedParams(element)
-                            : placeholderResizedImageOptions
-                        }
+                        src={imageURL !== null ? imageURL : targetFallbackImage}
+                        alt={headlineText}
+                        resizedOptions={{ auth: auth[RESIZER_TOKEN_VERSION], smart: true }}
+                        resizerURL={resizerURL}
+                        sizes={[
+                          {
+                            isDefault: true,
+                            sourceSizeValue: "100px",
+                          },
+                          {
+                            sourceSizeValue: "500px",
+                            mediaCondition: "(min-width: 48rem)",
+                          },
+                        ]}
+                        responsiveImages={[100, 500]}
+                        width={500}
+                        height={333}
                       />
-                    ) : (
-                      <Image
-                        {...imagePropertiesFeatured}
-                        url={imageURL !== null ? imageURL : targetFallbackImage}
-                        alt={imageURL !== null ? headlineText : imageProperties.primaryLogoAlt}
-                        resizedImageOptions={
-                          imageURL !== null
-                            ? extractResizedParams(element)
-                            : placeholderResizedImageOptions
-                        }
-                      />
-                    )}
-                  </a>
+                    </Conditional>
+                  </MediaItem>
                 ) : null}
               </div>
               <Overline story={element} className="overline" />

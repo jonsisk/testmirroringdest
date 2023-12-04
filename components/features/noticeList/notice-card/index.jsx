@@ -1,4 +1,5 @@
-import { Button, BUTTON_STYLES, BUTTON_TYPES } from "@wpmedia/shared-styles";
+//import { Button, BUTTON_STYLES, BUTTON_TYPES } from "@wpmedia/shared-styles";
+import { Button } from "@wpmedia/arc-themes-components";
 import { useContent } from "fusion:content";
 import { useFusionContext } from "fusion:context";
 import React, { createRef, useCallback, useEffect, useReducer, useState } from "react";
@@ -186,8 +187,8 @@ const NoticeCard = ({
         <div className="see-more">
           <Button
             ariaLabel={"More Stories"}
-            buttonStyle={BUTTON_STYLES.PRIMARY}
-            buttonTypes={BUTTON_TYPES.LABEL_ONLY}
+            //buttonStyle={BUTTON_STYLES.PRIMARY}
+            //buttonTypes={BUTTON_TYPES.LABEL_ONLY}
             onClick={
               readMoreUrl ? () => (window.location.href = `${readMoreUrl}`) : onReadMoreClick
             }

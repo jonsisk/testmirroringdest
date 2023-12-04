@@ -1,6 +1,7 @@
 import PropTypes from "@arc-fusion/prop-types";
 import { isServerSide, LazyLoad } from "@wpmedia/arc-themes-components";
-import { HeadingSection } from "@wpmedia/shared-styles";
+//import { HeadingSection } from "@wpmedia/shared-styles";
+import { HeadingSection } from "@wpmedia/arc-themes-components";
 import { useContent } from "fusion:content";
 import { useFusionContext } from "fusion:context";
 import getProperties from "fusion:properties";

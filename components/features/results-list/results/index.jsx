@@ -1,4 +1,5 @@
-import { Button, BUTTON_STYLES, BUTTON_TYPES } from "@wpmedia/shared-styles";
+//import { Button, BUTTON_STYLES, BUTTON_TYPES } from "@wpmedia/shared-styles";
+import { Button } from "@wpmedia/arc-themes-components";
 import { useContent } from "fusion:content";
 // import getProperties from "fusion:properties";
 import React, { createRef, useCallback, useEffect, useReducer, useState } from "react";
@@ -168,8 +169,8 @@ const Results = ({
         <div className={`see-more see-more-${optionButton}`}>
           <Button
             ariaLabel={"More Stories"}
-            buttonStyle={BUTTON_STYLES.PRIMARY}
-            buttonTypes={BUTTON_TYPES.LABEL_ONLY}
+            //buttonStyle={BUTTON_STYLES.PRIMARY}
+            //buttonTypes={BUTTON_TYPES.LABEL_ONLY}
             onClick={onReadMoreClick}
             text={textButton || "More Stories"}
           />

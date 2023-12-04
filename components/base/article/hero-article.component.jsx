@@ -1,5 +1,5 @@
 import { Image } from "@wpmedia/arc-themes-components";
-import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
+//import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
 import React from "react";
 import { getMainSection } from "../../helpers/article.helper";
 import { getWebsiteDomain } from "../../helpers/site.helper";
@@ -94,11 +94,7 @@ const HeroItem = React.memo(
                     {...imagePropertiesFeatured}
                     url={imageURL !== null ? imageURL : targetFallbackImage}
                     alt={imageURL !== null ? headlineText : imageProperties.primaryLogoAlt}
-                    resizedImageOptions={
-                      imageURL !== null
-                        ? extractResizedParams(element)
-                        : placeholderResizedImageOptions
-                    }
+                    resizedImageOptions={placeholderResizedImageOptions}
                   />
                 </a>
               </div>
