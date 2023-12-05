@@ -35,7 +35,7 @@ const HeroItem = React.memo(
       const subheadlines = feedSubheadlines || basicSubheadlines;
 
       //const imageURL = extractImageFromStory(element);
-      const imageURL = imageANSToImageSrc(getImageFromANS(slide)) || null;
+      const imageURL = imageANSToImageSrc(getImageFromANS(element)) || null;
       const url = websites[arcSite].website_url;
 
       const getMainSectionLink = (element) => {
