@@ -6,11 +6,14 @@ import getThemeStyle from "fusion:themes";
 import getProperties from "fusion:properties";
 import getTranslatedPhrases from "fusion:intl";
 import {
-  Gallery,
   Image,
   // presentational component does not do data fetching
   LazyLoad,
   isServerSide,
+  formatCredits,
+  MediaItem,
+  Conditional,
+  Link,
 } from "@wpmedia/arc-themes-components";
 import Header from "./_children/heading";
 import HTML from "./_children/html";
@@ -23,6 +26,7 @@ import SidebarComposer from "../../base/sidebar/sidebar-composer.component";
 import PymEmbedComposer from "../../base/pymembed/pymembed.composer";
 import NewGallery from "../../base/newgallery/default";
 import { isSponsoredArticle } from "../../helpers/article.helper";
+import getResizeParamsFromANSImage from "./shared/get-resize-params-from-ans-image";
 
 const StyledText = styled.p`
   a {
@@ -73,42 +77,22 @@ function parseArticleItem(item, index, arcSite, phrases, id, customFields) {
     }
     case "image": {
       const {
-        url,
-        subtitle,
-        caption,
-        credits,
-        alt_text: altText,
-        resized_params: resizedImageOptions = {},
-        vanity_credits: vanityCredits,
+        additional_properties: { link = "" } = {},
         // alignment not always present
         alignment = "",
-        additional_properties: additionalProperties = {},
+        alt_text: altText,
+        caption,
+        credits,
+        subtitle,
+        url,
+        vanity_credits: vanityCredits,
       } = item;
-
-      // link url set in composer
-      const { link = "" } = additionalProperties;
-
-      let widthsObject = {
-        small: 768,
-        medium: 1024,
-        large: 1440,
-      };
 
       // only left and right float supported
       const allowedFloatValue = alignment === "left" || alignment === "right" ? alignment : "";
-
       let figureImageClassName = "article-body-image-container";
 
       if (allowedFloatValue) {
-        // cut the image width in about half if left or right aligned
-        // matched based on allowed widths
-        // the goal was to show 50% of width
-        widthsObject = {
-          small: 274,
-          medium: 400,
-          large: 768,
-        };
-
         // add space after initial string ' '
         figureImageClassName +=
           allowedFloatValue === "left"
@@ -117,51 +101,27 @@ function parseArticleItem(item, index, arcSite, phrases, id, customFields) {
       }
 
       if (url) {
-        const ArticleBodyImage = () => (
-          <Image
-            resizedImageOptions={resizedImageOptions}
-            url={url}
-            alt={altText}
-            smallWidth={widthsObject.small}
-            smallHeight={0}
-            mediumWidth={widthsObject.medium}
-            mediumHeight={0}
-            largeWidth={widthsObject.large}
-            largeHeight={0}
-            breakpoints={getProperties(arcSite)?.breakpoints}
-            resizerURL={getProperties(arcSite)?.resizerURL}
-          />
-        );
-
-        const ArticleBodyImageContainer = ({ children }) => (
-          <figure className={figureImageClassName}>
-            {children}
-            <figcaption>
-              {/* <ImageMetadata
-                subtitle={!hideImageTitle ? subtitle : null}
-                caption={!hideImageCaption ? caption : null}
-                credits={!hideImageCredits ? credits : null}
-                vanityCredits={!hideImageCredits ? vanityCredits : null}
-              /> */}
-            </figcaption>
-          </figure>
-        );
-
-        // if link url then make entire image clickable
-        if (link) {
-          return (
-            <ArticleBodyImageContainer key={key}>
-              <a href={link}>
-                <ArticleBodyImage />
-              </a>
-            </ArticleBodyImageContainer>
-          );
-        }
-
+        const formattedCredits = formatCredits(vanityCredits || credits);
         return (
-          <ArticleBodyImageContainer key={key}>
-            <ArticleBodyImage />
-          </ArticleBodyImageContainer>
+          <MediaItem
+            key={`${type}_${index}_${key}`}
+            className={figureImageClassName}
+            caption={!hideImageCaption ? caption : null}
+            credit={!hideImageCredits ? formattedCredits : null}
+            title={!hideImageTitle ? subtitle : null}
+          >
+            <Conditional component={Link} condition={link} href={link}>
+              <Image
+                {...getResizeParamsFromANSImage(
+                  item,
+                  arcSite,
+                  allowedFloatValue ? 400 : 800,
+                  [274, 400, 768, 1024, 1440].map((w) => (allowedFloatValue ? w / 2 : w))
+                )}
+                alt={altText}
+              />
+            </Conditional>
+          </MediaItem>
         );
       }
       return null;
