@@ -1,4 +1,4 @@
-import { Image } from "@wpmedia/arc-themes-components";
+import { Image, imageANSToImageSrc, getImageFromANS } from "@wpmedia/arc-themes-components";
 //import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
 import React from "react";
 import { getMainSection } from "../../helpers/article.helper";
@@ -34,7 +34,8 @@ const HeroItem = React.memo(
       const headlineText = feedHeadline || basicHeadline;
       const subheadlines = feedSubheadlines || basicSubheadlines;
 
-      const imageURL = extractImageFromStory(element);
+      //const imageURL = extractImageFromStory(element);
+      const imageURL = imageANSToImageSrc(getImageFromANS(slide)) || null;
       const url = websites[arcSite].website_url;
 
       const getMainSectionLink = (element) => {
