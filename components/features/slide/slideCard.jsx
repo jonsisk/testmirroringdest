@@ -7,10 +7,10 @@ import {
 } from "@wpmedia/arc-themes-components";
 //import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
 //import { Overline, Byline, Heading, SecondaryFont } from "@wpmedia/shared-styles";
-
 import getProperties from "fusion:properties";
 import React from "react";
 import Byline from "../../base/byline/byline.component";
+import { getWebsiteDomain } from "../../helpers/site.helper";
 
 export const SlideCard = ({
   slide,
@@ -32,8 +32,11 @@ export const SlideCard = ({
     resizerURL,
   };
   //const imageURL = extractImageFromStory(slide);
-  const imageURL = imageANSToImageSrc(getImageFromANS(element)) || null;
+  const imageURL = imageANSToImageSrc(getImageFromANS(slide)) || null;
+  //const imageURL = getImageFromANS(slide)?.url;
   const url = websites[arcSite].website_url;
+
+  console.log("----->", slide);
   return (
     <div className="slide article-slide">
       <a href={url}>
@@ -56,7 +59,13 @@ export const SlideCard = ({
             {slide.subheadlines?.basic}
           </a>
           <div className="results-list--author-date">
-            <Byline content={slide} list font="Primary" />
+            {/*<Byline content={slide} list font="Primary" />*/}
+            <Byline
+              element={slide}
+              showTime={false}
+              showBorder={true}
+              websiteDomain={getWebsiteDomain(arcSite)}
+            />
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { Image } from "@wpmedia/arc-themes-components";
+import { Image, imageANSToImageSrc, getImageFromANS } from "@wpmedia/arc-themes-components";
 //import { extractResizedParams, extractImageFromStory } from "@wpmedia/resizer-image-block";
 import getProperties from "fusion:properties";
 import React from "react";
@@ -24,7 +24,8 @@ export const StoriesCard = ({
     breakpoints,
     resizerURL,
   };
-  const imageURL = extractImageFromStory(slide);
+  //const imageURL = extractImageFromStory(slide);
+  const imageURL = imageANSToImageSrc(getImageFromANS(slide)) || null;
   const { websites } = slide;
   const url = websites && websites[arcSite] ? websites[arcSite].website_url : "#";
 
