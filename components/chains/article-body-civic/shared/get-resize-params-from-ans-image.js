@@ -12,7 +12,7 @@ const getResizeParamsFromANSImage = (
 	return {
 		height: Math.floor((ansImageItem.height / ansImageItem.width) * defaultWidth),
 		resizerURL,
-		resizedOptions: { auth: ansImageItem.auth[RESIZER_TOKEN_VERSION] },
+		resizedOptions: { auth: ansImageItem.auth[RESIZER_TOKEN_VERSION], quality: 85 },
 		...(responsiveWidths.length ? { responsiveImages: responsiveWidths } : {}),
 		src: imageANSToImageSrc(ansImageItem),
 		width: defaultWidth,

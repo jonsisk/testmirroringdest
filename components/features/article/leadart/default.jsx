@@ -149,8 +149,8 @@ export const LeadArtPresentation = (props) => {
               // 16:9 aspect ratio
               width={800}
               height={600}
-              responsiveImages={[800, 1600]}
-              resizedOptions={{ smart: true }}
+              responsiveImages={[800]}
+              resizedOptions={{ smart: true, quality: 85 }}
               ansImage={leadArt}
             />
             {isOpen ? (
