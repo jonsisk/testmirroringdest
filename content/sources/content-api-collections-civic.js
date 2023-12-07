@@ -1,84 +1,98 @@
+import handleFetchError from "@wpmedia/arc-themes-components/src/utils/handle-fetch-error";
+import signImagesInANSObject from "@wpmedia/arc-themes-components/src/utils/sign-images-in-ans-object";
+import { fetch as resizerFetch } from "@wpmedia/signing-service-content-source-block";
 import axios from "axios";
-import { CONTENT_BASE, ARC_ACCESS_TOKEN } from "fusion:environment";
-import getResizedImageData from "../../components/helpers/image.helper";
+import { CONTENT_BASE, ARC_ACCESS_TOKEN, RESIZER_TOKEN_VERSION } from "fusion:environment";
 
-const params = {
-  _id: "text",
-  content_alias: "text",
-  from: "text",
-  size: "text",
-};
+const params = [
+  {
+    displayName: "_id",
+    name: "_id",
+    type: "text",
+  },
+  {
+    displayName: "content_alias",
+    name: "content_alias",
+    type: "text",
+  },
+  {
+    displayName: "from",
+    name: "from",
+    type: "text",
+  },
+  {
+    displayName: "getNext",
+    name: "getNext",
+    type: "text",
+  },
+  {
+    displayName: "size",
+    name: "size",
+    type: "text",
+  },
+  {
+    default: "2",
+    displayName: "Themes Version",
+    name: "themes",
+    type: "text",
+  },
+];
 
-const handleError = (error) => {
-  if (error?.response) {
-    throw new Error(
-      `The response from the server was an error with the status code ${error?.response?.status}.`
-    );
-  } else if (error?.request) {
-    throw new Error("The request to the server failed with no response.");
-  } else {
-    throw new Error("An error occured creating the request.");
-  }
-};
-
-const fetch = (key = {}) => {
-  const { "arc-site": site, _id, content_alias: contentAlias, from, size, getNext = "false" } = key;
-  let updatedSize = size;
+const fetch = (
+  { _id, "arc-site": site, content_alias: contentAlias, from, getNext = "false", size },
+  { cachedCall }
+) => {
   // Max collection size is 20
   // See: https://redirector.arcpublishing.com/alc/docs/swagger/?url=./arc-products/content-api.json
-  // Want to ensure size is capped at 20 to prevent an error.
-  if (updatedSize && updatedSize > 9) updatedSize = size < 20 ? size : 20;
+  const constrainedSize = size > 20 ? 20 : size;
+  const urlSearch = new URLSearchParams({
+    ...(_id ? { _id } : { content_alias: contentAlias }),
+    ...(from ? { from } : {}),
+    published: true,
+    ...(site ? { website: site } : {}),
+    ...(size ? { size: constrainedSize } : {}),
+  });
 
   return axios({
-    url: `${CONTENT_BASE}/content/v4/collections?${
-      _id ? `_id=${_id}` : `content_alias=${contentAlias}`
-    }${site ? `&website=${site}` : ""}${from ? `&from=${from}` : ""}${
-      size ? `&size=${updatedSize}` : ""
-    }&published=true`,
+    url: `${CONTENT_BASE}/content/v4/collections?${urlSearch.toString()}`,
     headers: {
       "content-type": "application/json",
       Authorization: `Bearer ${ARC_ACCESS_TOKEN}`,
     },
     method: "GET",
   })
-    .then(
-      /* istanbul ignore next */ ({ data: content }) => {
-        if (getNext === "false") {
-          return content;
-        }
-
-        const existingData = content;
-
-        return axios({
-          url: `${CONTENT_BASE}/content/v4/collections?${
-            _id ? `_id=${_id}` : `content_alias=${contentAlias}`
-          }${site ? `&website=${site}` : ""}&from=${updatedSize}${
-            size ? `&size=${updatedSize}` : ""
-          }&published=true`,
-          headers: {
-            "content-type": "application/json",
-            Authorization: `Bearer ${ARC_ACCESS_TOKEN}`,
-          },
-          method: "GET",
-        })
-          .then(({ data: nextContent }) => {
-            existingData.content_elements = [
-              ...existingData.content_elements,
-              ...nextContent?.content_elements,
-            ];
-            return existingData;
-          })
-          .catch(handleError);
+    .then(signImagesInANSObject(cachedCall, resizerFetch, RESIZER_TOKEN_VERSION))
+    .then(({ data }) => {
+      if (getNext === "false") {
+        return data;
       }
-    )
-    .catch(handleError);
+      urlSearch.set("from", (parseInt(from, 10) || 0) + parseInt(constrainedSize, 10));
+      return axios({
+        url: `${CONTENT_BASE}/content/v4/collections?${urlSearch.toString()}`,
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${ARC_ACCESS_TOKEN}`,
+        },
+        method: "GET",
+      })
+        .then(signImagesInANSObject(cachedCall, resizerFetch, RESIZER_TOKEN_VERSION))
+        .then(({ data: next }) => ({
+          ...data,
+          ...(data?.content_elements || next?.content_elements
+            ? {
+                content_elements: [
+                  ...(data?.content_elements || []),
+                  ...(next?.content_elements || []),
+                ],
+              }
+            : {}),
+        }));
+    })
+    .catch(handleFetchError);
 };
 
 export default {
-  params,
   fetch,
+  params,
   schemaName: "ans-feed",
-  // other options null use default functionality, such as filter quality
-  transform: /* istanbul ignore next */ (data, query) =>
-    getResizedImageData(data, null, null, null, query["arc-site"]),
 };
