@@ -1,45 +1,70 @@
+import handleFetchError from "@wpmedia/arc-themes-components/src/utils/handle-fetch-error";
+import signImagesInANSObject from "@wpmedia/arc-themes-components/src/utils/sign-images-in-ans-object";
+import { fetch as resizerFetch } from "@wpmedia/signing-service-content-source-block";
 import axios from "axios";
-import { CONTENT_BASE, ARC_ACCESS_TOKEN } from "fusion:environment";
-import getResizedImageData from "../../components/helpers/image.helper";
+import { ARC_ACCESS_TOKEN, CONTENT_BASE, RESIZER_TOKEN_VERSION } from "fusion:environment";
 import { addAdPath, processArticleData } from "../helpers/tranformers.helper";
 
-const fetch = async ({ _id, section, "arc-site": arcSite }) => {
-  // get the article
-  const { data: articleData } = await axios({
-    method: "GET",
-    url: `${CONTENT_BASE}/content/v4/?_id=${_id}&website=${arcSite}&published=false`,
+const params = [
+  {
+    displayName: "_id",
+    name: "_id",
+    type: "text",
+  },
+  {
+    default: "2",
+    displayName: "Themes Version",
+    name: "themes",
+    type: "text",
+  },
+  {
+    displayName: "section",
+    name: "section",
+    type: "text",
+  },
+];
+
+const fetch = ({ _id, "arc-site": website, section }, { cachedCall }) => {
+  const urlSearch = new URLSearchParams({
+    _id,
+    published: "false",
+    website,
+  });
+
+  return axios({
+    url: `${CONTENT_BASE}/content/v4/?${urlSearch.toString()}`,
     headers: {
       "content-type": "application/json",
       Authorization: `Bearer ${ARC_ACCESS_TOKEN}`,
     },
-  });
-
-  if (!section) {
-    addAdPath(articleData, arcSite);
-    return processArticleData(articleData);
-  }
-
-  // get the section
-  const { data: sectionData } = await axios({
     method: "GET",
-    url: `${CONTENT_BASE}/site/v3/website/${arcSite}/section?_id=${section}`,
-    headers: {
-      "content-type": "application/json",
-      Authorization: `Bearer ${ARC_ACCESS_TOKEN}`,
-    },
-  });
+  })
+    .then(signImagesInANSObject(cachedCall, resizerFetch, RESIZER_TOKEN_VERSION))
+    .then(async ({ data }) => {
+      if (!section) {
+        addAdPath(data);
+        return processArticleData(data);
+      }
+      const { data: sectionData } = await axios({
+        method: "GET",
+        url: `${CONTENT_BASE}/site/v3/website/${website}/section?_id=${
+          section?.startsWith("/") ? section : `/${section}`
+        }`,
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${ARC_ACCESS_TOKEN}`,
+        },
+      });
 
-  articleData["site_section"] = sectionData;
-  addAdPath(articleData);
-
-  return processArticleData(articleData);
+      data["site_section"] = sectionData;
+      addAdPath(data);
+      return processArticleData(data);
+    })
+    .catch(handleFetchError);
 };
 
 export default {
   fetch,
-  params: {
-    _id: "text",
-    section: "text",
-  },
-  transform: (data, query) => getResizedImageData(data, null, null, null, query["arc-site"]),
+  params,
+  schemaName: "ans-feed",
 };
