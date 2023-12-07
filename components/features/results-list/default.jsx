@@ -19,29 +19,8 @@ const ResultsListCivic = ({ customFields }) => {
     optionButton,
     textButton,
   } = customFields;
-  const { fallbackImage, locale, primaryLogoAlt, breakpoints, resizerURL } = getProperties(arcSite);
-  const imageProperties = {
-    smallWidth: 377,
-    smallHeight: 212,
-    mediumWidth: 377,
-    mediumHeight: 212,
-    largeWidth: 377,
-    largeHeight: 212,
-    primaryLogoAlt,
-    breakpoints,
-    resizerURL,
-  };
-  const imagePropertiesFeatured = {
-    smallWidth: 768,
-    smallHeight: 432,
-    mediumWidth: 768,
-    mediumHeight: 432,
-    largeWidth: 768,
-    largeHeight: 432,
-    primaryLogoAlt,
-    breakpoints,
-    resizerURL,
-  };
+  const { fallbackImage, locale } = getProperties(arcSite);
+
   const targetFallbackImage = !fallbackImage.includes("http")
     ? deployment(`${contextPath}/${fallbackImage}`)
     : fallbackImage;
@@ -78,8 +57,6 @@ const ResultsListCivic = ({ customFields }) => {
           configuredSize={configuredSize}
           contentConfigValues={contentConfigValues}
           contentService={contentService}
-          imageProperties={imageProperties}
-          imagePropertiesFeatured={imagePropertiesFeatured}
           isServerSideLazy={isServerSideLazy}
           phrases={phrases}
           showAsList={true}

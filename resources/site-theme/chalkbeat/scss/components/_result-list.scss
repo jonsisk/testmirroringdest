@@ -17,6 +17,10 @@
         max-width: 330px;
         width: 30%;
         margin: 0 24px 0 0;
+
+        figure {
+          margin: 0;
+        }
       }
     }
 
@@ -27,7 +31,11 @@
     .PagePromo-headline_below,
     .PagePromo-headline_above {
       .PagePromo-media {
-        picture {
+        figure {
+          margin: 0;
+        }
+
+        img {
           display: block;
         }
       }
@@ -251,7 +259,7 @@
             flex: 1 1 100%;
             margin: 0;
             display: contents;
-            a picture img {
+            a img {
               width: 100%;
             }
           }
@@ -299,7 +307,7 @@
             flex: 1 1 100%;
             margin: 0;
             display: contents;
-            a picture img {
+            a img {
               width: 100%;
             }
           }

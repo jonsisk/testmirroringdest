@@ -15,8 +15,6 @@ const Results = ({
   configuredSize,
   contentConfigValues,
   contentService,
-  imageProperties,
-  imagePropertiesFeatured,
   isServerSideLazy = false,
   phrases,
   optionButton,
@@ -149,8 +147,6 @@ const Results = ({
           ref={elementRefs[index]}
           arcSite={arcSite}
           element={element}
-          imageProperties={imageProperties}
-          imagePropertiesFeatured={imagePropertiesFeatured}
           placeholderResizedImageOptions={placeholderResizedImageOptions}
           showAsList={showAsList}
           showByline={showByline && outputType !== "amp"}

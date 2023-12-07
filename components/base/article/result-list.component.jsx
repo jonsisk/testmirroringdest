@@ -21,10 +21,7 @@ const ResultItem = React.memo(
     ({
       arcSite,
       element,
-      imageProperties,
-      imagePropertiesFeatured,
       targetFallbackImage,
-      placeholderResizedImageOptions,
       showByline,
       showDate,
       showDescription,
@@ -66,14 +63,7 @@ const ResultItem = React.memo(
       const { searchableField } = useEditableContent();
       const { registerSuccessEvent } = useComponentContext();
       const auth = getImageFromANS(element)?.auth || {};
-      const {
-        dateLocalization: { language, timeZone, dateTimeFormat } = {
-          language: "en",
-          timeZone: "GMT",
-          dateTimeFormat: "LLLL d, yyyy 'at' K:m bbbb z",
-        },
-        resizerURL,
-      } = getProperties(arcSite);
+      const { resizerURL } = getProperties(arcSite);
 
       return (
         <>
@@ -104,25 +94,47 @@ const ResultItem = React.memo(
                       onClick={registerSuccessEvent}
                       assistiveHidden
                     >
-                      <Image
-                        src={imageURL !== null ? imageURL : targetFallbackImage}
-                        alt={headlineText}
-                        resizedOptions={{ auth: auth[RESIZER_TOKEN_VERSION], smart: true }}
-                        resizerURL={resizerURL}
-                        sizes={[
-                          {
-                            isDefault: true,
-                            sourceSizeValue: "100px",
-                          },
-                          {
-                            sourceSizeValue: "500px",
-                            mediaCondition: "(min-width: 48rem)",
-                          },
-                        ]}
-                        responsiveImages={[100, 500]}
-                        width={500}
-                        height={333}
-                      />
+                      {subtype === "standard" || subtype === undefined || !showFeatured ? (
+                        <Image
+                          src={imageURL !== null ? imageURL : targetFallbackImage}
+                          alt={headlineText}
+                          resizedOptions={{ auth: auth[RESIZER_TOKEN_VERSION], smart: true }}
+                          resizerURL={resizerURL}
+                          sizes={[
+                            {
+                              isDefault: true,
+                              sourceSizeValue: "100px",
+                            },
+                            {
+                              sourceSizeValue: "500px",
+                              mediaCondition: "(min-width: 48rem)",
+                            },
+                          ]}
+                          responsiveImages={[100, 377]}
+                          width={377}
+                          height={212}
+                        />
+                      ) : (
+                        <Image
+                          src={imageURL !== null ? imageURL : targetFallbackImage}
+                          alt={headlineText}
+                          resizedOptions={{ auth: auth[RESIZER_TOKEN_VERSION], smart: true }}
+                          resizerURL={resizerURL}
+                          sizes={[
+                            {
+                              isDefault: true,
+                              sourceSizeValue: "400px",
+                            },
+                            {
+                              sourceSizeValue: "768px",
+                              mediaCondition: "(min-width: 48rem)",
+                            },
+                          ]}
+                          responsiveImages={[400, 768]}
+                          width={768}
+                          height={428}
+                        />
+                      )}
                     </Conditional>
                   </MediaItem>
                 ) : null}
