@@ -252,6 +252,10 @@ const CivicOutputType = ({
         <CssLinks />
         <link
           rel="stylesheet"
+          href={deployment(`${contextPath}/resources/site-theme/news-theme.css`)}
+        />
+        <link
+          rel="stylesheet"
           href={deployment(`${contextPath}/resources/site-theme/_css/${bureau}.min.css`)}
         />
         <Libs />
