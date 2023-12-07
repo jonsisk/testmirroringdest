@@ -1,3 +1,5 @@
+import { RESIZER_TOKEN_VERSION } from "fusion:environment";
+
 export const LIST_FILTER = (arcSite) => `{
     count
     next
@@ -46,36 +48,22 @@ export const LIST_FILTER = (arcSite) => `{
       }
       promo_items {
         basic {
+          _id
           type
           url
-          resized_params {
-            1440x810
-            768x512
-            768x432
-            600x450
-            600x338            
-            400x225
-            377x212
-            274x154
-            158x89
-          }
+          auth {
+            ${RESIZER_TOKEN_VERSION}
+          }          
         }
         lead_art {
           promo_items {
             basic {
-              type
-              url
-              resized_params {
-                1440x810
-                768x512
-                768x432
-                600x450
-                600x338                
-                400x225
-                377x212
-                274x154
-                158x89
+              _id
+              auth {
+                ${RESIZER_TOKEN_VERSION}
               }
+              type
+              url              
             }
           }
           type
